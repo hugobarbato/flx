@@ -6,12 +6,16 @@ O iMobi está utilizando as mais recentes ferramentas do mercado, fique por dentr
 
 # Assents
 Para compilar os arquivos `css` e `js` execute os seguintes comandos:
-- Para desenvolvimento - `npm run dev`
-- Para produção - `npm run production`
+
+ - Para desenvolvimento - `npm run dev`
+ - Para produção - `npm run production`
+
 
 # Instalando o Projeto
+
 Execute os seguintes comandos no terminal:
-```terminal
+
+```
 git clone https://bitbucket.org/hugoBarbato/flx.git
 mv flx/* .
 mv flx/.* .
@@ -55,3 +59,5 @@ sudo composer install
 npm install
 php artisan key:generate
 php artisan migrate
+
+```
