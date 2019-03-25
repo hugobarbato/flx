@@ -1,0 +1,62 @@
+        p, div, h1, h2, h4, ul {
+            padding:0;
+            margin:0;
+        }
+            
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        header, footer {
+            color: #fff;
+            flex-basis: 100%;
+        }
+        
+        article, footer {
+            width:100%;
+        }
+        
+        .banner-principal {
+            background: pink;
+            height: 30vh;
+            margin-top: 10px;
+        }
+        
+        .menu-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: aliceblue;
+        }
+        
+        .destaques-home {
+            background: cadetblue;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            color: #fff;
+            padding: 5px 0;
+        }
+        
+        .destaques-home h2{
+            font-size:18px;
+        }
+        
+        .cards-vendas, .cards-locacao, .cards-lancamentos {
+            margin: 15px 0;
+        }
+        
+        h4.card-title {
+            font-size: 15px;
+            text-transform: uppercase;
+            color: forestgreen;
+            font-weight: 600;
+        }
+        
+        .menu-footer{
+            background: royalblue;
+        }
