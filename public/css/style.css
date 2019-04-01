@@ -96,7 +96,7 @@
         .area-login {
             width: 85%;
             float: right;
-            height: 30%;
+            height: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -115,11 +115,16 @@
             height: 100px;
             align-items: flex-end;
         }
+        .container-content {
+            min-height: calc(100vh - 200px);
+            
+        }
+        
         .container-login {
             display: flex;
             min-height: calc(100vh - 200px);
             border-top: 1px solid #000;
-            padding-top: 25px;
+            padding-top: 50px;
         }
         
         .left-block, .right-block {
@@ -135,7 +140,7 @@
         }
         
         .title-login {
-            margin: 25px 0 20px 0;
+            margin: 0px 0 20px 0;
         }
         
         .inputs-login input {

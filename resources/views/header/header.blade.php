@@ -106,227 +106,229 @@
 
     <article>
         <div class="container">
-            <div class="destaques-vendas">
-                <div class="row">
-                    <div class="col-md-12 destaques-home">
-                        <h2>Destaques para venda</h2>
-                    </div>
-                </div>
-                
-                <div class="cards-vendas">
+            <div class="container-content">
+                <div class="destaques-vendas">
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="card">
-                                <img class="card-img-top" src="img/img-teste.jpg"></img>
-                                <div class="card-body">
-                                    <h4 class="card-title">apartamento/venda</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                    <!--<p class="card-text">Conteudo do card</p>-->
-                                </div>
-                                <div class="card-body">    
-                                    <a href="#" class="card-link">icone</a>
-                                    <a href="#" class="card-link">icone</a>
-                                </div>
-                            </div>
+                        <div class="col-md-12 destaques-home">
+                            <h2>Destaques para venda</h2>
                         </div>
-                        
-                        <div class="col-md-3">
-                            <div class="card">
-                                <img class="card-img-top" src="img/img-teste.jpg"></img>
-                                <div class="card-body">
-                                    <h4 class="card-title">apartamento/venda</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                    <!--<p class="card-text">Conteudo do card</p>-->
-                                </div>
-                                <div class="card-body">    
-                                    <a href="#" class="card-link">icone</a>
-                                    <a href="#" class="card-link">icone</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3">
-                            <div class="card">
-                                <img class="card-img-top" src="img/img-teste.jpg"></img>
-                                <div class="card-body">
-                                    <h4 class="card-title">apartamento/venda</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                    <!--<p class="card-text">Conteudo do card</p>-->
-                                </div>
-                                <div class="card-body">    
-                                    <a href="#" class="card-link">icone</a>
-                                    <a href="#" class="card-link">icone</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3 ">
-                            <div class="card">
-                                <img class="card-img-top" src="img/img-teste.jpg"></img>
-                                <div class="card-body">
-                                    <h4 class="card-title">apartamento/venda</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                    <!--<p class="card-text">Conteudo do card</p>-->
-                                </div>
-                                <div class="card-body">    
-                                    <a href="#" class="card-link">icone</a>
-                                    <a href="#" class="card-link">icone</a>
-                                </div>
-                            </div>
-                        </div>
-                        
                     </div>
-                </div>
-            </div>
-            
-            <div class="destaques-locacao">
-                <div class="row">
-                  <div class="col-md-12 destaques-home">
-                    <h2>Destaques para locação</h2>
-                  </div>
-                </div>
-                
-                <div class="cards-locacao">
-                    <div class="row">
-                        
-                        <div class="col-md-3 ">
-                            <div class="card">
-                                <img class="card-img-top" src="img/books.jpg"></img>
-                                <div class="card-body">
-                                    <h4 class="card-title">apartamento/locação</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                    <!--<p class="card-text">Conteudo do card</p>-->
-                                </div>
-                                <div class="card-body">    
-                                    <a href="#" class="card-link">icone</a>
-                                    <a href="#" class="card-link">icone</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3">
-                            <div class="card">
-                                <img class="card-img-top" src="img/books.jpg"></img>
-                                <div class="card-body">
-                                    <h4 class="card-title">apartamento/locação</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                    <!--<p class="card-text">Conteudo do card</p>-->
-                                </div>
-                                <div class="card-body">    
-                                    <a href="#" class="card-link">icone</a>
-                                    <a href="#" class="card-link">icone</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3">
-                            <div class="card">
-                                <img class="card-img-top" src="img/books.jpg"></img>
-                                <div class="card-body">
-                                    <h4 class="card-title">apartamento/locação</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                    <!--<p class="card-text">Conteudo do card</p>-->
-                                </div>
-                                <div class="card-body">    
-                                    <a href="#" class="card-link">icone</a>
-                                    <a href="#" class="card-link">icone</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3 ">
-                            <div class="card">
-                                <img class="card-img-top" src="img/books.jpg"></img>
-                                <div class="card-body">
-                                    <h4 class="card-title">apartamento/locação</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                    <!--<p class="card-text">Conteudo do card</p>-->
-                                </div>
-                                <div class="card-body">    
-                                    <a href="#" class="card-link">icone</a>
-                                    <a href="#" class="card-link">icone</a>
-                                </div>
-                            </div>
-                        </div>
-                        
                     
+                    <div class="cards-vendas">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/img-teste.jpg"></img>
+                                    <div class="card-body">
+                                        <h4 class="card-title">apartamento/venda</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <!--<p class="card-text">Conteudo do card</p>-->
+                                    </div>
+                                    <div class="card-body">    
+                                        <a href="#" class="card-link">icone</a>
+                                        <a href="#" class="card-link">icone</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/img-teste.jpg"></img>
+                                    <div class="card-body">
+                                        <h4 class="card-title">apartamento/venda</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <!--<p class="card-text">Conteudo do card</p>-->
+                                    </div>
+                                    <div class="card-body">    
+                                        <a href="#" class="card-link">icone</a>
+                                        <a href="#" class="card-link">icone</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/img-teste.jpg"></img>
+                                    <div class="card-body">
+                                        <h4 class="card-title">apartamento/venda</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <!--<p class="card-text">Conteudo do card</p>-->
+                                    </div>
+                                    <div class="card-body">    
+                                        <a href="#" class="card-link">icone</a>
+                                        <a href="#" class="card-link">icone</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3 ">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/img-teste.jpg"></img>
+                                    <div class="card-body">
+                                        <h4 class="card-title">apartamento/venda</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <!--<p class="card-text">Conteudo do card</p>-->
+                                    </div>
+                                    <div class="card-body">    
+                                        <a href="#" class="card-link">icone</a>
+                                        <a href="#" class="card-link">icone</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
                     </div>
                 </div>
                 
-            </div>
-            
-            <div class="lancamentos-destaques">
-                <div class="row">
-                  <div class="col-md-12 destaques-home">
-                    <h2>Lançamentos em destaque</h2>
-                  </div>
-                </div>
-                
-                <div class="cards-lancamentos">
+                <div class="destaques-locacao">
                     <div class="row">
-                        <div class="col-md-3 ">
-                            <div class="card">
-                                <img class="card-img-top" src="img/welcome.jpg"></img>
-                                <div class="card-body">
-                                    <h4 class="card-title">lançamentos</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                    <!--<p class="card-text">Conteudo do card</p>-->
-                                </div>
-                                <div class="card-body">    
-                                    <a href="#" class="card-link">icone</a>
-                                    <a href="#" class="card-link">icone</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3">
-                            <div class="card">
-                                <img class="card-img-top" src="img/welcome.jpg"></img>
-                                <div class="card-body">
-                                    <h4 class="card-title">lançamentos</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                    <!--<p class="card-text">Conteudo do card</p>-->
-                                </div>
-                                <div class="card-body">    
-                                    <a href="#" class="card-link">icone</a>
-                                    <a href="#" class="card-link">icone</a>
+                      <div class="col-md-12 destaques-home">
+                        <h2>Destaques para locação</h2>
+                      </div>
+                    </div>
+                    
+                    <div class="cards-locacao">
+                        <div class="row">
+                            
+                            <div class="col-md-3 ">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/books.jpg"></img>
+                                    <div class="card-body">
+                                        <h4 class="card-title">apartamento/locação</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <!--<p class="card-text">Conteudo do card</p>-->
+                                    </div>
+                                    <div class="card-body">    
+                                        <a href="#" class="card-link">icone</a>
+                                        <a href="#" class="card-link">icone</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="col-md-3">
-                            <div class="card">
-                                <img class="card-img-top" src="img/welcome.jpg"></img>
-                                <div class="card-body">
-                                    <h4 class="card-title">lançamentos</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                    <!--<p class="card-text">Conteudo do card</p>-->
-                                </div>
-                                <div class="card-body">    
-                                    <a href="#" class="card-link">icone</a>
-                                    <a href="#" class="card-link">icone</a>
+                            
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/books.jpg"></img>
+                                    <div class="card-body">
+                                        <h4 class="card-title">apartamento/locação</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <!--<p class="card-text">Conteudo do card</p>-->
+                                    </div>
+                                    <div class="card-body">    
+                                        <a href="#" class="card-link">icone</a>
+                                        <a href="#" class="card-link">icone</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="col-md-3 ">
-                            <div class="card">
-                                <img class="card-img-top" src="img/welcome.jpg"></img>
-                                <div class="card-body">
-                                    <h4 class="card-title">lançamentos</h4>
-                                    <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                    <!--<p class="card-text">Conteudo do card</p>-->
+                            
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/books.jpg"></img>
+                                    <div class="card-body">
+                                        <h4 class="card-title">apartamento/locação</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <!--<p class="card-text">Conteudo do card</p>-->
+                                    </div>
+                                    <div class="card-body">    
+                                        <a href="#" class="card-link">icone</a>
+                                        <a href="#" class="card-link">icone</a>
+                                    </div>
                                 </div>
-                                <div class="card-body">    
-                                    <a href="#" class="card-link">icone</a>
-                                    <a href="#" class="card-link">icone</a>
+                            </div>
+                            
+                            <div class="col-md-3 ">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/books.jpg"></img>
+                                    <div class="card-body">
+                                        <h4 class="card-title">apartamento/locação</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <!--<p class="card-text">Conteudo do card</p>-->
+                                    </div>
+                                    <div class="card-body">    
+                                        <a href="#" class="card-link">icone</a>
+                                        <a href="#" class="card-link">icone</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="lancamentos-destaques">
+                    <div class="row">
+                      <div class="col-md-12 destaques-home">
+                        <h2>Lançamentos em destaque</h2>
+                      </div>
+                    </div>
+                    
+                    <div class="cards-lancamentos">
+                        <div class="row">
+                            <div class="col-md-3 ">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/welcome.jpg"></img>
+                                    <div class="card-body">
+                                        <h4 class="card-title">lançamentos</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <!--<p class="card-text">Conteudo do card</p>-->
+                                    </div>
+                                    <div class="card-body">    
+                                        <a href="#" class="card-link">icone</a>
+                                        <a href="#" class="card-link">icone</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/welcome.jpg"></img>
+                                    <div class="card-body">
+                                        <h4 class="card-title">lançamentos</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <!--<p class="card-text">Conteudo do card</p>-->
+                                    </div>
+                                    <div class="card-body">    
+                                        <a href="#" class="card-link">icone</a>
+                                        <a href="#" class="card-link">icone</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/welcome.jpg"></img>
+                                    <div class="card-body">
+                                        <h4 class="card-title">lançamentos</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <!--<p class="card-text">Conteudo do card</p>-->
+                                    </div>
+                                    <div class="card-body">    
+                                        <a href="#" class="card-link">icone</a>
+                                        <a href="#" class="card-link">icone</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3 ">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/welcome.jpg"></img>
+                                    <div class="card-body">
+                                        <h4 class="card-title">lançamentos</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <!--<p class="card-text">Conteudo do card</p>-->
+                                    </div>
+                                    <div class="card-body">    
+                                        <a href="#" class="card-link">icone</a>
+                                        <a href="#" class="card-link">icone</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
-            
         </div>
     </article>
     <footer>

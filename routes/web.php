@@ -23,5 +23,5 @@ Route::get('/login', function () {
 });
 
 Route::get('/alugar', function () {
-    return view('content/login');
+    return view('content/anuncio');
 });
