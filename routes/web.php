@@ -11,8 +11,19 @@
 |
 */
 
+
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('header/header');
+});
+
+Route::get('/login', function () {
+    return view('content/login');
+});
+
+Route::get('/alugar', function () {
+    return view('content/anuncio');
 });
 
 Auth::routes();
