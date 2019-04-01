@@ -2,6 +2,10 @@
             padding:0;
             margin:0;
         }
+        
+        h1,h2,h3,h4 {
+            text-transform: uppercase;
+        }
             
         body {
             font-family: Verdana, Geneva, sans-serif;
@@ -52,11 +56,106 @@
         
         h4.card-title {
             font-size: 15px;
-            text-transform: uppercase;
             color: forestgreen;
             font-weight: 600;
         }
         
         .menu-footer{
             background: royalblue;
+        }
+        
+        .titulo-busca {
+            background: cadetblue;
+            color: #fff;
+        }
+        
+        .select-busca button {
+            background: darkseagreen;
+            border: none;
+            width: 32%;
+        }
+        
+        .container-fluid.search {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 285px;
+            width: 750px;
+        }
+        
+        .search-banner-principal {
+            margin-top: 15px;
+        }
+        
+        .col-12 h1 {
+            font-size: 22px;
+            color: #fff;
+            font-weight: 700;
+        }
+        
+        .area-login {
+            width: 85%;
+            float: right;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .forget-password {
+            clear: both;
+        }
+        
+        .inputs-login {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100px;
+            align-items: flex-end;
+        }
+        .container-login {
+            display: flex;
+            min-height: calc(100vh - 200px);
+            border-top: 1px solid #000;
+            padding-top: 25px;
+        }
+        
+        .left-block, .right-block {
+            border-right: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .right-block {
+            border-right: unset;
+        }
+        
+        .title-login {
+            margin: 25px 0 20px 0;
+        }
+        
+        .inputs-login input {
+            width: 275px;
+        }
+        
+        .title-login h4 {
+            font-size: 30px;
+        }
+        
+        .login-register p {
+            font-size: 11px;
+        }
+        
+        .login-register {
+            width:85%;
+        }
+        
+        .btn-register {
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
         }

@@ -11,6 +11,17 @@
 |
 */
 
+
+
+
 Route::get('/', function () {
     return view('header/header');
+});
+
+Route::get('/login', function () {
+    return view('content/login');
+});
+
+Route::get('/alugar', function () {
+    return view('content/login');
 });
