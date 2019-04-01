@@ -1,4 +1,4 @@
-
+@section('title','Acesso')
 @extends('layouts.app')
 
 @section('content')
