@@ -12,6 +12,7 @@
 */
 
 
+Auth::routes();
 
 
 Route::get('/', function () {
@@ -20,12 +21,11 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('content/login');
-});
+})->name('login');
 
 Route::get('/alugar', function () {
     return view('content/anuncio');
 });
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
