@@ -59,17 +59,517 @@
 
     <article>
         <div class="container">
-               <div class="container-content">
-                    <div class="container-anuncio">
-                        <h4>Anunciar como</h4>
-                        <select name="" id="">
-                            <option value="">Venda</option>
-                        </select>
+            <div class="container-content">
+                <form id="container-anuncio">
+                    
+                    <div class="bloco-anunciar">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Anunciar como</h4>
+                            </div>
+                            <div class="col-md-3">
+                                <select name="" id="">
+                                    <option value="">Venda</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     
-                </div>
+                    <div class="bloco-cadastro-imovel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Anunciar como</h4>
+                            </div>
+                        </div>
+                            
+                        <div class="row">
+                            <div class="col-md-3">
+                                <select name="" id="">
+                                    <option value="">Venda</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                 <select name="" id="">
+                                    <option value="">Venda</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                 <select name="" id="">
+                                    <option value="">Venda</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bloco-titulo-cadastro">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>titulo do anúncio</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                               <input type="text" name=""/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bloco-endereco">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Endereço</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                               <input type="text" id="" name=""/>
+                            </div>
+                            
+                            <div class="col-md-6">
+                               <input type="text" id="" name=""/>
+                            </div>
+                            
+                            <div class="col-md-2">
+                               <input type="text" id="" name=""/>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-2">
+                               <input type="text" id="" name=""/>
+                            </div>
+                            
+                            <div class="col-md-2">
+                               <input type="text" id="" name=""/>
+                            </div>
+                            
+                            <div class="col-md-6">
+                               <input type="text" id="" name=""/>
+                            </div>
+                            <div class="col-md-2">
+                               <input type="text" id="" name=""/>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="dados-imovel">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Dados do imóvel</h4>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <select name="" id="">
+                                    <option disabled selected>Quartos</option>
+                                    <option value="">1</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <select name="" id="">
+                                    <option disabled selected>Suítes</option>
+                                    <option value="">1</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <select name="" id="">
+                                    <option disabled selected>Banheiros</option>
+                                    <option value="">1</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <select name="" id="">
+                                    <option disabled selected>Vagas</option>
+                                    <option value="">1</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <select name="" id="">
+                                    <option disabled selected>Depósito</option>
+                                    <option value="1">Sim</option>
+                                    <option value="2">Não</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="">Previsão de Entrega</label>
+                                <input type="date" name=""/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="">Area util</label>
+                                <input type="text" name=""/>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="">Area total</label>
+                                <input type="text" name=""/>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="status-imovel">
+                        <div class="form-row">
+                           <label for="customRange2">Range exemplo</label>
+                            <input type="range" class="custom-range" min="0" max="5" id="customRange2">
+                        </div>
+                    </div>
+                    
+                    <div class="status-imovel">
+                        <div class="form-row">
+                           <div class="col-md-12">
+                               <h4>Descrição do imovel</h4>
+                           </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <textarea rows="4" cols="50">
+                                    </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <div class="valor-imovel">
+                        <div class="form-row">
+                           <div class="col-md-12">
+                               <h4>Valor do imovel</h4>
+                           </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div>
+                                          <input type="checkbox" id="scales" name="scales" checked>
+                                          <label for="scales">Scales</label>
+                                        </div>
+                                        
+                                        <div>
+                                          <input type="checkbox" id="horns" name="horns">
+                                          <label for="horns">Horns</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label for="">Area util</label>
+                                                <input type="text" name=""/>
+                                            </div>
+                                            
+                                            <div class="col-md-3">
+                                                <label for="">Area total</label>
+                                                <input type="text" name=""/>
+                                            </div>
+                                            
+                                            <div class="col-md-3">
+                                                <label for="">Area util</label>
+                                                <input type="text" name=""/>
+                                            </div>
+                                            
+                                            <div class="col-md-3">
+                                                <label for="">Area total</label>
+                                                <input type="text" name=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="area-comuns">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Areas Comuns</h4>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div>
+                                  <input type="checkbox" id="scales" name="scales" checked>
+                                  <label for="scales">Scales</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <div>
+                                  <input type="checkbox" id="scales" name="scales" checked>
+                                  <label for="scales">Scales</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <div>
+                                  <input type="checkbox" id="scales" name="scales" checked>
+                                  <label for="scales">Scales</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <div>
+                                  <input type="checkbox" id="scales" name="scales" checked>
+                                  <label for="scales">Scales</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <div>
+                                  <input type="checkbox" id="scales" name="scales" checked>
+                                  <label for="scales">Scales</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <div>
+                                  <input type="checkbox" id="scales" name="scales" checked>
+                                  <label for="scales">Scales</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="area-privativa">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Areas Privativas</h4>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div>
+                                  <input type="checkbox" id="scales" name="scales" checked>
+                                  <label for="scales">Scales</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <div>
+                                  <input type="checkbox" id="scales" name="scales" checked>
+                                  <label for="scales">Scales</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <div>
+                                  <input type="checkbox" id="scales" name="scales" checked>
+                                  <label for="scales">Scales</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <div>
+                                  <input type="checkbox" id="scales" name="scales" checked>
+                                  <label for="scales">Scales</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <div>
+                                  <input type="checkbox" id="scales" name="scales" checked>
+                                  <label for="scales">Scales</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <div>
+                                  <input type="checkbox" id="scales" name="scales" checked>
+                                  <label for="scales">Scales</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                                
+                                <div>
+                                  <input type="checkbox" id="horns" name="horns">
+                                  <label for="horns">Horns</label>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="fotos-imovel"> 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Fotos do Imovel</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div>
+                                <button type="button" class="btn btn-success">Cancelar envio</button>
+                                <button type="button" class="btn btn-primary">Enviar</button>
+                                <button type="button" class="btn btn-warning">Cancelar envio</button>
+                                <button type="button" class="btn btn-danger">Apagar todos</button>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="fotos-imovel"> 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Logo do Anunciante</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div>
+                                <input type="file" name=""/>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="fotos-imovel"> 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Video do imovel</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div>
+                                <input type="text" name="" placeholder="link do youtube"/>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                    
+                   
+                    
+                </form>
             </div>
         </div>
+
     </article>
     
     
