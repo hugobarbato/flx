@@ -11,17 +11,11 @@
 |
 */
 
-
-Auth::routes();
-
-
 Route::get('/', function () {
     return view('header/header');
 });
 
-Route::get('/login', function () {
-    return view('content/login');
-})->name('login');
+Route::get('viacep/{cep}', 'HomeController@viacep');
 
 Route::get('/alugar', function () {
     return view('content/cadastro');
@@ -29,3 +23,10 @@ Route::get('/alugar', function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Auth::routes();
+
+Route::get('/login', function () {
+    return view('content/login');
+})->name('login');

@@ -11,11 +11,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -25,4 +20,13 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    
+    
+    public function viacep($cep)
+    {
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET', 'https://viacep.com.br/ws/'.$cep.'/json/');
+        return response()->json(json_decode($res->getBody()));
+    }
+
 }
