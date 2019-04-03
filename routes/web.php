@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('viacep/{cep}', 'HomeController@viacep');
 
 Route::get('/alugar', function () {
-    return view('content/anuncio');
+    return view('content/cadastro');
 });
 
 
