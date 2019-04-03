@@ -24,7 +24,7 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/alugar', function () {
-    return view('content/anuncio');
+    return view('content/cadastro');
 });
 
 
