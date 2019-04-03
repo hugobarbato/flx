@@ -68,7 +68,7 @@
                                 <h4>Anunciar como</h4>
                             </div>
                             <div class="col-md-3">
-                                <select name="" id="">
+                                <select name="" id="cadastro_anunciar_como">
                                     <option value="">Venda</option>
                                 </select>
                             </div>
@@ -78,20 +78,25 @@
                     <div class="bloco-cadastro-imovel">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4>Anunciar como</h4>
+                                <h4>Cadastro de imóvel</h4>
                             </div>
                         </div>
                             
                         <div class="row">
                             <div class="col-md-3">
-                                <select name="" id="">
+                                <select name="" id="cadastro_anunciar_como">
                                     <option value="">Venda</option>
+                                    <option value="">Alugar</option>
+                                    <option value="">Lançamento</option>
+                                    <option value="">Comercial</option>
                                 </select>
                             </div>
                             
                             <div class="col-md-3">
-                                 <select name="" id="">
-                                    <option value="">Venda</option>
+                                 <select name="" id="cadastro_tipo_imovel">
+                                    <option value="">Residencial</option>
+                                    <option value="">Comercial</option>
+                                    <option value="">Outros</option>
                                 </select>
                             </div>
                             
@@ -111,7 +116,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                               <input type="text" name=""/>
+                               <input type="text" name="" id="cadastro_titulo_cadastro">
                             </div>
                         </div>
                     </div>
@@ -124,32 +129,32 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                               <input type="text" id="" name=""/>
+                               <input type="text" id="cadastro_imovel_cep" name="" placeholder="CEP">
                             </div>
                             
                             <div class="col-md-6">
-                               <input type="text" id="" name=""/>
+                               <input type="text" id="cadastro_imovel_endereco" name="" placeholder="Endereco">
                             </div>
                             
                             <div class="col-md-2">
-                               <input type="text" id="" name=""/>
+                               <input type="text" id="cadastro_imovel_numero" name="" placeholder="nº">
                             </div>
                         </div>
                         
                         <div class="row">
                             <div class="col-md-2">
-                               <input type="text" id="" name=""/>
+                               <input type="text" id="cadastro_imovel_complemento" name="" placeholder="Complemento">
                             </div>
                             
                             <div class="col-md-2">
-                               <input type="text" id="" name=""/>
+                               <input type="text" id="cadastro_imovel_bairro" name="" placeholder="Bairro">
                             </div>
                             
                             <div class="col-md-6">
-                               <input type="text" id="" name=""/>
+                               <input type="text" id="cadastro_imovel_cidade" name="" placeholder="Cidade">
                             </div>
                             <div class="col-md-2">
-                               <input type="text" id="" name=""/>
+                               <input type="text" id="cadastro_imovel_uf" name="" placeholder="UF">
                             </div>
                         </div>
                         
@@ -163,14 +168,14 @@
                         </div>
                         <div class="form-row">
                             <div class="col-md-6">
-                                <select name="" id="">
+                                <select id="cadastro_dados_imovel_quartos" name="">
                                     <option disabled selected>Quartos</option>
                                     <option value="">1</option>
                                 </select>
                             </div>
                             
                             <div class="col-md-6">
-                                <select name="" id="">
+                                <select id="cadastro_dados_imovel_suites" name="">
                                     <option disabled selected>Suítes</option>
                                     <option value="">1</option>
                                 </select>
@@ -179,14 +184,14 @@
                         
                         <div class="form-row">
                             <div class="col-md-6">
-                                <select name="" id="">
+                                <select name="" id="cadastro_dados_imovel_banheiro">
                                     <option disabled selected>Banheiros</option>
                                     <option value="">1</option>
                                 </select>
                             </div>
                             
                             <div class="col-md-6">
-                                <select name="" id="">
+                                <select name="" id="cadastro_dados_imovel_vagas">
                                     <option disabled selected>Vagas</option>
                                     <option value="">1</option>
                                 </select>
@@ -195,7 +200,7 @@
                         
                         <div class="form-row">
                             <div class="col-md-6">
-                                <select name="" id="">
+                                <select name="" id="cadastro_dados_imovel_deposito">
                                     <option disabled selected>Depósito</option>
                                     <option value="1">Sim</option>
                                     <option value="2">Não</option>
@@ -204,19 +209,19 @@
                             
                             <div class="col-md-6">
                                 <label for="">Previsão de Entrega</label>
-                                <input type="date" name=""/>
+                                <input type="date" name="" id="cadastro_dados_dt_entrega">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="col-md-6">
                                 <label for="">Area util</label>
-                                <input type="text" name=""/>
+                                <input type="text" id="cadastro_dados_area_util">
                             </div>
                             
                             <div class="col-md-6">
                                 <label for="">Area total</label>
-                                <input type="text" name=""/>
+                                <input type="text" name="" id="cadastro_dados_area_total">
                             </div>
                         </div>
                         
@@ -236,7 +241,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <textarea rows="4" cols="50">
+                                <textarea rows="4" cols="50" id="cadastro_descricao_imovel">
                                     </textarea>
                             </div>
                         </div>
@@ -266,23 +271,23 @@
                                     <div class="col-md-10">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <label for="">Area util</label>
-                                                <input type="text" name=""/>
+                                                <label for="">Valor</label>
+                                                <input type="text" name="" id="cadastro_vl_imovel" placeholder="Valor">
                                             </div>
                                             
                                             <div class="col-md-3">
-                                                <label for="">Area total</label>
-                                                <input type="text" name=""/>
+                                                <label for="">Valor do condomínio</label>
+                                                <input type="text" name="" id="cadastro_vl_imovel_condominio" placeholder="Valor condominio">
                                             </div>
                                             
                                             <div class="col-md-3">
-                                                <label for="">Area util</label>
-                                                <input type="text" name=""/>
+                                                <label for="">Valor Mensal</label>
+                                                <input type="text" name="" id="cadastro_vl_imovel_mensal" placeholder="Valor mensal">
                                             </div>
                                             
                                             <div class="col-md-3">
-                                                <label for="">Area total</label>
-                                                <input type="text" name=""/>
+                                                <label for="">Valor em m² total</label>
+                                                <input type="text" name="" id="cadastro_vl_imovel_m2" placeholder="Valor m²">
                                             </div>
                                         </div>
                                     </div>

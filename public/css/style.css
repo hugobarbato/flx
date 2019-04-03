@@ -164,3 +164,7 @@
             justify-content: center;
             margin-top: 25px;
         }
+        
+        input[type="text"] {
+            width: 100%;
+        }
