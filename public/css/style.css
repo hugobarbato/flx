@@ -32,7 +32,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: aliceblue;
         }
         
         .destaques-home {
@@ -117,6 +116,8 @@
         }
         .container-content {
             min-height: calc(100vh - 200px);
+            padding-top: 50px;
+            border-top: 1px solid;
             
         }
         
@@ -163,4 +164,61 @@
             display: flex;
             justify-content: center;
             margin-top: 25px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            height: 40px;
+        }
+        
+        .bloco-anunciar {
+            margin-bottom: 30px;
+        }
+        
+        .cadastro-geral {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 1450px;
+        }
+        
+        .cadastro-geral select {
+            width: 100%;
+            height: 40px;
+            background-image: linear-gradient(#d6d0d0, #f9f9f3);
+        }
+        
+        .cadastro-geral h4 {
+            color: #1a679e;
+            font-weight: 600;
+            padding-top: 10px;
+        }
+        
+        .bloco-endereco {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 10%;
+        }
+        
+        .dados-imovel {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 16%;
+        }
+        
+         input[type="date"]:before {
+            content: attr(placeholder) !important;
+            color: #aaa;
+            margin-right: 0.5em;
+          }
+          input[type="date"]:focus:before,
+          input[type="date"]:valid:before {
+            content: "";
+          }
+          
+          .nav-anuncio-gratis {
+            background: #1a679e;
+            padding: 10px;
         }
