@@ -117,6 +117,7 @@
         }
         .container-content {
             min-height: calc(100vh - 200px);
+            margin-top: 50px;
             
         }
         
@@ -167,4 +168,34 @@
         
         input[type="text"] {
             width: 100%;
+            height: 40px;
+        }
+        
+        .bloco-anunciar {
+            margin-bottom: 30px;
+        }
+        
+        .cadastro-geral {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 1450px;
+        }
+        
+        .cadastro-geral select {
+            width: 100%;
+            height: 40px;
+        }
+        
+        .cadastro-geral h4 {
+            color: #1a679e;
+            font-weight: 600;
+            padding-top: 10px;
+        }
+        
+        .bloco-endereco {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 10%;
         }
