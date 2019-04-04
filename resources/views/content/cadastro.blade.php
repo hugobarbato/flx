@@ -208,8 +208,7 @@
                             </div>
                             
                             <div class="col-md-6">
-                                <label for="">Previsão de Entrega</label>
-                                <input type="date" name="cadastro_dados_dt_entrega" id="cadastro_dados_dt_entrega" class="form-control">
+                                <input type="date" name="cadastro_dados_dt_entrega" id="cadastro_dados_dt_entrega" placeholder="Previsão de Entrega" class="form-control">
                             </div>
                         </div>
                         
