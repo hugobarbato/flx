@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    
+    public function imoveis() {
+        return $this->hasMany('App\Imovel', 'cd_user', 'id');
+    }
 }

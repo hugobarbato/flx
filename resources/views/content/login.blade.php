@@ -1,6 +1,6 @@
-@section('title','Acesso')
-@extends('layouts.app')
 
+@extends('layouts.app')
+@section('title','Acesso')
 @section('content')
     <article>
         <div class="container">

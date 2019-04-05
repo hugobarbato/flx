@@ -21,9 +21,10 @@ Route::get('/alugar', function () {
     return view('content/cadastro');
 });
 
+Route::get('/cadastrar', 'ImovelController@cadastrar_view');
+Route::post('/cadastrar', 'ImovelController@cadastrar_action');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 
 Auth::routes();
 
