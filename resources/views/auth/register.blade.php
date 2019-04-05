@@ -1,12 +1,14 @@
 @extends('layouts.app')
 @section('title','Cadastro')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
 
-                <div class="card-body">
+<article>
+    
+<div class="container">
+    <div class="container-content">
+    <div class="row container-register">
+        <div class="col-md-12">
+            
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <h4>Selecione Pessoa Física ou Jurídica:</h4>
@@ -239,17 +241,18 @@
                         
                         <div class="form-group row">
                             <div class="col-12 ">
-                                <button type="submit" id="cadastrarUsuario" class="btn btn-primary col-md-5 float-right" disabled>
+                                <button type="submit" id="cadastrarUsuario" class="btn-flx col-md-5 float-right" disabled>
                                     Cadastrar
                                 </button>
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
+               
         </div>
     </div>
 </div>
+</div>
+</article>
 @endsection
 
 @section("scripts")

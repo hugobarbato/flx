@@ -113,7 +113,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 150px;
+            height: 170px;
             
         }
         .container-content {
@@ -167,7 +167,7 @@
             background: #1a679e;
             align-items: center;
             width: 110px;
-            height: 35px;
+            height: 40px;
         }
         
         .btn-register a{
@@ -184,6 +184,8 @@
             background: #1a679e;
             color: #fff;
             border: 1px solid #3c3cc6;
+            height: 40px;
+            width: 110px;
         }
 
         input[type="text"] {
@@ -202,13 +204,13 @@
             height: 1450px;
         }
         
-        .cadastro-geral select {
+        .container-content select {
             width: 100%;
             height: 40px;
             background-image: linear-gradient(#d6d0d0, #f9f9f3);
         }
         
-        .cadastro-geral h4 {
+        .container-content h4 {
             color: #1a679e;
             font-weight: 600;
             padding-top: 10px;
@@ -245,4 +247,10 @@
           .nav-anuncio-gratis {
             background: #1a679e;
             padding: 10px;
+        }
+        
+        
+        .container-register {
+            width: 85%;
+            margin: 0 auto;
         }
