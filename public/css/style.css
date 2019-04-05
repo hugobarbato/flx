@@ -1,4 +1,4 @@
-        p, div, h1, h2, h4, ul {
+        p, div, h1, h2, h4, ul, hr {
             padding:0;
             margin:0;
         }
@@ -118,15 +118,15 @@
         }
         .container-content {
             min-height: calc(100vh - 200px);
-            padding-top: 50px;
-            border-top: 1px solid;
-            
+            padding-top: 35px;
+            width: 85%;
+            margin: 0 auto;
         }
         
-        /*.container-login {
-            display: flex;
+        .container-home{
             min-height: calc(100vh - 200px);
-        }*/
+        }
+        
         
         .left-block, .right-block {
             border-right: 1px solid #000;
@@ -198,12 +198,20 @@
         }
         
         .cadastro-geral {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 1450px;
+
+            min-height: 100vh;
         }
         
+        .bloco-cadastro-imovel, .bloco-titulo-cadastro, .bloco-endereco,
+        .dados-imovel, .status-imovel, .valor-imovel, .area-comuns,
+        .area-privativa {
+            margin-bottom: 10px;
+        }
+        
+        .form-row {
+            margin-bottom: 5px;
+        }
+                
         .container-content select {
             width: 100%;
             height: 40px;
