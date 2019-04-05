@@ -88,7 +88,7 @@
                         <div class="form-group row">
                             <div class="col-md-6">
                                 <input id="nm_numero" type="text" class="alter_doc_input form-control{{ $errors->has('nm_numero') ? ' is-invalid' : '' }}"
-                                    name="nm_numero" value="{{ old('nm_numero') }}" viacep="numero" required Placeholder="Número" autofocus viacep="logradouro">
+                                    name="nm_numero" value="{{ old('nm_numero') }}" viacep="numero" required Placeholder="Número" autofocus>
 
                                 @if ($errors->has('nm_numero'))
                                     <span class="invalid-feedback" role="alert">
@@ -113,7 +113,7 @@
 
                             <div class="col-md-6">
                                 <input id="nm_bairro" type="text" class="alter_doc_input form-control{{ $errors->has('nm_bairro') ? ' is-invalid' : '' }}" 
-                                name="nm_bairro" value="{{ old('nm_bairro') }}" Placeholder='Bairro'viacep="bairro" required autofocus>
+                                name="nm_bairro" value="{{ old('nm_bairro') }}" Placeholder='Bairro' viacep="bairro" required autofocus>
 
                                 @if ($errors->has('nm_bairro'))
                                     <span class="invalid-feedback" role="alert">

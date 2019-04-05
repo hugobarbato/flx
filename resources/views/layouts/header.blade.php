@@ -38,10 +38,10 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
                         <li class="nav-item">
-                            <a class="nav-link" href="/alugar">Alugar</a>
+                            <a class="nav-link" href="/alugar">Cadastrar</a>
                         </li>
+                        @endguest
                         <li class="nav-item">
                             <a class="nav-link" href="/comprar">Comprar</a>
                         </li>
