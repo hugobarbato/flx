@@ -53,7 +53,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="btn-login">
-                                                    <button id="login_btn_login">Entrar</button>
+                                                    <button class="btn-flx" id="login_btn_login">Entrar</button>
                                                 </div>
                                             </div>
                                             <div class="forget-password">

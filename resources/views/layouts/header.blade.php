@@ -54,5 +54,10 @@
             <div class="nav-anuncio-gratis">
                 <p>Anuncie Grátis por 45 dias</p>
             </div>
+            
+
+        </div>
+        <div class="container">
+            <hr>
         </div>
     </header>
