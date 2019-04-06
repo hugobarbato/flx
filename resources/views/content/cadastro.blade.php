@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title','Cadastro')
 @section('content')
-
     <article>
         <div class="container">
             <div class="container-content">
@@ -615,4 +614,7 @@
         </div>
 
     </article>
+@endsection
+@section('scripts')
+<script type="text/javascript" src="/js/imob.js"></script>
 @endsection
