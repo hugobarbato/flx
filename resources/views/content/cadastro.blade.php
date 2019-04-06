@@ -181,26 +181,26 @@
                                 <div class="col-md-6">
                                     <select name="qt_quartos"  id="qt_quartos" class="form-control">
                                         <option disabled selected>Quartos</option>
-                                        <option >0</option>
-                                        <option >1</option>
-                                        <option >2</option>
-                                        <option >3</option>
-                                        <option >4</option>
-                                        <option >5</option>
-                                        <option value="6">5+</option>
+                                        <option value="0">Sem quarto</option>
+                                        <option value="1">1 quarto</option>
+                                        <option value="2">2 quartos</option>
+                                        <option value="3">3 quartos</option>
+                                        <option value="4">4 quartos</option>
+                                        <option value="5">5 quartos</option>
+                                        <option value="6">6 ou mais quartos</option>
                                     </select>
                                 </div>
                                 
                                 <div class="col-md-6">
                                     <select name="qt_suites" id="qt_suites" class="form-control">
                                         <option disabled selected>Suítes</option>
-                                        <option >0</option>
-                                        <option >1</option>
-                                        <option >2</option>
-                                        <option >3</option>
-                                        <option >4</option>
-                                        <option >5</option>
-                                        <option value="6">5+</option>
+                                        <option value="0">Sem suíte</option>
+                                        <option value="1">1 suíte</option>
+                                        <option value="2">2 suítes</option>
+                                        <option value="3">3 suítes</option>
+                                        <option value="4">4 suítes</option>
+                                        <option value="5">5 suítes</option>
+                                        <option value="6">6 ou mais suítes</option>
                                     </select>
                                 </div>
                             </div>
@@ -209,26 +209,26 @@
                                 <div class="col-md-6">
                                     <select name="qt_banheiro" id="qt_banheiro" class="form-control">
                                         <option disabled selected>Banheiros</option>
-                                        <option >0</option>
-                                        <option >1</option>
-                                        <option >2</option>
-                                        <option >3</option>
-                                        <option >4</option>
-                                        <option >5</option>
-                                        <option value="6">5+</option>
+                                        <option value="0">Sem Banheiro</option>
+                                        <option value="1">1 banheiros</option>
+                                        <option value="2">2 banheiros</option>
+                                        <option value="3">3 banheiros</option>
+                                        <option value="4">4 banheiros</option>
+                                        <option value="5">5 banheiros</option>
+                                        <option value="6">6 ou mais banheiros</option>
                                     </select>
                                 </div>
                                 
                                 <div class="col-md-6">
                                     <select name="qt_vagas" id="qt_vagas" class="form-control">
                                         <option disabled selected>Vagas</option>
-                                        <option >0</option>
-                                        <option >1</option>
-                                        <option >2</option>
-                                        <option >3</option>
-                                        <option >4</option>
-                                        <option >5</option>
-                                        <option value="6">5+</option>
+                                        <option value="0">Sem vaga</option>
+                                        <option value="1">1 vaga</option>
+                                        <option value="2">2 vagas</option>
+                                        <option value="3">3 vagas</option>
+                                        <option value="4">4 vagas</option>
+                                        <option value="5">5 vagas</option>
+                                        <option value="6">6 ou mais vagas</option>
                                     </select>
                                 </div>
                             </div>
@@ -249,11 +249,11 @@
                             
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <input type="text" name="vl_area_util" id="vl_area_util" placeholder="Area util" class="form-control">
+                                    <input type="number" name="vl_area_util" id="vl_area_util" placeholder="Area util" class="form-control">
                                 </div>
                                 
                                 <div class="col-md-6">
-                                    <input type="text" name="vl_area_total" id="vl_area_total" placeholder="Area total" class="form-control">
+                                    <input type="number" name="vl_area_total" id="vl_area_total" placeholder="Area total" class="form-control">
                                 </div>
                             </div>
                             
@@ -289,17 +289,17 @@
                                     <div class="form-row">
                                         <div class="col-md-3">
                                             <label for="">Valor</label>
-                                            <input type="text" name="vl_imovel" id="vl_imovel" placeholder="Valor do Imovel" class="form-control">
+                                            <input type="text" name="vl_imovel" id="vl_imovel" placeholder="Valor do Imovel" class="form-control mask_money">
                                         </div>
                                         
                                         <div class="col-md-3">
                                             <label for="">Valor do condomínio</label>
-                                            <input type="text" name="vl_condominio" id="vl_condominio" placeholder="Valor condominio" class="form-control">
+                                            <input type="text" name="vl_condominio" id="vl_condominio" placeholder="Valor condominio" class="form-control mask_money">
                                         </div>
                                         
                                         <div class="col-md-3">
                                             <label for="">Valor IPTU</label>
-                                            <input type="text" name="vl_iptu" id="vl_iptu" placeholder="Valor IPTU" class="form-control">
+                                            <input type="text" name="vl_iptu" id="vl_iptu" placeholder="Valor IPTU" class="form-control mask_money">
                                         </div>
                                         
                                         <div class="col-md-3">
@@ -317,10 +317,18 @@
                                             </select>
                                         </div>
                                         <div class="col-md-6">
-                                            <div>
-                                              <input type="checkbox" id="ic_permuta" name="ic_permuta" checked>
-                                              <label for="ic_permuta">Aceita permuta ? </label>
-                                            </div>
+                                            
+                                              
+                                              <select name="ic_permuta" id="ic_permuta" class="form-control">
+                                                <option disabled selected>Aceita Permuta</option>
+                                                <option value="1"> Sim </option>
+                                                <option value> Não </option>
+                                                
+                                            </select>
+                                              
+                                              
+                                              
+                                            
                                         </div>
                                     </div> 
                                 </div>
@@ -557,7 +565,7 @@
                         <div class="fotos-imovel"  style="display:none"> 
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Fotos do Imovel</h4>
+                                    <h4>Fotos do Imóvel</h4>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -588,7 +596,7 @@
                         <div class="fotos-imovel"  style="display:none"> 
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Video do imovel</h4>
+                                    <h4>Video do imóvel</h4>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -598,8 +606,10 @@
                             </div>
                         
                         </div>
+                        
+                        <button class="btn-flx" type="submit">ENVIAR</button>
                     </div>   
-                    <button type="submit">ENVIAR</button>
+                   
                 </form>
             </div>
         </div>

@@ -35,7 +35,7 @@
                             <a class="nav-link" href="{{ url('/login') }}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/alugar') }}">Alugar</a>
+                            <a class="nav-link" href="{{ url('/cadastrar') }}">Alugar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/comprar') }}">Comprar</a>
@@ -106,7 +106,7 @@
 
     <article>
         <div class="container">
-            <div class="container-content">
+            <div class="container-home">
                 <div class="destaques-vendas">
                     <div class="row">
                         <div class="col-md-12 destaques-home">

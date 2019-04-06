@@ -39,7 +39,7 @@
                                 </div>
                             </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/alugar">Cadastrar</a>
+                            <a class="nav-link" href="/cadastrar">Cadastrar</a>
                         </li>
                         @endguest
                         <li class="nav-item">
