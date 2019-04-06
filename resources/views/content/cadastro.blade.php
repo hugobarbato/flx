@@ -565,7 +565,7 @@
                         <div class="fotos-imovel"  style="display:none"> 
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Fotos do Imovel</h4>
+                                    <h4>Fotos do Imóvel</h4>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -596,7 +596,7 @@
                         <div class="fotos-imovel"  style="display:none"> 
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Video do imovel</h4>
+                                    <h4>Video do imóvel</h4>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -607,7 +607,7 @@
                         
                         </div>
                         
-                        <button type="submit">ENVIAR</button>
+                        <button class="btn-flx" type="submit">ENVIAR</button>
                     </div>   
                    
                 </form>

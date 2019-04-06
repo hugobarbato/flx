@@ -117,7 +117,7 @@
             
         }
         .container-content {
-            min-height: calc(100vh - 200px);
+            min-height: calc(100vh - 201px);
             padding-top: 35px;
             width: 85%;
             margin: 0 auto;
@@ -261,4 +261,22 @@
         .container-register {
             width: 85%;
             margin: 0 auto;
+        }
+        
+        .card-senha {
+            justify-content: center;
+                width: 100%;
+        }
+        
+        .container-redefinicao {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-height: calc(100vh - 300px);
+        }
+        
+        .card.container-email {
+            height: 300px;
         }
