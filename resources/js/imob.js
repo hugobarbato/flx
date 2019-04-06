@@ -1,15 +1,42 @@
+/*global $*/
 $(document).ready(function(){
-    $("#vl_area_total, #vl_area_util, #vl_imovel").change(function(){
-        console.info([
-            $("#vl_area_total").val(),
-            $("#vl_area_util").val(),
-            $("#vl_imovel").val()
-        ]);
-        
+    function calcularm2(){
         var area = ( $("#vl_area_total").val() ? $("#vl_area_total").val() : $("#vl_area_util").val() ? $("#vl_area_util").val() : 0 );
-        var price = (( $("#vl_imovel").val() ? $("#vl_imovel").val() : 0 ) );
-        
-        
+        var price = 0;
+        if($("#vl_imovel").val()){
+            price = ($("#vl_imovel").val()).replace(/\./g,'').replace(/,/g,'.');
+        }
+        console.info([price,area]);
+       
         $("#vl_m2").val(Number((price/area)).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }));
-    });;
+    }
+    $("#vl_area_total").change(calcularm2);
+    $("#vl_area_util").change(calcularm2);
+    $("#vl_imovel").change(calcularm2);
+    calcularm2();
+    $("#btn_pics").click(function(){
+        $('#pics_imovel').click();
+    });
+    $("#pics_imovel").change(function(event){
+        console.info(this.files);
+        if(this.files.length){
+            for (var i = 0; i < this.files.length; i++) { //for multiple files          
+                (function(file) {
+                    console.info([i,file]);
+                    var reader = new FileReader();
+                    $("#preview_list").html("");
+                    reader.onload = function (e) {
+                        var img = $('<img/>').attr('src', e.target.result)
+                        $(img).attr('width', "200");
+                        $("#preview_list").append(img);
+                    }
+                    reader.readAsDataURL(file);
+                })(this.files[i]);
+            }
+            
+            $("#pics_list").fadeIn();
+        }else{
+            $("#pics_list").hide();
+        }
+    });
 });

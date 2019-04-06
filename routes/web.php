@@ -20,9 +20,21 @@ Route::get('viacep/{cep}', 'HomeController@viacep');
 Route::get('/alugar', function () {
     return view('content/cadastro');
 });
+Route::group(['prefix'=>'imovel'],function(){
+    
+    Route::get('listar', 'ImovelController@getImoveis');
+    
+    
+    Route::get('adicionar', 'ImovelController@add_view');
+    Route::post('adicionar', 'ImovelController@add_action');
+    
+    Route::get('editar/{id}', 'ImovelController@edit_view');
+    Route::post('editar/{id}', 'ImovelController@edit_action');
+    Route::get('fotos/{id}/anunciante', 'ImovelController@remover_logo_anunciante');
+    Route::get('fotos/{id}/remover/{imagem}', 'ImovelController@remover_imagem');
+    Route::post('fotos/{id}', 'ImovelController@adicionar_fotos');
+});
 
-Route::get('/cadastrar', 'ImovelController@cadastrar_view');
-Route::post('/cadastrar', 'ImovelController@cadastrar_action');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -32,5 +32,7 @@ class Imovel extends Model
     {
         return $this->belongsTo('App\TipoImovel');
     }
-    
+    public function imagens() {
+        return $this->hasMany('App\ImagemImovel', 'cd_imovel', 'cd_imovel');
+    }
 }
