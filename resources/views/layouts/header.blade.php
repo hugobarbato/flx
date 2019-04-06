@@ -15,12 +15,33 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/">Home</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/comprar">Comprar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/lancamentos">Lançamentos</a>
+                        </li>
+                        
                         
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @else
+                            <li class="nav-item dropdown">
+                                <a id="imoveis" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" 
+                                aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Imoveis <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="imoveis">
+                                    <a class="dropdown-item" href="/imovel/adicionar" >
+                                        Adicionar
+                                    </a>
+                                    <a class="dropdown-item" href="/imovel/listar" >
+                                        Listar
+                                    </a>
+                                </div>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -38,16 +59,8 @@
                                     </form>
                                 </div>
                             </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/cadastrar">Cadastrar</a>
-                        </li>
+                         
                         @endguest
-                        <li class="nav-item">
-                            <a class="nav-link" href="/comprar">Comprar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/lancamentos">Lançamentos</a>
-                        </li>
                     </ul>
                 </div>
             </nav> 

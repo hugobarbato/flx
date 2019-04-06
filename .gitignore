@@ -15,3 +15,4 @@ yarn-error.log
 .gitattributes
 CHANGELOG.md
 /storage/app
+/public/images
