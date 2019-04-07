@@ -40,7 +40,6 @@ class ImovelController extends Controller
             'cd_cep' => ['required', 'string', 'max:10'],
             'nm_endereco' => ['required', 'string', 'max:255'],
             'nm_numero' => ['required', 'string', 'max:10'],
-            // 'nm_complemento' => ['string', 'max:50'],
             'nm_bairro' => ['required', 'string', 'max:100'],
             'nm_cidade' => ['required', 'string', 'max:100'],
             'cd_uf' => ['required', 'string', 'max:2'],
@@ -60,10 +59,12 @@ class ImovelController extends Controller
             'cd_tipo_anuncio' => ['required', 'numeric'],
             'cd_tipo_imovel' => ['required', 'numeric'],
             
-            'ic_permuta'=>['numeric'],
-            'nm_link_youtube'=>['url'],
-            'ds_areas_comuns'=>['string'],
-            'ds_areas_privativas'=>['string']
+            // 'nm_complemento' => ['string', 'max:50'],
+            
+            // 'ic_permuta'=>['numeric'],
+            // 'nm_link_youtube'=>['url'],
+            // 'ds_areas_comuns'=>['string'],
+            // 'ds_areas_privativas'=>['string']
             
         ]);
     }
@@ -116,6 +117,7 @@ class ImovelController extends Controller
         $imovel->vl_iptu = $inputs->vl_iptu;
         $imovel->cd_forma_pagamento = $inputs->cd_forma_pagamento;
         $imovel->vl_condominio = $inputs->vl_condominio;
+        $imovel->ic_permuta = $inputs->ic_permuta;
         $imovel->cd_user = Auth::user()->id ;
         $imovel->save();
         return redirect('imovel/editar/'.$imovel->cd_imovel);
@@ -181,14 +183,16 @@ class ImovelController extends Controller
         $imovel->ds_imovel = $inputs->ds_imovel;
         $imovel->ds_imovel = $inputs->ds_imovel; 
         
+        $imovel->ic_permuta = $inputs->ic_permuta;
+        
         $imovel->vl_imovel =  $inputs->vl_imovel;
         $imovel->vl_condominio = $inputs->vl_condominio;
         $imovel->vl_iptu =  $inputs->vl_iptu;
         
         $imovel->cd_forma_pagamento = $inputs->cd_forma_pagamento;
         $imovel->vl_condominio = $inputs->vl_condominio;
-        $imovel->ds_areas_comuns =  $inputs->ds_areas_comuns;
-        $imovel->ds_areas_privativas =  $inputs->ds_areas_privativas;
+        if(isset($inputs->ds_areas_comuns)) $imovel->ds_areas_comuns =  $inputs->ds_areas_comuns; 
+        if(isset($inputs->ds_areas_privativas)) $imovel->ds_areas_privativas =  $inputs->ds_areas_privativas;
         
         $imovel->nm_link_youtube =  $inputs->nm_link_youtube;
         

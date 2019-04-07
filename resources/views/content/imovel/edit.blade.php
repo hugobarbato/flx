@@ -91,7 +91,7 @@
                         <div class="bloco-titulo-cadastro">
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>titulo do anúncio</h4>
+                                    <h4>título do anúncio</h4>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -267,7 +267,7 @@
                         <div >
                             <div class="form-row">
                                <div class="col-md-12">
-                                   <h4>Descrição do imovel</h4>
+                                   <h4>Descrição do imóvel</h4>
                                </div>
                             </div>
                             <div class="form-row">
@@ -280,7 +280,7 @@
                          <div class="valor-imovel">
                             <div class="form-row">
                                <div class="col-md-12">
-                                   <h4>Valor do imovel</h4>
+                                   <h4>Valor do imóvel</h4>
                                </div>
                             </div>
                             <div class="form-row">
@@ -288,12 +288,12 @@
                                     <div class="form-row">
                                         <div class="col-md-3">
                                             <label for="">Valor</label>
-                                            <input type="text" name="vl_imovel" id="vl_imovel" placeholder="Valor do Imovel" class="form-control mask_money" value="{{ $imovel->vl_imovel }}">
+                                            <input type="text" name="vl_imovel" id="vl_imovel" placeholder="Valor do imóvel" class="form-control mask_money" value="{{ $imovel->vl_imovel }}">
                                         </div>
                                         
                                         <div class="col-md-3">
                                             <label for="">Valor do condomínio</label>
-                                            <input type="text" name="vl_condominio" id="vl_condominio" placeholder="Valor condominio" class="form-control mask_money" value="{{ $imovel->vl_condominio }}">
+                                            <input type="text" name="vl_condominio" id="vl_condominio" placeholder="Valor condomínio" class="form-control mask_money" value="{{ $imovel->vl_condominio }}">
                                         </div>
                                         
                                         <div class="col-md-3">
@@ -320,8 +320,8 @@
                                               
                                               <select name="ic_permuta" id="ic_permuta" class="form-control">
                                                 <option disabled selected>Aceita Permuta?</option>
-                                                <option value="1" @if($imovel->ic_permuta == '1' ) selected @endif> Sim, aceita permuta. </option>
-                                                <option value="0" @if($imovel->ic_permuta == '0' ) selected @endif> Não, aceita permuta. </option>
+                                                <option value="1" @if($imovel->ic_permuta == '1' ) selected @endif> Sim </option>
+                                                <option value="0" @if($imovel->ic_permuta == '0' ) selected @endif> Não </option>
                                                 
                                             </select>
                                               
@@ -337,7 +337,7 @@
                         <div class="area-comuns" >
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Areas Comuns</h4>
+                                    <h4>áreas Comuns</h4>
                                 </div>
                             </div>
                             <div class="form-row"> 
@@ -361,7 +361,7 @@
                         <div class="area-privativa"  >
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Areas Privativas</h4>
+                                    <h4>áreas Privativas</h4>
                                 </div>
                             </div>
                             
@@ -408,7 +408,7 @@
                         <div class="fotos-imovel"  > 
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Video do imóvel</h4>
+                                    <h4>Vídeo do imóvel</h4>
                                 </div>
                             </div>
                             <div class="form-row">
