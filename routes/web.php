@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('header/header');
+    // return view('header/header');
+    return redirect('/login');
 });
 
 Route::get('viacep/{cep}', 'HomeController@viacep');
@@ -20,6 +21,7 @@ Route::get('viacep/{cep}', 'HomeController@viacep');
 Route::get('/alugar', function () {
     return view('content/cadastro');
 });
+
 Route::group(['prefix'=>'imovel'],function(){
     
     Route::get('listar', 'ImovelController@getImoveis');
@@ -33,6 +35,7 @@ Route::group(['prefix'=>'imovel'],function(){
     Route::get('fotos/{id}/anunciante', 'ImovelController@remover_logo_anunciante');
     Route::get('fotos/{id}/remover/{imagem}', 'ImovelController@remover_imagem');
     Route::post('fotos/{id}', 'ImovelController@adicionar_fotos');
+    
 });
 
 

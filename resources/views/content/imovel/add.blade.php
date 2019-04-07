@@ -40,9 +40,9 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <select name="cd_tipo_anuncio" id="cd_tipo_anuncio" class="form-control" required>
-                                        <option value="">Selecione o tipo do anuncio.</option>
+                                        <option value="">Selecione o tipo do anúncio</option>
                                         @foreach($tipo_anuncio as $anuncio)
-                                         <option value="{{$anuncio->cd_tipo_anuncio}}">{{$anuncio->nm_tipo_anuncio}}</option>
+                                         <option value="{{$anuncio->cd_tipo_anuncio}}" >{{$anuncio->nm_tipo_anuncio}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -91,7 +91,7 @@
                         <div class="bloco-titulo-cadastro">
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>titulo do anúncio</h4>
+                                    <h4>título do anúncio</h4>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -113,7 +113,7 @@
                                 </div>
                                 
                                 <div class="col-md-6">
-                                   <input type="text" name="nm_endereco" id="nm_endereco"  placeholder="Endereco" class="form-control" viacep="logradouro">
+                                   <input type="text" name="nm_endereco" id="nm_endereco"  placeholder="Endereço" class="form-control" viacep="logradouro">
                                 </div>
                                 
                                 <div class="col-md-2">
@@ -248,11 +248,11 @@
                             
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <input type="number" name="vl_area_util" id="vl_area_util" placeholder="Area util" class="form-control">
+                                    <input type="number" name="vl_area_util" id="vl_area_util" placeholder="Área útil (m2)" class="form-control">
                                 </div>
                                 
                                 <div class="col-md-6">
-                                    <input type="number" name="vl_area_total" id="vl_area_total" placeholder="Area total" class="form-control">
+                                    <input type="number" name="vl_area_total" id="vl_area_total" placeholder="Área total (m2)" class="form-control">
                                 </div>
                             </div>
                             
@@ -267,7 +267,7 @@
                         <div >
                             <div class="form-row">
                                <div class="col-md-12">
-                                   <h4>Descrição do imovel</h4>
+                                   <h4>Descrição do imóvel</h4>
                                </div>
                             </div>
                             <div class="form-row">
@@ -280,7 +280,7 @@
                          <div class="valor-imovel">
                             <div class="form-row">
                                <div class="col-md-12">
-                                   <h4>Valor do imovel</h4>
+                                   <h4>Valor do imóvel</h4>
                                </div>
                             </div>
                             <div class="form-row">
@@ -288,12 +288,12 @@
                                     <div class="form-row">
                                         <div class="col-md-3">
                                             <label for="">Valor</label>
-                                            <input type="text" name="vl_imovel" id="vl_imovel" placeholder="Valor do Imovel" class="form-control mask_money">
+                                            <input type="text" name="vl_imovel" id="vl_imovel" placeholder="Valor do Imóvel" class="form-control mask_money">
                                         </div>
                                         
                                         <div class="col-md-3">
                                             <label for="">Valor do condomínio</label>
-                                            <input type="text" name="vl_condominio" id="vl_condominio" placeholder="Valor condominio" class="form-control mask_money">
+                                            <input type="text" name="vl_condominio" id="vl_condominio" placeholder="Valor condomínio" class="form-control mask_money">
                                         </div>
                                         
                                         <div class="col-md-3">
@@ -321,7 +321,7 @@
                                               <select name="ic_permuta" id="ic_permuta" class="form-control">
                                                 <option disabled selected>Aceita Permuta</option>
                                                 <option value="1"> Sim </option>
-                                                <option value> Não </option>
+                                                <option value="0"> Não </option>
                                                 
                                             </select>
                                               

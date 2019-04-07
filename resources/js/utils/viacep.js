@@ -19,8 +19,8 @@ $(".via_cep").change(function (){
                     case 'logradouro':
                         $(el).val(data.logradouro);
                       break; 
-                    case 'complemento':
-                        $(el).val(data.complemento);
+                    // case 'complemento':
+                    //     $(el).val(data.complemento);
                       break;
               }
           });

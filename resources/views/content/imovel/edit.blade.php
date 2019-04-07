@@ -248,11 +248,11 @@
                             
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <input type="number" name="vl_area_util" id="vl_area_util" placeholder="Area util" value="{{ $imovel->vl_area_util }}" class="form-control">
+                                    <input type="number" name="vl_area_util" id="vl_area_util" placeholder="Área útil (m2)" value="{{ $imovel->vl_area_util }}" class="form-control">
                                 </div>
                                 
                                 <div class="col-md-6">
-                                    <input type="number" name="vl_area_total" id="vl_area_total" placeholder="Area total" value="{{ $imovel->vl_area_total }}" class="form-control">
+                                    <input type="number" name="vl_area_total" id="vl_area_total" placeholder="Área total (m2)" value="{{ $imovel->vl_area_total }}" class="form-control">
                                 </div>
                             </div>
                             
