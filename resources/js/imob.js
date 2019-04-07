@@ -7,8 +7,13 @@ $(document).ready(function(){
             price = ($("#vl_imovel").val()).replace(/\./g,'').replace(/,/g,'.');
         }
         console.info([price,area]);
-       
-        $("#vl_m2").val(Number((price/area)).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }));
+        var result = Number((price/area));
+        console.info(result);//
+        if(result){
+            $("#vl_m2").val(result.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }));
+        }else{
+            $("#vl_m2").val('R$ 0,00');
+        }
     }
     $("#vl_area_total").change(calcularm2);
     $("#vl_area_util").change(calcularm2);

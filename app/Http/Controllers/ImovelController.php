@@ -40,7 +40,7 @@ class ImovelController extends Controller
             'cd_cep' => ['required', 'string', 'max:10'],
             'nm_endereco' => ['required', 'string', 'max:255'],
             'nm_numero' => ['required', 'string', 'max:10'],
-            'nm_complemento' => [ 'string', 'max:50'],
+            // 'nm_complemento' => ['string', 'max:50'],
             'nm_bairro' => ['required', 'string', 'max:100'],
             'nm_cidade' => ['required', 'string', 'max:100'],
             'cd_uf' => ['required', 'string', 'max:2'],
@@ -77,7 +77,13 @@ class ImovelController extends Controller
          ]);
     }
     public function add_action(Request $request){
-        $validator = $this->validator($request->all());
+        $inputs = (object) $request->all();
+          
+        if(isset($inputs->vl_imovel) && $inputs->vl_imovel != '') $inputs->vl_imovel = preg_replace("/,/", '.', preg_replace("/\./", '', $inputs->vl_imovel));
+        if(isset($inputs->vl_condominio) && $inputs->vl_condominio != '') $inputs->vl_condominio = preg_replace("/,/", '.', preg_replace("/\./", '',$inputs->vl_condominio));
+        if(isset($inputs->vl_iptu) && $inputs->vl_iptu != '') $inputs->vl_iptu = preg_replace("/,/", '.', preg_replace("/\./", '',$inputs->vl_iptu));
+        
+        $validator = $this->validator(((array)$inputs));
         
         if ($validator->fails()) {
             return back()->withErrors($validator)
@@ -86,31 +92,33 @@ class ImovelController extends Controller
         
         $imovel = new Imovel;
         
-        $imovel->cd_tipo_anunciante = $request->cd_tipo_anunciante;
-        $imovel->cd_tipo_anuncio = $request->cd_tipo_anuncio;
-        $imovel->cd_tipo_imovel = $request->cd_tipo_imovel;
-        $imovel->nm_titulo = $request->nm_titulo;
-        $imovel->cd_cep = $request->cd_cep;
-        $imovel->nm_endereco = $request->nm_endereco;
-        $imovel->nm_numero = $request->nm_numero;
-        $imovel->nm_complemento = $request->nm_complemento;
-        $imovel->nm_bairro = $request->nm_bairro;
-        $imovel->nm_cidade = $request->nm_cidade;
-        $imovel->cd_uf = $request->cd_uf;
-        $imovel->qt_quartos = $request->qt_quartos;
-        $imovel->qt_suites = $request->qt_suites;
-        $imovel->qt_banheiro = $request->qt_banheiro;
-        $imovel->qt_vagas = $request->qt_vagas;
-        $imovel->vl_area_util = $request->vl_area_util;
-        $imovel->ds_imovel = $request->ds_imovel;
-        $imovel->ds_imovel = $request->ds_imovel;
-        $imovel->vl_imovel = $request->vl_imovel;
-        $imovel->vl_condominio = $request->vl_condominio;
-        $imovel->vl_iptu = $request->vl_iptu;
-        $imovel->cd_forma_pagamento = $request->cd_forma_pagamento;
-        $imovel->vl_condominio = $request->vl_condominio;
+        $imovel->cd_tipo_anunciante = $inputs->cd_tipo_anunciante;
+        $imovel->cd_tipo_anuncio = $inputs->cd_tipo_anuncio;
+        $imovel->cd_tipo_imovel = $inputs->cd_tipo_imovel;
+        $imovel->nm_titulo = $inputs->nm_titulo;
+        $imovel->cd_cep = $inputs->cd_cep;
+        $imovel->nm_endereco = $inputs->nm_endereco;
+        $imovel->nm_numero = $inputs->nm_numero;
+        $imovel->nm_complemento = $inputs->nm_complemento;
+        $imovel->nm_bairro = $inputs->nm_bairro;
+        $imovel->nm_cidade = $inputs->nm_cidade;
+        $imovel->cd_uf = $inputs->cd_uf;
+        $imovel->qt_quartos = $inputs->qt_quartos;
+        $imovel->qt_suites = $inputs->qt_suites;
+        $imovel->qt_banheiro = $inputs->qt_banheiro;
+        $imovel->qt_vagas = $inputs->qt_vagas;
+        $imovel->vl_area_util = $inputs->vl_area_util;
+        $imovel->vl_area_total = $inputs->vl_area_total;
+        $imovel->ds_imovel = $inputs->ds_imovel;
+        $imovel->ds_imovel = $inputs->ds_imovel;
+        $imovel->vl_imovel = $inputs->vl_imovel;
+        $imovel->vl_condominio = $inputs->vl_condominio;
+        $imovel->vl_iptu = $inputs->vl_iptu;
+        $imovel->cd_forma_pagamento = $inputs->cd_forma_pagamento;
+        $imovel->vl_condominio = $inputs->vl_condominio;
         $imovel->cd_user = Auth::user()->id ;
         $imovel->save();
+        return redirect('imovel/editar/'.$imovel->cd_imovel);
 
     }
     

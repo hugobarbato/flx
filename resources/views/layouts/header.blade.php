@@ -12,15 +12,15 @@
                 
                 <div class="collapse navbar-collapse menu-principal" id="navbarSite">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/comprar">Comprar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/lancamentos">Lançamentos</a>
-                        </li>
+                        <!--<li class="nav-item">-->
+                        <!--    <a class="nav-link" href="/">Home</a>-->
+                        <!--</li>-->
+                        <!--<li class="nav-item">-->
+                        <!--    <a class="nav-link" href="/comprar">Comprar</a>-->
+                        <!--</li>-->
+                        <!--<li class="nav-item">-->
+                        <!--    <a class="nav-link" href="/lancamentos">Lançamentos</a>-->
+                        <!--</li>-->
                         
                         
                         @guest
