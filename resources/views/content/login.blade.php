@@ -5,10 +5,10 @@
     <article>
         <div class="container">
             <div class="container-content">
-                <div class="container-login">
+                
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="area-login">
+                            
                                 <div class="left-block">
                                     
                                     <div class="title-login">
@@ -63,11 +63,11 @@
                                     </div>
                                     
                                 </div>
-                            </div>
+                            
                         </div>
                                 
                         <div class="col-md-6">
-                            <div class="area-login">
+                            
                                 <div class="right-block">
                                     <div class="title-login">
                                         <h4>Quero me cadastrar</h4>
@@ -79,10 +79,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            
                         </div>
                     </div>
-                </div>
+                
             </div>
         </div>
     </article>

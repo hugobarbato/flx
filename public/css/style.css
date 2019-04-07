@@ -94,16 +94,7 @@
             color: #fff;
             font-weight: 700;
         }
-        
-        .area-login {
-            width: 85%;
-            float: right;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        
+
         .forget-password {
             clear: both;
         }
@@ -128,17 +119,11 @@
         }
         
         
-        .left-block, .right-block {
+        .left-block {
             border-right: 1px solid #000;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
+            width: 93%;
         }
         
-        .right-block {
-            border-right: unset;
-        }
         
         .title-login {
             margin: 0px 0 20px 0;
@@ -272,11 +257,42 @@
             justify-content: center;
             align-items: center;
             display: flex;
-            flex-direction: column;
-            width: 100%;
-            min-height: calc(100vh - 300px);
+            margin-top: 50px;
         }
         
         .card.container-email {
-            height: 300px;
+            height: 320px;
+        }
+        
+        .btn-solicitar-senha button {
+            width: 130px;
+        }
+        
+        .cards-flx {
+            background: #1a679e;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        
+        .container-form-redefinicao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .inputs-reset-password{
+            
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .inputs-reset-password input {
+            width: 80%;
+            margin-bottom: 20px;
         }
