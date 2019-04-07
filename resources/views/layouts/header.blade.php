@@ -31,7 +31,7 @@
                             <li class="nav-item dropdown">
                                 <a id="imoveis" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" 
                                 aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Imoveis <span class="caret"></span>
+                                    Imóveis <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="imoveis">
                                     <a class="dropdown-item" href="/imovel/adicionar" >
