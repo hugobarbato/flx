@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('title','Cadastro')
 @section('content')
-
+<div class="container">
+    <hr>
+</div>
 <article>
     
 <div class="container">

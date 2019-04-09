@@ -2,6 +2,9 @@
 @extends('layouts.app')
 @section('title','Acesso')
 @section('content')
+    <div class="container">
+        <hr>
+    </div>
     <article>
         <div class="container">
             <div class="container-content">

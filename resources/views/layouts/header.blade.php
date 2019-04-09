@@ -3,7 +3,7 @@
         <div class="container menu-nav">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="logo-flx">
-                    <a class="navbar-brand" href="#">FLX</a>
+                    <a class="navbar-brand" href="#"><img src="img/logo.png"></img></a>
                 </div>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
@@ -12,9 +12,9 @@
                 
                 <div class="collapse navbar-collapse menu-principal" id="navbarSite">
                     <ul class="navbar-nav">
-                        <!--<li class="nav-item">-->
-                        <!--    <a class="nav-link" href="/">Home</a>-->
-                        <!--</li>-->
+                       <li class="nav-item">
+                            <a class="nav-link" href="/home">Home</a>
+                        </li>
                         <!--<li class="nav-item">-->
                         <!--    <a class="nav-link" href="/comprar">Comprar</a>-->
                         <!--</li>-->
@@ -67,10 +67,5 @@
             <div class="nav-anuncio-gratis">
                 <p>Anuncie Grátis por 45 dias</p>
             </div>
-            
-
-        </div>
-        <div class="container">
-            <hr>
         </div>
     </header>

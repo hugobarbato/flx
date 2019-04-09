@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Editando - '.$imovel->nm_titulo)
 @section('content')
+    <div class="container">
+        <hr>
+    </div>
     <article>
         <div class="container">
             <div class="container-content">
