@@ -26,9 +26,23 @@
         }
         
         .banner-principal {
-            background: pink;
-            height: 30vh;
+            height: 70vh;
             margin-top: 10px;
+            background-image: url(../img/destaque-home.png);
+            background-position: right;
+            background-size: cover;
+        }
+        
+        .container.search {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .logo-flx .navbar-brand img {
+            height: 90px;
+            width: auto;
         }
         
         .menu-nav {
