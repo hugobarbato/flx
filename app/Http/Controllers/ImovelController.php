@@ -115,7 +115,7 @@ class ImovelController extends Controller
         $imovel->vl_imovel = $inputs->vl_imovel;
         $imovel->vl_condominio = $inputs->vl_condominio;
         $imovel->vl_iptu = $inputs->vl_iptu;
-        $imovel->cd_forma_pagamento = $inputs->cd_forma_pagamento;
+        $imovel->cd_forma_pagamento = (isset($inputs->cd_forma_pagamento)?$inputs->cd_forma_pagamento:null);
         $imovel->vl_condominio = $inputs->vl_condominio;
         $imovel->ic_permuta = $inputs->ic_permuta;
         $imovel->cd_user = Auth::user()->id ;
@@ -189,7 +189,7 @@ class ImovelController extends Controller
         $imovel->vl_condominio = $inputs->vl_condominio;
         $imovel->vl_iptu =  $inputs->vl_iptu;
         
-        $imovel->cd_forma_pagamento = $inputs->cd_forma_pagamento;
+        $imovel->cd_forma_pagamento = (isset($inputs->cd_forma_pagamento)?$inputs->cd_forma_pagamento:null);
         $imovel->vl_condominio = $inputs->vl_condominio;
         if(isset($inputs->ds_areas_comuns)) $imovel->ds_areas_comuns =  $inputs->ds_areas_comuns; 
         if(isset($inputs->ds_areas_privativas)) $imovel->ds_areas_privativas =  $inputs->ds_areas_privativas;
