@@ -1,7 +1,7 @@
 /*global $*/
 $(document).ready(function(){
     function calcularm2(){
-        var area = ( $("#vl_area_total").val() ? $("#vl_area_total").val() : $("#vl_area_util").val() ? $("#vl_area_util").val() : 0 );
+        var area = ( $("#vl_area_total").val() ? $("#vl_area_total").val() :  0 );
         var price = 0;
         if($("#vl_imovel").val()){
             price = ($("#vl_imovel").val()).replace(/\./g,'').replace(/,/g,'.');
