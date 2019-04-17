@@ -40,7 +40,7 @@
             flex-direction: column;
         }
         
-        .logo-flx .navbar-brand img {
+        .logo-flx img {
             height: 90px;
             width: auto;
         }
@@ -77,9 +77,37 @@
         }
         
         .menu-footer{
-            background: royalblue;
+            background: #2356AB;
         }
         
+        .footer-anuncio-gratis{
+            color: #2356AB;
+            background:#fff;
+            padding: 10px;
+            width: 240px;
+        }
+        
+        .container-fluid.menu-footer .container {
+            padding: 50px 20px 50px 50px;
+        }
+        
+        .logo-footer {
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+        
+        .menu-footer ul {
+            padding-left: 15px;
+            font-size: 14px;
+        }
+        
+        .menu-footer ul li {
+            line-height: 30px;
+        }
+                
         .titulo-busca {
             background: cadetblue;
             color: #fff;
@@ -252,7 +280,7 @@
         }
 
           .nav-anuncio-gratis {
-            background: #1a679e;
+            background: #2356AB;
             padding: 10px;
         }
         
