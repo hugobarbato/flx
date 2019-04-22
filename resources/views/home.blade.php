@@ -12,13 +12,13 @@
                 
             <div class="search-banner-principal">
 
-                <div class="container">
-                   <form>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="col-md-10">
-                                    <div class="row">
-                                        <div class="col-sm-5">
+                <div class="container area-busca">
+                   <div class="container-busca">
+                       <div class="class-1">
+                           <div class="row">
+                               <div class="col-md-12">
+                                    <div class="row">    
+                                        <div class="col-md-5">
                                             <div class="titulo-busca">
                                                 <p>O que vocÊ deseja</p>
                                             </div>
@@ -29,76 +29,84 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-sm-2">
+                                        <div class="col-md-2">
                                             <div class="titulo-busca">
                                                 <p>tipo de imovel</p>
                                             </div>
                                              <div class="select-busca">
-                                                 <select name="" id="">
+                                                 <select class="select-imovel" name="" id="">
                                                      <option value="">apartamento</option>
                                                      <option value="">casa</option>
                                                  </select>
                                             </div>
                                         </div>
                                         
-                                        <div class="col-sm-5">
-                                          <p>Onde</p>
+                                        <div class="col-md-5">
+                                            <div class="titulo-busca">
+                                              <p>Onde</p>
+                                            </div>
+                                          
                                           <input type="text" name=""/>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                </div>
+                           </div>
+                       </div>
+                       <div class="class-2">
+                           <div class="row">
                                         <div class="col-sm-12">
                                             <div class="select-busca">
-                                                <select name="" id="">
+                                                <select class="select-infos-imovel" name="" id="">
                                                     <option value="">Faixa de Preco</option>
                                                     <option value="">casa</option>
                                                 </select>
                                             </div>
                                         
                                             <div class="select-busca">
-                                                 <select name="" id="">
+                                                 <select class="select-infos-imovel" name="" id="">
                                                      <option value="">Quartos</option>
                                                      <option value="">casa</option>
                                                  </select>
                                             </div>
                                             
                                             <div class="select-busca">
-                                                 <select name="" id="">
+                                                 <select class="select-infos-imovel" name="" id="">
                                                      <option value="">Banheiros</option>
                                                      <option value="">casa</option>
                                                  </select>
                                             </div>
                                         
                                             <div class="select-busca">
-                                                 <select name="" id="">
+                                                 <select class="select-infos-imovel" name="" id="">
                                                      <option value="">vagas</option>
                                                      <option value="">casa</option>
                                                  </select>
                                             </div>
                                         
                                             <div class="select-busca">
-                                                 <select name="" id="">
+                                                 <select class="select-infos-imovel" name="" id="">
                                                      <option value="">metragem</option>
                                                      <option value="">casa</option>
                                                  </select>
                                             </div>
                                         
                                             <div class="select-busca">
-                                                 <select name="" id="">
+                                                 <select class="select-infos-imovel" name="" id="">
                                                      <option value="">codigo do imovel</option>
                                                      <option value="">casa</option>
                                                  </select>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <button>Buscar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                       </div>
+                   </div>
+                   
+                   
+                   
+                   <div class="class-3">
+                       <button class="btn-search">Buscar</button>
+                   </div>
+                   
                 </div>
            
             </div>
@@ -125,9 +133,16 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
-                                    <div class="card-body">    
-                                        <a href="#" class="card-link">icone</a>
-                                        <a href="#" class="card-link">icone</a>
+                                    <div class="card-body icones-card">    
+                                        <div class="icon-dormitorios">
+                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        </div>
+                                        
+                                        <div class="icon-area">
+                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                            <span class="icone-info" id="qt_area">87m</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -140,9 +155,16 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
-                                    <div class="card-body">    
-                                        <a href="#" class="card-link">icone</a>
-                                        <a href="#" class="card-link">icone</a>
+                                    <div class="card-body icones-card">    
+                                        <div class="icon-dormitorios">
+                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        </div>
+                                        
+                                        <div class="icon-area">
+                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                            <span class="icone-info" id="qt_area">87m</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -155,9 +177,16 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
-                                    <div class="card-body">    
-                                        <a href="#" class="card-link">icone</a>
-                                        <a href="#" class="card-link">icone</a>
+                                    <div class="card-body icones-card">    
+                                        <div class="icon-dormitorios">
+                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        </div>
+                                        
+                                        <div class="icon-area">
+                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                            <span class="icone-info" id="qt_area">87m</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -170,9 +199,16 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
-                                    <div class="card-body">    
-                                        <a href="#" class="card-link">icone</a>
-                                        <a href="#" class="card-link">icone</a>
+                                    <div class="card-body icones-card">    
+                                        <div class="icon-dormitorios">
+                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        </div>
+                                        
+                                        <div class="icon-area">
+                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                            <span class="icone-info" id="qt_area">87m</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -199,9 +235,16 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
-                                    <div class="card-body">    
-                                        <a href="#" class="card-link">icone</a>
-                                        <a href="#" class="card-link">icone</a>
+                                    <div class="card-body icones-card">    
+                                        <div class="icon-dormitorios">
+                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        </div>
+                                        
+                                        <div class="icon-area">
+                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                            <span class="icone-info" id="qt_area">87m</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -214,9 +257,16 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
-                                    <div class="card-body">    
-                                        <a href="#" class="card-link">icone</a>
-                                        <a href="#" class="card-link">icone</a>
+                                    <div class="card-body icones-card">    
+                                        <div class="icon-dormitorios">
+                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        </div>
+                                        
+                                        <div class="icon-area">
+                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                            <span class="icone-info" id="qt_area">87m</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -229,9 +279,16 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
-                                    <div class="card-body">    
-                                        <a href="#" class="card-link">icone</a>
-                                        <a href="#" class="card-link">icone</a>
+                                    <div class="card-body icones-card">    
+                                        <div class="icon-dormitorios">
+                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        </div>
+                                        
+                                        <div class="icon-area">
+                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                            <span class="icone-info" id="qt_area">87m</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -244,9 +301,16 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
-                                    <div class="card-body">    
-                                        <a href="#" class="card-link">icone</a>
-                                        <a href="#" class="card-link">icone</a>
+                                    <div class="card-body icones-card">    
+                                        <div class="icon-dormitorios">
+                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        </div>
+                                        
+                                        <div class="icon-area">
+                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                            <span class="icone-info" id="qt_area">87m</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -274,9 +338,16 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
-                                    <div class="card-body">    
-                                        <a href="#" class="card-link">icone</a>
-                                        <a href="#" class="card-link">icone</a>
+                                    <div class="card-body icones-card">    
+                                        <div class="icon-dormitorios">
+                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        </div>
+                                        
+                                        <div class="icon-area">
+                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                            <span class="icone-info" id="qt_area">87m</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -289,9 +360,16 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
-                                    <div class="card-body">    
-                                        <a href="#" class="card-link">icone</a>
-                                        <a href="#" class="card-link">icone</a>
+                                    <div class="card-body icones-card">    
+                                        <div class="icon-dormitorios">
+                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        </div>
+                                        
+                                        <div class="icon-area">
+                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                            <span class="icone-info" id="qt_area">87m</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -304,9 +382,16 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
-                                    <div class="card-body">    
-                                        <a href="#" class="card-link">icone</a>
-                                        <a href="#" class="card-link">icone</a>
+                                    <div class="card-body icones-card">    
+                                        <div class="icon-dormitorios">
+                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        </div>
+                                        
+                                        <div class="icon-area">
+                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                            <span class="icone-info" id="qt_area">87m</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -319,9 +404,16 @@
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
-                                    <div class="card-body">    
-                                        <a href="#" class="card-link">icone</a>
-                                        <a href="#" class="card-link">icone</a>
+                                    <div class="card-body icones-card">    
+                                        <div class="icon-dormitorios">
+                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        </div>
+                                        
+                                        <div class="icon-area">
+                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                            <span class="icone-info" id="qt_area">87m</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
