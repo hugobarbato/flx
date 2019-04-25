@@ -38,9 +38,10 @@
             display: flex;
             justify-content: center;
             flex-direction: column;
+            padding: 0;
         }
         
-        .logo-flx .navbar-brand img {
+        .logo-flx img {
             height: 90px;
             width: auto;
         }
@@ -52,14 +53,14 @@
         }
         
         .destaques-home {
-            background: cadetblue;
+            background: #6296ed;
             margin-top: 5px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-transform: uppercase;
             color: #fff;
-            padding: 5px 0;
+            padding: 10px 0;
         }
         
         .destaques-home h2{
@@ -67,28 +68,62 @@
         }
         
         .cards-vendas, .cards-locacao, .cards-lancamentos {
-            margin: 15px 0;
+            margin: 15px -15px;
         }
         
         h4.card-title {
-            font-size: 15px;
+            font-size: 14px;
             color: forestgreen;
             font-weight: 600;
         }
         
         .menu-footer{
-            background: royalblue;
+            background: #2356AB;
         }
         
+        .footer-anuncio-gratis{
+            color: #2356AB;
+            background:#fff;
+            padding: 10px;
+            width: 240px;
+        }
+        
+        .container-fluid.menu-footer .container {
+            padding: 50px 20px 50px 50px;
+        }
+        
+        .logo-footer {
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+        
+        .menu-footer ul {
+            padding-left: 15px;
+            font-size: 14px;
+        }
+        
+        .menu-footer ul li {
+            line-height: 30px;
+        }
+                
         .titulo-busca {
-            background: cadetblue;
+            background: #2356ab;
             color: #fff;
+            text-transform: uppercase;
+            padding: 15px;
+            margin-bottom: 3px;
         }
         
         .select-busca button {
-            background: darkseagreen;
+            background: #6296ed;
             border: none;
             width: 32%;
+            height: 100%;
+            color:#fff;
+            text-transform:uppercase;
         }
         
         .container-fluid.search {
@@ -130,6 +165,7 @@
         
         .container-home{
             min-height: calc(100vh - 200px);
+            margin: 30px 0 100px 0;
         }
         
         
@@ -252,7 +288,7 @@
         }
 
           .nav-anuncio-gratis {
-            background: #1a679e;
+            background: #2356AB;
             padding: 10px;
         }
         
@@ -309,4 +345,78 @@
         .inputs-reset-password input {
             width: 80%;
             margin-bottom: 20px;
+        }
+        
+        .icones-home{
+            width:25px;
+        }
+        
+        .card-body.icones-card {
+            display: flex;
+        }
+        
+        .icone-info {
+            font-size: 12px;
+        }
+
+        #qt_dormitorios {
+            margin-right: 20px;
+        }
+        
+        
+        .container.area-busca {
+            display: flex;
+            padding:0px;
+        }
+        
+        .container-busca {
+            width: 90%;
+        }
+        
+        .class-3 {
+            width: 10%;
+            background: #16315e;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .class-2 .row .col-sm-12 {
+            display: flex;
+        }
+        
+        .class-2 {
+            margin-top: 5px;
+        }
+        
+        .class-1 .col-md-2 {
+            padding: 0;
+        }
+        
+        .select-busca, .select-infos-imovel, .select-imovel, .class-1 input[type="text"]{
+            width: 100%;
+            height: 50px;
+            background: #6296ed;
+            border:none;
+        }
+        
+        .select-infos-imovel, .select-imovel {
+            
+            padding: 0px 12px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        
+        .select-infos-imovel{
+            background: #2356AB;
+            border: none;
+            font-size: 14px;
+            padding: 0;
+        }
+        
+        .btn-search {
+            width: 100%;
+            height: 100%;
+            background: #16315e;
+            color:#fff;
+            border:none;
         }
