@@ -1,7 +1,7 @@
 /*global $*/
 $(document).ready(function(){
     function calcularm2(){
-        var area = ( $("#vl_area_total").val() ? $("#vl_area_total").val() :  0 );
+        var area = ( $("#vl_area_util").val() ? $("#vl_area_util").val() :  0 );
         var price = 0;
         if($("#vl_imovel").val()){
             price = ($("#vl_imovel").val()).replace(/\./g,'').replace(/,/g,'.');
@@ -15,7 +15,6 @@ $(document).ready(function(){
             $("#vl_m2").val('R$ 0,00');
         }
     }
-    $("#vl_area_total").change(calcularm2);
     $("#vl_area_util").change(calcularm2);
     $("#vl_imovel").change(calcularm2);
     calcularm2();
