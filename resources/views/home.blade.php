@@ -1,8 +1,7 @@
 @extends('layouts.app')
 @section('title','Cadastro')
 @section('content')
-@section('banner')
-    
+@include('layouts.banner')
 
     <article>
         <div class="container">
