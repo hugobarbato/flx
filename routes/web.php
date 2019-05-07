@@ -39,7 +39,7 @@ Route::group(['prefix'=>'imovel'],function(){
 });
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/initial', 'HomeController@index')->name('initial');
 
 Auth::routes();
 

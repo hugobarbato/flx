@@ -16,3 +16,6 @@ yarn-error.log
 CHANGELOG.md
 /storage/app
 /public/images
+*.zip
+mix-manifest.json
+package-lock*.json

@@ -12,9 +12,9 @@
                 
                 <div class="collapse navbar-collapse menu-principal" id="navbarSite">
                     <ul class="navbar-nav">
-                       <li class="nav-item">
+                       <!-- <li class="nav-item">
                             <a class="nav-link" href="{{ url('/home') }}">Home</a>
-                        </li>
+                        </li> -->
                         <!--<li class="nav-item">-->
                         <!--    <a class="nav-link" href="/comprar">Comprar</a>-->
                         <!--</li>-->
