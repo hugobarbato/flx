@@ -40,6 +40,9 @@ Route::group(['prefix'=>'imovel'],function(){
 
 
 Route::get('/initial', 'HomeController@index')->name('initial');
+Route::any('/home', function(){
+    return redirect('/imovel/listar');
+});
 
 Auth::routes();
 
