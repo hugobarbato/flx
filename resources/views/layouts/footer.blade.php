@@ -41,7 +41,7 @@
                         </div>
                         
                          <div class="logo-flx">
-                            <a href="#"><img src="img/logo.png"></img></a>
+                            <a href="#"><img src="{{url('img/logo.png')}}"> </a>
                         </div>
                     </div>
                 </div>

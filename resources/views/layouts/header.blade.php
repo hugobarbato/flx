@@ -3,7 +3,7 @@
         <div class="container menu-nav">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="logo-flx">
-                    <a class="navbar-brand" href="#"><img src="img/logo.png"></img></a>
+                    <a class="navbar-brand" href="#"><img src="{{url('img/logo.png')}}"> </a>
                 </div>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
@@ -13,7 +13,7 @@
                 <div class="collapse navbar-collapse menu-principal" id="navbarSite">
                     <ul class="navbar-nav">
                        <li class="nav-item">
-                            <a class="nav-link" href="/home">Home</a>
+                            <a class="nav-link" href="{{ url('/home') }}">Home</a>
                         </li>
                         <!--<li class="nav-item">-->
                         <!--    <a class="nav-link" href="/comprar">Comprar</a>-->
@@ -34,10 +34,10 @@
                                     Imóveis <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="imoveis">
-                                    <a class="dropdown-item" href="/imovel/adicionar" >
+                                    <a class="dropdown-item" href="{{ url('/imovel/adicionar') }}" >
                                         Adicionar
                                     </a>
-                                    <a class="dropdown-item" href="/imovel/listar" >
+                                    <a class="dropdown-item" href="{{ url('/imovel/listar') }}" >
                                         Listar
                                     </a>
                                 </div>

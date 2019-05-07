@@ -12,7 +12,7 @@
                 <ul>
                     @foreach($imoveis as $imob)
                     <li>
-                        {{$imob->nm_titulo}} -  <a href="/imovel/editar/{{$imob->cd_imovel}}">EDITAR</a>
+                        {{$imob->nm_titulo}} -  <a href="{{url('/imovel/editar/'.$imob->cd_imovel) }}">EDITAR</a>
                     </li>
                     @endforeach
                 </ul>

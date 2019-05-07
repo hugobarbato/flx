@@ -387,7 +387,7 @@
                             </div>
                         </div>
                         
-                        <div class="fotos-imovel" > 
+                        <div > 
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <h4>Logo do Anunciante</h4>
@@ -408,7 +408,7 @@
                         
                         </div>
                         
-                        <div class="fotos-imovel"  > 
+                        <div > 
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <h4>Vídeo do imóvel</h4>
@@ -427,16 +427,16 @@
                    
                 </form>
                 
-                <div class="fotos-imovel" > 
-                    <div class="form-row">
-                        <div class="col-md-12">
-                            <h4> Fotos do Imóvel <small>(15 fotos)</small> </h4>
+                <div class="gestao-imagens-imovel">
+                    <div class="fotos-imovel" > 
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <h4> Fotos do Imóvel <small>(15 fotos)</small> </h4>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div>
-                            <form id="container-anuncio-fotos" action="/imovel/fotos/{{$imovel->cd_imovel}}" method="POST" enctype="multipart/form-data">
-                                 @csrf
+                        <div class="form-row">
+                            <form id="container-anuncio-fotos" action="{{ url( '/imovel/fotos/'.$imovel->cd_imovel ) }}" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <input type="file" id="pics_imovel" name="pics[]" multiple accept="image/*" style="display:none"/>
                                 <button type="button" class="btn-flx" id="btn_pics" style=" width: unset; "> Selecionar novas fotos</button>
                                 <div id="pics_list" style="display:none">
@@ -452,21 +452,21 @@
                             </form>
                         </div>
                     </div>
-                </div>
-                
-                <div class="fotos-imovel" > 
-                    <div class="form-row">
-                        <div class="col-md-12">
-                            <h5> Lista de fotos do imóvel: @if( count($imovel->imagens) > 0) {{ count($imovel->imagens) }} de 15 imagens @endif </h5>
-                        </div>
-                    </div>
-                    <div class="form-row" id="list_pics">
-                        @foreach($imovel->imagens as $im)
-                            <div class="col-12 alert" >
-                                <img src="/images/sm/{{$imovel->cd_imovel}}/{{$im->nm_link_sm}}" alt="{{$im->nm_descricao}}">
-                                <a href="/imovel/fotos/{{$imovel->cd_imovel}}/remover/{{$im->cd_imagem}}" class="btn btn_danger"> Remover </a>
+                    
+                    <div class="fotos-imovel" > 
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <h5> Lista de fotos do imóvel: @if( count($imovel->imagens) > 0) {{ count($imovel->imagens) }} de 15 imagens @endif </h5>
                             </div>
-                        @endforeach
+                        </div>
+                        <div class="form-row" id="list_pics">
+                            @foreach($imovel->imagens as $im)
+                                <div class="col-12 alert" >
+                                    <img src="{{ url( '/images/sm/'.$imovel->cd_imovel.'/'.$im->nm_link_sm )}}" alt="{{$im->nm_descricao}}">
+                                    <a href="{{ url( '/imovel/fotos/'.$imovel->cd_imovel.'/remover/'.$im->cd_imagem ) }}" class="btn btn_danger"> Remover </a>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
                 
@@ -480,18 +480,18 @@
 @endsection
 @section('styles')
 <style type="text/css">
-#preview_list {
-    display: flex;
-    flex-direction: row;
-    height: 200px;
-    width: 70vw;
-    overflow: auto;
-}
+    #preview_list {
+        display: flex;
+        flex-direction: row;
+        height: 200px;
+        width: 70vw;
+        overflow: auto;
+    }
 
-#preview_list img {
-    width: unset;
-    height: 170px;
-    margin: 5px;
-}
+    #preview_list img {
+        width: unset;
+        height: 170px;
+        margin: 5px;
+    }
 </style>
 @endsection
