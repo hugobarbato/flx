@@ -138,12 +138,6 @@
             margin-top: 15px;
         }
         
-        .col-12 h1 {
-            font-size: 22px;
-            color: #fff;
-            font-weight: 700;
-        }
-
         .forget-password {
             clear: both;
         }
@@ -419,4 +413,11 @@
             background: #16315e;
             color:#fff;
             border:none;
+        }
+        
+        .title-search-home {
+            margin-bottom: 15px;
+            font-size: 39px;
+            color:#fff;
+            font-weight: 500;
         }
