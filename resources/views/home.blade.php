@@ -8,7 +8,7 @@
             <div class="container-home">
                 <div class="destaques-vendas">
                     <div class="row">
-                        <div class="col-md-12 destaques-home">
+                        <div class="col-md-12 destaques">
                             <h2>Destaques para venda</h2>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                 
                 <div class="destaques-locacao">
                     <div class="row">
-                      <div class="col-md-12 destaques-home">
+                      <div class="col-md-12 destaques">
                         <h2>Destaques para locação</h2>
                       </div>
                     </div>
@@ -213,7 +213,7 @@
                 
                 <div class="lancamentos-destaques">
                     <div class="row">
-                      <div class="col-md-12 destaques-home">
+                      <div class="col-md-12 destaques">
                         <h2>Lançamentos em destaque</h2>
                       </div>
                     </div>

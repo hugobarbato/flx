@@ -52,7 +52,7 @@
             justify-content: space-between;
         }
         
-        .destaques-home {
+        .destaques {
             background: #6296ed;
             margin-top: 5px;
             display: flex;
@@ -63,7 +63,7 @@
             padding: 10px 0;
         }
         
-        .destaques-home h2{
+        .destaques h2{
             font-size:18px;
         }
         
@@ -347,17 +347,15 @@
         
         .card-body.icones-card {
             display: flex;
+            justify-content: space-between;
+            width: 80%;
         }
         
         .icone-info {
             font-size: 12px;
         }
 
-        #qt_dormitorios {
-            margin-right: 20px;
-        }
-        
-        
+     
         .container.area-busca {
             display: flex;
             padding:0px;
@@ -421,3 +419,40 @@
             color:#fff;
             font-weight: 500;
         }
+        
+        .destaques-buscas {
+            border-bottom: 1px solid #000;
+            margin-bottom: 15px;
+            padding: 15px 0px;
+        }
+        
+        .container-body {
+            height: 100%;
+            flex-direction: column;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .info-buscar {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: calc(100% - 45px);
+        }
+        
+        .container-body h4 {
+            color: #2356ab;
+            font-weight: 600;
+        }
+        
+        .title-buscar-imovel h6 {
+            font-size: 20px;
+            color: #6296ed;
+        }
+
+        .icon-buscar-imovel {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+        

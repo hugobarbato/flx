@@ -21,6 +21,11 @@ class HomeController extends Controller
         return view('home');
     }
     
+    public function resultadoBuscar()
+    {
+        return view('resultadoBuscar');
+    }
+    
     
     public function viacep($cep)
     {
