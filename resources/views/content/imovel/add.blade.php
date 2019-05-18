@@ -363,7 +363,7 @@
                         <div class="area-comuns" style="display:none">
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Areas Comuns</h4>
+                                    <h4>áreas Comuns</h4>
                                 </div>
                             </div>
                             
@@ -376,7 +376,7 @@
                         <div class="area-privativa" style="display:none">
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Areas Privativas</h4>
+                                    <h4>áreas Privativas</h4>
                                 </div>
                             </div>
                             
