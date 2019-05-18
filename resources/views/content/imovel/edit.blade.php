@@ -260,7 +260,7 @@
                                 
                                 <div class="col-md-4">
                                     <input type="date" name="dt_previsao_entrega" id="dt_previsao_entrega" 
-                                        value="{{ date('Y-m-d', strtotime($imovel->dt_previsao_entrega)) }}" placeholder="Entrega em:" class="form-control">
+                                        value="{{ $imovel->dt_previsao_entrega ? date('Y-m-d', strtotime($imovel->dt_previsao_entrega)) : '' }}" placeholder="Entrega em:" class="form-control">
                                 </div>
                                 
                                 <div class="col-md-2">

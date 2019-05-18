@@ -8,7 +8,7 @@
         <div class="container">
             <div class="container-content">
                 <h2>Lista de Imoveis cadastrados</h2>
-                <h3>Você possui {{count($imoveis)}} imovél cadastrando(s).</h3>
+                <h3>Você possui {{$imoveis->total()}} imovél(eis) cadastrando(s).</h3>
                 <ul>
                     @foreach($imoveis as $imob)
                     <li>
