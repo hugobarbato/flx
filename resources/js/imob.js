@@ -98,4 +98,13 @@ $(document).ready(function(){
         }
     });
 
+    $("#ic_status").change(function(){
+        if(this.value == '4'){
+            $("#dt_previsao_entrega").val('');
+            $("#dt_previsao_entrega").prop('disabled',true);
+        }else{
+            $("#dt_previsao_entrega").prop('disabled',false);
+        }
+    });
+
 });
