@@ -25,7 +25,8 @@ class ImovelController extends Controller
     }
     
     public function getImoveis(){
-        $imovel = Imovel::where('cd_user',Auth::user()->id)->get();
+        $imovel = Imovel::where('cd_user',Auth::user()->id)->paginate(15);
+
         if(!$imovel){
             return back();
         }
@@ -77,8 +78,12 @@ class ImovelController extends Controller
             'categoria_imovel'=>CategoriaImovel::get()
          ]);
     }
+
     public function add_action(Request $request){
         $inputs = (object) $request->all();
+        //   dd($inputs); 
+        if(isset($inputs->ds_areas_comuns) && count($inputs->ds_areas_comuns) > 0) $inputs->ds_areas_comuns = implode(';',$inputs->ds_areas_comuns);
+        if(isset($inputs->ds_areas_privativas) && count($inputs->ds_areas_privativas) > 0)$inputs->ds_areas_privativas = implode(';',$inputs->ds_areas_privativas);
           
         if(isset($inputs->vl_imovel) && $inputs->vl_imovel != '') $inputs->vl_imovel = preg_replace("/,/", '.', preg_replace("/\./", '', $inputs->vl_imovel));
         if(isset($inputs->vl_condominio) && $inputs->vl_condominio != '') $inputs->vl_condominio = preg_replace("/,/", '.', preg_replace("/\./", '',$inputs->vl_condominio));
@@ -92,6 +97,7 @@ class ImovelController extends Controller
         }
         
         $imovel = new Imovel;
+        
         
         $imovel->cd_tipo_anunciante = $inputs->cd_tipo_anunciante;
         $imovel->cd_tipo_anuncio = $inputs->cd_tipo_anuncio;
@@ -111,13 +117,35 @@ class ImovelController extends Controller
         $imovel->vl_area_util = $inputs->vl_area_util;
         $imovel->vl_area_total = $inputs->vl_area_total;
         $imovel->ds_imovel = $inputs->ds_imovel;
-        $imovel->ds_imovel = $inputs->ds_imovel;
-        $imovel->vl_imovel = $inputs->vl_imovel;
+        $imovel->ds_imovel = $inputs->ds_imovel; 
+        
+        $imovel->ic_permuta = $inputs->ic_permuta;
+
+        $imovel->ic_status = $inputs->ic_status;
+        $imovel->dt_previsao_entrega = $inputs->dt_previsao_entrega;
+        
+        
+        $imovel->vl_imovel =  $inputs->vl_imovel;
         $imovel->vl_condominio = $inputs->vl_condominio;
-        $imovel->vl_iptu = $inputs->vl_iptu;
+        $imovel->vl_iptu =  $inputs->vl_iptu;
+        
         $imovel->cd_forma_pagamento = (isset($inputs->cd_forma_pagamento)?$inputs->cd_forma_pagamento:null);
         $imovel->vl_condominio = $inputs->vl_condominio;
-        $imovel->ic_permuta = $inputs->ic_permuta;
+        if(isset($inputs->ds_areas_comuns)) $imovel->ds_areas_comuns =  $inputs->ds_areas_comuns; 
+        if(isset($inputs->ds_areas_privativas)) $imovel->ds_areas_privativas =  $inputs->ds_areas_privativas;
+        
+        $imovel->nm_link_youtube =  $inputs->nm_link_youtube;
+        
+        if(isset($inputs->pic_anunciante)){
+            if($imovel->cd_image_anunciante){
+                $this->ctl_imagem->removeImagem($imovel->cd_image_anunciante);
+            }
+            $imagem = $this->ctl_imagem->uploadAnuncianteImovel($inputs->pic_anunciante, $imovel);
+            if($imagem){
+                $imovel->cd_image_anunciante =  $imagem->cd_imagem;
+            }
+        }
+        
         $imovel->cd_user = Auth::user()->id ;
         $imovel->save();
         return redirect('imovel/editar/'.$imovel->cd_imovel);
@@ -126,7 +154,8 @@ class ImovelController extends Controller
     
     public function edit_view($id){
         
-        $imovel = Imovel::where('cd_user',Auth::user()->id)->where('cd_imovel',$id)->first();
+        $imovel = Imovel::leftJoin('tb_tipo_imovel','tb_tipo_imovel.cd_tipo_imovel','=','tb_imovel.cd_tipo_imovel')
+        ->where('cd_user',Auth::user()->id)->where('cd_imovel',$id)->first();
         
         if(!$imovel){
             return back();
@@ -135,16 +164,23 @@ class ImovelController extends Controller
             $imovel->imagem_anunciante = ImagemImovel::where('cd_imagem', $imovel->cd_image_anunciante)->first();
         }
         $imovel->imagens = ImagemImovel::where('cd_imovel', $imovel->cd_imovel)->get();
+            
+        $areas_privativas = AreasPrivativas::where('cd_categoria_imovel','=',$imovel->cd_categoria_imovel)->orderBy('nm_areas_privativas')->get();
+        $areas_comuns = AreasComuns::where('cd_categoria_imovel','=',$imovel->cd_categoria_imovel)->orderBy('nm_areas_comuns')->get();
+        
         return view('content.imovel.edit',[
             'imovel' => $imovel,
             'tipo_imovel'=>TipoImovel::get(),
             'tipo_anuncio'=>TipoAnuncio::get(),
             'tipo_anunciante'=>TipoAnunciante::get(),
             'categoria_imovel'=>CategoriaImovel::get(),
-            'AreasPrivativas'=>AreasPrivativas::get(),
-            'AreasComuns'=>AreasComuns::get()
+
+
+            'AreasPrivativas'=>$areas_privativas ,
+            'AreasComuns'=>$areas_comuns
         ]);
     }
+
     public function edit_action(Request $request, $id){
         $inputs = (object) $request->all();
         if(isset($inputs->ds_areas_comuns) && count($inputs->ds_areas_comuns) > 0) $inputs->ds_areas_comuns = implode(';',$inputs->ds_areas_comuns);
@@ -184,6 +220,10 @@ class ImovelController extends Controller
         $imovel->ds_imovel = $inputs->ds_imovel; 
         
         $imovel->ic_permuta = $inputs->ic_permuta;
+
+        $imovel->ic_status = $inputs->ic_status;
+        $imovel->dt_previsao_entrega = $inputs->dt_previsao_entrega;
+        
         
         $imovel->vl_imovel =  $inputs->vl_imovel;
         $imovel->vl_condominio = $inputs->vl_condominio;
@@ -224,6 +264,7 @@ class ImovelController extends Controller
         $imovel->save();
         return redirect('/imovel/editar/'.$imovel->cd_imovel)->with(['success'=>'Imovel editado com sucesso!']);
     }
+
     public function adicionar_fotos(Request $request, $id){
         $imovel = Imovel::where('cd_user',Auth::user()->id)->where('cd_imovel',$id)->first();
         $imagens = ImagemImovel::where('cd_imovel', $imovel->cd_imovel)->get();
@@ -241,6 +282,7 @@ class ImovelController extends Controller
         }
         return redirect('/imovel/editar/'.$imovel->cd_imovel);
     }
+
     public function remover_imagem(Request $request, $id, $imagem){
         $imovel = Imovel::where('cd_user',Auth::user()->id)->where('cd_imovel',$id)->first();
         if(!$imovel) return back()->withErros('Não foi realizar a alteração.'); 

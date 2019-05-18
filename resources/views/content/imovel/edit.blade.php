@@ -4,7 +4,7 @@
     <div class="container">
         <hr>
     </div>
-    <article>
+    <article style=" padding-bottom: 30px;">
         <div class="container">
             <div class="container-content">
                 <form id="container-anuncio" action="#" method="POST" enctype="multipart/form-data">
@@ -20,6 +20,8 @@
                                     @foreach($tipo_anunciante as $anunciante)
                                      <option value="{{$anunciante->cd_tipo_anunciante}}" @if($anunciante->cd_tipo_anunciante == $imovel->cd_tipo_anunciante) selected @endif>{{$anunciante->nm_tipo_anunciante}}</option>
                                     @endforeach
+                                    <option value="-1" disabled>Hotel ( em desenvolvimento )</option>
+                                    <option value="-2" disabled>Hotel - venda ( em desenvolvimento )</option>
                                 </select>
                             </div>
                         </div>
@@ -43,7 +45,7 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <select name="cd_tipo_anuncio" id="cd_tipo_anuncio" class="form-control" required>
-                                        <option value="">Selecione o tipo do anuncio.</option>
+                                        <option value="">Selecione o tipo do anúncio.</option>
                                         @foreach($tipo_anuncio as $anuncio)
                                          <option value="{{$anuncio->cd_tipo_anuncio}}" @if($anuncio->cd_tipo_anuncio == $imovel->cd_tipo_anuncio) selected @endif>{{$anuncio->nm_tipo_anuncio}}</option>
                                         @endforeach
@@ -75,13 +77,13 @@
                                         @endphp
                                         
                                         
-                                                <optgroup label="Residencial">
+                                                <optgroup label="Residencial" value="1">
                                                     {!! $res !!}
                                                 </optgroup>
-                                                <optgroup label="Comercial">
+                                                <optgroup label="Comercial" value="2">
                                                     {!! $com !!}
                                                 </optgroup>
-                                                <optgroup label="Outros">
+                                                <optgroup label="Outros" value="3">
                                                     {!! $etc !!}
                                                 </optgroup>
                                         
@@ -176,7 +178,7 @@
                         <div class="dados-imovel">
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Dados do imóvel</h4>
+                                    <h4>Informações</h4>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -235,19 +237,6 @@
                                 </div>
                             </div>
                             
-                            <div class="form-row" style="display:none">
-                                <div class="col-md-6">
-                                    <select name="ic_deposito" id="ic_deposito" class="form-control">
-                                        <option disabled selected>Depósito</option>
-                                        <option value="1" @if($imovel->ic_deposito == '1' ) selected @endif>Sim</option>
-                                        <option value="2" @if($imovel->ic_deposito == '2' ) selected @endif>Não</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="col-md-6">
-                                    <input type="date" name="dt_previsao_entrega" id="dt_previsao_entrega" value="{{ $imovel->dt_previsao_entrega }}" placeholder="Previsão de Entrega" class="form-control">
-                                </div>
-                            </div>
                             
                             <div class="form-row">
                                 <div class="col-md-6">
@@ -256,6 +245,30 @@
                                 
                                 <div class="col-md-6">
                                     <input type="number" name="vl_area_total" id="vl_area_total" placeholder="Área total (m2)" value="{{ $imovel->vl_area_total }}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-row IncorporadoraFields" @if($imovel->cd_tipo_anunciante != '4' ) style="display:none" @endif >
+                                <div class="col-md-6">
+                                    <select name="ic_status" id="ic_status" class="form-control">
+                                        <option disabled selected> Status atual </option>
+                                        <option value="1" @if($imovel->ic_status == '1' ) selected @endif>Breve Lançamento </option>
+                                        <option value="2" @if($imovel->ic_status == '2' ) selected @endif>Na Planta</option>
+                                        <option value="3" @if($imovel->ic_status == '3' ) selected @endif>Em Obras</option>
+                                        <option value="4" @if($imovel->ic_status == '4' ) selected @endif>Pronto</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <input type="date" name="dt_previsao_entrega" id="dt_previsao_entrega" 
+                                        value="{{ date('Y-m-d', strtotime($imovel->dt_previsao_entrega)) }}" placeholder="Entrega em:" class="form-control">
+                                </div>
+                                
+                                <div class="col-md-2">
+                                    <select name="ic_deposito" id="ic_deposito" class="form-control">
+                                        <option disabled selected>Depósito</option>
+                                        <option value="1" @if($imovel->ic_deposito == '1' ) selected @endif>Sim</option>
+                                        <option value="2" @if($imovel->ic_deposito == '2' ) selected @endif>Não</option>
+                                    </select>
                                 </div>
                             </div>
                             
@@ -270,7 +283,7 @@
                         <div >
                             <div class="form-row">
                                <div class="col-md-12">
-                                   <h4>Descrição do imóvel</h4>
+                                   <h4>Descrição</h4>
                                </div>
                             </div>
                             <div class="form-row">
@@ -283,33 +296,43 @@
                          <div class="valor-imovel">
                             <div class="form-row">
                                <div class="col-md-12">
-                                   <h4>Valor do imóvel</h4>
+                                   <h4>Valor</h4>
                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <div class="form-row">
+                                    
+                                    <div class="form-row IncorporadoraFields"  @if($imovel->cd_tipo_anunciante != '4' ) style="display:none" @endif >
+
                                         <div class="col-md-3">
-                                            <label for="">Valor</label>
-                                            <input type="text" name="vl_imovel" id="vl_imovel" placeholder="Valor do imóvel" class="form-control mask_money" value="{{ $imovel->vl_imovel }}">
+                                            <label> <input type="radio" name="ic_valor_mensagem" class="valor_mensagem" value="1" @if($imovel->ic_valor_mensagem == '1' ) checked @endif> Valor </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label> <input type="radio" name="ic_valor_mensagem" class="valor_mensagem" value="2" @if($imovel->ic_valor_mensagem == '2' ) checked @endif> A partir de </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label> <input type="radio" name="ic_valor_mensagem" class="valor_mensagem" value="" @if(!$imovel->ic_valor_mensagem ) checked @endif> Sob consulta </label>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row InputsValores" @if( !$imovel->ic_valor_mensagem ) style="display:none " @endif >
+                                        <div class="col-md-3">
+                                            <input type="text" name="vl_imovel" id="vl_imovel" placeholder="Valor" class="form-control mask_money" value="{{ $imovel->vl_imovel }}">
                                         </div>
                                         
                                         <div class="col-md-3">
-                                            <label for="">Valor do condomínio</label>
                                             <input type="text" name="vl_condominio" id="vl_condominio" placeholder="Valor condomínio" class="form-control mask_money" value="{{ $imovel->vl_condominio }}">
                                         </div>
                                         
                                         <div class="col-md-3">
-                                            <label for="">Valor IPTU</label>
                                             <input type="text" name="vl_iptu" id="vl_iptu" placeholder="Valor IPTU" class="form-control mask_money" value="{{ $imovel->vl_iptu }}">
                                         </div>
                                         
                                         <div class="col-md-3">
-                                            <label for="">Valor do m²</label>
                                             <input type="vl_m2" name="" id="vl_m2" placeholder="Valor do m²" class="form-control" readonly="true" >
                                         </div>
                                     </div>
-                                    <div class="form-row">
+                                    <div class="form-row InputsValores" @if( !$imovel->ic_valor_mensagem ) style="display:none " @endif >
                                         <div class="col-md-6">
                                             <select name="cd_forma_pagamento" id="cd_forma_pagamento" class="form-control" >
                                                 <option disabled selected>Forma de pagamento</option>
@@ -341,9 +364,10 @@
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <h4>áreas Comuns</h4>
+                                    <input type="hidden" id="ds_areas_comuns" value="{{$imovel->ds_areas_comuns}}">
                                 </div>
                             </div>
-                            <div class="form-row"> 
+                            <div id="AreasComunsChecks" class="form-row"> 
                                 @php $ds_areas_comuns =  explode(';',$imovel->ds_areas_comuns); @endphp
                                 @foreach( $AreasComuns as  $ac )
                                     <div class="col-md-4">
@@ -365,11 +389,11 @@
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <h4>áreas Privativas</h4>
+                                    <input type="hidden" id="ds_areas_privativas" value="{{$imovel->ds_areas_privativas}}">
                                 </div>
                             </div>
                             
-                            <div class="form-row">
-                                
+                            <div id="AreasPrivativasChecks" class="form-row">
                                 @php $ds_areas_privativas =  explode(';',$imovel->ds_areas_privativas); @endphp
                                 @foreach($AreasPrivativas as $k=>$ap)
                                     <div class="col-md-4">
@@ -411,7 +435,7 @@
                         <div > 
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Vídeo do imóvel</h4>
+                                    <h4>Vídeo</h4>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -422,7 +446,7 @@
                         
                         </div>
                         
-                        <button class="btn-flx" type="submit">ENVIAR</button>
+                        <button class="btn-flx" type="submit">SALVAR</button>
                     </div>   
                    
                 </form>
@@ -431,7 +455,7 @@
                     <div class="fotos-imovel" > 
                         <div class="form-row">
                             <div class="col-md-12">
-                                <h4> Fotos do Imóvel <small>(15 fotos)</small> </h4>
+                                <h4> Fotos <small>(15 fotos)</small> </h4>
                             </div>
                         </div>
                         <div class="form-row">
@@ -456,7 +480,7 @@
                     <div class="fotos-imovel" > 
                         <div class="form-row">
                             <div class="col-md-12">
-                                <h5> Lista de fotos do imóvel: @if( count($imovel->imagens) > 0) {{ count($imovel->imagens) }} de 15 imagens @endif </h5>
+                                <h5> Lista de fotos: @if( count($imovel->imagens) > 0) {{ count($imovel->imagens) }} de 15 imagens @endif </h5>
                             </div>
                         </div>
                         <div class="form-row" id="list_pics">

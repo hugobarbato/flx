@@ -8,7 +8,7 @@
         <div class="container">
             <div class="container-content">
                 <h2>Lista de Imoveis cadastrados</h2>
-                
+                <h3>Você possui {{count($imoveis)}} imovél cadastrando(s).</h3>
                 <ul>
                     @foreach($imoveis as $imob)
                     <li>
@@ -16,6 +16,8 @@
                     </li>
                     @endforeach
                 </ul>
+
+                {{ $imoveis->links() }}
             </div>
         </div>
     </article>

@@ -4,10 +4,10 @@
     <div class="container">
         <hr>
     </div>
-    <article>
+    <article style=" padding-bottom: 30px;">
         <div class="container">
             <div class="container-content">
-                <form id="container-anuncio" action="#" method="POST">
+                <form id="container-anuncio" action="#" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="bloco-anunciar">
                         <div class="form-row">
@@ -20,6 +20,8 @@
                                     @foreach($tipo_anunciante as $anunciante)
                                      <option value="{{$anunciante->cd_tipo_anunciante}}">{{$anunciante->nm_tipo_anunciante}}</option>
                                     @endforeach
+                                    <option value="-1" disabled>Hotel ( em desenvolvimento )</option>
+                                    <option value="-2" disabled>Hotel - venda ( em desenvolvimento )</option>
                                 </select>
                             </div>
                         </div>
@@ -52,7 +54,7 @@
                                 
                                 <div class="col-md-6">
                                      <select name="cd_tipo_imovel" id="cd_tipo_imovel" class="form-control" required>
-                                        <option value="">Selecione o tipo do imóvel</option>
+                                        <option value="">Selecione o tipo </option>
                                         @php
                                             $res = "";
                                             $com = "";
@@ -73,15 +75,13 @@
                                                 
                                             }
                                         @endphp
-                                        
-                                        
-                                                <optgroup label="Residencial">
+                                                <optgroup label="Residencial" value="1">
                                                     {!! $res !!}
                                                 </optgroup>
-                                                <optgroup label="Comercial">
+                                                <optgroup label="Comercial" value="2">
                                                     {!! $com !!}
                                                 </optgroup>
-                                                <optgroup label="Outros">
+                                                <optgroup label="Outros" value="3">
                                                     {!! $etc !!}
                                                 </optgroup>
                                         
@@ -176,7 +176,7 @@
                         <div class="dados-imovel">
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Dados do imóvel</h4>
+                                    <h4>Informações</h4>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -235,20 +235,6 @@
                                 </div>
                             </div>
                             
-                            <div class="form-row" style="display:none">
-                                <div class="col-md-6">
-                                    <select name="cadastro_dados_imovel_deposito" id="cadastro_dados_imovel_deposito" class="form-control">
-                                        <option disabled selected>Depósito</option>
-                                        <option value="1">Sim</option>
-                                        <option value="2">Não</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="col-md-6">
-                                    <input type="date" name="cadastro_dados_dt_entrega" id="cadastro_dados_dt_entrega" placeholder="Previsão de Entrega" class="form-control">
-                                </div>
-                            </div>
-                            
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <input type="number" name="vl_area_util" id="vl_area_util" placeholder="Área útil (m2)" class="form-control">
@@ -256,6 +242,30 @@
                                 
                                 <div class="col-md-6">
                                     <input type="number" name="vl_area_total" id="vl_area_total" placeholder="Área total (m2)" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-row IncorporadoraFields" style="display:none" >
+                                <div class="col-md-6">
+                                    <select name="ic_status" id="ic_status" class="form-control">
+                                        <option disabled selected> Status atual </option>
+                                        <option value="1">Breve Lançamento </option>
+                                        <option value="2">Na Planta</option>
+                                        <option value="3">Em Obras</option>
+                                        <option value="4">Pronto</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <input type="date" name="dt_previsao_entrega" id="dt_previsao_entrega" placeholder="Entrega em:" class="form-control">
+                                </div>
+                                
+                                <div class="col-md-2">
+                                    <select name="ic_deposito" id="ic_deposito" class="form-control">
+                                        <option disabled selected>Depósito</option>
+                                        <option value="1">Sim</option>
+                                        <option value="2">Não</option>
+                                    </select>
                                 </div>
                             </div>
                             
@@ -270,7 +280,7 @@
                         <div >
                             <div class="form-row">
                                <div class="col-md-12">
-                                   <h4>Descrição do imóvel</h4>
+                                   <h4>Descrição </h4>
                                </div>
                             </div>
                             <div class="form-row">
@@ -283,15 +293,28 @@
                          <div class="valor-imovel">
                             <div class="form-row">
                                <div class="col-md-12">
-                                   <h4>Valor do imóvel</h4>
+                                   <h4>Valor </h4>
                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <div class="form-row">
+                                    <div class="form-row IncorporadoraFields" >
+
+                                        <div class="col-md-3">
+                                            <label> <input type="radio" name="ic_valor_mensagem" class="valor_mensagem" value="1" checked > Valor </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label> <input type="radio" name="ic_valor_mensagem" class="valor_mensagem" value="2"> A partir de </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label> <input type="radio" name="ic_valor_mensagem" class="valor_mensagem" value="" > Sob consulta </label>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row InputsValores">
                                         <div class="col-md-3">
                                             <label for="">Valor</label>
-                                            <input type="text" name="vl_imovel" id="vl_imovel" placeholder="Valor do Imóvel" class="form-control mask_money">
+                                            <input type="text" name="vl_imovel" id="vl_imovel" placeholder="Valor " class="form-control mask_money">
                                         </div>
                                         
                                         <div class="col-md-3">
@@ -309,7 +332,7 @@
                                             <input type="vl_m2" name="" id="vl_m2" placeholder="Valor do m²" class="form-control" readonly="true">
                                         </div>
                                     </div>
-                                    <div class="form-row">
+                                    <div class="form-row InputsValores">
                                         <div class="col-md-6">
                                             <select name="cd_forma_pagamento" id="cd_forma_pagamento" class="form-control">
                                                 <option disabled selected>Forma de pagamento</option>
@@ -344,108 +367,7 @@
                                 </div>
                             </div>
                             
-                            <div class="form-row">
-                                <div class="col-md-2">
-                                    <div>
-                                      <input type="checkbox" id="scales" name="scales" checked>
-                                      <label for="scales">Scales</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <div>
-                                      <input type="checkbox" id="scales" name="scales" checked>
-                                      <label for="scales">Scales</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <div>
-                                      <input type="checkbox" id="scales" name="scales" checked>
-                                      <label for="scales">Scales</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <div>
-                                      <input type="checkbox" id="scales" name="scales" checked>
-                                      <label for="scales">Scales</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <div>
-                                      <input type="checkbox" id="scales" name="scales" checked>
-                                      <label for="scales">Scales</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <div>
-                                      <input type="checkbox" id="scales" name="scales" checked>
-                                      <label for="scales">Scales</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                </div>
+                            <div id="AreasComunsChecks" class="form-row">
                                 
                             </div>
                         </div>
@@ -458,130 +380,13 @@
                                 </div>
                             </div>
                             
-                            <div class="form-row">
-                                <div class="col-md-2">
-                                    <div>
-                                      <input type="checkbox" id="scales" name="scales" checked>
-                                      <label for="scales">Scales</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <div>
-                                      <input type="checkbox" id="scales" name="scales" checked>
-                                      <label for="scales">Scales</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <div>
-                                      <input type="checkbox" id="scales" name="scales" checked>
-                                      <label for="scales">Scales</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <div>
-                                      <input type="checkbox" id="scales" name="scales" checked>
-                                      <label for="scales">Scales</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <div>
-                                      <input type="checkbox" id="scales" name="scales" checked>
-                                      <label for="scales">Scales</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-2">
-                                    <div>
-                                      <input type="checkbox" id="scales" name="scales" checked>
-                                      <label for="scales">Scales</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                    
-                                    <div>
-                                      <input type="checkbox" id="horns" name="horns">
-                                      <label for="horns">Horns</label>
-                                    </div>
-                                </div>
+                            <div id="AreasPrivativasChecks" class="form-row">
                                 
                             </div>
                         </div>
                         
-                        <div class="fotos-imovel"  style="display:none"> 
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <h4>Fotos do Imóvel</h4>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div>
-                                    <button type="button" class="btn btn-success">Cancelar envio</button>
-                                    <button type="button" class="btn btn-primary">Enviar</button>
-                                    <button type="button" class="btn btn-warning">Cancelar envio</button>
-                                    <button type="button" class="btn btn-danger">Apagar todos</button>
-                                </div>
-                            </div>
-                        
-                        </div>
                          
-                        <div class="fotos-imovel"  style="display:none"> 
+                        <div > 
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <h4>Logo do Anunciante</h4>
@@ -589,27 +394,28 @@
                             </div>
                             <div class="form-row">
                                 <div>
-                                    <input type="file" name=""/>
+                                    <input type="file" accept="image/*" name="pic_anunciante"/>
                                 </div>
                             </div>
                         
                         </div>
                         
-                        <div class="fotos-imovel"  style="display:none"> 
+                        <div > 
+
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Video do imóvel</h4>
+                                    <h4>Vídeo</h4>
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div>
-                                    <input type="text" name="" placeholder="link do youtube" class="form-control">
+                                <div class="col-md-12">
+                                    <input type="text" name="nm_link_youtube" placeholder="Link do youtube" class="form-control" >
                                 </div>
                             </div>
                         
                         </div>
                         
-                        <button class="btn-flx" type="submit">ENVIAR</button>
+                        <button class="btn-flx" type="submit">Cadastrar</button>
                     </div>   
                    
                 </form>

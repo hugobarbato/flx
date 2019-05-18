@@ -38,6 +38,9 @@ Route::group(['prefix'=>'imovel'],function(){
     
 });
 
+Route::group(['prefix'=>'areas'],function(){
+    Route::get('obter_html/{id}', 'AreasController@areas_html');
+});
 
 Route::get('/initial', 'HomeController@index')->name('initial');
 Route::get('/home', 'HomeController@index')->name('home');
