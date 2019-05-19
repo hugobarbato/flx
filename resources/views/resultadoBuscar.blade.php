@@ -51,9 +51,18 @@
                                 </div>
                                     
                                 <div class="dados-buscar-imovel">
-                                    <h4> R$ 300.000,00</h4>
-                                    <p>Valor do m²: R$ 4.367,81</p>
+                                    
+                                    <div class="buscar-detalhes-preco">
+                                        <h4> R$ 300.000,00</h4>
+                                        <p>Valor do m²: R$ 4.367,81</p>
+                                    </div>    
+                                    
+                                    <div class="buscar-detalhes">
+                                        <p>Ver detalhes</p>
+                                    </div>
                                 </div>
+                                
+                                
                             </div>
                         </div>
                      </div>
@@ -96,8 +105,15 @@
                                 </div>
                                     
                                 <div class="dados-buscar-imovel">
-                                    <h4> R$ 300.000,00</h4>
-                                    <p>Valor do m²: R$ 4.367,81</p>
+                                    
+                                    <div class="buscar-detalhes-preco">
+                                        <h4> R$ 300.000,00</h4>
+                                        <p>Valor do m²: R$ 4.367,81</p>
+                                    </div>    
+                                    
+                                    <div class="buscar-detalhes">
+                                        <p>Ver detalhes</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

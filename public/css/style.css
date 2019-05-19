@@ -456,3 +456,17 @@
             width: 50%;
         }
         
+        .dados-buscar-imovel {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .buscar-detalhes {
+            background: #2356ab;
+            padding: 5px;
+            text-transform: uppercase;
+            color: #fff;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+        }
