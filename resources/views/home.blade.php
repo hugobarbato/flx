@@ -18,6 +18,7 @@
                             <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top" src="img/img-teste.jpg"></img>
+                                    <div class="imovel-vl-home">R$380.000,00</div>
                                     <div class="card-body">
                                         <h4 class="card-title">apartamento/venda</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
@@ -40,6 +41,7 @@
                             <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top" src="img/img-teste.jpg"></img>
+                                    <div class="imovel-vl-home">R$380.000,00</div>
                                     <div class="card-body">
                                         <h4 class="card-title">apartamento/venda</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
@@ -62,6 +64,7 @@
                             <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top" src="img/img-teste.jpg"></img>
+                                    <div class="imovel-vl-home">R$380.000,00</div>
                                     <div class="card-body">
                                         <h4 class="card-title">apartamento/venda</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
@@ -84,6 +87,7 @@
                             <div class="col-md-3 ">
                                 <div class="card">
                                     <img class="card-img-top" src="img/img-teste.jpg"></img>
+                                    <div class="imovel-vl-home">R$380.000,00</div>
                                     <div class="card-body">
                                         <h4 class="card-title">apartamento/venda</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
@@ -116,10 +120,10 @@
                     
                     <div class="cards-locacao">
                         <div class="row">
-                            
                             <div class="col-md-3 ">
                                 <div class="card">
                                     <img class="card-img-top" src="img/books.jpg"></img>
+                                    <div class="imovel-vl-home">R$380.000,00</div>
                                     <div class="card-body">
                                         <h4 class="card-title">apartamento/locação</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
@@ -142,6 +146,7 @@
                             <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top" src="img/books.jpg"></img>
+                                    <div class="imovel-vl-home">R$380.000,00</div>
                                     <div class="card-body">
                                         <h4 class="card-title">apartamento/locação</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
@@ -164,6 +169,7 @@
                             <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top" src="img/books.jpg"></img>
+                                    <div class="imovel-vl-home">R$380.000,00</div>
                                     <div class="card-body">
                                         <h4 class="card-title">apartamento/locação</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
@@ -186,6 +192,7 @@
                             <div class="col-md-3 ">
                                 <div class="card">
                                     <img class="card-img-top" src="img/books.jpg"></img>
+                                    <div class="imovel-vl-home">R$380.000,00</div>
                                     <div class="card-body">
                                         <h4 class="card-title">apartamento/locação</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
@@ -223,6 +230,7 @@
                             <div class="col-md-3 ">
                                 <div class="card">
                                     <img class="card-img-top" src="img/welcome.jpg"></img>
+                                    <div class="imovel-vl-home">R$380.000,00</div>
                                     <div class="card-body">
                                         <h4 class="card-title">lançamentos</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
@@ -245,6 +253,7 @@
                             <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top" src="img/welcome.jpg"></img>
+                                    <div class="imovel-vl-home">R$380.000,00</div>
                                     <div class="card-body">
                                         <h4 class="card-title">lançamentos</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
@@ -267,6 +276,7 @@
                             <div class="col-md-3">
                                 <div class="card">
                                     <img class="card-img-top" src="img/welcome.jpg"></img>
+                                    <div class="imovel-vl-home">R$380.000,00</div>
                                     <div class="card-body">
                                         <h4 class="card-title">lançamentos</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
@@ -289,6 +299,7 @@
                             <div class="col-md-3 ">
                                 <div class="card">
                                     <img class="card-img-top" src="img/welcome.jpg"></img>
+                                    <div class="imovel-vl-home">R$380.000,00</div>
                                     <div class="card-body">
                                         <h4 class="card-title">lançamentos</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>

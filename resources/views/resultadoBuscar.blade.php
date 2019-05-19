@@ -112,7 +112,7 @@
                                     </div>    
                                     
                                     <div class="buscar-detalhes">
-                                        <p>Ver detalhes</p>
+                                        <a class="nav-link" href="/resultadoDetalhes">Ver detalhes</a>
                                     </div>
                                 </div>
                             </div>

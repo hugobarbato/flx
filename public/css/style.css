@@ -204,7 +204,7 @@
             text-decoration: none;
         }
         
-        .btn-login {
+        .container-login {
             display: flex;
             justify-content: flex-end;
         }
@@ -213,14 +213,19 @@
             background: #1a679e;
             color: #fff;
             border: 1px solid #3c3cc6;
+        }
+        
+        .btn-login{
             height: 40px;
             width: 110px;
         }
+        
+      
 
-        input[type="text"] {
+        /*input[type="text"] {
             width: 100%;
             height: 40px;
-        }
+        }*/
         
         .bloco-anunciar {
             margin-bottom: 30px;
@@ -247,7 +252,7 @@
             background-image: linear-gradient(#d6d0d0, #f9f9f3);
         }
         
-        .container-content h4 {
+        .container-content h4, .subtitulos-h4 {
             color: #1a679e;
             font-weight: 600;
             padding-top: 10px;
@@ -451,12 +456,10 @@
         }
 
         .icon-buscar-imovel {
-            display: flex;
-            justify-content: space-between;
             width: 50%;
         }
         
-        .dados-buscar-imovel {
+        .dados-buscar-imovel, .icon-buscar-imovel, .icon-detalhes-imovel, .detalhes-imovel {
             display: flex;
             justify-content: space-between;
         }
@@ -469,4 +472,111 @@
             width: fit-content;
             display: flex;
             align-items: center;
+        }
+        
+        .detalhes-imovel, .icon-detalhes-imovel {
+    
+            padding: 15px 0;
+            border-bottom: 1px solid #000;
+        }
+        
+        .detalhes-preco {
+            padding: 10px 0;
+            text-align: center;
+            background: #2356ab;
+            color: #fff;
+        }
+        
+        .detalhes-conteudo .col-md-5 {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .detalhes-conteudo .col-md-7 {
+            padding-left: 0;
+            
+        }
+        
+        .detalhes-conteudo {
+            margin-top: 15px;
+        }
+        
+        .detalhes-contato {
+            border: 1px solid;
+            padding: 0px 10px;
+            margin-top: 15px;
+        }
+        
+        
+        img.img-teste {
+            height: 57vh;
+            background-position: right;
+            background-size: cover;
+        }
+        
+        .input-detalhes-imovel {
+            border-top: 1px solid #ababab;
+            width: 70%;
+            box-shadow: 2px 3px #ababab;
+            margin-top: 10px;
+            border-left: 1px solid #ababab;
+            padding: 10px;
+        }
+        
+        .detalhe-mensagem {
+            border: 1px solid;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 25px;
+            padding: 15px;
+        }
+        
+        .detalhe-noticias {
+            margin-top: 10px;
+        }
+        
+        .btn-msg {
+            width: 100%;
+            height: 40px;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+        
+        .tel-msg {
+            text-align: center;
+        }
+                
+        .tel-msg p {
+            line-height: 18px;
+            font-size: 14px;
+            margin: 15px;
+        }
+        
+        .tel-msg h4 {
+            text-transform: uppercase;
+            color: #1a679e;
+            margin-top: 15px;
+        }
+        
+        .codigo-imovel-detalhe {
+            border: 1px solid;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .img-miniaturas {
+            height: 100px;
+            background: cadetblue;
+            color: #fff;
+        }
+        
+        .map-detalhes {
+            margin-top: 20px;
+        }
+        
+        .imovel-vl-home {
+            background: #2356ab;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
         }
