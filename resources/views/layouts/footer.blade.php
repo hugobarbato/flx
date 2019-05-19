@@ -37,7 +37,7 @@
                     <div class="col-md-3 logo-footer">
                         
                         <div class="footer-anuncio-gratis">
-                            <p>Anuncie Grátis por 45 dias</p>
+                            <a href="/pacotesAdesao">Anuncie Grátis por 45 dias</a>
                         </div>
                         
                          <div class="logo-flx">

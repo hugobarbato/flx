@@ -26,9 +26,14 @@ class HomeController extends Controller
         return view('resultadoBuscar');
     }
     
-     public function resultadoDetalhes()
+    public function resultadoDetalhes()
     {
         return view('resultadoDetalhes');
+    }
+    
+    public function pacotesAdesao()
+    {
+        return view('pacotesAdesao');
     }
     
     

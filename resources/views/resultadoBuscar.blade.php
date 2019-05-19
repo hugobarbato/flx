@@ -58,7 +58,7 @@
                                     </div>    
                                     
                                     <div class="buscar-detalhes">
-                                        <p>Ver detalhes</p>
+                                        <a class="nav-link" href="/pacotesAdesao">Ver detalhes</a>
                                     </div>
                                 </div>
                                 

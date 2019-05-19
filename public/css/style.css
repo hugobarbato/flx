@@ -291,7 +291,16 @@
             padding: 10px;
         }
         
+        .nav-anuncio-gratis a {
+            color:#fff;
+            text-decoration:none;
+        }
         
+        .footer-anuncio-gratis a{
+   
+            text-decoration:none;
+        
+        }
         .container-register {
             width: 85%;
             margin: 0 auto;
@@ -466,9 +475,7 @@
         
         .buscar-detalhes {
             background: #2356ab;
-            padding: 5px;
             text-transform: uppercase;
-            color: #fff;
             width: fit-content;
             display: flex;
             align-items: center;
@@ -579,4 +586,81 @@
             color: #fff;
             text-align: center;
             padding: 5px;
+        }
+        
+        .buscar-detalhes a {
+            color: #fff;
+        }
+        
+        .promocao-lancamentos {
+            width: 100%;
+            background: #113571;
+            color: #fff;
+            text-transform: uppercase;
+            padding: 15px;
+            margin-top:15px;
+        }
+        
+        .promocao-lancamentos p {
+            text-align: center;
+            font-size: 30px;
+        }
+        
+        .promocao-lancamentos span {
+            color: aquamarine;
+        }
+        .detalhe-adesao {
+            background: #E4C803;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .cards-planos {
+            margin-top: 30px;
+        }
+        
+        .cards-planos .card-header {
+            background: #e4c803;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        
+        .cards-planos .card-body {
+            background: #113571;
+            color: #fff;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        
+        .cards-planos .card-footer {
+            font-size: 12px;
+            text-align: center;
+            padding: 5px;
+            color: #888;
+        }
+        
+        .vl-anuncio {
+            font-size: 30px;
+        }
+        
+        .detalhes-planos {
+            font-size: 18px;
+            line-height: 20px;
+            margin-top: 10px;
+        }
+        
+        .qt-anuncios {
+            color: #e4c803;
+        }
+        
+        .cards-planos .card {
+            border: none;
+            background:#fff;
+        }
+        
+        .destaque-anuncio{
+            margin-top:15px;
         }
