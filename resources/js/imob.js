@@ -83,14 +83,25 @@ $(document).ready(function(){
     $("#cd_tipo_anunciante").change(function(){
         if(this.value == "4"){
             $(".IncorporadoraFields").show();
+            $(".logo-anunciante").text("anunciante");
+            $(".video-anunciante").text("anunciante");
         }
         else if(this.value == "5"){
             $("#bloco_cadastro_imovel").hide();
-            $(".IncorporadoraFields").hide();
+            $(".dados-imovel").hide();
+            $(".InputsValores").hide();
+            $(".hotelFields").show();
+            $(".principais-comodidades").show();
+            $(".logo-anunciante").text("hotel");
+            $(".video-anunciante").text("hotel");
         }
         else{
             $("#bloco_cadastro_imovel").show();
+            $(".dados-imovel").show();
+            $(".InputsValores").show();
             $(".IncorporadoraFields").hide();
+            $(".hotelFields").hide();
+            $(".principais-comodidades").hide();
         }
     });
 

@@ -238,7 +238,7 @@
         
         .bloco-cadastro-imovel, .bloco-titulo-cadastro, .bloco-endereco,
         .dados-imovel, .status-imovel, .valor-imovel, .area-comuns,
-        .area-privativa {
+        .area-privativa, .animais-estimacao, .classificacao, .principais-comodidades {
             margin-bottom: 10px;
         }
         
@@ -701,4 +701,17 @@
         
         .pagamento-icon {
             height: 250px;
+        }
+        
+        .classificacao-tipos {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            height: 70px;
+            width: 75%;
+            text-align: center;
+        }
+        
+        .principais-comodidades .col-md-3 {
+            line-height: 15px;
         }

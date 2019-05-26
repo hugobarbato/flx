@@ -173,6 +173,66 @@
                             
                         </div>
                         
+                        <div class="classificacao">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Classificação (estrelas)</h4>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    
+                                    <div class="classificacao-tipos">
+                                        
+                                    
+                                        <div class="simples" value="1">
+                                            <p>Simples</p>
+                                            <div class="star">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                        <div class="econimico" value="2">
+                                            <p>Econômico</p>
+                                            <div class="star">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="turismo" value="3">
+                                            <p>Turismo</p>
+                                             <div class="star">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                        <div class="superior" value="4">
+                                            <p>Superior</p>
+                                             <div class="star">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                        <div class="luxo" value="5">
+                                            <p>Luxo</p>
+                                             <div class="star">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
                         <div class="dados-imovel">
                             <div class="form-row">
                                 <div class="col-md-12">
@@ -290,6 +350,61 @@
                             </div>
                         </div>
                         
+                        <div class="principais-comodidades">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <h4>Principais Comodidades</h4>
+                                </div>
+                            </div>
+                             <div class="form-row">
+                                <div class="col-md-3">
+                                    <label><input type="checkbox" name="" class="" value="1" checked > Nome da area </label>
+                                    <label><input type="checkbox" name="" class="" value="1"  > Nome da area </label>
+                                    <label><input type="checkbox" name="" class="" value="1"  > Nome da area </label>
+                                    <label><input type="checkbox" name="" class="" value="1"  > Nome da area </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><input type="checkbox" name="" class="" value="2"> Nome da area </label>
+                                    <label><input type="checkbox" name="" class="" value="2"> Nome da area </label>
+                                    <label><input type="checkbox" name="" class="" value="2"> Nome da area </label>
+                                    <label><input type="checkbox" name="" class="" value="2"> Nome da area </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
+                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
+                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
+                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
+                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
+                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
+                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
+                                </div>
+                                        
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="animais-estimacao">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <h4>Animais de Estimção?</h4>
+                                </div>
+                            </div>
+                             <div class="form-row">
+                                <div class="col-md-6">
+                                    <select name="ic_animal_estimacao" id="ic_animal_estimacao" class="form-control">
+                                        <option disabled selected>Selecione</option>
+                                        <option value="1">Permitido</option>
+                                        <option value="2">Não Permitido</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
                          <div class="valor-imovel">
                             <div class="form-row">
                                <div class="col-md-12">
@@ -342,20 +457,41 @@
                                             </select>
                                         </div>
                                         <div class="col-md-6">
-                                            
-                                              
-                                              <select name="ic_permuta" id="ic_permuta" class="form-control">
+                                             
+                                            <select name="ic_permuta" id="ic_permuta" class="form-control">
                                                 <option disabled selected>Aceita Permuta</option>
                                                 <option value="1"> Sim </option>
-                                                <option value="0"> Não </option>
-                                                
+                                                <option value="0"> Não </option> 
                                             </select>
-                                              
-                                              
-                                              
                                             
                                         </div>
-                                    </div> 
+                                    </div>
+                                    
+                                    <div class="hotelFields">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label for="">Valor da diária</label>
+                                                <input type="text" name="vl_condominio" id="vl_condominio" placeholder="Valor da diária" class="form-control mask_money">
+                                            </div>
+                                            
+                                            <div class="col-md-3">
+                                                <label for="">Promoção(%)</label>
+                                                <input type="text" name="vl_iptu" id="vl_iptu" placeholder="Promoção" class="form-control mask_money">
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <label for="">Cancelamento</label>
+                                                <select name="" id="" class="form-control">
+                                                    <option disabled selected>Cancelamento</option>
+                                                    <option value="1"> Sim </option>
+                                                    <option value="0"> Não </option> 
+                                                </select>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
@@ -389,7 +525,7 @@
                         <div > 
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Logo do Anunciante</h4>
+                                    <h4>Logo do <span class="logo-anunciante">Anunciante</span></h4>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -404,7 +540,7 @@
 
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Vídeo</h4>
+                                    <h4>Vídeo do <span class="video-anunciante">Anunciante</span></h4>
                                 </div>
                             </div>
                             <div class="form-row">
