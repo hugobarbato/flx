@@ -83,7 +83,13 @@ $(document).ready(function(){
     $("#cd_tipo_anunciante").change(function(){
         if(this.value == "4"){
             $(".IncorporadoraFields").show();
-        }else{
+        }
+        else if(this.value == "5"){
+            $("#bloco_cadastro_imovel").hide();
+            $(".IncorporadoraFields").hide();
+        }
+        else{
+            $("#bloco_cadastro_imovel").show();
             $(".IncorporadoraFields").hide();
         }
     });

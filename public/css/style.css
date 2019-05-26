@@ -422,7 +422,7 @@
         .btn-search {
             width: 100%;
             height: 100%;
-            background: #16315e;
+            background: #103571;
             color:#fff;
             border:none;
         }
@@ -538,7 +538,7 @@
             padding: 15px;
         }
         
-        .detalhe-noticias {
+        .destaque-anuncio-info {
             margin-top: 10px;
         }
         
@@ -594,7 +594,7 @@
         
         .promocao-lancamentos {
             width: 100%;
-            background: #113571;
+            background: #103571;
             color: #fff;
             text-transform: uppercase;
             padding: 15px;
@@ -607,7 +607,7 @@
         }
         
         .promocao-lancamentos span {
-            color: aquamarine;
+            color: #84b0fd;
         }
         .detalhe-adesao {
             background: #E4C803;
@@ -619,6 +619,11 @@
         .cards-planos {
             margin-top: 30px;
         }
+        
+        .cards-planos h4 {
+            color: #103571;
+        }
+        
         
         .cards-planos .card-header {
             background: #e4c803;
@@ -662,5 +667,38 @@
         }
         
         .destaque-anuncio{
-            margin-top:15px;
+            margin-top:25px;
+        }
+        
+        .destaque-anuncio-info div {
+            line-height: 14px;
+        }
+        
+        .destaque-anuncio-detalhe {
+            width: 85%;
+            height: 150px;
+            margin-top: 15px;
+        }
+        .destaques-planos h4 {
+            color: #e4c803;
+            margin-bottom:15px;
+        }
+        .destaques-planos {
+            margin-top: 15px;
+        }
+        
+        .pagamento-detalhe {
+            font-size: 15px;
+            width: 90%;
+            margin: 15px 0px;
+        }
+        
+        .pagamento-detalhe-finalizar {
+            margin-top: 10px;
+            color: #103571;
+            font-weight: 600;
+        }
+        
+        .pagamento-icon {
+            height: 250px;
         }

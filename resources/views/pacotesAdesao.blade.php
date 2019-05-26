@@ -6,6 +6,7 @@
         <div class="container">
             <div class="container-content">
                 <div class="destaques-vendas">
+                    
                     <div class="row">
                         <div class="col-md-12">
                             <h4 class="subtitulos-h4">Destaques para venda</h4>
@@ -121,60 +122,104 @@
                         </div>
                     </div>
                     
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h4>Destaque</h4>
-                            <div class="detalhe-noticias">
+                    <div class="destaques-planos">
+                         <div class="row">
+                            <div class="col-md-6">
+                                <h4>Destaques</h4>
                                 
-                                 <div>
-                                    <input type="checkbox" id="scales" name="scales" checked>
-                                    <label for="scales">Compre 10 destaques - R$100,00 </label>
-                                </div>
-                                
-                                <div>
-                                    <input type="checkbox" id="scales" name="scales">
-                                    <label for="scales">Compre 25 destaques - R$200,00</label>
-                                </div>
-                                
-                                <div>
-                                    <input type="checkbox" id="scales" name="scales">
-                                    <label for="scales">Compre 50 destaques - R$350,00</label>
-                                </div>
-                                
-                                <div>
-                                    <input type="checkbox" id="scales" name="scales">
-                                    <label for="scales">Compre 100 destaques - R$600,00</label>
-                                </div> 
-                    
-                            </div>
-                        </div>
+                                <div class="destaque-anuncio-info">
+                                    
+                                     <div>
+                                        <input type="checkbox" id="scales" name="scales" checked>
+                                        <label for="scales">Compre 10 destaques - R$100,00 </label>
+                                    </div>
+                                    
+                                    <div>
+                                        <input type="checkbox" id="scales" name="scales">
+                                        <label for="scales">Compre 25 destaques - R$200,00</label>
+                                    </div>
+                                    
+                                    <div>
+                                        <input type="checkbox" id="scales" name="scales">
+                                        <label for="scales">Compre 50 destaques - R$350,00</label>
+                                    </div>
+                                    
+                                    <div>
+                                        <input type="checkbox" id="scales" name="scales">
+                                        <label for="scales">Compre 100 destaques - R$600,00</label>
+                                    </div> 
                         
-                        <div class="col-md-6">
-                            <h4>Super Destaque</h4>
-                            <div class="detalhe-noticias">
-                                
-                                <div>
-                                    <input type="checkbox" id="scales" name="scales" checked>
-                                    <label for="scales">Compre 01 destaques - R$200,00 </label>
                                 </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <h4>Super Destaques</h4>
                                 
-                                <div>
-                                    <input type="checkbox" id="scales" name="scales">
-                                    <label for="scales">Compre 03 destaques - R$500,00</label>
+                                <div class="destaque-anuncio-info">
+                                    
+                                    <div>
+                                        <input type="checkbox" id="scales" name="scales" checked>
+                                        <label for="scales">Compre 01 destaque - R$200,00 </label>
+                                    </div>
+                                    
+                                    <div>
+                                        <input type="checkbox" id="scales" name="scales">
+                                        <label for="scales">Compre 03 destaques - R$500,00</label>
+                                    </div>
+                                    
+                                    <div>
+                                        <input type="checkbox" id="scales" name="scales">
+                                        <label for="scales">Compre 06 destaques - R$1.000,00</label>
+                                    </div>
+                                    
+                                    <div>
+                                        <input type="checkbox" id="scales" name="scales">
+                                        <label for="scales">Compre 12 destaques - R$1.000,00</label>
+                                    </div> 
                                 </div>
-                                
-                                <div>
-                                    <input type="checkbox" id="scales" name="scales">
-                                    <label for="scales">Compre 06 destaques - R$1.000,00</label>
-                                </div>
-                                
-                                <div>
-                                    <input type="checkbox" id="scales" name="scales">
-                                    <label for="scales">Compre 12 destaques - R$1.000,00</label>
-                                </div> 
                             </div>
                         </div>
                     </div>
+                    
+                     <div class="row">
+                        <div class="col-md-12">
+                            <textarea placeholder="A vingança nunca é plena, mata a alma e a envenena!" class="destaque-anuncio-detalhe"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="destaque-anuncio">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="subtitulos-h4">Escolha a forma de pagamento</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pagamento-detalhe">
+                                <p>
+                                    A FLX utiliza a plataforma PAGSEGURO para processar seus pagamentos, considerada uma das plataformas mais seguras e rápidas, oferecemos para os nossos clientes diversas formas de pagamento entre eles: boleto, cartão de crédito e transferência.
+                                </p>
+    
+                                <p class="pagamento-detalhe-finalizar">
+                                    Clique no logotipo abaixo para escolher a forma de pagamento e finalizar
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pagamento-icon">
+                                <a href=""> 
+                                    <img class="img-pagseguro-adesao" src="img/pagseguro.jpg"></img>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
                 </div>
                 
             </div>

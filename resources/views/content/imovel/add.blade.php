@@ -20,14 +20,14 @@
                                     @foreach($tipo_anunciante as $anunciante)
                                      <option value="{{$anunciante->cd_tipo_anunciante}}">{{$anunciante->nm_tipo_anunciante}}</option>
                                     @endforeach
-                                    <option value="-1" disabled>Hotel ( em desenvolvimento )</option>
+                                    <option value="5">Hotel ( em desenvolvimento )</option>
                                     <option value="-2" disabled>Hotel - venda ( em desenvolvimento )</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="cadastro-geral">   
-                        <div class="bloco-cadastro-imovel">
+                        <div class="bloco-cadastro-imovel" id="bloco_cadastro_imovel">
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <h4>Cadastro de imóvel</h4>
