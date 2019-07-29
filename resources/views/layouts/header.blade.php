@@ -68,7 +68,8 @@
                 </div>
             </nav> 
             <div class="nav-anuncio-gratis">
-                <p>Anuncie Grátis por 45 dias</p>
+                
+                 <a href="/pacotesAdesao">Anuncie Grátis por 45 dias</a>
             </div>
         </div>
     </header>

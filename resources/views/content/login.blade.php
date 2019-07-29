@@ -55,8 +55,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="btn-login">
-                                                    <button class="btn-flx" id="login_btn_login">Entrar</button>
+                                                <div class="container-login">
+                                                    <button class="btn-flx btn-login" id="login_btn_login">Entrar</button>
                                                 </div>
                                             </div>
                                             <div class="forget-password">

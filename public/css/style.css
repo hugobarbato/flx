@@ -204,7 +204,7 @@
             text-decoration: none;
         }
         
-        .btn-login {
+        .container-login {
             display: flex;
             justify-content: flex-end;
         }
@@ -213,14 +213,19 @@
             background: #1a679e;
             color: #fff;
             border: 1px solid #3c3cc6;
+        }
+        
+        .btn-login{
             height: 40px;
             width: 110px;
         }
+        
+      
 
-        input[type="text"] {
+        /*input[type="text"] {
             width: 100%;
             height: 40px;
-        }
+        }*/
         
         .bloco-anunciar {
             margin-bottom: 30px;
@@ -233,7 +238,7 @@
         
         .bloco-cadastro-imovel, .bloco-titulo-cadastro, .bloco-endereco,
         .dados-imovel, .status-imovel, .valor-imovel, .area-comuns,
-        .area-privativa {
+        .area-privativa, .animais-estimacao, .classificacao, .principais-comodidades {
             margin-bottom: 10px;
         }
         
@@ -247,7 +252,7 @@
             background-image: linear-gradient(#d6d0d0, #f9f9f3);
         }
         
-        .container-content h4 {
+        .container-content h4, .subtitulos-h4 {
             color: #1a679e;
             font-weight: 600;
             padding-top: 10px;
@@ -286,7 +291,16 @@
             padding: 10px;
         }
         
+        .nav-anuncio-gratis a {
+            color:#fff;
+            text-decoration:none;
+        }
         
+        .footer-anuncio-gratis a{
+   
+            text-decoration:none;
+        
+        }
         .container-register {
             width: 85%;
             margin: 0 auto;
@@ -408,7 +422,7 @@
         .btn-search {
             width: 100%;
             height: 100%;
-            background: #16315e;
+            background: #103571;
             color:#fff;
             border:none;
         }
@@ -451,8 +465,253 @@
         }
 
         .icon-buscar-imovel {
-            display: flex;
-            justify-content: space-between;
             width: 50%;
         }
         
+        .dados-buscar-imovel, .icon-buscar-imovel, .icon-detalhes-imovel, .detalhes-imovel {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .buscar-detalhes {
+            background: #2356ab;
+            text-transform: uppercase;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+        }
+        
+        .detalhes-imovel, .icon-detalhes-imovel {
+    
+            padding: 15px 0;
+            border-bottom: 1px solid #000;
+        }
+        
+        .detalhes-preco {
+            padding: 10px 0;
+            text-align: center;
+            background: #2356ab;
+            color: #fff;
+        }
+        
+        .detalhes-conteudo .col-md-5 {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .detalhes-conteudo .col-md-7 {
+            padding-left: 0;
+            
+        }
+        
+        .detalhes-conteudo {
+            margin-top: 15px;
+        }
+        
+        .detalhes-contato {
+            border: 1px solid;
+            padding: 0px 10px;
+            margin-top: 15px;
+        }
+        
+        
+        img.img-teste {
+            height: 57vh;
+            background-position: right;
+            background-size: cover;
+        }
+        
+        .input-detalhes-imovel {
+            border-top: 1px solid #ababab;
+            width: 70%;
+            box-shadow: 2px 3px #ababab;
+            margin-top: 10px;
+            border-left: 1px solid #ababab;
+            padding: 10px;
+        }
+        
+        .detalhe-mensagem {
+            border: 1px solid;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 25px;
+            padding: 15px;
+        }
+        
+        .destaque-anuncio-info {
+            margin-top: 10px;
+        }
+        
+        .btn-msg {
+            width: 100%;
+            height: 40px;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+        
+        .tel-msg {
+            text-align: center;
+        }
+                
+        .tel-msg p {
+            line-height: 18px;
+            font-size: 14px;
+            margin: 15px;
+        }
+        
+        .tel-msg h4 {
+            text-transform: uppercase;
+            color: #1a679e;
+            margin-top: 15px;
+        }
+        
+        .codigo-imovel-detalhe {
+            border: 1px solid;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .img-miniaturas {
+            height: 100px;
+            background: cadetblue;
+            color: #fff;
+        }
+        
+        .map-detalhes {
+            margin-top: 20px;
+        }
+        
+        .imovel-vl-home {
+            background: #2356ab;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .buscar-detalhes a {
+            color: #fff;
+        }
+        
+        .promocao-lancamentos {
+            width: 100%;
+            background: #103571;
+            color: #fff;
+            text-transform: uppercase;
+            padding: 15px;
+            margin-top:15px;
+        }
+        
+        .promocao-lancamentos p {
+            text-align: center;
+            font-size: 30px;
+        }
+        
+        .promocao-lancamentos span {
+            color: #84b0fd;
+        }
+        .detalhe-adesao {
+            background: #E4C803;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .cards-planos {
+            margin-top: 30px;
+        }
+        
+        .cards-planos h4 {
+            color: #103571;
+        }
+        
+        
+        .cards-planos .card-header {
+            background: #e4c803;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        
+        .cards-planos .card-body {
+            background: #113571;
+            color: #fff;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        
+        .cards-planos .card-footer {
+            font-size: 12px;
+            text-align: center;
+            padding: 5px;
+            color: #888;
+        }
+        
+        .vl-anuncio {
+            font-size: 30px;
+        }
+        
+        .detalhes-planos {
+            font-size: 18px;
+            line-height: 20px;
+            margin-top: 10px;
+        }
+        
+        .qt-anuncios {
+            color: #e4c803;
+        }
+        
+        .cards-planos .card {
+            border: none;
+            background:#fff;
+        }
+        
+        .destaque-anuncio{
+            margin-top:25px;
+        }
+        
+        .destaque-anuncio-info div {
+            line-height: 14px;
+        }
+        
+        .destaque-anuncio-detalhe {
+            width: 85%;
+            height: 150px;
+            margin-top: 15px;
+        }
+        .destaques-planos h4 {
+            color: #e4c803;
+            margin-bottom:15px;
+        }
+        .destaques-planos {
+            margin-top: 15px;
+        }
+        
+        .pagamento-detalhe {
+            font-size: 15px;
+            width: 90%;
+            margin: 15px 0px;
+        }
+        
+        .pagamento-detalhe-finalizar {
+            margin-top: 10px;
+            color: #103571;
+            font-weight: 600;
+        }
+        
+        .pagamento-icon {
+            height: 250px;
+        }
+        
+        .classificacao-tipos {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            height: 70px;
+            width: 75%;
+            text-align: center;
+        }
+        
+        .principais-comodidades .col-md-3 {
+            line-height: 15px;
+        }

@@ -40,20 +40,29 @@
                                     </div>
                                         
                                     <div class="icon-dormitorios">
-                                        <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                        <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        <img class="card-img-top icones-home" src="img/icon/garagem_icon.png"></img>
+                                        <span class="icone-info" id="qt_dormitorios">4 vagas</span>
                                     </div>
                                         
                                     <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                        <span class="icone-info" id="qt_area">87m</span>
+                                        <img class="card-img-top icones-home" src="img/icon/banheiro_icon.png"></img>
+                                        <span class="icone-info" id="qt_area">03 Banheiros</span>
                                     </div>
                                 </div>
                                     
                                 <div class="dados-buscar-imovel">
-                                    <h4> R$ 300.000,00</h4>
-                                    <p>Valor do m²: R$ 4.367,81</p>
+                                    
+                                    <div class="buscar-detalhes-preco">
+                                        <h4> R$ 300.000,00</h4>
+                                        <p>Valor do m²: R$ 4.367,81</p>
+                                    </div>    
+                                    
+                                    <div class="buscar-detalhes">
+                                        <a class="nav-link" href="/pacotesAdesao">Ver detalhes</a>
+                                    </div>
                                 </div>
+                                
+                                
                             </div>
                         </div>
                      </div>
@@ -85,19 +94,26 @@
                                     </div>
                                         
                                     <div class="icon-dormitorios">
-                                        <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                        <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                        <img class="card-img-top icones-home" src="img/icon/garagem_icon.png"></img>
+                                        <span class="icone-info" id="qt_dormitorios">4 vagas</span>
                                     </div>
                                         
                                     <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                        <span class="icone-info" id="qt_area">87m</span>
+                                        <img class="card-img-top icones-home" src="img/icon/banheiro_icon.png"></img>
+                                        <span class="icone-info" id="qt_area">03 Banheiros</span>
                                     </div>
                                 </div>
                                     
                                 <div class="dados-buscar-imovel">
-                                    <h4> R$ 300.000,00</h4>
-                                    <p>Valor do m²: R$ 4.367,81</p>
+                                    
+                                    <div class="buscar-detalhes-preco">
+                                        <h4> R$ 300.000,00</h4>
+                                        <p>Valor do m²: R$ 4.367,81</p>
+                                    </div>    
+                                    
+                                    <div class="buscar-detalhes">
+                                        <a class="nav-link" href="/resultadoDetalhes">Ver detalhes</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
