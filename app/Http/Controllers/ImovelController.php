@@ -121,8 +121,10 @@ class ImovelController extends Controller
         
         $imovel->ic_permuta = $inputs->ic_permuta;
 
-        $imovel->ic_status = ($inputs->ic_status?$inputs->ic_status:4);
-        $imovel->dt_previsao_entrega = $inputs->dt_previsao_entrega;
+        if(isset($imovel->ic_status)) $imovel->ic_status = $inputs->ic_status; 
+        $imovel->dt_previsao_entrega = (
+            is_string($inputs->dt_previsao_entrega) ?
+            $this->returnIsoDate($inputs->dt_previsao_entrega):null) ;
         
         
         $imovel->vl_imovel =  $inputs->vl_imovel;
