@@ -173,19 +173,16 @@
                             
                         </div>
                         
-                        <div class="classificacao">
+                        <!-- <div class="classificacao">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h4>Classificação (estrelas)</h4>
+                                    <h4>Classificação (estrelas) </h4>
                                 </div>
                             </div>
                             
                             <div class="row">
                                 <div class="col-md-12">
-                                    
-                                    <div class="classificacao-tipos">
-                                        
-                                    
+                                    <div class="classificacao-tipos">                                    
                                         <div class="simples" value="1">
                                             <p>Simples</p>
                                             <div class="star">
@@ -231,7 +228,7 @@
                                 </div>
                             </div>
                             
-                        </div>
+                        </div> -->
                         
                         <div class="dados-imovel">
                             <div class="form-row">
