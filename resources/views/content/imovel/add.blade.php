@@ -350,43 +350,9 @@
                             </div>
                         </div>
                         
-                        <div class="principais-comodidades">
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <h4>Principais Comodidades</h4>
-                                </div>
-                            </div>
-                             <div class="form-row">
-                                <div class="col-md-3">
-                                    <label><input type="checkbox" name="" class="" value="1" checked > Nome da area </label>
-                                    <label><input type="checkbox" name="" class="" value="1"  > Nome da area </label>
-                                    <label><input type="checkbox" name="" class="" value="1"  > Nome da area </label>
-                                    <label><input type="checkbox" name="" class="" value="1"  > Nome da area </label>
-                                </div>
-                                <div class="col-md-3">
-                                    <label><input type="checkbox" name="" class="" value="2"> Nome da area </label>
-                                    <label><input type="checkbox" name="" class="" value="2"> Nome da area </label>
-                                    <label><input type="checkbox" name="" class="" value="2"> Nome da area </label>
-                                    <label><input type="checkbox" name="" class="" value="2"> Nome da area </label>
-                                </div>
-                                <div class="col-md-3">
-                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
-                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
-                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
-                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
-                                </div>
-                                <div class="col-md-3">
-                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
-                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
-                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
-                                    <label> <input type="checkbox" name="" class="" value="" > Nome da area </label>
-                                </div>
-                                        
-                            </div>
-                        </div>
+                       
                         
-                        
-                        <div class="animais-estimacao">
+                        <!-- <div class="animais-estimacao">
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <h4>Animais de Estimção?</h4>
@@ -401,7 +367,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         
                         
                         
@@ -467,7 +433,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="hotelFields">
+                                    <!-- <div class="hotelFields">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <label for="">Valor da diária</label>
@@ -489,7 +455,7 @@
                                                 
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     
                                     
                                 </div>
