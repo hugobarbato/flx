@@ -247,7 +247,7 @@
 
                             <div class="form-row IncorporadoraFields" style="display:none" >
                                 <div class="col-md-6">
-                                    <select name="ic_status" id="ic_status" class="form-control">
+                                    <select name="ic_status" id="ic_status" class="form-control" required>
                                         <option disabled selected> Status atual </option>
                                         <option value="1">Breve Lançamento </option>
                                         <option value="2">Na Planta</option>
