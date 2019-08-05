@@ -79,7 +79,7 @@ class ImovelController extends Controller
          ]);
     }
 
-    public function add_action(Request $request){
+    public function add_action(Request $request){ 
         $inputs = (object) $request->all();
         //   dd($inputs); 
         if(isset($inputs->ds_areas_comuns) && count($inputs->ds_areas_comuns) > 0) $inputs->ds_areas_comuns = implode(';',$inputs->ds_areas_comuns);
@@ -117,11 +117,11 @@ class ImovelController extends Controller
         $imovel->vl_area_util = $inputs->vl_area_util;
         $imovel->vl_area_total = $inputs->vl_area_total;
         $imovel->ds_imovel = $inputs->ds_imovel;
-        $imovel->ds_imovel = $inputs->ds_imovel; 
         
         $imovel->ic_permuta = $inputs->ic_permuta;
 
-        if(isset($imovel->ic_status)) $imovel->ic_status = $inputs->ic_status; 
+        if(isset($inputs->ic_status)) $imovel->ic_status = $inputs->ic_status; 
+
         $imovel->dt_previsao_entrega = (
             is_string($inputs->dt_previsao_entrega) ?
             $this->returnIsoDate($inputs->dt_previsao_entrega):null) ;
@@ -131,6 +131,15 @@ class ImovelController extends Controller
         $imovel->vl_condominio = $inputs->vl_condominio;
         $imovel->vl_iptu =  $inputs->vl_iptu;
         
+
+        
+        $imovel->cd_forma_pagamento = (isset($inputs->cd_forma_pagamento)?$inputs->cd_forma_pagamento:null);
+        $imovel->vl_condominio = $inputs->vl_condominio;
+        if(isset($inputs->ds_areas_comuns)) $imovel->ds_areas_comuns =  $inputs->ds_areas_comuns; 
+        if(isset($inputs->ds_areas_privativas)) $imovel->ds_areas_privativas =  $inputs->ds_areas_privativas;
+        
+        $imovel->nm_link_youtube =  $inputs->nm_link_youtube;
+
         $imovel->cd_forma_pagamento = (isset($inputs->cd_forma_pagamento)?$inputs->cd_forma_pagamento:null);
         $imovel->vl_condominio = $inputs->vl_condominio;
         if(isset($inputs->ds_areas_comuns)) $imovel->ds_areas_comuns =  $inputs->ds_areas_comuns; 
@@ -138,6 +147,9 @@ class ImovelController extends Controller
         
         $imovel->nm_link_youtube =  $inputs->nm_link_youtube;
         
+        $imovel->cd_user = Auth::user()->id ;
+        $imovel->save();
+
         if(isset($inputs->pic_anunciante)){
             if($imovel->cd_image_anunciante){
                 $this->ctl_imagem->removeImagem($imovel->cd_image_anunciante);
@@ -146,10 +158,9 @@ class ImovelController extends Controller
             if($imagem){
                 $imovel->cd_image_anunciante =  $imagem->cd_imagem;
             }
+            $imovel->save();
         }
-        
-        $imovel->cd_user = Auth::user()->id ;
-        $imovel->save();
+
         return redirect('imovel/editar/'.$imovel->cd_imovel);
 
     }
@@ -222,7 +233,7 @@ class ImovelController extends Controller
         $imovel->ds_imovel = $inputs->ds_imovel; 
         
         $imovel->ic_permuta = $inputs->ic_permuta;
-        if(isset($imovel->ic_status)) $imovel->ic_status = $inputs->ic_status; 
+        if(isset($inputs->ic_status)) $imovel->ic_status = $inputs->ic_status; 
         $imovel->dt_previsao_entrega = (
             is_string($inputs->dt_previsao_entrega) ?
             $this->returnIsoDate($inputs->dt_previsao_entrega):null) ;

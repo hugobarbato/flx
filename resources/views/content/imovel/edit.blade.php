@@ -250,7 +250,7 @@
                             <div class="form-row IncorporadoraFields" @if($imovel->cd_tipo_anunciante != '4' ) style="display:none" @endif >
                                 <div class="col-md-6">
                                     <select name="ic_status" id="ic_status" class="form-control">
-                                        <option disabled selected> Status atual </option>
+                                        <option disabled selected> Status atual  </option>
                                         <option value="1" @if($imovel->ic_status == '1' ) selected @endif>Breve Lançamento </option>
                                         <option value="2" @if($imovel->ic_status == '2' ) selected @endif>Na Planta</option>
                                         <option value="3" @if($imovel->ic_status == '3' ) selected @endif>Em Obras</option>
