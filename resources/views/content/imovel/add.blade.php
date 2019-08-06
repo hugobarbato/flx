@@ -488,7 +488,7 @@
                         <div > 
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Logo do <span class="logo-anunciante">Anunciante</span></h4>
+                                    <h4>Logo do <span class="logo-anunciante">Anunciante</span> ou Foto do Corretor</h4>
                                 </div>
                             </div>
                             <div class="form-row">

@@ -296,7 +296,7 @@
                          <div class="valor-imovel">
                             <div class="form-row">
                                <div class="col-md-12">
-                                   <h4>Valor</h4>
+                                   <h4>Valor {{$imovel->ic_valor_mensagem }}</h4>
                                </div>
                             </div>
                             <div class="form-row">
@@ -414,7 +414,7 @@
                         <div > 
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Logo do Anunciante</h4>
+                                    <h4>Logo do Anunciante ou Foto do Corretor</h4>
                                 </div>
                             </div>
                             <div class="form-row">

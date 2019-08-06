@@ -117,8 +117,9 @@ class ImovelController extends Controller
         $imovel->vl_area_util = $inputs->vl_area_util;
         $imovel->vl_area_total = $inputs->vl_area_total;
         $imovel->ds_imovel = $inputs->ds_imovel;
-        
-        $imovel->ic_permuta = $inputs->ic_permuta;
+         
+        $imovel->ic_valor_mensagem = isset($inputs->ic_valor_mensagem)?$inputs->ic_valor_mensagem:0;
+        $imovel->ic_permuta = isset($inputs->ic_permuta)?$inputs->ic_permuta:0;
 
         if(isset($inputs->ic_status)) $imovel->ic_status = $inputs->ic_status; 
 
@@ -232,7 +233,9 @@ class ImovelController extends Controller
         $imovel->ds_imovel = $inputs->ds_imovel;
         $imovel->ds_imovel = $inputs->ds_imovel; 
         
-        $imovel->ic_permuta = $inputs->ic_permuta;
+        $imovel->ic_valor_mensagem = isset($inputs->ic_valor_mensagem)?$inputs->ic_valor_mensagem:0;
+        $imovel->ic_permuta = isset($inputs->ic_permuta)?$inputs->ic_permuta:0;
+        
         if(isset($inputs->ic_status)) $imovel->ic_status = $inputs->ic_status; 
         $imovel->dt_previsao_entrega = (
             is_string($inputs->dt_previsao_entrega) ?
