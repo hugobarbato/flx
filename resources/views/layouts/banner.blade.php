@@ -30,8 +30,37 @@
                                             </div>
                                              <div class="select-busca">
                                                  <select class="select-imovel" name="" id="">
-                                                     <option value="">apartamento</option>
-                                                     <option value="">casa</option>
+                                                    @php
+                                                        $res = "";
+                                                        $com = "";
+                                                        $etc = "";
+                                                        foreach($tipo_imovel as $tipo){
+                                                            
+                                                            switch($tipo->cd_categoria_imovel){
+                                                                case "1":
+                                                                    $res .= '<option value="'.$tipo->cd_tipo_imovel.'" >'.$tipo->nm_tipo_imovel.'</option>';
+                                                                    break;
+                                                                case "2":
+                                                                    $com .= '<option value="'.$tipo->cd_tipo_imovel.'" >'.$tipo->nm_tipo_imovel.'</option>';
+                                                                    break;
+                                                                case "3":
+                                                                    $etc .= '<option value="'.$tipo->cd_tipo_imovel.'" >'.$tipo->nm_tipo_imovel.'</option>';
+                                                                    break;
+                                                            }
+                                                            
+                                                        }
+                                                    @endphp
+                                                    
+                                            
+                                                    <optgroup label="Residencial" value="1">
+                                                        {!! $res !!}
+                                                    </optgroup>
+                                                    <optgroup label="Comercial" value="2">
+                                                        {!! $com !!}
+                                                    </optgroup>
+                                                    <optgroup label="Outros" value="3">
+                                                        {!! $etc !!}
+                                                    </optgroup> 
                                                  </select>
                                             </div>
                                         </div>

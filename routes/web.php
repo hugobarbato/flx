@@ -43,7 +43,10 @@ Route::group(['prefix'=>'areas'],function(){
 });
 
 Route::get('/initial', 'HomeController@index')->name('initial');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 Route::get('/resultadoBuscar', 'HomeController@resultadoBuscar')->name('buscar');
 Route::get('/resultadoDetalhes', 'HomeController@resultadoDetalhes')->name('detalhes');
 Route::get('/pacotesAdesao', 'HomeController@pacotesAdesao')->name('adesao');

@@ -15,97 +15,30 @@
                     
                     <div class="cards-vendas">
                         <div class="row">
+                        @foreach($imoveis_venda as $imovel )
                             <div class="col-md-3">
                                 <div class="card">
-                                    <img class="card-img-top" src="img/img-teste.jpg"></img>
-                                    <div class="imovel-vl-home">R$380.000,00</div>
+                                    <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}"></img>
+                                        <div class="imovel-vl-home">R$ {{number_format($imovel->vl_imovel,2,',','.')}}</div>
                                     <div class="card-body">
-                                        <h4 class="card-title">apartamento/venda</h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
+                                        <h4 class="card-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h6>
                                         <!--<p class="card-text">Conteudo do card</p>-->
                                     </div>
                                     <div class="card-body icones-card">    
                                         <div class="icon-dormitorios">
                                             <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                                            <span class="icone-info" id="qt_dormitorios">{{$imovel->qt_quartos}} Dorms.</span>
                                         </div>
                                         
                                         <div class="icon-area">
                                             <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                            <span class="icone-info" id="qt_area">87m</span>
+                                            <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/img-teste.jpg"></img>
-                                    <div class="imovel-vl-home">R$380.000,00</div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">apartamento/venda</h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                        <!--<p class="card-text">Conteudo do card</p>-->
-                                    </div>
-                                    <div class="card-body icones-card">    
-                                        <div class="icon-dormitorios">
-                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
-                                        </div>
-                                        
-                                        <div class="icon-area">
-                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                            <span class="icone-info" id="qt_area">87m</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/img-teste.jpg"></img>
-                                    <div class="imovel-vl-home">R$380.000,00</div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">apartamento/venda</h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                        <!--<p class="card-text">Conteudo do card</p>-->
-                                    </div>
-                                    <div class="card-body icones-card">    
-                                        <div class="icon-dormitorios">
-                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
-                                        </div>
-                                        
-                                        <div class="icon-area">
-                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                            <span class="icone-info" id="qt_area">87m</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-3 ">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/img-teste.jpg"></img>
-                                    <div class="imovel-vl-home">R$380.000,00</div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">apartamento/venda</h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                        <!--<p class="card-text">Conteudo do card</p>-->
-                                    </div>
-                                    <div class="card-body icones-card">    
-                                        <div class="icon-dormitorios">
-                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
-                                        </div>
-                                        
-                                        <div class="icon-area">
-                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                            <span class="icone-info" id="qt_area">87m</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        @endforeach
                             
                         </div>
                     </div>
@@ -120,98 +53,30 @@
                     
                     <div class="cards-locacao">
                         <div class="row">
-                            <div class="col-md-3 ">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/books.jpg"></img>
-                                    <div class="imovel-vl-home">R$380.000,00</div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">apartamento/locação</h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                        <!--<p class="card-text">Conteudo do card</p>-->
-                                    </div>
-                                    <div class="card-body icones-card">    
-                                        <div class="icon-dormitorios">
-                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                            @foreach($imoveis_aluguel as $imovel )
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}"></img>
+                                        <div class="imovel-vl-home">R$ {{number_format($imovel->vl_imovel,2,',','.')}}</div>
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
+                                            <h6 class="card-subtitle mb-2 text-muted">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h6>
+                                            <!--<p class="card-text">Conteudo do card</p>-->
                                         </div>
-                                        
-                                        <div class="icon-area">
-                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                            <span class="icone-info" id="qt_area">87m</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/books.jpg"></img>
-                                    <div class="imovel-vl-home">R$380.000,00</div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">apartamento/locação</h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                        <!--<p class="card-text">Conteudo do card</p>-->
-                                    </div>
-                                    <div class="card-body icones-card">    
-                                        <div class="icon-dormitorios">
-                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
-                                        </div>
-                                        
-                                        <div class="icon-area">
-                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                            <span class="icone-info" id="qt_area">87m</span>
+                                        <div class="card-body icones-card">    
+                                            <div class="icon-dormitorios">
+                                                <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                                <span class="icone-info" id="qt_dormitorios">{{$imovel->qt_quartos}} Dorms.</span>
+                                            </div>
+                                            
+                                            <div class="icon-area">
+                                                <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                                <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/books.jpg"></img>
-                                    <div class="imovel-vl-home">R$380.000,00</div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">apartamento/locação</h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                        <!--<p class="card-text">Conteudo do card</p>-->
-                                    </div>
-                                    <div class="card-body icones-card">    
-                                        <div class="icon-dormitorios">
-                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
-                                        </div>
-                                        
-                                        <div class="icon-area">
-                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                            <span class="icone-info" id="qt_area">87m</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-3 ">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/books.jpg"></img>
-                                    <div class="imovel-vl-home">R$380.000,00</div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">apartamento/locação</h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                        <!--<p class="card-text">Conteudo do card</p>-->
-                                    </div>
-                                    <div class="card-body icones-card">    
-                                        <div class="icon-dormitorios">
-                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
-                                        </div>
-                                        
-                                        <div class="icon-area">
-                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                            <span class="icone-info" id="qt_area">87m</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
+                            @endforeach
                         
                         </div>
                     </div>
@@ -227,97 +92,31 @@
                     
                     <div class="cards-lancamentos">
                         <div class="row">
-                            <div class="col-md-3 ">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/welcome.jpg"></img>
-                                    <div class="imovel-vl-home">R$380.000,00</div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">lançamentos</h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                        <!--<p class="card-text">Conteudo do card</p>-->
-                                    </div>
-                                    <div class="card-body icones-card">    
-                                        <div class="icon-dormitorios">
-                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
-                                        </div>
-                                        
-                                        <div class="icon-area">
-                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                            <span class="icone-info" id="qt_area">87m</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/welcome.jpg"></img>
-                                    <div class="imovel-vl-home">R$380.000,00</div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">lançamentos</h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                        <!--<p class="card-text">Conteudo do card</p>-->
-                                    </div>
-                                    <div class="card-body icones-card">    
-                                        <div class="icon-dormitorios">
-                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
+                            @foreach($imoveis_lancamentos as $imovel )
+                                <div class="col-md-3">
+                                    <div class="card"> 
+                                        <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}"></img>
+                                        <div class="imovel-vl-home">R$ {{number_format($imovel->vl_imovel,2,',','.')}}</div>
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
+                                            <h6 class="card-subtitle mb-2 text-muted">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h6>
+                                            <!--<p class="card-text">Conteudo do card</p>-->
                                         </div>
-                                        
-                                        <div class="icon-area">
-                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                            <span class="icone-info" id="qt_area">87m</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/welcome.jpg"></img>
-                                    <div class="imovel-vl-home">R$380.000,00</div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">lançamentos</h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                        <!--<p class="card-text">Conteudo do card</p>-->
-                                    </div>
-                                    <div class="card-body icones-card">    
-                                        <div class="icon-dormitorios">
-                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
-                                        </div>
-                                        
-                                        <div class="icon-area">
-                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                            <span class="icone-info" id="qt_area">87m</span>
+                                        <div class="card-body icones-card">    
+                                            <div class="icon-dormitorios">
+                                                <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                                <span class="icone-info" id="qt_dormitorios">{{$imovel->qt_quartos}} Dorms.</span>
+                                            </div>
+                                            
+                                            <div class="icon-area">
+                                                <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                                <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div class="col-md-3 ">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/welcome.jpg"></img>
-                                    <div class="imovel-vl-home">R$380.000,00</div>
-                                    <div class="card-body">
-                                        <h4 class="card-title">lançamentos</h4>
-                                        <h6 class="card-subtitle mb-2 text-muted">Jabaquara</h6>
-                                        <!--<p class="card-text">Conteudo do card</p>-->
-                                    </div>
-                                    <div class="card-body icones-card">    
-                                        <div class="icon-dormitorios">
-                                            <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
-                                            <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
-                                        </div>
-                                        
-                                        <div class="icon-area">
-                                            <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
-                                            <span class="icone-info" id="qt_area">87m</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
