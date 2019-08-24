@@ -18,8 +18,10 @@
                         @foreach($imoveis_venda as $imovel )
                             <div class="col-md-3">
                                 <div class="card">
-                                    <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}"></img>
-                                        <div class="imovel-vl-home">R$ {{number_format($imovel->vl_imovel,2,',','.')}}</div>
+                                    <div class="card-img-header">
+                                        <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}">
+                                    </div>
+                                    <div class="imovel-vl-home">R$ {{number_format($imovel->vl_imovel,2,',','.')}}</div>
                                     <div class="card-body">
                                         <h4 class="card-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
                                         <h6 class="card-subtitle mb-2 text-muted">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h6>

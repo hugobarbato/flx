@@ -28,19 +28,19 @@ class HomeController extends Controller
     {
         
         $imoveis_venda = Imovel::
-        select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio', DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel limit 1 ) as nm_link"))
+        select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio', DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel limit 1 and i.deleted_at is null ) as nm_link"))
         ->whereIn('tb_imovel.cd_tipo_anuncio',[1,4,6])->limit(4)
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio')
         ->inRandomOrder()->get();
         $imoveis_aluguel = Imovel::
-        select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio', DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel limit 1 ) as nm_link"))
+        select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio', DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel limit 1 and i.deleted_at is null ) as nm_link"))
         ->whereIn('tb_imovel.cd_tipo_anuncio',[2,5])->limit(4)
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio')
         ->inRandomOrder()->get();
         $imoveis_lancamentos = Imovel::
-        select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio', DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel limit 1 ) as nm_link"))
+        select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio', DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel limit 1 and i.deleted_at is null ) as nm_link"))
         ->whereIn('tb_imovel.cd_tipo_anuncio',[3])->limit(4)
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio')
