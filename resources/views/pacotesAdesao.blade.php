@@ -212,7 +212,7 @@
                         <div class="col-md-12">
                             <div class="pagamento-icon">
                                 <a href=""> 
-                                    <img class="img-pagseguro-adesao" src="img/pagseguro.jpg"></img>
+                                    <img class="img-pagseguro-adesao" src="img/pagseguro.jpg">
                                 </a>
                             </div>
                         </div>

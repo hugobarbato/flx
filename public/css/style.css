@@ -15,6 +15,19 @@
             font-weight: 400;
             line-height: 1.5;
         }
+        .select-busca input {
+            background: #2356ab;
+            color: #FFF;
+            height: 100%;
+            text-align: center;
+            border: none;
+        }
+        #endereco::placeholder ,
+        .select-busca input::placeholder {
+            color: #fff; 
+            font-size: 14px;
+            text-align: center
+        }
         
         header, footer {
             color: #fff;
@@ -108,7 +121,6 @@
         .menu-footer ul li {
             line-height: 30px;
         }
-                
         .titulo-busca {
             background: #2356ab;
             color: #fff;
@@ -116,16 +128,45 @@
             padding: 15px;
             margin-bottom: 3px;
         }
-        
-        .select-busca button {
-            background: #6296ed;
-            border: none;
-            width: 32%;
+        .checkbox-selector {
             height: 100%;
-            color:#fff;
-            text-transform:uppercase;
+            width: 100%;
+            text-align: center;
+            display: flex;
         }
         
+        .select-busca label { 
+            background: #6296ed;
+            border: none;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        .select-busca.checkboxs {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .select-busca input:checked + label {
+            background: #0a3074;
+        }
+
+        .select-imovel optgroup {
+            background: #353535;
+        }
+        
+        .select-imovel option {
+            background: #6296ed;
+        }
+
+
         .container-fluid.search {
             display: flex;
             flex-direction: column;
@@ -403,6 +444,8 @@
             height: 50px;
             background: #6296ed;
             border:none;
+            color: #fff;
+            text-align: center;
         }
         
         .select-infos-imovel, .select-imovel {
@@ -417,6 +460,7 @@
             border: none;
             font-size: 14px;
             padding: 0;
+                padding-left: 10px;
         }
         
         .btn-search {
@@ -714,4 +758,86 @@
         
         .principais-comodidades .col-md-3 {
             line-height: 15px;
+        }
+
+
+        
+        .flx-title{
+            color:#2356ab;
+            font-weight: 900;
+        }
+        
+        .flx-sub-title{
+            color:#6296ed;
+        }
+        .icons.inline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 1px;
+        }
+        .btn-destaques {
+            padding: 5px 10px;
+            border-radius: unset;
+            background-color: #2356ab;
+        }
+        .btn-destaques:hover {
+            color: #fff;
+            background-color: #2071f5;
+            transition: background-color 0.5s;
+        }
+        .pin-bottom-right{            
+            position: absolute;
+            bottom: 25px;
+            right: 20px;
+        }
+        .search-card-imovel {
+            height: 200px;
+            position: relative;
+        }
+        .img-search-card-imovel {
+            max-height: 200px;
+            overflow: hidden;
+            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .search-card-imovel .value-search, 
+        .search-card-imovel .sub-value-search {
+            display: block;
+        }
+        .search-card-imovel .value-search {
+            font-size: 18px;
+        }
+        .centerY {
+            display: flex;
+            align-items: center;
+        }
+
+        .select-busca button.btn.dropdown-toggle {
+            width: 100%;
+            height: 100%;
+            background: #2356ab;
+            color: #fff;
+        }
+        .select-busca .dropdown-menu label {
+            height: 20px;
+            text-align: left;
+            background: transparent;
+            color: #000;
+            align-items: start;
+            line-height: 20px;
+            justify-content: start;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .select-busca .dropdown-menu input {
+            display: inline-block;
+            height: 30px;
+        }
+        
+        .select-busca .dropdown-menu {
+            padding: 5px 20px 11px;
         }

@@ -17,7 +17,7 @@
                 <div class="destaques-buscas">
                      <div class="row">
                         <div class="img-busca col-md-4">
-                            <img class="card-img-top" src="img/img-teste.jpg"></img>
+                            <img class="card-img-top" src="img/img-teste.jpg">
                         </div>
                          
                         <div class="info-busca col-md-8">
@@ -30,22 +30,22 @@
                                 
                                 <div class="icon-buscar-imovel">
                                     <div class="icon-dormitorios">
-                                        <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                        <img class="card-img-top icones-home" src="img/icon/cama_icon.png">
                                         <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
                                     </div>
                                     
                                     <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                        <img class="card-img-top icones-home" src="img/icon/metro_icon.png">
                                         <span class="icone-info" id="qt_area">87m</span>
                                     </div>
                                         
                                     <div class="icon-dormitorios">
-                                        <img class="card-img-top icones-home" src="img/icon/garagem_icon.png"></img>
+                                        <img class="card-img-top icones-home" src="img/icon/garagem_icon.png">
                                         <span class="icone-info" id="qt_dormitorios">4 vagas</span>
                                     </div>
                                         
                                     <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="img/icon/banheiro_icon.png"></img>
+                                        <img class="card-img-top icones-home" src="img/icon/banheiro_icon.png">
                                         <span class="icone-info" id="qt_area">03 Banheiros</span>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                 <div class="destaques-buscas">
                      <div class="row">
                         <div class="img-busca col-md-4">
-                            <img class="card-img-top" src="img/img-teste.jpg"></img>
+                            <img class="card-img-top" src="img/img-teste.jpg">
                         </div>
                          
                         <div class="info-busca col-md-8">
@@ -84,22 +84,22 @@
                                 
                                 <div class="icon-buscar-imovel">
                                     <div class="icon-dormitorios">
-                                        <img class="card-img-top icones-home" src="img/icon/cama_icon.png"></img>
+                                        <img class="card-img-top icones-home" src="img/icon/cama_icon.png">
                                         <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
                                     </div>
                                     
                                     <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="img/icon/metro_icon.png"></img>
+                                        <img class="card-img-top icones-home" src="img/icon/metro_icon.png">
                                         <span class="icone-info" id="qt_area">87m</span>
                                     </div>
                                         
                                     <div class="icon-dormitorios">
-                                        <img class="card-img-top icones-home" src="img/icon/garagem_icon.png"></img>
+                                        <img class="card-img-top icones-home" src="img/icon/garagem_icon.png">
                                         <span class="icone-info" id="qt_dormitorios">4 vagas</span>
                                     </div>
                                         
                                     <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="img/icon/banheiro_icon.png"></img>
+                                        <img class="card-img-top icones-home" src="img/icon/banheiro_icon.png">
                                         <span class="icone-info" id="qt_area">03 Banheiros</span>
                                     </div>
                                 </div>

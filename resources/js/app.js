@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 require('./utils/jquery.mask.min.js');
+require('./utils/jquery-ui.min.js');
 require('./utils/make_masks.js');
 require('./utils/makeForm.js');
 require('./utils/verifica_cpf_cnpj.js');

@@ -15,6 +15,8 @@ Route::get('/', function () {
     // return view('header/header');
     return redirect('/login');
 });
+Route::post('/search', 'HomeController@search');
+Route::get('/detail/{id}', 'HomeController@detail');
 
 Route::get('viacep/{cep}', 'HomeController@viacep');
 

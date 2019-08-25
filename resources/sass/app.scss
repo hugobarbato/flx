@@ -22,3 +22,49 @@
   margin: 0 auto;
   width: fit-content;
 }
+
+span.ui-slider-handle.ui-corner-all.ui-state-default {
+  background: #2356ab;
+}
+
+.ui-slider-range.ui-corner-all.ui-widget-header {
+  background: #6296ed;
+}
+
+div#slider-range {
+  margin: 20px 10px 5px;
+}
+
+.small-img-controls {
+  width: 10%;
+  padding: 10px 02px;
+}
+
+.small-img-controls img {
+  width: 100%;
+}
+
+.detail-image-carousel {
+  height: 440px;
+  object-fit: cover;
+  background: #404040;
+}
+
+.detail-image-carousel img {
+  height: 100%;
+  width: auto;
+  display:block;  
+  margin:0 auto;
+}
+
+.mapouter{
+  position:relative;
+  text-align:right;
+  height:500px;
+  width:100%;
+}
+  .gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    height:500px;
+    width:100%;}

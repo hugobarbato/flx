@@ -1,3 +1,4 @@
+
 /*global $*/
 $(document).ready(function(){
     
@@ -125,3 +126,33 @@ $(document).ready(function(){
     });
 
 });
+$(document).ready(function(){   
+    
+    var formato = { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' };
+    console.info("init");
+    if(window.lrv_data){
+        console.info(window.lrv_data)
+        $( "#slider-range" ).slider({
+            range: true,
+            min: window.lrv_data.min,
+            max: window.lrv_data.max+1000,
+            step:1000,
+            values: window.lrv_data.values,
+            slide: function( event, ui ) {
+                let de = ui.values[ 0 ];
+                let ate = ui.values[ 1 ];
+                precoDe.value= Number(de).toLocaleString('pt-BR', formato);
+                precoAte.value= Number(ate).toLocaleString('pt-BR', formato);
+            }
+        }); 
+        precoDe.value= Number($( "#slider-range" ).slider( "values", 0 )).toLocaleString('pt-BR', formato);
+        precoAte.value= Number($( "#slider-range" ).slider( "values", 1 )).toLocaleString('pt-BR', formato);
+
+    }else{
+        console.info(window.lrv_data)
+    }
+    $('.carousel').carousel({
+        interval: 3000
+    });
+    
+} );
