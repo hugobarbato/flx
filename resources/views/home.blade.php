@@ -6,6 +6,7 @@
     <article>
         <div class="container">
             <div class="container-home">
+            @if(count($imoveis_venda))
                 <div class="destaques-vendas pb-2">
                     <div class="row">
                         <div class="col-md-12 destaques">
@@ -47,6 +48,8 @@
                         </div>
                     </div>
                 </div>
+            @endif
+            @if(count($imoveis_aluguel))
                 <div class="destaques-locacao pb-2">
                     <div class="row">
                       <div class="col-md-12 destaques">
@@ -89,6 +92,8 @@
                     </div>
                     
                 </div>
+            @endif
+            @if(count($imoveis_lancamentos))
                 <div class="lancamentos-destaques pb-2">
                     <div class="row">
                       <div class="col-md-12 destaques">
@@ -131,6 +136,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </article>
 @endsection

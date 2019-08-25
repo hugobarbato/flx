@@ -13,9 +13,15 @@
 
 Route::get('/', function () {
     // return view('header/header');
-    return redirect('/login');
+    return redirect('/home');
 });
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/adesao', 'HomeController@pacotesAdesao')->name('adesao');
+
 Route::post('/search', 'HomeController@search');
+Route::get('/search/{type}', 'HomeController@search');
+
 Route::get('/detail/{id}', 'HomeController@detail');
 
 Route::get('viacep/{cep}', 'HomeController@viacep');
@@ -44,14 +50,9 @@ Route::group(['prefix'=>'areas'],function(){
     Route::get('obter_html/{id}', 'AreasController@areas_html');
 });
 
-Route::get('/initial', 'HomeController@index')->name('initial');
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::get('/resultadoBuscar', 'HomeController@resultadoBuscar')->name('buscar');
-Route::get('/resultadoDetalhes', 'HomeController@resultadoDetalhes')->name('detalhes');
-Route::get('/pacotesAdesao', 'HomeController@pacotesAdesao')->name('adesao');
+// Route::get('/initial', 'HomeController@index')->name('initial');
+// Route::get('/resultadoBuscar', 'HomeController@resultadoBuscar')->name('buscar');
+// Route::get('/resultadoDetalhes', 'HomeController@resultadoDetalhes')->name('detalhes');
 
 Auth::routes();
 

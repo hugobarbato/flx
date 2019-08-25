@@ -10731,3 +10731,7 @@ div#slider-range {
   width: 100%;
 }
 
+.nav-item.active {
+  border-bottom: 2px solid #2356ab;
+}
+

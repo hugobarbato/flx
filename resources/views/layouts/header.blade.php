@@ -12,35 +12,24 @@
                 
                 <div class="collapse navbar-collapse menu-principal" id="navbarSite">
                     <ul class="navbar-nav">
-                       <li class="nav-item">
+                       <li class="nav-item {{ (request()->is('home')) ? 'active' : '' }}">
                             <a class="nav-link" href="/home">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/resultadoBuscar">Buscar</a>
-                        </li>
-                        <!--<li class="nav-item">-->
-                        <!--    <a class="nav-link" href="/comprar">Comprar</a>-->
-                        <!--</li>-->
-                        <!--<li class="nav-item">-->
-                        <!--    <a class="nav-link" href="/lancamentos">Lançamentos</a>-->
-                        <!--</li>-->
-                        
-                        
                         @guest
-                            <li class="nav-item">
+                            <li class="nav-item {{ (request()->is('login')) ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown  {{ (request()->is('/imovel/adicionar')) || (request()->is('/imovel/listar')) ? 'active' : '' }}">
                                 <a id="imoveis" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" 
                                 aria-haspopup="true" aria-expanded="false" v-pre>
                                     Imóveis <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="imoveis">
-                                    <a class="dropdown-item" href="{{ url('/imovel/adicionar') }}" >
+                                    <a class="dropdown-item {{ (request()->is('/imovel/adicionar')) ? 'active' : '' }}" href="{{ url('/imovel/adicionar') }}" >
                                         Adicionar
                                     </a>
-                                    <a class="dropdown-item" href="{{ url('/imovel/listar') }}" >
+                                    <a class="dropdown-item {{ (request()->is('/imovel/listar')) ? 'active' : '' }}" href="{{ url('/imovel/listar') }}" >
                                         Listar
                                     </a>
                                 </div>
@@ -62,14 +51,30 @@
                                     </form>
                                 </div>
                             </li>
-                         
                         @endguest
+                        <li class="nav-item {{ (request()->is('search/rent')) ? 'active' : '' }}">
+                            <a class="nav-link" href="/search/rent">Alugar</a>
+                        </li>
+                        <li class="nav-item {{ (request()->is('search/sell')) ? 'active' : '' }}">
+                            <a class="nav-link" href="/search/sell">Comprar</a>
+                        </li>
+                        <li class="nav-item {{ (request()->is('search/news')) ? 'active' : '' }}">
+                            <a class="nav-link" href="/search/news">Lançamentos</a>
+                        </li>
+                        <!--<li class="nav-item">-->
+                        <!--    <a class="nav-link" href="/comprar">Comprar</a>-->
+                        <!--</li>-->
+                        <!--<li class="nav-item">-->
+                        <!--    <a class="nav-link" href="/lancamentos">Lançamentos</a>-->
+                        <!--</li>-->
+                        
+                        
+                        
                     </ul>
                 </div>
             </nav> 
-            <div class="nav-anuncio-gratis">
-                
-                 <a href="/pacotesAdesao">Anuncie Grátis por 45 dias</a>
+            <div class="nav-anuncio-gratis {{ (request()->is('adesao')) ? 'active' : '' }}">
+                 <a href="/adesao">Anuncie Grátis por 45 dias</a>
             </div>
         </div>
     </header>

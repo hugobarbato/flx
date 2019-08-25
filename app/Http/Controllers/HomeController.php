@@ -90,7 +90,7 @@ class HomeController extends Controller
 
     }
 
-    public function search(Request $request){
+    public function search(Request $request, $typeS = ''){
         $inputs = (object) $request->all();
         /**{
          * #237 ▼
@@ -114,13 +114,16 @@ class HomeController extends Controller
         )
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio');
-        if($inputs->cd_imovel){
+        if(isset($inputs->cd_imovel)  && $inputs->cd_imovel){
             $imoveis = $imoveis->where('cd_imovel', $inputs->cd_imovel);
         }else{
-            if($inputs->cd_tipo_imovel){
+            $inputs->cd_imovel = '';
+            if(isset($inputs->cd_tipo_imovel)  && $inputs->cd_tipo_imovel){
                 $imoveis = $imoveis->where('tb_imovel.cd_tipo_imovel', $inputs->cd_tipo_imovel);
+            }else{
+                $inputs->cd_tipo_imovel = null;
             }
-            if($inputs->Endereco){
+            if(isset($inputs->Endereco)  && $inputs->Endereco){
                 $imoveis = $imoveis->where(function($q) use ($inputs) {
                     $q->where('cd_cep', 'like', '%'.$inputs->Endereco.'%')
                     ->orWhere('nm_endereco', 'like', '%'.$inputs->Endereco.'%')
@@ -128,23 +131,34 @@ class HomeController extends Controller
                     ->orWhere('nm_cidade', 'like', '%'.$inputs->Endereco.'%')
                     ->orWhere('cd_uf', 'like', '%'.$inputs->Endereco.'%');
                 });
+            }else{
+                $inputs->Endereco = '';
             }
-            if($inputs->precoDe && $inputs->precoAte){
+            if(isset($inputs->precoDe)  && isset($inputs->precoAte)  && $inputs->precoDe && $inputs->precoAte){
                 $inputs->precoDe = str_replace(',','.',str_replace('.','',str_replace('R$ ','',$inputs->precoDe)));
                 $inputs->precoAte = str_replace(',','.',str_replace('.','',str_replace('R$ ','',$inputs->precoAte)));
                 $imoveis = $imoveis->where('vl_imovel', '>=',$inputs->precoDe);
                 $imoveis = $imoveis->where('vl_imovel', '<=',$inputs->precoAte);
+            }else{
+                $inputs->precoDe = null;
+                $inputs->precoAte = null;
             }
-            if($inputs->qt_quartos){
+            if(isset($inputs->qt_quartos)  && $inputs->qt_quartos){
                $imoveis = $imoveis->where('qt_quartos', $inputs->qt_quartos);
+            }else{
+                $inputs->qt_quartos = null;
             }
-            if($inputs->qt_banheiro){
+            if(isset($inputs->qt_banheiro)  && $inputs->qt_banheiro){
                $imoveis = $imoveis->where('qt_banheiro', $inputs->qt_banheiro);
+            }else{
+                $inputs->qt_banheiro = null;
             }
-            if($inputs->qt_vagas){
+            if(isset($inputs->qt_vagas)  &&$inputs->qt_vagas){
                $imoveis = $imoveis->where('qt_banheiro', $inputs->qt_vagas);
+            }else{
+                $inputs->qt_vagas = null;
             }
-            if($inputs->metragem){ 
+            if(isset($inputs->metragem)  && $inputs->metragem){ 
                 switch ($inputs->metragem) {
                     case 1:
                             $maior_q = 0;
@@ -177,19 +191,29 @@ class HomeController extends Controller
                 if($menor_q){
                     $imoveis = $imoveis->where('vl_area_total', '<=',$menor_q);
                 }
+            }else{
+                $inputs->metragem = null;
             }
 
-            if(isset($inputs->search_for)&&$inputs->search_for){
-                
+            if( (isset($inputs->search_for) && $inputs->search_for) || $typeS != '' ){
+                if(!(isset($inputs->search_for) && $inputs->search_for)){
+                    $inputs->search_for = $typeS;
+                }
                 switch ($inputs->search_for) {
+                    case 'sell':
                     case 1:
                         $tipes = [1,4,6];
+                        $inputs->search_for = 1;
                         break;
+                    case 'rent':
                     case 2:
                         $tipes = [2,5];
+                        $inputs->search_for = 2;
                         break;
+                    case 'news':
                     case 3:
                         $tipes = [3];
+                        $inputs->search_for = 3;
                         break;
                 }
                 $imoveis = $imoveis->whereIn('tb_imovel.cd_tipo_anuncio',$tipes) ;
