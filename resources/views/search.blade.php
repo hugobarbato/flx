@@ -41,7 +41,7 @@
                                                     <span class="icone-info" id="qt_area">{{($imovel->qt_banheiro?$imovel->qt_banheiro:'-')}} Banheiro(s)</span>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-destaques destaques pin-bottom-right"> Ver detalhes </button>
+                                            <a href="/detail/{{$imovel->cd_imovel}}" class="btn btn-destaques destaques pin-bottom-right"> Ver detalhes </a>
                                             @if($imovel->vl_imovel > 0)
                                             <span class="value-search flx-title">R$ {{number_format($imovel->vl_imovel,2,',','.')}}</span>
                                             <span class="sub-value-search"><small class="text-muted">Valor do m² R$ {{number_format($imovel->ValorM2,2,',','.')}}</small></span>
