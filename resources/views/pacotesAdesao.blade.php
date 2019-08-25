@@ -183,7 +183,7 @@
                     
                      <div class="row">
                         <div class="col-md-12">
-                            <textarea placeholder="A vingança nunca é plena, mata a alma e a envenena!" class="destaque-anuncio-detalhe"></textarea>
+                            <textarea class="destaque-anuncio-detalhe"></textarea>
                         </div>
                     </div>
                 </div>
