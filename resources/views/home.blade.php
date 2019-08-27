@@ -31,12 +31,12 @@
                                             </div>
                                             <div class="card-body icones-card">    
                                                 <div class="icon-dormitorios">
-                                                    <img class="card-img-top icones-home" src="img/icon/cama_icon.png">
+                                                    <img class="card-img-top icones-home" src="/img/icon/cama_icon.png">
                                                     <span class="icone-info" id="qt_dormitorios">{{$imovel->qt_quartos}} Dorms.</span>
                                                 </div>
                                                 
                                                 <div class="icon-area">
-                                                    <img class="card-img-top icones-home" src="img/icon/metro_icon.png">
+                                                    <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
                                                     <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
                                                 </div>
                                             </div>
@@ -74,12 +74,12 @@
                                             </div>
                                             <div class="card-body icones-card">    
                                                 <div class="icon-dormitorios">
-                                                    <img class="card-img-top icones-home" src="img/icon/cama_icon.png">
+                                                    <img class="card-img-top icones-home" src="/img/icon/cama_icon.png">
                                                     <span class="icone-info" id="qt_dormitorios">{{$imovel->qt_quartos}} Dorms.</span>
                                                 </div>
                                                 
                                                 <div class="icon-area">
-                                                    <img class="card-img-top icones-home" src="img/icon/metro_icon.png">
+                                                    <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
                                                     <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
                                                 </div>
                                             </div>
@@ -119,12 +119,12 @@
                                             </div>
                                             <div class="card-body icones-card">    
                                                 <div class="icon-dormitorios">
-                                                    <img class="card-img-top icones-home" src="img/icon/cama_icon.png">
+                                                    <img class="card-img-top icones-home" src="/img/icon/cama_icon.png">
                                                     <span class="icone-info" id="qt_dormitorios">{{$imovel->qt_quartos}} Dorms.</span>
                                                 </div>
                                                 
                                                 <div class="icon-area">
-                                                    <img class="card-img-top icones-home" src="img/icon/metro_icon.png">
+                                                    <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
                                                     <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
                                                 </div>
                                             </div>

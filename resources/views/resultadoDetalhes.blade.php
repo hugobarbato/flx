@@ -63,22 +63,22 @@
                             
                             <div class="icon-detalhes-imovel">
                                 <div class="icon-dormitorios">
-                                    <img class="card-img-top icones-home" src="img/icon/cama_icon.png">
+                                    <img class="card-img-top icones-home" src="/img/icon/cama_icon.png">
                                     <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
                                 </div>
                                 
                                 <div class="icon-area">
-                                    <img class="card-img-top icones-home" src="img/icon/metro_icon.png">
+                                    <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
                                     <span class="icone-info" id="qt_area">87m</span>
                                 </div>
                                     
                                 <div class="icon-dormitorios">
-                                    <img class="card-img-top icones-home" src="img/icon/cama_icon.png">
+                                    <img class="card-img-top icones-home" src="/img/icon/cama_icon.png">
                                     <span class="icone-info" id="qt_dormitorios">4 Vagas</span>
                                 </div>
                                     
                                 <div class="icon-area">
-                                    <img class="card-img-top icones-home" src="img/icon/metro_icon.png">
+                                    <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
                                     <span class="icone-info" id="qt_area">3 Banheiros</span>
                                 </div>
                             </div>

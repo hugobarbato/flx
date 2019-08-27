@@ -25,19 +25,19 @@
                                             <h5 class="flx-sub-title">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h5>
                                             <div class="icons inline">
                                                 <div class="icon-dormitorios">
-                                                    <img class="card-img-top icones-home" src="img/icon/cama_icon.png">
+                                                    <img class="card-img-top icones-home" src="/img/icon/cama_icon.png">
                                                     <span class="icone-info" id="qt_dormitorios">{{($imovel->qt_quartos?$imovel->qt_quartos:'-')}} Dorm(s).</span>
                                                 </div>
                                                 <div class="icon-area">
-                                                    <img class="card-img-top icones-home" src="img/icon/metro_icon.png">
+                                                    <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
                                                     <span class="icone-info" id="qt_area">{{($imovel->vl_area_total?$imovel->vl_area_total:'-')}} m²</span>
                                                 </div>
                                                 <div class="icon-area">
-                                                    <img class="card-img-top icones-home" src="img/icon/garagem_icon.png">
+                                                    <img class="card-img-top icones-home" src="/img/icon/garagem_icon.png">
                                                     <span class="icone-info" id="qt_area">{{($imovel->qt_vagas?$imovel->qt_vagas:'-')}} Vaga(s)</span>
                                                 </div>
                                                 <div class="icon-area">
-                                                    <img class="card-img-top icones-home" src="img/icon/banheiro_icon.png">
+                                                    <img class="card-img-top icones-home" src="/img/icon/banheiro_icon.png">
                                                     <span class="icone-info" id="qt_area">{{($imovel->qt_banheiro?$imovel->qt_banheiro:'-')}} Banheiro(s)</span>
                                                 </div>
                                             </div>

@@ -30,22 +30,22 @@
                                 
                                 <div class="icon-buscar-imovel">
                                     <div class="icon-dormitorios">
-                                        <img class="card-img-top icones-home" src="img/icon/cama_icon.png">
+                                        <img class="card-img-top icones-home" src="/img/icon/cama_icon.png">
                                         <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
                                     </div>
                                     
                                     <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="img/icon/metro_icon.png">
+                                        <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
                                         <span class="icone-info" id="qt_area">87m</span>
                                     </div>
                                         
                                     <div class="icon-dormitorios">
-                                        <img class="card-img-top icones-home" src="img/icon/garagem_icon.png">
+                                        <img class="card-img-top icones-home" src="/img/icon/garagem_icon.png">
                                         <span class="icone-info" id="qt_dormitorios">4 vagas</span>
                                     </div>
                                         
                                     <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="img/icon/banheiro_icon.png">
+                                        <img class="card-img-top icones-home" src="/img/icon/banheiro_icon.png">
                                         <span class="icone-info" id="qt_area">03 Banheiros</span>
                                     </div>
                                 </div>
@@ -84,22 +84,22 @@
                                 
                                 <div class="icon-buscar-imovel">
                                     <div class="icon-dormitorios">
-                                        <img class="card-img-top icones-home" src="img/icon/cama_icon.png">
+                                        <img class="card-img-top icones-home" src="/img/icon/cama_icon.png">
                                         <span class="icone-info" id="qt_dormitorios">3 Dorms.</span>
                                     </div>
                                     
                                     <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="img/icon/metro_icon.png">
+                                        <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
                                         <span class="icone-info" id="qt_area">87m</span>
                                     </div>
                                         
                                     <div class="icon-dormitorios">
-                                        <img class="card-img-top icones-home" src="img/icon/garagem_icon.png">
+                                        <img class="card-img-top icones-home" src="/img/icon/garagem_icon.png">
                                         <span class="icone-info" id="qt_dormitorios">4 vagas</span>
                                     </div>
                                         
                                     <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="img/icon/banheiro_icon.png">
+                                        <img class="card-img-top icones-home" src="/img/icon/banheiro_icon.png">
                                         <span class="icone-info" id="qt_area">03 Banheiros</span>
                                     </div>
                                 </div>
