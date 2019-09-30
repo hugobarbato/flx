@@ -50,6 +50,11 @@ Route::group(['prefix'=>'areas'],function(){
     Route::get('obter_html/{id}', 'AreasController@areas_html');
 });
 
+Route::group(['prefix'=>'admin'],function(){
+    Route::get('/', 'AdminController@index');
+});
+
+
 // Route::get('/initial', 'HomeController@index')->name('initial');
 // Route::get('/resultadoBuscar', 'HomeController@resultadoBuscar')->name('buscar');
 // Route::get('/resultadoDetalhes', 'HomeController@resultadoDetalhes')->name('detalhes');
