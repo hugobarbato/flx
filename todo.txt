@@ -1,0 +1,148 @@
+Boas Leo, 
+Segue:
+ 
+
+ 
+
+HOME PAGE 
+
+http://flx.brandmedia.com.br/home
+
+ 
+
+Na parte de “Lançamentos em Destaque” não deixar imóveis com o mesmo endereço um ao lado do outro
+-> Os imóveis estão em order aleatoria e radomica, assim não possuindo tal afiliação de endereço entre eles 
+
+Quem pagou destaque e super destaque, são os primeiros na listagem da busca
+-> Será feita um controle dos destaques do usuário com base no plano e destaques contratados, ainda não possuimos essa parte.
+
+No topo da home trocar o “login” por “Entrar” e transformar em botão, ao lado do botão de teste de 45 dias
+-> Ok feito
+
+Incluir 2 espaços para banners, um embaixo de destaques para venda e outro embaixo do destaque para lançamento (super banner)
+-> Não está no escopo.
+ 
+ 
+
+PÁGINA DE DETALHE DO IMÓVEL
+
+http://flx.brandmedia.com.br/detail/252
+
+ 
+
+- Nas miniaturas das fotos do imóvel, não colocar 2 linhas, mas sim fazer em forma carroussel
+-> dois carrousseis numa mesma pagina ficará extremamente pesado, coloquei ele com rolagem, mas ficou bem estranho.
+
+- Faltou áreas privativas, áreas comuns, detalhe do imóvel (ver demais informações de cadastro e puxar para página)
+-> coloquei as areas, não coloquei mais nada pois nao estava no layout enviado.
+
+- Barrinha do status (puxar para todos os imóveis) colocar independente do tipo de imóvel (lado direito da foto grande)
+
+
+- Diminuir tamanho da fonte do título do imóvel
+
+- Diminuir também “apartamento/venda” e o endereço 
+
+- Barrinha azul com o valor (diagramar melhor – eu vou montar a simulação e te mando)
+
+- Quando enviar uma mensagem pela página de detalhes, ver se da pra integrar com whatsapp para enviar um aviso
+
+- Diagramar melhor o quadro de “Contato” informações duplicados e talvez diminuir a fonte (eu monto um layout para referência)
+
+- Logo do anunciante na parte de “entre em contato” (puxar dos cadastros)
+
+ 
+
+ 
+
+ 
+
+PÁGINA DE LISTAGEM APÓS REALIZAR UMA BUSCA
+
+http://flx.brandmedia.com.br/search/sell
+
+ 
+
+- Dar destaque para o valor (aumentar a fonte e tirar o negrito)
+
+- Puxar logo do banco (já foram cadastrados)
+
+- Ao invés de 10 por página, colocar 20 resultados por página
+
+- Colocar o link que tem em “ver detalhes” também na foto
+
+ 
+
+ 
+
+PÁGINA DE ADESÃO/ESCOLHA DE PLANO
+
+http://flx.brandmedia.com.br/adesao
+
+ 
+
+- Plano ilimitado, fica 499,90
+
+- Tirar o quadro branco embaixo e incluir uma imagem para divulgar os banners publicitários
+
+- Centraliza o logo do Pagseguro e coloca tudo dentro de um retângulo e melhorar diagramação
+
+- Super Destaques
+
+                - 01 – 100,00
+
+                - 03 – 250,00
+
+                - 06 – 500,00
+
+                - 12 – 1.000,00
+
+ 
+
+ 
+
+_______________________________________________________-
+
+ 
+
+Outros itens:
+
+ 
+
+HOME – Destaque do imóvel
+
+• Está puxando área total e o correto é área útil
+
+• Idem na página de detalhe do imóvel, no ícone tem que ser área útil e não área total
+
+ 
+
+NA HOME - Listagem
+
+• No título verde do imóvel, tirar a palavras “venda” ou “lançamento”, etc........(Isso deve ficar somente na barra azul)
+
+• No quadradinho do imóvel da home, deixar em duas linhas (Bairro em uma linha e cidade na outra para não cortar)
+
+• Ainda no “quadradinho” colocar o logo ao lado dos ícones, igual Storia Imóveis
+
+• No quadradinho colocar um ícone embaixo do outro para ter mais espaço para o logo
+
+• Na home onde tem valor 0,00 trocar por sob consulta em bold
+
+• Colocar uma tag de status em cima das fotos de destaque, igual Viva Real .....
+
+• Colocar um coração para adicionar aos favoritos (igual imóvel web e storia).
+
+• Ao clicar no coração, abre tela para login igual imovelweb
+
+ 
+
+ 
+
+Na página interna 
+
+• Colocar ícone do whatsapp para chamar web
+
+• Pega o número de celular que o anunciante cadastrou
+
+• Incluir campo whatsapp no formulário de contato do imóvel

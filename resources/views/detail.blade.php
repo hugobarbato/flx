@@ -33,7 +33,8 @@
                                     <span class="sr-only">Next</span>
                                 </a>
                             </div>
-                            <div class="d-flex flex-wrap">
+                            <div class="scroll-imagem"> 
+                            <!-- d-flex flex-wrap -->
                                 @foreach($imovel->imagens as $id=>$img)
                                 <div class="small-img-controls" data-target="#detail_imovel_carousel"data-slide-to="{{$id}}" class="active">
                                     <img width="70" height="50" src="{{'/images/lg/'.$img->cd_imovel.'/'.$img->nm_link}}" onerror=' this.src = "/images/default.png"'>
@@ -48,6 +49,53 @@
                                             frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                                 </div>
                             </div>
+
+                        @if(count($AreasComuns))
+                            <div class="area-comuns mt-4" >
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <h4>áreas Comuns</h4> 
+                                </div>
+                            </div>
+                            <div id="AreasComunsChecks" class="form-row"> 
+                                @foreach( $AreasComuns as  $ac )
+                                    <div class="col-md-4">
+                                        <div> 
+                                            <i class="fa fa-circle"></i>
+                                            <label for="ac{{$ac->cd_areas_comuns}}" >
+                                                {{((ucwords($ac->nm_areas_comuns)))}}
+                                            </label> 
+                                        </div>
+                                    </div>
+                                @endforeach 
+                            </div>
+                        </div>
+                        @endif
+                        @if(count($AreasPrivativas))
+                        
+                        <div class="area-privativa"  >
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <h4>áreas Privativas</h4>
+                                    <input type="hidden" id="ds_areas_privativas" value="{{$imovel->ds_areas_privativas}}">
+                                </div>
+                            </div>
+                            
+                            <div id="AreasPrivativasChecks" class="form-row">
+                                @foreach($AreasPrivativas as $k=>$ap)
+                                    <div class="col-md-4">
+                                        <div> 
+                                            <i class="fa fa-circle"></i>
+                                            <label for="ap{{$ap->cd_areas_privativas}}" >
+                                                {{((ucwords($ap->nm_areas_privativas)))}}
+                                            </label> 
+                                        </div>
+                                    </div>
+                                @endforeach 
+                                
+                            </div>
+                        </div>
+                        @endif
 
                             
                         </div>
@@ -91,6 +139,26 @@
                                     </div>
                                 </div>
                                 <div class="dropdown-divider"></div> 
+                                <div class="status_bar">
+                                    <div class="line">
+                                        <label > BREVE LANÇAMENTO </label>
+                                        <div class="child"></div>
+                                    </div>
+                                    <div class="line">
+                                        <label > NA PLANTA </label>
+                                        <div class="child"></div>
+                                    </div>
+                                    <div class="line">
+                                        <label > EM CONSTRUÇÃO </label>
+                                        <div class="child"></div>
+                                    </div>
+                                    <div class="line">
+                                        <label > MUDE JÁ </label>
+                                        <div class="child"></div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div> 
+
                                 <div class="row">
                                     <div class="col">
                                     <div class="card"> 
@@ -143,4 +211,21 @@
 @endsection
 @section('styles')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">  
+<style>
+.scroll-imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: 100px;
+}
+
+.scroll-imagem div {
+    flex: 0 0 70px;
+}
+
+
+
+</style>
 @endsection

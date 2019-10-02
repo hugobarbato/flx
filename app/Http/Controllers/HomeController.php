@@ -69,21 +69,29 @@ class HomeController extends Controller
         if(!$imovel){
             return back();
         }
+
         if($imovel->cd_image_anunciante){
             $imovel->imagem_anunciante = ImagemImovel::where('cd_imagem', $imovel->cd_image_anunciante)->first();
         }
+
         $imovel->imagens = ImagemImovel::where('cd_imovel', $imovel->cd_imovel)->get();
+        $ap = explode(';', $imovel->ds_areas_privativas);
+        $ac = explode(';', $imovel->ds_areas_comuns);
             
-        $areas_privativas = AreasPrivativas::where('cd_categoria_imovel','=',$imovel->cd_categoria_imovel)->orderBy('nm_areas_privativas')->get();
-        $areas_comuns = AreasComuns::where('cd_categoria_imovel','=',$imovel->cd_categoria_imovel)->orderBy('nm_areas_comuns')->get();
+        $areas_privativas = AreasPrivativas::
+        //where('cd_categoria_imovel','=',$imovel->cd_categoria_imovel)
+        whereIn('cd_areas_privativas', $ap)->orderBy('nm_areas_privativas')->get();
+        $areas_comuns = AreasComuns::
+        //where('cd_categoria_imovel','=',$imovel->cd_categoria_imovel)
+        whereIn('cd_areas_comuns', $ac)->orderBy('nm_areas_comuns')->get();
 
         return view('detail',[
             'tipo_imovel'=>TipoImovel::get(),
             'tipo_anuncio'=>TipoAnuncio::get(),
             'tipo_anunciante'=>TipoAnunciante::get(),
             'categoria_imovel'=>CategoriaImovel::get(),
-            'areas_comuns'=> $areas_comuns,
-            'areas_privativas'=> $areas_privativas,
+            'AreasComuns'=> $areas_comuns,
+            'AreasPrivativas'=> $areas_privativas,
             'imovel'=>$imovel,
             'filter'=>$filter->first()
         ]);

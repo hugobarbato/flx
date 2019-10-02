@@ -15,43 +15,6 @@
                        <li class="nav-item {{ (request()->is('home')) ? 'active' : '' }}">
                             <a class="nav-link" href="/home">Home</a>
                         </li>
-                        @guest
-                            <li class="nav-item {{ (request()->is('login')) ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                        @else
-                            <li class="nav-item dropdown  {{ (request()->is('/imovel/adicionar')) || (request()->is('/imovel/listar')) ? 'active' : '' }}">
-                                <a id="imoveis" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" 
-                                aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Imóveis <span class="caret"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="imoveis">
-                                    <a class="dropdown-item {{ (request()->is('/imovel/adicionar')) ? 'active' : '' }}" href="{{ url('/imovel/adicionar') }}" >
-                                        Adicionar
-                                    </a>
-                                    <a class="dropdown-item {{ (request()->is('/imovel/listar')) ? 'active' : '' }}" href="{{ url('/imovel/listar') }}" >
-                                        Listar
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Sair
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
                         <li class="nav-item {{ (request()->is('search/rent')) ? 'active' : '' }}">
                             <a class="nav-link" href="/search/rent">Alugar</a>
                         </li>
@@ -69,12 +32,62 @@
                         <!--</li>-->
                         
                         
+                        @guest
+                            <li class="nav-item {{ (request()->is('login')) ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                            </li>
+                        @else
+                            <li class="nav-item dropdown  {{ (request()->is('/imovel/adicionar')) || (request()->is('/imovel/listar')) ? 'active' : '' }}">
+                                <a id="imoveis" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" 
+                                aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Imóveis <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="imoveis">
+                                    <a class="dropdown-item {{ (request()->is('/imovel/adicionar')) ? 'active' : '' }}" href="{{ url('/imovel/adicionar') }}" >
+                                        Adicionar
+                                    </a>
+                                    <a class="dropdown-item {{ (request()->is('/imovel/listar')) ? 'active' : '' }}" href="{{ url('/imovel/listar') }}" >
+                                        Listar
+                                    </a>
+                                </div>
+                            </li>
+                            @if( Auth::user()->is_admin)
+                            <li class="nav-item dropdown  {{ (request()->is('/admin')) || (request()->is('/admin')) ? 'active' : '' }}">
+                                <a id="imoveis" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" 
+                                aria-haspopup="true" aria-expanded="false" v-pre>
+                                    ADMIN <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="imoveis">
+                                    <a class="dropdown-item {{ (request()->is('/admin')) ? 'active' : '' }}" href="{{ url('/admin') }}" >
+                                        Acessar Painel ADM
+                                    </a>
+                                </div>
+                            </li>
+                            @endif
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                        Sair
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                         
                     </ul>
                 </div>
-            </nav> 
+            </nav>  
             <div class="nav-anuncio-gratis {{ (request()->is('adesao')) ? 'active' : '' }}">
-                 <a href="/adesao">Anuncie Grátis por 45 dias</a>
-            </div>
+                <a href="/adesao">Anuncie Grátis por 45 dias</a>
+            </div> 
         </div>
     </header>

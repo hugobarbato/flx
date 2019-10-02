@@ -16,7 +16,25 @@
     @yield('styles')
   </head>
   <body id="app">
-       
+  <header>
+        <div class="container-fluid menu-nav" style="background: #2357ac;">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="logo-flx">
+                    <a class="navbar-brand" href="#"><img src="{{url('img/logo.png')}}"> </a>
+                </div>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                    <span class="navbar-toggle-icon"></span>
+                </button>
+                
+                
+            </nav> 
+            <div class="rigth">
+                 <a href="/logout">Sair</a>
+            </div>
+        </div>
+    </header>
+ 
     
     @yield('content')
     
