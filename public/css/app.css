@@ -10749,6 +10749,20 @@ div#slider-range {
   background: #404040;
 }
 
+.dashBordTitulo {
+  font: size 30px;
+  color: #404040;
+}
+
+.dashbordFont {
+  color: lightseagreen;
+}
+
+.dashbordCard.dashbordFont :hover {
+  background-color: dodgerblue;
+  color: white;
+}
+
 @media (min-width: 768px) {
   #sidebar-wrapper {
     margin-left: 0;

@@ -23,49 +23,97 @@
 <!-- Page Content -->
 <div id="page-content-wrapper">
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-    <!-- <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button> -->
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="container-fluid fundoDashbord">
-    <div class="row">
-        <div class="col-4 dashbordCard">
-
-        </div>
-        <div class="col-4 ">
-            
-        </div>
-        <div class="col-4">
-            
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled</a>
     </div>
   </div>
+</nav>
+  <div class="container-fluid">
+    
+    <div class="row my-3">
+        <div class="col-xl-4">
+          <div class="card border border-info">
+            <div class="card-body">
+              <h5 class="card-title text-center">Anúncios Ativos</h5>
+              <h1 class="text-center dashbordFont">301</h1>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4">
+          <div class="card border border-info">
+            <div class="card-body ">
+              <h5 class="card-title text-center">Anúncios Ativos</h5>
+              <h1 class="text-center dashbordFont">301</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4">
+          <div class="card border border-info" >
+            <div class="card-body">
+              <h5 class="card-title text-center">Anúncios Ativos</h5>
+              <h1 class="text-center dashbordFont">301</h1>
+            </div>
+          </div>
+        </div>
+    </div>
+        <!-- <div class="col-3 dashbordCard mx-1">
+          <h4>Anúncios Ativos</h4>
+          <div class="mx-auto">301</div>
+        </div>
+        <div class="col-3 dashbordCard mx-1">
+          <h4>Anúncios Ativos</h4>
+          <div class="mx-auto">301</div>
+        </div>
+        <div class="col-3 dashbordCard mx-1">
+          <h4>Anúncios Ativos</h4>
+          <div class="mx-auto">301</div>
+        </div> -->
+    <div class="row my-5">
+      <div class="col-md-12">
+        <h3 class="text-center">Anúncios inserudis recentemente no site</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Título</th>
+              <th scope="col">Data Inserção</th>
+              <th scope="col">Pacote</th>
+              <th scope="col">Data Término</th>
+              <th scope="col">Teste</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Tatuape -  96m 3 dormitorios</th>
+              <td>11/11/1111</td>
+              <td>Semestral</td>
+              <td>22/22/2222</td>
+              <td>Não</td>
+              <td><i class="fas fa-bars"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+  <!-- <div class="container-fluid">
+  </div> -->
+    </div>
 </div>
 <!-- /#page-content-wrapper -->
 
