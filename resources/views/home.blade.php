@@ -21,12 +21,14 @@
                                     <a href="/detail/{{$imovel->cd_imovel}}" class="text-decoration-none text-dark"> 
                                         <div class="card">
                                             <div class="card-img-header">
+                                            @if($imovel->ic_status)
                                                 <span class="status_imovel"> 
                                                     @if($imovel->ic_status == '1' ) Breve Lançamento @endif
                                                     @if($imovel->ic_status == '2' ) Na Planta @endif
                                                     @if($imovel->ic_status == '3' ) Em Obras @endif
                                                     @if($imovel->ic_status == '4' ) Pronto @endif
                                                 </span>
+                                            @endif
                                                 <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
                                             </div>
                                             <div class="imovel-vl-home"> 
@@ -81,12 +83,14 @@
                                     <a href="/detail/{{$imovel->cd_imovel}}" class="text-decoration-none text-dark"> 
                                         <div class="card">
                                             <div class="card-img-header status_div">
+                                            @if($imovel->ic_status)
                                                 <span class="status_imovel"> 
                                                     @if($imovel->ic_status == '1' ) Breve Lançamento @endif
                                                     @if($imovel->ic_status == '2' ) Na Planta @endif
                                                     @if($imovel->ic_status == '3' ) Em Obras @endif
                                                     @if($imovel->ic_status == '4' ) Pronto @endif
                                                 </span>
+                                            @endif
                                                 <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
                                             </div>
                                             <div class="imovel-vl-home"> 
@@ -141,6 +145,14 @@
                                     <a href="/detail/{{$imovel->cd_imovel}}" class="text-decoration-none text-dark"> 
                                         <div class="card"> 
                                             <div class="card-img-header">
+                                            @if($imovel->ic_status)
+                                                <span class="status_imovel"> 
+                                                    @if($imovel->ic_status == '1' ) Breve Lançamento @endif
+                                                    @if($imovel->ic_status == '2' ) Na Planta @endif
+                                                    @if($imovel->ic_status == '3' ) Em Obras @endif
+                                                    @if($imovel->ic_status == '4' ) Pronto @endif
+                                                </span>
+                                            @endif
                                                 <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
                                             </div>
                                             <div class="imovel-vl-home">
