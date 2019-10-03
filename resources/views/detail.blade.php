@@ -100,7 +100,7 @@
                             
                         </div>
                         <div class="col-md-4">
-                                <h3>{{$imovel->nm_titulo}}</h3>
+                                <h4>{{$imovel->nm_titulo}}</h4>
                                 <h4 class="flx-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
                                 <h5 class="flx-sub-title">{{$imovel->nm_endereco}}, {{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h5>
                                 <div class="imovel-vl-home w-100"> @if($imovel->vl_imovel > 0) R$ {{number_format($imovel->vl_imovel,2,',','.')}} @else Sob Consulta. @endif</div>
@@ -127,7 +127,7 @@
                                     </div>
                                     <div class="icon-area">
                                         <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
-                                        <span class="icone-info text-muted" id="qt_area"><small>{{($imovel->vl_area_total?$imovel->vl_area_total:'-')}} m²</small></span>
+                                        <span class="icone-info text-muted" id="qt_area"><small>{{($imovel->vl_area_util?$imovel->vl_area_util:'-')}} m²</small></span>
                                     </div>
                                     <div class="icon-area">
                                         <img class="card-img-top icones-home" src="/img/icon/garagem_icon.png">
@@ -140,20 +140,24 @@
                                 </div>
                                 <div class="dropdown-divider"></div> 
                                 <div class="status_bar">
-                                    <div class="line">
-                                        <label > BREVE LANÇAMENTO </label>
+                                    <div class="line @if($imovel->ic_status>=1) active @endif">
+                                        <label > B/ LANÇAMENTO   </label>
+                                        <div class="line-active first"></div>
                                         <div class="child"></div>
                                     </div>
-                                    <div class="line">
+                                    <div class="line @if($imovel->ic_status>=2) active @endif">
                                         <label > NA PLANTA </label>
+                                        <div class="line-active"></div>
                                         <div class="child"></div>
                                     </div>
-                                    <div class="line">
+                                    <div class="line @if($imovel->ic_status>=3) active @endif">
                                         <label > EM CONSTRUÇÃO </label>
+                                        <div class="line-active"></div>
                                         <div class="child"></div>
                                     </div>
-                                    <div class="line">
+                                    <div class="line @if($imovel->ic_status>=4) active @endif">
                                         <label > MUDE JÁ </label>
+                                        <div class="line-active last"></div>
                                         <div class="child"></div>
                                     </div>
                                 </div>
@@ -190,6 +194,12 @@
                                                 <h5 class="my-2"><a href="tel:" class="flx-sub-title m-auto d-block text-center"> OU LIGUE: (11) 8888-9999 </a></h5>
                                             </form>   
                                             <small>Ao enviar você concorda com os <a href="#">Termos de Uso</a> do site e recebimento de sugestões de imóveis.</small>
+                                            @if($imovel->imagem_anunciante)
+                                            <div class="anunciante">
+                                                <h4 class="text-center m-4 ">Anúncio por:</h4>
+                                                <img src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante->nm_link}}" alt=" Logo do Anunciante">
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -226,6 +236,76 @@
 }
 
 
+.status_bar {
+    font-size: 9px;
+    color: #969696;
+    display: flex;
+    width: 100%;
+    text-align: center;
+}
 
+.status_bar .line {
+    border-bottom: 1px solid;
+    flex: 1;
+    position: relative;
+}
+
+.line .child {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: #e6e6e6;
+    border-radius: 50%;
+    bottom: -4px;
+    right: calc(50% - 10px);
+    z-index: 2;
+}
+.line.active label{
+    color: #000;
+}
+.line.active .child {
+    background: #000;
+}
+.line-active{
+    display:none;
+}
+.line.active 
+.line-active{
+    display:inherit;
+    
+}
+
+.line-active {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #000;
+    margin-left: -50%;
+    z-index: 1;
+}
+
+.line-active.first {
+    width: 50%;
+    margin: 0;
+}
+
+.line-active.last {
+    width: 150%;
+}
+.flx-title{
+    font-size:19px
+}
+.flx-sub-title{
+    font-size:17px
+}
+.imovel-vl-home{
+    font-weight:900;
+    font-size:20px
+}
+.anunciante img {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
 </style>
 @endsection

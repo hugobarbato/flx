@@ -17,7 +17,7 @@
                             <div class="card mb-3 search-card-imovel" >
                                 <div class="row no-gutters">
                                     <div class="col-md-4 img-search-card-imovel">
-                                        <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
+                                    <a href="/detail/{{$imovel->cd_imovel}}"> <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'></a>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -25,7 +25,7 @@
                                             <h5 class="flx-sub-title">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h5>
                                             <div class="icons inline">
                                                 <div class="icon-dormitorios">
-                                                    <img class="card-img-top icones-home" src="/img/icon/cama_icon.png">
+                                                 <img class="card-img-top icones-home" src="/img/icon/cama_icon.png"> 
                                                     <span class="icone-info" id="qt_dormitorios">{{($imovel->qt_quartos?$imovel->qt_quartos:'-')}} Dorm(s).</span>
                                                 </div>
                                                 <div class="icon-area">
@@ -74,4 +74,10 @@
 @endsection
 @section('styles')
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">  
+<style>
+.search-card-imovel .value-search {
+    font-size: 25px;
+    font-weight: inherit;
+}
+    </style>
 @endsection

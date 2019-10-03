@@ -28,20 +28,29 @@ class HomeController extends Controller
     {
         $filter = Imovel::selectRaw("MAX(vl_imovel) as max_value, Min(vl_imovel) as min_value")->first();
         $imoveis_venda = Imovel::
-        select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio', DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel and i.deleted_at is null limit 1 ) as nm_link"))
+        select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio',
+            DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel and i.deleted_at is null limit 1 ) as nm_link"),
+            DB::raw("( SELECT nm_link_sm FROM tb_imagem a where tb_imovel.cd_image_anunciante = a.cd_imagem and a.deleted_at is null limit 1 ) as imagem_anunciante_nm_link")
+             
+        )
         ->whereIn('tb_imovel.cd_tipo_anuncio',[1,4,6])->limit(4)
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio')
         ->inRandomOrder()->get();
         $imoveis_aluguel = Imovel::
-        select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio', DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel and i.deleted_at is null limit 1 ) as nm_link"))
+        select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio',
+             DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel and i.deleted_at is null limit 1 ) as nm_link"),
+             DB::raw("( SELECT nm_link_sm FROM tb_imagem a where tb_imovel.cd_image_anunciante = a.cd_imagem and a.deleted_at is null limit 1 ) as imagem_anunciante_nm_link")
+        )
         ->whereIn('tb_imovel.cd_tipo_anuncio',[2,5])->limit(4)
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio')
         ->inRandomOrder()->get();
         $imoveis_lancamentos = Imovel::
-        select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio', DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel and i.deleted_at is null limit 1 ) as nm_link"))
-        ->whereIn('tb_imovel.cd_tipo_anuncio',[3])->limit(4)
+        select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio',
+             DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel and i.deleted_at is null limit 1 ) as nm_link"),
+             DB::raw("( SELECT nm_link_sm FROM tb_imagem a where tb_imovel.cd_image_anunciante = a.cd_imagem and a.deleted_at is null limit 1 ) as imagem_anunciante_nm_link")
+        )->whereIn('tb_imovel.cd_tipo_anuncio',[3])->limit(4)
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio')
         ->inRandomOrder()->get();
@@ -236,7 +245,7 @@ class HomeController extends Controller
             'tipo_anuncio'=>TipoAnuncio::get(),
             'tipo_anunciante'=>TipoAnunciante::get(),
             'categoria_imovel'=>CategoriaImovel::get(),
-            'imoveis'=> $imoveis->inRandomOrder()->paginate(10),
+            'imoveis'=> $imoveis->inRandomOrder()->paginate(20),
             'old_values'=>$inputs,
             'filter'=>$filter->first()
         ]);

@@ -101,7 +101,7 @@
                                 <div class="card">
                                     <h4 class="card-header">plano ilimitado</h4>
                                     <div class="card-body">
-                                        <p><span class="vl-anuncio">R$ 399,90</span> / mês</p>
+                                        <p><span class="vl-anuncio">R$ 499,90</span> / mês</p>
                                         <div class="detalhes-planos">
                                             <p><span class="qt-anuncios">anúncios ilimitados</span></p>
                                             <p>inclui 50 destaques</p>
@@ -130,22 +130,22 @@
                                 <div class="destaque-anuncio-info">
                                     
                                      <div>
-                                        <input type="checkbox" id="scales" name="scales" checked>
+                                        <input type="radio" name="scales" checked>
                                         <label for="scales">Compre 10 destaques - R$100,00 </label>
                                     </div>
                                     
                                     <div>
-                                        <input type="checkbox" id="scales" name="scales">
+                                        <input type="radio" name="scales">
                                         <label for="scales">Compre 25 destaques - R$200,00</label>
                                     </div>
                                     
                                     <div>
-                                        <input type="checkbox" id="scales" name="scales">
+                                        <input type="radio" name="scales">
                                         <label for="scales">Compre 50 destaques - R$350,00</label>
                                     </div>
                                     
                                     <div>
-                                        <input type="checkbox" id="scales" name="scales">
+                                        <input type="radio" name="scales">
                                         <label for="scales">Compre 100 destaques - R$600,00</label>
                                     </div> 
                         
@@ -158,22 +158,22 @@
                                 <div class="destaque-anuncio-info">
                                     
                                     <div>
-                                        <input type="checkbox" id="scales" name="scales" checked>
-                                        <label for="scales">Compre 01 destaque - R$200,00 </label>
+                                        <input type="radio" name="scalesSuper" checked>
+                                        <label for="scales">Compre 01 destaque - R$100,00 </label>
                                     </div>
                                     
                                     <div>
-                                        <input type="checkbox" id="scales" name="scales">
-                                        <label for="scales">Compre 03 destaques - R$500,00</label>
+                                        <input type="radio" name="scalesSuper">
+                                        <label for="scales">Compre 03 destaques - R$250,00</label>
                                     </div>
                                     
                                     <div>
-                                        <input type="checkbox" id="scales" name="scales">
-                                        <label for="scales">Compre 06 destaques - R$1.000,00</label>
+                                        <input type="radio" name="scalesSuper">
+                                        <label for="scales">Compre 06 destaques - R$500,00</label>
                                     </div>
                                     
                                     <div>
-                                        <input type="checkbox" id="scales" name="scales">
+                                        <input type="radio" name="scalesSuper">
                                         <label for="scales">Compre 12 destaques - R$1.000,00</label>
                                     </div> 
                                 </div>
@@ -181,11 +181,11 @@
                         </div>
                     </div>
                     
-                     <div class="row">
+                     <!-- <div class="row">
                         <div class="col-md-12">
                             <textarea class="destaque-anuncio-detalhe"></textarea>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="destaque-anuncio">
                     <div class="row">
@@ -210,10 +210,8 @@
                     
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="pagamento-icon">
-                                <a href=""> 
-                                    <img class="img-pagseguro-adesao" src="img/pagseguro.jpg">
-                                </a>
+                            <div class="pagamento-icon pagseguro-card"> 
+                                    <img class="img-pagseguro-adesao" src="img/pagseguro.jpg"> 
                             </div>
                         </div>
                     </div>
@@ -228,4 +226,16 @@
 @endsection
 @section('scripts')
 <script type="text/javascript" src="{{ asset('js/imob.js') }}"></script>
+
+@endsection
+@section('styles')
+<style>
+.pagseguro-card{
+    display: block;
+    margin: auto;
+    height: fit-content;
+    margin-bottom: 50px;
+    width: fit-content;
+}
+</style>
 @endsection

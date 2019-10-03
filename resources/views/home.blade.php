@@ -21,12 +21,26 @@
                                     <a href="/detail/{{$imovel->cd_imovel}}" class="text-decoration-none text-dark"> 
                                         <div class="card">
                                             <div class="card-img-header">
+                                                <span class="status_imovel"> 
+                                                    @if($imovel->ic_status == '1' ) Breve Lançamento @endif
+                                                    @if($imovel->ic_status == '2' ) Na Planta @endif
+                                                    @if($imovel->ic_status == '3' ) Em Obras @endif
+                                                    @if($imovel->ic_status == '4' ) Pronto @endif
+                                                </span>
                                                 <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
                                             </div>
-                                            <div class="imovel-vl-home">R$ {{number_format($imovel->vl_imovel,2,',','.')}}</div>
+                                            <div class="imovel-vl-home"> 
+                                                @if($imovel->vl_imovel>0)
+                                                    R$ {{number_format($imovel->vl_imovel,2,',','.')}}
+                                                @else
+                                                    <span class=" font-weight-bold">Sob Consulta</span>
+                                                @endif
+                                            </div>
                                             <div class="card-body">
-                                                <h4 class="card-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
-                                                <h6 class="card-subtitle mb-2 text-muted">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h6>
+                                                <h4 class="card-title">{{$imovel->nm_tipo_imovel}}</h4>
+                                                 <!-- /{{$imovel->nm_tipo_anuncio}} -->
+                                                <h6 class="card-subtitle mb-2 text-muted">{{$imovel->nm_bairro}}</h6>
+                                                <h6 class="card-subtitle mb-2 text-muted">  {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h6>
                                                 <!--<p class="card-text">Conteudo do card</p>-->
                                             </div>
                                             <div class="card-body icones-card">    
@@ -37,7 +51,10 @@
                                                 
                                                 <div class="icon-area">
                                                     <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
-                                                    <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
+                                                    <span class="icone-info" id="qt_area">{{$imovel->vl_area_util}}m²</span>
+                                                </div>
+                                                <div class="icon-area">
+                                                    <img src="{{'/images/sm/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante_nm_link}}" height="50" alt=" Logo do Anunciante">
                                                 </div>
                                             </div>
                                         </div>
@@ -63,10 +80,22 @@
                                 <div class="col-md-3">
                                     <a href="/detail/{{$imovel->cd_imovel}}" class="text-decoration-none text-dark"> 
                                         <div class="card">
-                                            <div class="card-img-header">
+                                            <div class="card-img-header status_div">
+                                                <span class="status_imovel"> 
+                                                    @if($imovel->ic_status == '1' ) Breve Lançamento @endif
+                                                    @if($imovel->ic_status == '2' ) Na Planta @endif
+                                                    @if($imovel->ic_status == '3' ) Em Obras @endif
+                                                    @if($imovel->ic_status == '4' ) Pronto @endif
+                                                </span>
                                                 <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
                                             </div>
-                                            <div class="imovel-vl-home">R$ {{number_format($imovel->vl_imovel,2,',','.')}}</div>
+                                            <div class="imovel-vl-home"> 
+                                                @if($imovel->vl_imovel>0)
+                                                    R$ {{number_format($imovel->vl_imovel,2,',','.')}}
+                                                @else
+                                                    <span class=" font-weight-bold">Sob Consulta</span>
+                                                @endif
+                                            </div>
                                             <div class="card-body">
                                                 <h4 class="card-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
                                                 <h6 class="card-subtitle mb-2 text-muted">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h6>
@@ -81,6 +110,9 @@
                                                 <div class="icon-area">
                                                     <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
                                                     <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
+                                                </div>
+                                                <div class="icon-area">
+                                                    <img src="{{'/images/sm/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante_nm_link}}" height="50" alt=" Logo do Anunciante">
                                                 </div>
                                             </div>
                                         </div>
@@ -111,7 +143,13 @@
                                             <div class="card-img-header">
                                                 <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
                                             </div>
-                                            <div class="imovel-vl-home">R$ {{number_format($imovel->vl_imovel,2,',','.')}}</div>
+                                            <div class="imovel-vl-home">
+                                                @if($imovel->vl_imovel>0)
+                                                    R$ {{number_format($imovel->vl_imovel,2,',','.')}}
+                                                @else
+                                                    <span class=" font-weight-bold">Sob Consulta</span>
+                                                @endif
+                                            </div>
                                             <div class="card-body">
                                                 <h4 class="card-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
                                                 <h6 class="card-subtitle mb-2 text-muted">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h6>
@@ -126,6 +164,9 @@
                                                 <div class="icon-area">
                                                     <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
                                                     <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
+                                                </div>
+                                                <div class="icon-area">
+                                                    <img src="{{'/images/sm/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante_nm_link}}" height="50" alt=" Logo do Anunciante">
                                                 </div>
                                             </div>
                                         </div>
@@ -159,5 +200,19 @@
     .card {
         height: 420px;
     }
+    .card-body.icones-card { 
+        width: 100%;
+    }
+
+    .status_imovel {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: #2356ab;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+}
 </style>
 @endsection

@@ -37,19 +37,26 @@ http://flx.brandmedia.com.br/detail/252
 -> coloquei as areas, não coloquei mais nada pois nao estava no layout enviado.
 
 - Barrinha do status (puxar para todos os imóveis) colocar independente do tipo de imóvel (lado direito da foto grande)
-
+-> feito
 
 - Diminuir tamanho da fonte do título do imóvel
+-> feito
 
 - Diminuir também “apartamento/venda” e o endereço 
+-> feito
 
 - Barrinha azul com o valor (diagramar melhor – eu vou montar a simulação e te mando)
+-> feito
 
 - Quando enviar uma mensagem pela página de detalhes, ver se da pra integrar com whatsapp para enviar um aviso
+-> Fora do escopo integração com WPP. Este contato irá ser enviado a um e-mail da flx. 
 
 - Diagramar melhor o quadro de “Contato” informações duplicados e talvez diminuir a fonte (eu monto um layout para referência)
+-> Defina melhor, pois não há informações duplicadas, está conforme solicitado nas telas.
 
 - Logo do anunciante na parte de “entre em contato” (puxar dos cadastros)
+-> feito
+
 
  
 
@@ -64,12 +71,16 @@ http://flx.brandmedia.com.br/search/sell
  
 
 - Dar destaque para o valor (aumentar a fonte e tirar o negrito)
+-> feito
 
 - Puxar logo do banco (já foram cadastrados)
+-> Não entendi ? Está puxando a primeira imagem do imovel, onde seria colocado o logo? que logo? não tem espaço para isso.
 
-- Ao invés de 10 por página, colocar 20 resultados por página
+- Ao invés de 10 por página, colocar 20 resultados por página 
+-> feito
 
 - Colocar o link que tem em “ver detalhes” também na foto
+-> feito
 
  
 
@@ -80,12 +91,14 @@ PÁGINA DE ADESÃO/ESCOLHA DE PLANO
 http://flx.brandmedia.com.br/adesao
 
  
-
-- Plano ilimitado, fica 499,90
+- Plano ilimitado, fica 499,90 
+-> Ajustado
 
 - Tirar o quadro branco embaixo e incluir uma imagem para divulgar os banners publicitários
+-> Retirei o campo mas não adicionei banners pois está fora do escopo inicial, podemos adicionar futuramente!
 
 - Centraliza o logo do Pagseguro e coloca tudo dentro de um retângulo e melhorar diagramação
+-> Centralizei mas como é um botão não tive como colocar num quadrado.
 
 - Super Destaques
 
@@ -96,7 +109,7 @@ http://flx.brandmedia.com.br/adesao
                 - 06 – 500,00
 
                 - 12 – 1.000,00
-
+-> feito
  
 
  
@@ -112,28 +125,38 @@ Outros itens:
 HOME – Destaque do imóvel
 
 • Está puxando área total e o correto é área útil
+-> feito
 
 • Idem na página de detalhe do imóvel, no ícone tem que ser área útil e não área total
+-> feito
 
  
 
 NA HOME - Listagem
 
 • No título verde do imóvel, tirar a palavras “venda” ou “lançamento”, etc........(Isso deve ficar somente na barra azul)
+-> feito
 
 • No quadradinho do imóvel da home, deixar em duas linhas (Bairro em uma linha e cidade na outra para não cortar)
+-> feito
 
 • Ainda no “quadradinho” colocar o logo ao lado dos ícones, igual Storia Imóveis
+-> feito
 
 • No quadradinho colocar um ícone embaixo do outro para ter mais espaço para o logo
+-> Não achei bem necessário e ficaria bem estranho!
 
 • Na home onde tem valor 0,00 trocar por sob consulta em bold
+-> feito
 
 • Colocar uma tag de status em cima das fotos de destaque, igual Viva Real .....
+-> feito
 
 • Colocar um coração para adicionar aos favoritos (igual imóvel web e storia).
+-> Fora do escopo, iremos pensar nisso mais para frente.
 
 • Ao clicar no coração, abre tela para login igual imovelweb
+-> Fora do escopo, iremos pensar nisso mais para frente.
 
  
 
@@ -142,7 +165,10 @@ NA HOME - Listagem
 Na página interna 
 
 • Colocar ícone do whatsapp para chamar web
+-> Fora do escopo, iremos pensar nisso mais para frente.
 
 • Pega o número de celular que o anunciante cadastrou
+-> Fora do escopo, iremos pensar nisso mais para frente.
 
 • Incluir campo whatsapp no formulário de contato do imóvel
+-> Não entendi.

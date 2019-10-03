@@ -129,7 +129,7 @@ window.onload = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp7\htdocs\FLX\resources\js\auth.js */"./resources/js/auth.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\projectflex\flx\resources\js\auth.js */"./resources/js/auth.js");
 
 
 /***/ })
