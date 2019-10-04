@@ -29,7 +29,7 @@
                                                     @if($imovel->ic_status == '4' ) Pronto @endif
                                                 </span>
                                             @endif
-                                                <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
+                                                <img class="card-img-top" src="{{env('APP_URL').'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
                                             </div>
                                             <div class="imovel-vl-home"> 
                                                 @if($imovel->vl_imovel>0)
@@ -56,7 +56,7 @@
                                                     <span class="icone-info" id="qt_area">{{$imovel->vl_area_util}}m²</span>
                                                 </div>
                                                 <div class="icon-area">
-                                                    <img src="{{'/images/sm/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante_nm_link}}" height="50" alt=" Logo do Anunciante">
+                                                    <img src="{{env('APP_URL').'/images/sm/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante_nm_link}}" height="50" alt=" Logo do Anunciante">
                                                 </div>
                                             </div>
                                         </div>
@@ -91,7 +91,7 @@
                                                     @if($imovel->ic_status == '4' ) Pronto @endif
                                                 </span>
                                             @endif
-                                                <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
+                                                <img class="card-img-top" src="{{env('APP_URL').'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
                                             </div>
                                             <div class="imovel-vl-home"> 
                                                 @if($imovel->vl_imovel>0)
@@ -116,7 +116,7 @@
                                                     <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
                                                 </div>
                                                 <div class="icon-area">
-                                                    <img src="{{'/images/sm/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante_nm_link}}" height="50" alt=" Logo do Anunciante">
+                                                    <img src="{{env('APP_URL').'/images/sm/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante_nm_link}}" height="50" alt=" Logo do Anunciante">
                                                 </div>
                                             </div>
                                         </div>
@@ -153,7 +153,7 @@
                                                     @if($imovel->ic_status == '4' ) Pronto @endif
                                                 </span>
                                             @endif
-                                                <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
+                                                <img class="card-img-top" src="{{env('APP_URL').'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'>
                                             </div>
                                             <div class="imovel-vl-home">
                                                 @if($imovel->vl_imovel>0)
@@ -178,7 +178,7 @@
                                                     <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
                                                 </div>
                                                 <div class="icon-area">
-                                                    <img src="{{'/images/sm/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante_nm_link}}" height="50" alt=" Logo do Anunciante">
+                                                    <img src="{{env('APP_URL').'/images/sm/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante_nm_link}}" height="50" alt=" Logo do Anunciante">
                                                 </div>
                                             </div>
                                         </div>

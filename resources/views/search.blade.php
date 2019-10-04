@@ -17,7 +17,7 @@
                             <div class="card mb-3 search-card-imovel" >
                                 <div class="row no-gutters">
                                     <div class="col-md-4 img-search-card-imovel">
-                                    <a href="/detail/{{$imovel->cd_imovel}}"> <img class="card-img-top" src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'></a>
+                                    <a href="/detail/{{$imovel->cd_imovel}}"> <img class="card-img-top" src="{{env('APP_URL').'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'></a>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">

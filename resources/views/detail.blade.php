@@ -20,7 +20,7 @@
                                 <div class="carousel-inner">
                                     @foreach($imovel->imagens as $k=>$img)
                                     <div class="detail-image-carousel carousel-item @if($k==0) active @endif " >
-                                        <img class="card-img-top" src="{{'/images/lg/'.$img->cd_imovel.'/'.$img->nm_link}}" onerror=' this.src = "/images/default.png"'>
+                                        <img class="card-img-top" src="{{env('APP_URL').'/images/lg/'.$img->cd_imovel.'/'.$img->nm_link}}" onerror=' this.src = "/images/default.png"'>
                                     </div>
                                     @endforeach
                                 </div>
@@ -37,7 +37,7 @@
                             <!-- d-flex flex-wrap -->
                                 @foreach($imovel->imagens as $id=>$img)
                                 <div class="small-img-controls" data-target="#detail_imovel_carousel"data-slide-to="{{$id}}" class="active">
-                                    <img width="70" height="50" src="{{'/images/lg/'.$img->cd_imovel.'/'.$img->nm_link}}" onerror=' this.src = "/images/default.png"'>
+                                    <img width="70" height="50" src="{{env('APP_URL').'/images/lg/'.$img->cd_imovel.'/'.$img->nm_link}}" onerror=' this.src = "/images/default.png"'>
                                 </div>
                                 @endforeach
                             </div>
@@ -197,7 +197,7 @@
                                             @if($imovel->imagem_anunciante)
                                             <div class="anunciante">
                                                 <h4 class="text-center m-4 ">Anúncio por:</h4>
-                                                <img src="{{'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante->nm_link}}" alt=" Logo do Anunciante">
+                                                <img src="{{env('APP_URL').'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante->nm_link}}" alt=" Logo do Anunciante">
                                             </div>
                                             @endif
                                         </div>
