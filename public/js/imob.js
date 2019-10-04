@@ -262,7 +262,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\projectflex\flx\resources\js\imob.js */"./resources/js/imob.js");
+module.exports = __webpack_require__(/*! C:\xampp7\htdocs\HUGO\p_flx\resources\js\imob.js */"./resources/js/imob.js");
 
 
 /***/ })

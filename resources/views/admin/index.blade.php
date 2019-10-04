@@ -3,8 +3,6 @@
 @section('title','Admin')
 
 @section('content')
- 
-
 <div class="container-fluid">
   <div class="col-12"></div>
   <div class="row my-3 dashboard-cards">
@@ -12,7 +10,7 @@
         <div class="card border mb-2">
           <div class="card-body">
             <h5 class="card-title text-center dash-cont-font-title">Anúncios Ativos</h5>
-            <h1 class="text-center dashbordFont dash-cont-font">301</h1>
+            <h1 class="text-center dashbordFont dash-cont-font">{{$dash->ativos}}</h1>
             
           </div>
         </div>
@@ -21,7 +19,7 @@
         <div class="card border mb-2">
           <div class="card-body ">
             <h5 class="card-title text-center dash-cont-font-title">Anúncios Inativos</h5>
-            <h1 class="text-center dashbordFont dash-cont-font">120</h1>
+            <h1 class="text-center dashbordFont dash-cont-font">{{$dash->inativos}}</h1>
           </div>
         </div>
       </div>
@@ -29,7 +27,7 @@
         <div class="card border mb-2" >
           <div class="card-body">
             <h5 class="card-title text-center dash-cont-font-title">Em período de teste</h5>
-            <h1 class="text-center dashbordFont dash-cont-font">98</h1>
+            <h1 class="text-center dashbordFont dash-cont-font">{{$dash->teste}}</h1>
           </div>
         </div>
       </div>
@@ -92,5 +90,5 @@
 @endsection
 
 @section('styles')
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">]
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 @endsection

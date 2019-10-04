@@ -37,71 +37,70 @@
         </div>
     </header>
  
-<div class="d-flex" id="wrapper">
-
-<!-- Sidebar -->
-<div class="bg-dark border-right" id="sidebar-wrapper">
-  <div class="sidebar-heading fontMenu">
-    <div class="row">
-      <div class="col-5">
-        <img src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" alt="USER" class="rounded-circle user-img ">
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-dark border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading fontMenu">
+        <div class="row">
+          <div class="col-5">
+            <img src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" alt="USER" class="rounded-circle user-img ">
+          </div>
+          <div class="col-7 font-user-card">
+            <h3> {{   Auth::user()->name }} </h3>
+            <h4> Usuário administrador </h4>
+          </div>
+        </div>
       </div>
-      <div class="col-7 font-user-card">
-        <h3> {{   Auth::user()->name }} </h3>
-        <h4> Usuário administrador </h4>
+      <div class="divider-line"></div>
+      <div class="list-group list-group-flush w-100">
+        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+          <i class="fas fa-tachometer-alt"></i>
+          <span class="ml-2">  Anúncios Ativos</span> 
+          <i class="fas fa-chevron-right float-right mt-1"></i>  
+        </a>
+        <div class="divider-line"></div>
+        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+          <i class="fas fa-globe"></i>
+          <span class="ml-2">  Anúncios Inativos</span>
+          <i class="fas fa-chevron-right float-right mt-1"></i>
+        </a>
+        <div class="divider-line"></div>
+        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+          <i class="far fa-calendar-alt"></i>
+          <span class="ml-2">  Em periodo de teste</span>
+          <i class="fas fa-chevron-right float-right mt-1"></i>
+        </a>
+        <div class="divider-line"></div>
+        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+          <i class="fas fa-box-open"></i>
+          <span class="ml-2">  Gerenciar Pacotes</span> 
+          <i class="fas fa-chevron-right float-right mt-1"></i>
+        </a>
+        <div class="divider-line"></div>
+        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+          <i class="fas fa-ticket-alt"></i> 
+          <span class="ml-2"> Gerenciar Cupons </span> 
+          <i class="fas fa-chevron-right float-right mt-1"></i>
+        </a>
+        <div class="divider-line"></div>
+        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+          <i class="fas fa-university"></i>
+          <span class="ml-2">  Textos institucionais</span> 
+          <i class="fas fa-chevron-right float-right mt-1"></i>
+        </a>
       </div>
     </div>
-  </div>
-  <div class="divider-line"></div>
-  <div class="list-group list-group-flush w-100">
-    <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
-      <i class="fas fa-tachometer-alt"></i>
-      <span class="ml-2">  Anúncios Ativos</span> 
-      <i class="fas fa-chevron-right float-right mt-1"></i>  
-    </a>
-    <div class="divider-line"></div>
-    <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
-      <i class="fas fa-globe"></i>
-      <span class="ml-2">  Anúncios Inativos</span>
-      <i class="fas fa-chevron-right float-right mt-1"></i>
-    </a>
-    <div class="divider-line"></div>
-    <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
-      <i class="far fa-calendar-alt"></i>
-      <span class="ml-2">  Em periodo de teste</span>
-       <i class="fas fa-chevron-right float-right mt-1"></i>
-    </a>
-    <div class="divider-line"></div>
-    <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
-      <i class="fas fa-box-open"></i>
-      <span class="ml-2">  Gerenciar Pacotes</span> 
-      <i class="fas fa-chevron-right float-right mt-1"></i>
-    </a>
-    <div class="divider-line"></div>
-    <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
-      <i class="fas fa-ticket-alt"></i> 
-      <span class="ml-2"> Gerenciar Cupons </span> 
-      <i class="fas fa-chevron-right float-right mt-1"></i>
-    </a>
-    <div class="divider-line"></div>
-    <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
-      <i class="fas fa-university"></i>
-      <span class="ml-2">  Textos institucionais</span> 
-      <i class="fas fa-chevron-right float-right mt-1"></i>
-    </a>
-  </div>
-</div>
-<!-- /#sidebar-wrapper -->
+    <!-- /#sidebar-wrapper -->
 
-<!-- Page Content -->
-  <div id="page-content-wrapper" >
-    @yield('content') 
-  </div>
-</div>
-<!-- /#page-content-wrapper -->
+    <!-- Page Content -->
+      <div id="page-content-wrapper" >
+        @yield('content') 
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
 
-</div>
-    
+  </div>
+      
     
      
         

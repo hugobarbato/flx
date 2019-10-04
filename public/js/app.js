@@ -45204,8 +45204,8 @@ var $via_cep = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\projectflex\flx\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\projectflex\flx\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp7\htdocs\HUGO\p_flx\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp7\htdocs\HUGO\p_flx\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
