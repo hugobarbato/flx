@@ -53,39 +53,45 @@
       </div>
       <div class="divider-line"></div>
       <div class="list-group list-group-flush w-100">
-        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+        <a href="{{url('').'/admin/anuncios/ativos'}}" class="list-group-item list-group-item-action bg-dark fontMenu">
           <i class="fas fa-tachometer-alt"></i>
           <span class="ml-2">  Anúncios Ativos</span> 
           <i class="fas fa-chevron-right float-right mt-1"></i>  
         </a>
         <div class="divider-line"></div>
-        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+        <a href="{{url('').'/admin/anuncios/inativos'}}" class="list-group-item list-group-item-action bg-dark fontMenu">
           <i class="fas fa-globe"></i>
           <span class="ml-2">  Anúncios Inativos</span>
           <i class="fas fa-chevron-right float-right mt-1"></i>
         </a>
         <div class="divider-line"></div>
-        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+        <a href="{{url('').'/admin/anuncios/teste'}}" class="list-group-item list-group-item-action bg-dark fontMenu">
           <i class="far fa-calendar-alt"></i>
           <span class="ml-2">  Em periodo de teste</span>
           <i class="fas fa-chevron-right float-right mt-1"></i>
         </a>
         <div class="divider-line"></div>
-        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+        <a href="{{url('').'/admin/pacotes'}}" class="list-group-item list-group-item-action bg-dark fontMenu">
           <i class="fas fa-box-open"></i>
           <span class="ml-2">  Gerenciar Pacotes</span> 
           <i class="fas fa-chevron-right float-right mt-1"></i>
         </a>
-        <div class="divider-line"></div>
-        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+        <!-- <div class="divider-line"></div> -->
+        <!-- <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
           <i class="fas fa-ticket-alt"></i> 
           <span class="ml-2"> Gerenciar Cupons </span> 
+          <i class="fas fa-chevron-right float-right mt-1"></i>
+        </a> -->
+        <div class="divider-line"></div>
+        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+          <i class="fas fa-university"></i>
+          <span class="ml-2"> Áreas Privativas </span> 
           <i class="fas fa-chevron-right float-right mt-1"></i>
         </a>
         <div class="divider-line"></div>
         <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
           <i class="fas fa-university"></i>
-          <span class="ml-2">  Textos institucionais</span> 
+          <span class="ml-2"> Áreas Comuns </span> 
           <i class="fas fa-chevron-right float-right mt-1"></i>
         </a>
       </div>
@@ -100,16 +106,8 @@
     <!-- /#page-content-wrapper -->
 
   </div>
-      
-    
-     
-        
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+     
     @yield('scripts')
   </body>
 </html>

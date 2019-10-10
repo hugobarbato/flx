@@ -37,3 +37,16 @@ require('./utils/viacep.js');
 // const app = new Vue({
 //     el: '#app'
 // });
+
+
+
+$("#menu-toggle").click(function(e) {
+e.preventDefault();
+$("#wrapper").toggleClass("toggled");
+});
+$('#sidebarCollapse').on('click', function () {
+    $('#sidebar-wrapper').toggleClass('active');
+});
+$("#page-content-wrapper").on('click', function () {
+$('#sidebar-wrapper').removeClass('active');
+});

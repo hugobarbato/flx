@@ -50,8 +50,17 @@ Route::group(['prefix'=>'areas'],function(){
     Route::get('obter_html/{id}', 'AreasController@areas_html');
 });
 
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin', 'middleware'=> 'auth'],function(){
     Route::get('/', 'AdminController@index');
+
+    Route::get('/anuncios/{tipo}', 'AdminController@anuncios');
+
+    Route::get('/pacotes', 'AdminController@view_pacotes');
+    Route::post('/pacote/save', 'AdminController@alter_pacote');
+    Route::get('/pacote/alter_status/{id}', 'AdminController@alter_status_pacote');
+    Route::get('/pacote/excluir/{id}', 'AdminController@excluir_pacote');
+
+
 });
 
 

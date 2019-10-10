@@ -1,7 +1,12 @@
+
+body{
+    overflow-x: hidden;
+}
 // Variables
 @import 'variables';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
 .navbar-laravel {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -134,12 +139,16 @@ div#slider-range {
         margin-left: -15rem;
     }
 }
-
+.btn-add-title{
+    float: right;
+    margin-top: -3.5px;
+    border-radius: unset;
+}
 .logo-flx img {
     height: 50px; 
 }
 #wrapper{
-  background: #eaeaea;
+  background: #c0c8d0;
   width: 100vw;
 }
 .user-img{
@@ -197,7 +206,7 @@ div#slider-range {
   font-weight: 550; 
 }
 .dash-cont-font{
-  font-size: 100px;
+  font-size: 60px;
   font-weight: 700;
 }
 .dashboard-cards .card {
@@ -216,15 +225,26 @@ div#slider-range {
   color: #fff;
   padding: 20px;
   margin: 0;
+  small{
+      font-size: 10px;
+      text-align: left;
+      font-weight: 100;
+  }
 }
-.flx-table * {
-  background: #FFF;
-  margin:0;
-  border-bottom:1px solid #c4c8cc;
-
+.actions-menu-table{
+    font-size: 25px;
+    color: dodgerblue;
+}
+.flx-table {
+    tr,td {
+        background: #FFF;
+        margin:0;
+        border-bottom:1px solid #c4c8cc;
+      
+    }
 }
 #page-content-wrapper {
-    width: 100vw;
+    width: 100%;
 }
 @media screen and (max-width: 900px)  {
   #sidebar-wrapper.active {

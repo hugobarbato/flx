@@ -36803,6 +36803,18 @@ __webpack_require__(/*! ./utils/viacep.js */ "./resources/js/utils/viacep.js"); 
 //     el: '#app'
 // });
 
+
+$("#menu-toggle").click(function (e) {
+  e.preventDefault();
+  $("#wrapper").toggleClass("toggled");
+});
+$('#sidebarCollapse').on('click', function () {
+  $('#sidebar-wrapper').toggleClass('active');
+});
+$("#page-content-wrapper").on('click', function () {
+  $('#sidebar-wrapper').removeClass('active');
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -45204,8 +45216,8 @@ var $via_cep = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp7\htdocs\HUGO\p_flx\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp7\htdocs\HUGO\p_flx\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\HUGO\p_flx\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\HUGO\p_flx\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body {
+  overflow-x: hidden;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -10778,12 +10782,18 @@ div#slider-range {
   }
 }
 
+.btn-add-title {
+  float: right;
+  margin-top: -3.5px;
+  border-radius: unset;
+}
+
 .logo-flx img {
   height: 50px;
 }
 
 #wrapper {
-  background: #eaeaea;
+  background: #c0c8d0;
   width: 100vw;
 }
 
@@ -10851,7 +10861,7 @@ div#slider-range {
 }
 
 .dash-cont-font {
-  font-size: 100px;
+  font-size: 60px;
   font-weight: 700;
 }
 
@@ -10874,14 +10884,26 @@ div#slider-range {
   margin: 0;
 }
 
-.flx-table * {
+.title-table small {
+  font-size: 10px;
+  text-align: left;
+  font-weight: 100;
+}
+
+.actions-menu-table {
+  font-size: 25px;
+  color: dodgerblue;
+}
+
+.flx-table tr,
+.flx-table td {
   background: #FFF;
   margin: 0;
   border-bottom: 1px solid #c4c8cc;
 }
 
 #page-content-wrapper {
-  width: 100vw;
+  width: 100%;
 }
 
 @media screen and (max-width: 900px) {

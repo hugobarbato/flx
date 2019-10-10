@@ -3,38 +3,11 @@
 @section('title','Admin')
 
 @section('content')
-<div class="container-fluid">
-  <div class="col-12"></div>
-  <div class="row my-3 dashboard-cards">
-      <div class="col-xl-4">
-        <div class="card border mb-2">
-          <div class="card-body">
-            <h5 class="card-title text-center dash-cont-font-title">Anúncios Ativos</h5>
-            <h1 class="text-center dashbordFont dash-cont-font">{{$dash->ativos}}</h1>
-            
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4">
-        <div class="card border mb-2">
-          <div class="card-body ">
-            <h5 class="card-title text-center dash-cont-font-title">Anúncios Inativos</h5>
-            <h1 class="text-center dashbordFont dash-cont-font">{{$dash->inativos}}</h1>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-4">
-        <div class="card border mb-2" >
-          <div class="card-body">
-            <h5 class="card-title text-center dash-cont-font-title">Em período de teste</h5>
-            <h1 class="text-center dashbordFont dash-cont-font">{{$dash->teste}}</h1>
-          </div>
-        </div>
-      </div>
-  </div> 
+<div class="container-fluid my-4">
+  
   <div class="row mt-5">
     <div class="col-md-12">
-      <h3 class="text-center title-table">ANÚNCIOS INSERIDOS NO SITE RECENTEMENTE</h3>
+      <h3 class="text-center title-table">ANÚNCIOS {{$titulo}}</h3>
     </div>
   </div>
   <div class="row">
@@ -74,6 +47,7 @@
             </td>
           </tr>
           @endforeach
+          @if(count($imoveis)==0) <tr><td colspan="7" style="text-align:center">NENNHUM IMÓVEL ENCONTRADO</td></tr> @endif
         </tbody>
       </table>
     </div>
@@ -90,18 +64,6 @@
 
 @section('scripts')
 <script type="text/javascript" src="{{ asset('js/imob.js') }}"></script> 
-<script>
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar-wrapper').toggleClass('active');
-    });
-    $("#page-content-wrapper").on('click', function () {
-      $('#sidebar-wrapper').removeClass('active');
-    });
-</script>
 @endsection
 
 @section('styles')

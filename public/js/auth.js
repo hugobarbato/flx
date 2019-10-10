@@ -129,7 +129,7 @@ window.onload = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp7\htdocs\HUGO\p_flx\resources\js\auth.js */"./resources/js/auth.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\HUGO\p_flx\resources\js\auth.js */"./resources/js/auth.js");
 
 
 /***/ })
