@@ -129,6 +129,41 @@ class AdminController extends Controller
         
     }
 
+
+    public function view_areas($tipo){
+        if($tipo=='comuns'){
+            $titulo = 'Comuns';
+            $areas = AreasComuns::get();
+        }else{
+            $titulo = 'Privativas';
+            $areas = AreasPrivativas::get();
+        }
+        return view('admin.areas',['titulo'=>$titulo,'areas'=>$areas]);
+    }
+
+    public function save_areas(Request $request, $tipo = 'comuns'){
+        if($tipo=='comuns'){
+            $area = !$request->id ? new AreasComuns() : AreasComuns::find($request->id);
+            $area->nm_areas_comuns = $request->titulo;
+        }else{
+            $area = !$request->id ? new AreasPrivativas() : AreasPrivativas::find($request->id);
+            $area->nm_areas_privativas = $request->titulo;
+        }
+        $area->cd_categoria_imovel = $request->categoria;
+        $area->save();
+        return back();
+    }
+
+    public function excluir_areas(Request $request, $tipo, $id=''){
+        if($tipo=='comuns'){
+            $area = AreasComuns::find($id);
+        }else{
+            $area = AreasPrivativas::find($id);
+        }
+        $area->delete();
+        return back();
+    }
+
     public function view_pacotes(Request $request){
         $back = $this->beforeCheckAdmin();
         if($back) return $back;

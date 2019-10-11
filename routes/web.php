@@ -61,6 +61,9 @@ Route::group(['prefix'=>'admin', 'middleware'=> 'auth'],function(){
     Route::get('/pacote/excluir/{id}', 'AdminController@excluir_pacote');
 
 
+    Route::get('/areas/{tipo}', 'AdminController@view_areas');
+    Route::post('/areas/{tipo}', 'AdminController@save_areas');
+    Route::get('/areas/{tipo}/excluir/{id}', 'AdminController@excluir_areas');
 });
 
 
