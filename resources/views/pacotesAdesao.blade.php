@@ -24,51 +24,58 @@
                     
                     <div class="cards-planos">
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <h4 class="card-header">plano 15</h4>
-                                    <div class="card-body">
-                                        <p><span class="vl-anuncio">R$ 49,90</span> / mês</p>
-                                        <div class="detalhes-planos">
-                                            <p><span class="qt-anuncios">15 anúncios</span></p>
-                                            <p>inclui 01 destaque</p>
+                        @foreach($pacotes as $pacote)
+                                <div class="col-md-4">
+                                    <label>
+                                    <input type="radio" name="pacote_selected" id="pacote_selected" style="display:none">
+                                    <div class="card">
+                                        <h4 class="card-header">{{$pacote->nm_titulo}}</h4>
+                                        <div class="card-body">
+                                            <p><span class="vl-anuncio">R$ {{ number_format($pacote->vl_pacote,2,',',' ') }}</span> / mês</p>
+                                            <div class="detalhes-planos">
+                                                @if($pacote->qt_anuncio > 0 )
+                                                <p><span class="qt-anuncios">{{$pacote->qt_anuncio}} anúncios</span></p>
+                                                @else
+                                                <p><span class="qt-anuncios">anúncios ilimitados</span></p>
+                                                @endif    
+                                                <p>inclui {{$pacote->qt_destaques}} destaque</p>
+                                            </div>
                                         </div>
+                                        <div class="card-footer">Somente R$ {{ number_format(($pacote->vl_pacote/30),2,',',' ') }} por dia</div>
                                     </div>
-                                    <div class="card-footer">Somente R$ 1,00 por dia</div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <h4 class="card-header">plano 25</h4>
-                                    <div class="card-body">
-                                        <p><span class="vl-anuncio">R$ 59,90</span> / mês</p>
-                                        <div class="detalhes-planos">
-                                            <p><span class="qt-anuncios">25 anúncios</span></p>
-                                            <p>inclui 03 destaques</p>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">Somente R$ 2,00 por dia</div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <h4 class="card-header">plano 50</h4>
-                                    <div class="card-body">
-                                        <p><span class="vl-anuncio">R$ 79,90</span> / mês</p>
-                                        <div class="detalhes-planos">
-                                            <p><span class="qt-anuncios">50 anúncios</span></p>
-                                            <p>inclui 06 destaques</p>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">Somente R$ 2,00 por dia</div>
-                                </div>
-                            </div>
-                            
+                                    </label>
+                                </div>                 
+                        @endforeach
                         </div>
-                        
-                        <div class="row">
+<!--                         
+                        <div class="col-md-4">
+                                    <div class="card">
+                                        <h4 class="card-header">plano 25</h4>
+                                        <div class="card-body">
+                                            <p><span class="vl-anuncio">R$ 59,90</span> / mês</p>
+                                            <div class="detalhes-planos">
+                                                <p><span class="qt-anuncios">25 anúncios</span></p>
+                                                <p>inclui 03 destaques</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">Somente R$ 2,00 por dia</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <h4 class="card-header">plano 50</h4>
+                                        <div class="card-body">
+                                            <p><span class="vl-anuncio">R$ 79,90</span> / mês</p>
+                                            <div class="detalhes-planos">
+                                                <p><span class="qt-anuncios">50 anúncios</span></p>
+                                                <p>inclui 06 destaques</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">Somente R$ 2,00 por dia</div>
+                                    </div>
+                                </div> -->
+                        <!-- <div class="row">
                             <div class="col-md-4">
                                 <div class="card">
                                     <h4 class="card-header">plano 100</h4>
@@ -111,7 +118,7 @@
                                 </div>
                             </div>
                             
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 
@@ -236,6 +243,13 @@
     height: fit-content;
     margin-bottom: 50px;
     width: fit-content;
+}
+.cards-planos label {
+    display: block;
+    width: 100%;
+}
+.cards-planos input:checked + div.card {
+    border: 2px solid red;
 }
 </style>
 @endsection

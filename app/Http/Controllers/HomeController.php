@@ -11,6 +11,7 @@ use App\TipoAnuncio;
 use App\TipoAnunciante;
 use App\AreasPrivativas;
 use App\AreasComuns;
+use App\Pacote;
 use DB;
 class HomeController extends Controller
 {
@@ -263,7 +264,8 @@ class HomeController extends Controller
     
     public function pacotesAdesao()
     {
-        return view('pacotesAdesao');
+        $pacotes = Pacote::where('cd_status','=',1)->get();   
+        return view('pacotesAdesao', ['pacotes'=>$pacotes]);
     }
     
     
