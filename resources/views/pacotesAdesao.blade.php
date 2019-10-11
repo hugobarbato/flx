@@ -70,20 +70,24 @@
                                 <div class="destaque-anuncio-info">
                                     
                                      <div>
-                                        <label for="scales"> <input type="radio" name="scales" > Compre 10 destaques - R$100,00 </label>
+                                        <label > <input type="radio" name="scales" value="1"> Compre 10 destaques - R$100,00 </label>
                                     </div>
                                     
                                     <div> 
-                                        <label for="scales"> <input type="radio" name="scales"> Compre 25 destaques - R$200,00</label>
+                                        <label > <input type="radio" name="scales" value="2"> Compre 25 destaques - R$200,00</label>
                                     </div>
                                     
                                     <div> 
-                                        <label for="scales"> <input type="radio" name="scales"> Compre 50 destaques - R$350,00</label>
+                                        <label > <input type="radio" name="scales" value="3"> Compre 50 destaques - R$350,00</label>
                                     </div>
                                     
                                     <div>
-                                        <label for="scales"> <input type="radio" name="scales"> Compre 100 destaques - R$600,00</label>
+                                        <label > <input type="radio" name="scales" value="4"> Compre 100 destaques - R$600,00</label>
                                     </div> 
+
+                                    <div class="cleanDestaquesOptions">
+                                        Limpar seleção 
+                                    </div>
                         
                                 </div>
                             </div>
@@ -94,20 +98,19 @@
                                 <div class="destaque-anuncio-info">
                                     
                                     <div> 
-                                        <label for="scales"> <input type="radio" name="scalesSuper"> Compre 01 destaque - R$100,00 </label>
+                                        <label > <input type="radio" name="scalesSuper" value="1"> Compre 01 destaque - R$100,00 </label>
                                     </div>
                                     
                                     <div> 
-                                        <label for="scales"> <input type="radio" name="scalesSuper"> Compre 03 destaques - R$250,00</label>
+                                        <label > <input type="radio" name="scalesSuper" value="2" > Compre 03 destaques - R$250,00</label>
                                     </div>
                                     
                                     <div>
-                                        
-                                        <label for="scales"> <input type="radio" name="scalesSuper"> Compre 06 destaques - R$500,00</label>
+                                        <label > <input type="radio" name="scalesSuper" value="3"> Compre 06 destaques - R$500,00</label>
                                     </div>
                                     
                                     <div> 
-                                        <label for="scales"> <input type="radio" name="scalesSuper"> Compre 12 destaques - R$1.000,00</label>
+                                        <label > <input type="radio" name="scalesSuper" value="4" > Compre 12 destaques - R$1.000,00</label>
                                     </div> 
                                 </div>
                             </div>
@@ -144,7 +147,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="pagamento-icon pagseguro-card pointer"> 
-                                    <img class="img-pagseguro-adesao" src="img/pagseguro.jpg" onclick="PagSeguroRedirect()"> 
+                                    <img id="pagarComPagSeguro" class="img-pagseguro-adesao" src="img/pagseguro.jpg"> 
                             </div>
                         </div>
                     </div>

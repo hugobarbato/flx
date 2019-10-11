@@ -36814,6 +36814,34 @@ $('#sidebarCollapse').on('click', function () {
 $("#page-content-wrapper").on('click', function () {
   $('#sidebar-wrapper').removeClass('active');
 });
+$(document).ready(function () {
+  $('.cleanDestaquesOptions').click(function () {
+    $("input[name='scales']").prop('checked', false);
+  });
+  $('.cleanSuperDestaquesOptions').click(function () {
+    $("input[name='scalesSuper']").prop('checked', false);
+  });
+
+  function init() {
+    var combo = JSON.parse(localStorage.getItem('combo'));
+
+    if (combo) {
+      $("input[name='pacote_selected'][value='" + combo.pacote + "']").prop('checked', true);
+      $("input[name='scales'][value='" + combo.destaques + "']").prop('checked', true);
+      $("input[name='scalesSuper'][value='" + combo.super_destaques + "']").prop('checked', true);
+    }
+  }
+
+  $("#pagarComPagSeguro").click(function () {
+    var combo = {
+      pacote: $("input[name='pacote_selected']:checked").val(),
+      destaques: $("input[name='scales']:checked").val(),
+      super_destaques: $("input[name='scalesSuper']:checked").val()
+    };
+    localStorage.setItem('combo', JSON.stringify(combo));
+  });
+  init();
+});
 
 /***/ }),
 
