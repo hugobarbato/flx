@@ -20,7 +20,7 @@
         <div class="container-fluid menu-nav" >
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="logo-flx">
-                    <a class="navbar-brand" href="#"><img src="{{url('img/logo.png')}}" height="50" > </a>
+                    <a class="navbar-brand" href="{{url('/admin')}}"><img src="{{url('img/logo.png')}}" height="50" > </a>
                 </div>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
@@ -30,7 +30,7 @@
                 
             </nav> 
             <div class="align-items-center d-flex justify-content-between rigth"> 
-                <a href="{{ route('logout') }}">SAIR </a>  
+                <a href="{{url('')}}">SAIR </a>  
                 <i class="fa-user-circle fas ml-2 user-nav-icon"></i>  
                 <i class="fas fa-bars ml-2 user-nav-icon" id="sidebarCollapse" ></i>
             </div>
@@ -80,16 +80,16 @@
         <!-- <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
           <i class="fas fa-ticket-alt"></i> 
           <span class="ml-2"> Gerenciar Cupons </span> 
-          <i class="fas fa-chevron-right float-right mt-1"></i>
+          <i class="fas fa-chevron-right float-right mt-1"></i> 
         </a> -->
         <div class="divider-line"></div>
-        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+        <a href="{{url('').'/admin/areas/privativas'}}" class="list-group-item list-group-item-action bg-dark fontMenu">
           <i class="fas fa-university"></i>
           <span class="ml-2"> Áreas Privativas </span> 
           <i class="fas fa-chevron-right float-right mt-1"></i>
         </a>
         <div class="divider-line"></div>
-        <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
+        <a href="{{url('').'/admin/areas/comuns'}}" class="list-group-item list-group-item-action bg-dark fontMenu">
           <i class="fas fa-university"></i>
           <span class="ml-2"> Áreas Comuns </span> 
           <i class="fas fa-chevron-right float-right mt-1"></i>

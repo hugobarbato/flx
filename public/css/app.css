@@ -10925,3 +10925,10 @@ div#slider-range {
   }
 }
 
+.btn-admin {
+  position: fixed;
+  bottom: 20px;
+  z-index: 100;
+  right: 10px;
+}
+

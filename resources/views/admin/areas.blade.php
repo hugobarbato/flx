@@ -7,7 +7,7 @@
   
   <div class="row mt-5">
     <div class="col-md-12">
-      <h3 class="text-center title-table">Areas {{$titulo}} <span class="btn btn-success btn-add-title" onclick="ADD()">ADICIONAR</span></h3>
+      <h3 class="text-center title-table">Areas {{$titulo}} <span class="btn btn-success btn-add-title" onclick="adicionar_area()">ADICIONAR</span></h3>
     </div>
   </div>
   <div class="row">
@@ -40,8 +40,8 @@
                     <i class="fas fa-bars actions-menu-table"></i>
                   </button>
                   <div class="dropdown-menu" aria-labelledby="menuImovel{{$area->cd_area_comuns}}">
-                    <a class="dropdown-item" href="#" onclick=" Edit('{{$area->cd_area_comuns}}','{{$area->nm_areas_comuns}}','{{ $area->cd_categoria_imovel }}')" >Editar</a>
-                    <a class="dropdown-item" href="{{url('')}}/admin/areas/comuns/excluir/{{$area->cd_area_comuns}}" onclick="confirm('Deseja excluir esta área comum?')" >Excluir</a>
+                    <a class="dropdown-item" href="#" onclick=" editar_area('{{$area->cd_area_comuns}}','{{$area->nm_areas_comuns}}','{{ $area->cd_categoria_imovel }}')" >Editar</a>
+                    <a class="dropdown-item" href="{{url('')}}/admin/areas/comuns/excluir/{{$area->cd_area_comuns}}" >Excluir</a>
                   </div>
                 </div>
               </td>
@@ -58,12 +58,12 @@
               </td>
               <td>
                 <div class="dropdown">
-                  <button class="btn btn-default" type="button" id="menuImovel{{$area->cd_area_privativas}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button class="btn btn-default" type="button" id="menuImovel{{$area->cd_areas_privativas}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-bars actions-menu-table"></i>
                   </button>
-                  <div class="dropdown-menu" aria-labelledby="menuImovel{{$area->cd_area_privativas}}">
-                    <a class="dropdown-item" href="#" onclick=" Edit('{{$area->cd_area_privativas}}','{{$area->nm_areas_privativas}}','{{ $area->cd_categoria_imovel }}')" >Editar</a>
-                    <a class="dropdown-item" href="{{url('')}}/admin/areas/privativas/excluir/{{$area->cd_area_privativas}}" onclick="confirm('Deseja excluir esta área comum?')" >Excluir</a>
+                  <div class="dropdown-menu" aria-labelledby="menuImovel{{$area->cd_areas_privativas}}">
+                    <a class="dropdown-item" href="#" onclick=" editar_area('{{$area->cd_areas_privativas}}','{{$area->nm_areas_privativas}}','{{ $area->cd_categoria_imovel }}')" >Editar</a>
+                    <a class="dropdown-item" href="{{url('/admin/areas/privativas/excluir/'.$area->cd_areas_privativas)}}" >Excluir</a>
                   </div>
                 </div>
               </td>
@@ -116,8 +116,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
-        <button type="button" class="btn btn-primary" onclick="p_save()">SALVAR</button>
+        <button id="btn_cancel" type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
+        <button id="btn_salvar" type="button" class="btn btn-primary" onclick="p_save()">SALVAR</button>
       </div>
     </div>
   </div>
@@ -130,27 +130,34 @@
 <script>
   $('.mask_money').mask('000.000.000.000.000,00', {reverse: true});
   var id="";
-  function ADD(){
+  function adicionar_area(){
     $('#acao_area').text('Cadastrar');
     id="";
     nm_area.value="";
     categoria.value="";
     $('#Formarea').modal();
   }
-  function Edit(p_id,p_name,p_cat){
+  function editar_area(p_id,p_name,p_cat){
     $('#acao_area').text('Editar');
-    id=id;
+    id=p_id;
     nm_area.value=p_name;
     categoria.value=p_cat;
     $('#Formarea').modal();
   }
   function p_save(){
-    $.post( {{ url(''). '/admin/areas/' }},{
+    btn_cancel.disabled = true;
+    btn_salvar.disabled = true;
+    url = window.location.href;
+    $("#btn_salvar").html('<i class="fa fa-spinner fa-spin fa-fw"></i>');
+    $.post( url,{
       id: id,
       titulo: nm_area.value,
       categoria: categoria.value,
     }).done((data)=>{
-      alert('Salvo com sucesso!');
+      btn_cancel.disabled = false;
+      btn_salvar.disabled = false;
+      $("#btn_salvar").html('SALVAR');
+      btn_salvar.innerHtml = '';
       window.location.reload();
     });
   }

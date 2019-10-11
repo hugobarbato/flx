@@ -51,19 +51,7 @@
                                     </a>
                                 </div>
                             </li>
-                            @if( Auth::user()->is_admin)
-                            <li class="nav-item dropdown  {{ (request()->is('/admin')) || (request()->is('/admin')) ? 'active' : '' }}">
-                                <a id="imoveis" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" 
-                                aria-haspopup="true" aria-expanded="false" v-pre>
-                                    ADMIN <span class="caret"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="imoveis">
-                                    <a class="dropdown-item {{ (request()->is('/admin')) ? 'active' : '' }}" href="{{ url('/admin') }}" >
-                                        Acessar Painel ADM
-                                    </a>
-                                </div>
-                            </li>
-                            @endif
+                            
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -91,3 +79,9 @@
             </div> 
         </div>
     </header>
+
+
+@if( Auth::user()->is_admin)
+    <a href="{{ url('/admin') }}" class="btn btn-danger btn-admin"> Acessar Painel ADM </a>
+    
+@endif
