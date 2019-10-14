@@ -99,15 +99,16 @@ class AdminController extends Controller
             case 'ativos':
                 $titulo="Ativos";
                 $imoveis->whereRaw("
-                    ( cast( users.created_at as date ) < ( curdate() - interval 45 day ) ) AND 
-                    tb_compra.cd_compra is not null
+                    (( cast( users.created_at as date ) < ( curdate() - interval 45 day ) ) AND 
+                    tb_compra.cd_compra is not null) or users.is_admin = 1
                 ");
                 break;
             case 'inativos':
                 $titulo="Inativos";
                 $imoveis->whereRaw("
                     ( cast( users.created_at as date ) < ( curdate() - interval 45 day ) ) AND 
-                    tb_compra.cd_compra is null
+                    tb_compra.cd_compra is null and users.is_admin = 0
+
                     ");
                 break;
             case 'teste':
