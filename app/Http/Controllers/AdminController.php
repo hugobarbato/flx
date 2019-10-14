@@ -14,7 +14,7 @@ class AdminController extends Controller
     private $user;
     private function beforeCheckAdmin(){
         $this->user = Auth::user();
-        if($this->user->is_admin){
+        if(!$this->user->is_admin){
             return redirect('/home');
         }
     }
