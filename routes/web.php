@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/adesao', 'HomeController@pacotesAdesao')->name('adesao');
+Route::get('/planos', 'HomeController@pacotesAdesao')->name('planos');
 
 Route::post('/search', 'HomeController@search');
 Route::get('/search/{type}', 'HomeController@search');

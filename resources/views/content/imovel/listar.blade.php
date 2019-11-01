@@ -8,7 +8,7 @@
         <div class="container">
             <div class="container-content" style="min-height: unset;">
                 <h4>Meus Imóveis Cadastrados</h4>
-                <p>Você possui {{$imoveis->total()}} {{ $imoveis->total() == 1 ? 'imóvel cadastrado' : 'imóveis cadastrados'  }}.</p>
+                <p>Você possui {{$imoveis_c}} {{ $imoveis_c == 1 ? 'imóvel cadastrado' : 'imóveis cadastrados'  }}.</p>
             </div>
             <div class="container search">
                 <div class="search-banner-principal">
@@ -19,7 +19,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                             <div class="row">
-                                                <div class="col-md-4 pl-3 pr-3 pl-md-0 pr-md-0">
+                                                <div class="col-md-4 pl-3 pr-3  pr-md-0">
                                                     <div class="titulo-busca">
                                                         <p>tipo de imóvel</p>
                                                     </div>
@@ -226,6 +226,13 @@
 @endsection
 @section('scripts')
 <script type="text/javascript" src="{{ asset('js/imob.js') }}"></script>
+<script>
+window.lrv_data = {
+    min:{{$filter->min_value}},
+    max:{{$filter->max_value}},
+    values:[ {{($old_values->precoDe?$old_values->precoDe:$filter->min_value)}}, {{($old_values->precoAte?$old_values->precoAte:$filter->max_value)}}  ]
+};
+</script>
 @endsection
 
 @section('styles')

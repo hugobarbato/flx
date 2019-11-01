@@ -158,14 +158,15 @@ class ImovelController extends Controller
             }else{
                 $inputs->search_for = "";
             }
-        } 
-        
+        }  
+        $t_imob = Imovel::where('cd_user',Auth::user()->id)->count(); 
         return view('content.imovel.listar',[
             'tipo_imovel'=>TipoImovel::get(),
             'tipo_anuncio'=>TipoAnuncio::get(),
             'tipo_anunciante'=>TipoAnunciante::get(),
             'categoria_imovel'=>CategoriaImovel::get(),
             'imoveis'=> $imoveis->paginate(10),
+            'imoveis_c'=>  $t_imob,
             'old_values'=>$inputs,
             'filter'=>$filter->first()
         ]);
