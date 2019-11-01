@@ -14,8 +14,7 @@
                     </div>
                     
                     <div class="row">
-                        <div class="col-md-8">
-
+                        <div class="col-md-12">
                             <div id="detail_imovel_carousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     @foreach($imovel->imagens as $k=>$img)
@@ -33,14 +32,17 @@
                                     <span class="sr-only">Next</span>
                                 </a>
                             </div>
-                            <div class="scroll-imagem"> 
+                            <!-- <div class="scroll-imagem">  -->
                             <!-- d-flex flex-wrap -->
                                 @foreach($imovel->imagens as $id=>$img)
-                                <div class="small-img-controls" data-target="#detail_imovel_carousel"data-slide-to="{{$id}}" class="active">
+                                <!-- <div class="small-img-controls" data-target="#detail_imovel_carousel"data-slide-to="{{$id}}" class="active">
                                     <img width="70" height="50" src="{{env('APP_URL').'/images/lg/'.$img->cd_imovel.'/'.$img->nm_link}}" onerror=' this.src = "/images/default.png"'>
-                                </div>
+                                </div> -->
                                 @endforeach
-                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-md-8 pt-5">
+
 
                             <div class="mapouter">
                                 <div class="gmap_canvas">
@@ -50,56 +52,56 @@
                                 </div>
                             </div>
 
-                        @if(count($AreasComuns))
-                            <div class="area-comuns mt-4" >
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <h4>áreas Comuns</h4> 
-                                </div>
-                            </div>
-                            <div id="AreasComunsChecks" class="form-row"> 
-                                @foreach( $AreasComuns as  $ac )
-                                    <div class="col-md-4">
-                                        <div> 
-                                            <i class="fa fa-circle"></i>
-                                            <label for="ac{{$ac->cd_areas_comuns}}" >
-                                                {{((ucwords($ac->nm_areas_comuns)))}}
-                                            </label> 
-                                        </div>
+                            @if(count($AreasComuns))
+                                <div class="area-comuns mt-4" >
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <h4>áreas Comuns</h4> 
                                     </div>
-                                @endforeach 
-                            </div>
-                        </div>
-                        @endif
-                        @if(count($AreasPrivativas))
-                        
-                        <div class="area-privativa"  >
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <h4>áreas Privativas</h4>
-                                    <input type="hidden" id="ds_areas_privativas" value="{{$imovel->ds_areas_privativas}}">
+                                </div>
+                                <div id="AreasComunsChecks" class="form-row"> 
+                                    @foreach( $AreasComuns as  $ac )
+                                        <div class="col-md-4">
+                                            <div> 
+                                                <i class="fa fa-check"></i>
+                                                <label for="ac{{$ac->cd_areas_comuns}}" >
+                                                    {{((ucwords($ac->nm_areas_comuns)))}}
+                                                </label> 
+                                            </div>
+                                        </div>
+                                    @endforeach 
                                 </div>
                             </div>
+                            @endif
+                            @if(count($AreasPrivativas))
                             
-                            <div id="AreasPrivativasChecks" class="form-row">
-                                @foreach($AreasPrivativas as $k=>$ap)
-                                    <div class="col-md-4">
-                                        <div> 
-                                            <i class="fa fa-circle"></i>
-                                            <label for="ap{{$ap->cd_areas_privativas}}" >
-                                                {{((ucwords($ap->nm_areas_privativas)))}}
-                                            </label> 
-                                        </div>
+                            <div class="area-privativa"  >
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <h4>áreas Privativas</h4>
+                                        <input type="hidden" id="ds_areas_privativas" value="{{$imovel->ds_areas_privativas}}">
                                     </div>
-                                @endforeach 
+                                </div>
                                 
+                                <div id="AreasPrivativasChecks" class="form-row">
+                                    @foreach($AreasPrivativas as $k=>$ap)
+                                        <div class="col-md-4">
+                                            <div> 
+                                                <i class="fa fa-check"></i>
+                                                <label for="ap{{$ap->cd_areas_privativas}}" >
+                                                    {{((ucwords($ap->nm_areas_privativas)))}}
+                                                </label> 
+                                            </div>
+                                        </div>
+                                    @endforeach 
+                                    
+                                </div>
                             </div>
-                        </div>
-                        @endif
+                            @endif
 
                             
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 pt-5">
                                 <h4>{{$imovel->nm_titulo}}</h4>
                                 <h4 class="flx-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
                                 <h5 class="flx-sub-title">{{$imovel->nm_endereco}}, {{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h5>

@@ -181,9 +181,16 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h4 class="flx-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
-                                    <h5 class="flx-sub-title">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h5>
-                                    <div class="icons inline">
+                                    <div class="col-md-12 row">
+                                      <div class="col-md-10">
+                                            <h4 class="flx-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
+                                            <h5 class="flx-sub-title">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h5>
+                                      </div>
+                                      <div class="col-md-2">
+                                        <img src="{{env('APP_URL').'/images/sm/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante_nm_link}}" height="50" alt=" Logo do Anunciante">
+                                      </div>
+                                    </div>
+                                    <div class="icons inline" style="padding:10px 1px">
                                         <div class="icon-dormitorios">
                                             <img class="card-img-top icones-home" src="/img/icon/cama_icon.png"> 
                                             <span class="icone-info" id="qt_dormitorios">{{($imovel->qt_quartos?$imovel->qt_quartos:'-')}} Dorm(s).</span>

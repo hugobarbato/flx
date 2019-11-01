@@ -207,7 +207,7 @@
                   <i class="fas fa-bars actions-menu-table"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="menuImovel{{$imovel->cd_imovel}}">
-                  <a class="dropdown-item" href="{{url('/detail/438')}}">Visualizar</a>
+                  <a class="dropdown-item" href="{{url('/detail/'.$imovel->cd_imovel)}}">Visualizar</a>
                   <!-- <a class="dropdown-item" href="#">Desativar</a>
                   <a class="dropdown-item" href="#">Something else here</a> -->
                 </div>

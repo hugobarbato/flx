@@ -36,12 +36,12 @@
               </td>
               <td>
                 <div class="dropdown">
-                  <button class="btn btn-default" type="button" id="menuImovel{{$area->cd_area_comuns}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button class="btn btn-default" type="button" id="menuImovel{{$area->cd_areas_comuns}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-bars actions-menu-table"></i>
                   </button>
-                  <div class="dropdown-menu" aria-labelledby="menuImovel{{$area->cd_area_comuns}}">
-                    <a class="dropdown-item" href="#" onclick=" editar_area('{{$area->cd_area_comuns}}','{{$area->nm_areas_comuns}}','{{ $area->cd_categoria_imovel }}')" >Editar</a>
-                    <a class="dropdown-item" href="{{url('')}}/admin/areas/comuns/excluir/{{$area->cd_area_comuns}}" >Excluir</a>
+                  <div class="dropdown-menu" aria-labelledby="menuImovel{{$area->cd_areas_comuns}}">
+                    <a class="dropdown-item" href="#" onclick=" editar_area('{{$area->cd_areas_comuns}}','{{$area->nm_areas_comuns}}','{{ $area->cd_categoria_imovel }}')" >Editar</a>
+                    <a class="dropdown-item" href="{{url('')}}/admin/areas/comuns/excluir/{{$area->cd_areas_comuns}}" >Excluir</a>
                   </div>
                 </div>
               </td>

@@ -39,6 +39,7 @@ class AdminController extends Controller
 
         $recentes = Imovel::
         selectRaw("
+            tb_imovel.cd_imovel,
             tb_imovel.nm_titulo,
             tb_imovel.created_at,
             IF(
@@ -74,6 +75,7 @@ class AdminController extends Controller
         if($back) return $back;
         $imoveis = Imovel::
         selectRaw("
+            tb_imovel.cd_imovel,
             tb_imovel.nm_titulo,
             tb_imovel.created_at,
             IF(
