@@ -13,6 +13,7 @@ use App\TipoImovel;
 use App\CategoriaImovel;
 use App\TipoAnuncio;
 use App\TipoAnunciante; 
+use CWG\PagSeguro\PagSeguroAssinaturas;
 use DB;
 
 
@@ -343,7 +344,48 @@ class AdminController extends Controller
         $p->vl_pacote = str_replace(',','.',str_replace('.','',$inputs->valor));
         $p->qt_anuncio = $inputs->anuncios;
         $p->qt_destaques = $inputs->destaques;
+        if(!$p->cd_pagseguro){
+            $p->cd_pagseguro = $this->createPagSeguroPlan($p);
+        }
         return (string) $p->save(); 
+    }
+
+    public function createPagSeguroPlan($plano){  
+
+            $email = "hugobarbato@gmail.com";
+            $token = "8E721189DC424DE59AE00FE65F244D5C";
+            // $token = "ff1ece87-0d9a-4b01-afbf-1a5726045a5635f7483e437f93bc0c7b9143df4c0d863989-92e5-4d36-bda6-17742e99bd66";
+            $sandbox = true;
+
+            $pagseguro = new PagSeguroAssinaturas($email, $token, $sandbox);
+
+            //Cria um nome para o plano
+            $pagseguro->setReferencia($plano->nm_titulo);
+
+            //Cria uma descrição para o plano
+            $pagseguro->setDescricao($plano->nm_titulo);
+
+            //Valor a ser cobrado a cada renovação
+            $pagseguro->setValor($plano->vl_pacote);
+
+            //De quanto em quanto tempo será realizado uma nova cobrança (MENSAL, BIMESTRAL, TRIMESTRAL, SEMESTRAL, ANUAL)
+            $pagseguro->setPeriodicidade(PagSeguroAssinaturas::MENSAL);
+
+            //=== Campos Opcionais ===//
+            $pagseguro->setExpiracao(999, 'YEARS');
+            //URL para redicionar a pessoa do portal PagSeguro para uma página de cancelamento no portal
+            // $pagseguro->setURLCancelamento('http://carloswgama.com.br/pagseguro/not/cancelando.php');
+
+            //Local para o comprador será redicionado após a compra com o código (code) identificador da assinatura
+            // $pagseguro->setRedirectURL('http://carloswgama.com.br/pagseguro/not/assinando.php');		
+
+
+            //=== Cria o plano ===//
+            try {
+                return $pagseguro->criarPlano();
+            } catch (Exception $e) {
+                echo "Erro: " . $e->getMessage();
+            }
     }
 
 }

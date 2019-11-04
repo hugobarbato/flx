@@ -12,6 +12,7 @@ use App\TipoAnunciante;
 use App\AreasPrivativas;
 use App\AreasComuns;
 use App\Pacote;
+use CWG\PagSeguro\PagSeguroAssinaturas;
 use DB;
 class HomeController extends Controller
 {
@@ -264,10 +265,26 @@ class HomeController extends Controller
     
     public function pacotesAdesao()
     {
+        $email = "hugobarbato@gmail.com";
+        $token = "8E721189DC424DE59AE00FE65F244D5C";
+        // $token = "ff1ece87-0d9a-4b01-afbf-1a5726045a5635f7483e437f93bc0c7b9143df4c0d863989-92e5-4d36-bda6-17742e99bd66";
+        $sandbox = true;
+
+        $pagseguro = new PagSeguroAssinaturas($email, $token, $sandbox);
         $pacotes = Pacote::where('cd_status','=',1)->get();   
+        foreach ($pacotes as $key => $pacote) {
+            if($pacote->cd_pagseguro ){
+                $pacotes[$key]->url = $pagseguro->assinarPlanoCheckout($pacote->cd_pagseguro);
+            }else{
+                $pacotes[$key]->url = null;
+            }
+        }
+        dd($pacotes);
         return view('pacotesAdesao', ['pacotes'=>$pacotes]);
     }
-    
+    public function retornoAdesao(Request $request){
+        // id = 7EFD1A41BFBF264CC4281F821D0E8C7A
+    }
     
     public function viacep($cep)
     {

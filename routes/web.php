@@ -16,7 +16,9 @@ Route::get('/', function () {
     return redirect('/home');
 });
 Route::get('/home', 'HomeController@index')->name('home');
+// /retorno/pagseguro?id=7EFD1A41BFBF264CC4281F821D0E8C7A
 
+Route::get('/retorno/pagseguro','HomeController@retornoAdesao')->name('adesao');
 Route::get('/adesao', 'HomeController@pacotesAdesao')->name('adesao');
 Route::get('/planos', 'HomeController@pacotesAdesao')->name('planos');
 

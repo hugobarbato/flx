@@ -147,7 +147,13 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="pagamento-icon pagseguro-card pointer"> 
-                                    <img id="pagarComPagSeguro" class="img-pagseguro-adesao" src="img/pagseguro.jpg"> 
+                                  <!-- INICIO FORMULARIO BOTAO PAGSEGURO: NAO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+                                    <form action="https://pagseguro.uol.com.br/pre-approvals/request.html" method="post">
+                                    <input type="hidden" name="code" value="2C0418EA6D6DFAF664AC6F9855EDDA88" />
+                                    <input type="hidden" name="iot" value="button" />
+                                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/assinaturas/184x42-assinar-azul-assina.gif" name="submit" alt="Pague com PagSeguro - É rápido, grátis e seguro!" width="209" height="48" />
+                                    </form>
+                                 <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
                             </div>
                         </div>
                     </div>
