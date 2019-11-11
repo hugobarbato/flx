@@ -424,12 +424,12 @@ class ImovelController extends Controller
     public function adicionar_fotos(Request $request, $id){
         $imovel = Imovel::where('cd_user',Auth::user()->id)->where('cd_imovel',$id)->first();
         $imagens = ImagemImovel::where('cd_imovel', $imovel->cd_imovel)->get();
-        if(count($imagens)==15){
+        if(count($imagens)==20){
             return back()->withErros('Limite de envio de imagens alcançado.');
         }else{
-            $limit_atual = 15-count($imagens);
+            $limit_atual = 20-count($imagens);
             if(count($request->pics) > $limit_atual){
-                return back()->withErros( 'Ops, você apenas possuí '.$limit_atual.' de envio, não conseguimos subir as '.count($request->pics).' enviadas.' );
+                return back()->withErros( 'Ops, você apenas possuí '.$limit_atual.' de envio, não conseguimos subir as '.count($request->pics).' imagens enviadas.' );
             }else{
                 foreach($request->pics as $pic){
                     $imagem = $this->ctl_imagem->uploadImagemImovel($pic, $imovel);

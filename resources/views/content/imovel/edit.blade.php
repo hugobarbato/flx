@@ -455,7 +455,7 @@
                     <div class="fotos-imovel" > 
                         <div class="form-row">
                             <div class="col-md-12">
-                                <h4> Fotos <small>(15 fotos)</small> </h4>
+                                <h4> Fotos <small>(20 fotos)</small> </h4>
                             </div>
                         </div>
                         <div class="form-row">
@@ -480,7 +480,7 @@
                     <div class="fotos-imovel" > 
                         <div class="form-row">
                             <div class="col-md-12">
-                                <h5> Lista de fotos: @if( count($imovel->imagens) > 0) {{ count($imovel->imagens) }} de 15 imagens @endif </h5>
+                                <h5> Lista de fotos: @if( count($imovel->imagens) > 0) {{ count($imovel->imagens) }} de 20   imagens @endif </h5>
                             </div>
                         </div>
                         <div class="form-row" id="list_pics">

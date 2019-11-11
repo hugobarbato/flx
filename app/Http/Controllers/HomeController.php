@@ -342,12 +342,11 @@ class HomeController extends Controller
             $pagseguro = new PagSeguroAssinaturas($this->email, $this->token, $this->sandbox);
 
             $assinatura = $pagseguro->consultaAssinatura($request->notificationCode);
-            // dd($assinatura);    
+            // dd($assinatura);
             $compra -> ic_processado = $this->statusPagSeguro($assinatura['status']);
             $compra->save();
-
+            return 'ok';
         }
-        dd($request);
     }   
     
     public function viacep($cep)
