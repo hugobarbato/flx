@@ -31,7 +31,7 @@
                         <div class="row">
                         @foreach($pacotes as $pacote)
                             <div class="col-md-4">
-                                <label>
+                                <label onclick="setPagSeguroUrl('{{$pacote->url}}')">
                                 <input type="radio" name="pacote_selected" id="pacote_selected" value="{{$pacote->cd_pacote}}" style="display:none">
                                 <div class="card">
                                     <h4 class="card-header">{{$pacote->nm_titulo}}</h4>
@@ -147,13 +147,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="pagamento-icon pagseguro-card pointer"> 
-                                  <!-- INICIO FORMULARIO BOTAO PAGSEGURO: NAO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
-                                    <form action="https://pagseguro.uol.com.br/pre-approvals/request.html" method="post">
-                                    <input type="hidden" name="code" value="2C0418EA6D6DFAF664AC6F9855EDDA88" />
-                                    <input type="hidden" name="iot" value="button" />
-                                    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/assinaturas/184x42-assinar-azul-assina.gif" name="submit" alt="Pague com PagSeguro - É rápido, grátis e seguro!" width="209" height="48" />
-                                    </form>
-                                 <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
+                                <a href="#" id="pagar_com_pagseguro_button" target="_Blank">
+                                    <img src="https://stc.pagseguro.uol.com.br/public/img/botoes/assinaturas/184x42-assinar-azul-assina.gif" alt="Pague com PagSeguro - É rápido, grátis e seguro!" width="209" height="48">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -166,6 +162,12 @@
 @endsection
 @section('scripts')
     <script type="text/javascript" src="{{ asset('js/imob.js') }}"></script>
+    <script>
+        function setPagSeguroUrl(url){
+            let button = document.getElementById('pagar_com_pagseguro_button');
+            button.href = url;
+        }
+    </script>
 @endsection
 @section('styles')
 <style>

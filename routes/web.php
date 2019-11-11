@@ -17,10 +17,11 @@ Route::get('/', function () {
 });
 Route::get('/home', 'HomeController@index')->name('home');
 // /retorno/pagseguro?id=7EFD1A41BFBF264CC4281F821D0E8C7A
-
+// notificacao/pagseguro
+Route::get('/notificacao/pagseguro','HomeController@notificacaoPagseguro')->name('notificacaoPagseguro');
 Route::get('/retorno/pagseguro','HomeController@retornoAdesao')->name('adesao');
-Route::get('/adesao', 'HomeController@pacotesAdesao')->name('adesao');
-Route::get('/planos', 'HomeController@pacotesAdesao')->name('planos');
+Route::get('/adesao', 'HomeController@pacotesAdesao')->name('adesao')->middleware('auth');
+Route::get('/planos', 'HomeController@pacotesAdesao')->name('planos')->middleware('auth');
 
 Route::post('/search', 'HomeController@search');
 Route::get('/search/{type}', 'HomeController@search');

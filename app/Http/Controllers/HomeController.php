@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Imovel;
 use App\ImagemImovel;
@@ -12,6 +13,7 @@ use App\TipoAnunciante;
 use App\AreasPrivativas;
 use App\AreasComuns;
 use App\Pacote;
+use App\Compra;
 use CWG\PagSeguro\PagSeguroAssinaturas;
 use DB;
 class HomeController extends Controller
@@ -279,12 +281,39 @@ class HomeController extends Controller
                 $pacotes[$key]->url = null;
             }
         }
-        dd($pacotes);
         return view('pacotesAdesao', ['pacotes'=>$pacotes]);
     }
     public function retornoAdesao(Request $request){
         // id = 7EFD1A41BFBF264CC4281F821D0E8C7A
+        $email = "hugobarbato@gmail.com";
+        $token = "8E721189DC424DE59AE00FE65F244D5C";
+        // $token = "ff1ece87-0d9a-4b01-afbf-1a5726045a5635f7483e437f93bc0c7b9143df4c0d863989-92e5-4d36-bda6-17742e99bd66";
+        $sandbox = true;
+
+        $pagseguro = new PagSeguroAssinaturas($email, $token, $sandbox);
+        $assinatura = $pagseguro->consultaAssinatura($request->id);
+        if(!$assinatura){
+            return redirect('/planos')->with('error','Não foi possível validar sua assinatura.');
+        }else{
+            $pacote = Pacote::where('nm_titulo', $assinatura['reference'] )->first();
+            $compra = new Compra;
+            $compra -> cd_user = Auth::user()->id;
+            $compra -> cd_pacote = ($pacote?$pacote->cd_pacote:0);
+            $compra -> vl_total = ($pacote?$pacote->vl_pacote:0);
+            $compra -> ic_processado = ($assinatura['status'] == 'PENDING'?0:($assinatura['status'] == 'ACTIVE'?1:2));
+            $compra -> cd_pagseguro = $assinatura['code'];
+            $compra->save();
+            return redirect('/planos');
+            dd($assinatura);
+
+        }
+        // "status" => "PENDING"
+        // "status" => "ACTIVE"
+//   "status" => "CANCELLED_BY_SENDER"
     }
+    public function notificacaoPagseguro(Request $request){
+        dd($request);
+    }   
     
     public function viacep($cep)
     {

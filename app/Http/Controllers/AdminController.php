@@ -264,7 +264,7 @@ class AdminController extends Controller
             'categoria_imovel'=>CategoriaImovel::get(),
             'titulo'=>$titulo,
             'imoveis'=> $imoveis->paginate(20),
-            'imoveis_c'=>  $t_imob,
+            'imoveis_c'=> $t_imob,
             'old_values'=>$inputs,
             'filter'=>$filter->first()
         ]);
