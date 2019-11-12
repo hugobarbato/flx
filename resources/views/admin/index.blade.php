@@ -6,7 +6,7 @@
 <div class="container-fluid">
   <div class="col-12"></div>
   <div class="row my-3 dashboard-cards">
-      <div class="col-xl-4">
+      <div class="col-xl-6">
         <div class="card border mb-2">
           <div class="card-body">
             <h5 class="card-title text-center dash-cont-font-title">Anúncios Ativos</h5>
@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-      <div class="col-xl-4">
+      <div class="col-xl-6">
         <div class="card border mb-2">
           <div class="card-body ">
             <h5 class="card-title text-center dash-cont-font-title">Anúncios Inativos</h5>
@@ -23,11 +23,19 @@
           </div>
         </div>
       </div>
-      <div class="col-xl-4">
+      <div class="col-xl-6">
         <div class="card border mb-2" >
           <div class="card-body">
             <h5 class="card-title text-center dash-cont-font-title">Em período de teste</h5>
             <h1 class="text-center dashbordFont dash-cont-font">{{$dash->teste}}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <div class="card border mb-2" >
+          <div class="card-body">
+            <h5 class="card-title text-center dash-cont-font-title">Anúncios dos Admins</h5>
+            <h1 class="text-center dashbordFont dash-cont-font">{{$dash->admin}}</h1>
           </div>
         </div>
       </div>

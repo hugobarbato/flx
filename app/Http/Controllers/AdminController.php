@@ -63,8 +63,13 @@ class AdminController extends Controller
 
         ")
         ->leftJoin('users','users.id','=','tb_imovel.cd_user')
-        ->leftJoin('tb_compra','users.id','=','tb_compra.cd_user')
+        ->leftJoin('tb_compra',function($join){
+            $join->on('users.id','=','tb_compra.cd_user');
+            $join->where('tb_compra.ic_processado','=','1');
+            $join->whereRaw(' tb_compra.updated_at > ( curdate() - interval 31 day ) ');
+        })
         ->leftJoin('tb_pacotes','tb_compra.cd_pacote','=','tb_pacotes.cd_pacote')
+        ->orderBy('tb_compra.created_at','DESC')
         ->orderBy('tb_imovel.created_at','DESC')
         ->whereNull('tb_imovel.deleted_at')
         ->limit(10)->get();
@@ -103,7 +108,7 @@ class AdminController extends Controller
         ->leftJoin('tb_compra',function($join){
             $join->on('users.id','=','tb_compra.cd_user');
             $join->where('tb_compra.ic_processado','=','1');
-            $join->whereRaw(' tb_compra.created_at > ( curdate() - interval 31 day ) ');
+            $join->whereRaw(' tb_compra.updated_at > ( curdate() - interval 31 day ) ');
         })
         ->leftJoin('tb_pacotes', 'tb_compra.cd_pacote','=','tb_pacotes.cd_pacote')
         ->orderBy('tb_imovel.created_at','DESC')
