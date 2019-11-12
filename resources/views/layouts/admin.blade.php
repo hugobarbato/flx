@@ -76,6 +76,12 @@
           <span class="ml-2">  Gerenciar Pacotes</span> 
           <i class="fas fa-chevron-right float-right mt-1"></i>
         </a>
+        <div class="divider-line"></div>
+        <a href="{{url('').'/admin/compras'}}" class="list-group-item list-group-item-action bg-dark fontMenu">
+          <i class="fas fa-money-check-alt"></i>
+          <span class="ml-2">  Gerenciar Compras</span> 
+          <i class="fas fa-chevron-right float-right mt-1"></i>
+        </a>
         <!-- <div class="divider-line"></div> -->
         <!-- <a href="#" class="list-group-item list-group-item-action bg-dark fontMenu">
           <i class="fas fa-ticket-alt"></i> 

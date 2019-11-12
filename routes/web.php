@@ -69,6 +69,8 @@ Route::group(['prefix'=>'admin', 'middleware'=> 'auth'],function(){
     Route::get('/areas/{tipo}', 'AdminController@view_areas');
     Route::post('/areas/{tipo}', 'AdminController@save_areas');
     Route::get('/areas/{tipo}/excluir/{id}', 'AdminController@excluir_areas');
+
+    Route::get('/compras', 'AdminController@view_compras');
 });
 
 

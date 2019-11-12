@@ -18,11 +18,6 @@ use CWG\PagSeguro\PagSeguroAssinaturas;
 use DB;
 class HomeController extends Controller
 {
-    // id = 7EFD1A41BFBF264CC4281F821D0E8C7A
-    public $email = "hugobarbato@gmail.com";
-    public $token = "8E721189DC424DE59AE00FE65F244D5C";
-    // $token = "ff1ece87-0d9a-4b01-afbf-1a5726045a5635f7483e437f93bc0c7b9143df4c0d863989-92e5-4d36-bda6-17742e99bd66";
-    public $sandbox = true;
 
     /**
      * Create a new controller instance.
@@ -337,14 +332,20 @@ class HomeController extends Controller
         }
     }
 
-    public function notificacaoPagseguro(Request $request){
-        if(isset($request->notificationCode)){
-            $pagseguro = new PagSeguroAssinaturas($this->email, $this->token, $this->sandbox);
-
-            $assinatura = $pagseguro->consultaAssinatura($request->notificationCode);
-            // dd($assinatura);
-            $compra -> ic_processado = $this->statusPagSeguro($assinatura['status']);
-            $compra->save();
+    public function notificacaoPagseguro(Request $request){ 
+        if( isset($request->notificationType) && isset($request->notificationCode) ){
+            switch ($request->notificationType) {
+                case 'preApproval':
+                        $pagseguro = new PagSeguroAssinaturas($this->email, $this->token, $this->sandbox);
+                        $assinatura = $pagseguro->consultarNotificacao($request->notificationCode);
+                        $compra = Compra::where('cd_pagseguro',$assinatura['code'])->first();
+                        $compra -> ic_processado = $this->statusPagSeguro($assinatura['status']);
+                        $compra->save();
+                    break;
+                default:
+                    # code...
+                    break;
+            }
             return 'ok';
         }
     }   

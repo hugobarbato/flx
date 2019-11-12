@@ -468,8 +468,6 @@
                                     <div id="preview_list">
                                         <li></li>
                                     </div>
-                                    
-                                    
                                     <button type="submit" class="btn-flx" > Enviar fotos </button>
                                 </div>
                                 

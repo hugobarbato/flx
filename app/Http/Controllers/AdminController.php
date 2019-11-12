@@ -13,6 +13,7 @@ use App\TipoImovel;
 use App\CategoriaImovel;
 use App\TipoAnuncio;
 use App\TipoAnunciante; 
+use App\Compra;
 use CWG\PagSeguro\PagSeguroAssinaturas;
 use DB;
 
@@ -26,6 +27,7 @@ class AdminController extends Controller
             return redirect('/home');
         }
     }
+
     /**
      * Show the application dashboard.
      *  
@@ -70,7 +72,6 @@ class AdminController extends Controller
 
         return view('admin.index',[ 'dash'=> $dash, 'imoveis'=>$recentes]);
     }
-    
     public function anuncios(Request $request, $tipo = 'ativos', $typeS = ''){
         $back = $this->beforeCheckAdmin();
         if($back) return $back;
@@ -271,7 +272,7 @@ class AdminController extends Controller
         
     }
 
-
+    // AREAS
     public function view_areas($tipo){
         if($tipo=='comuns'){
             $titulo = 'Comuns';
@@ -282,7 +283,6 @@ class AdminController extends Controller
         }
         return view('admin.areas',['titulo'=>$titulo,'areas'=>$areas]);
     }
-
     public function save_areas(Request $request, $tipo = 'comuns'){
         if($tipo=='comuns'){
             $area = !$request->id ? new AreasComuns() : AreasComuns::find($request->id);
@@ -295,7 +295,6 @@ class AdminController extends Controller
         $area->save();
         return back();
     }
-
     public function excluir_areas(Request $request, $tipo, $id=''){
         if($tipo=='comuns'){
             $area = AreasComuns::find($id);
@@ -306,6 +305,7 @@ class AdminController extends Controller
         return back();
     }
 
+    //PACOTES
     public function view_pacotes(Request $request){
         $back = $this->beforeCheckAdmin();
         if($back) return $back;
@@ -313,8 +313,7 @@ class AdminController extends Controller
         return view('admin.pacotes',[
             'pacotes'=>$pacotes
         ]);
-    }   
-
+    }
     public function alter_status_pacote($id){
         $back = $this->beforeCheckAdmin();
         if($back) return $back;
@@ -329,8 +328,7 @@ class AdminController extends Controller
         $p = Pacote::find($id);
         $p->delete();
         return back();
-    }
-
+    } 
     public function alter_pacote(Request $request){
         $back = $this->beforeCheckAdmin();
         if($back) return $back;
@@ -349,15 +347,8 @@ class AdminController extends Controller
         }
         return (string) $p->save(); 
     }
-
-    public function createPagSeguroPlan($plano){  
-
-            $email = "hugobarbato@gmail.com";
-            $token = "8E721189DC424DE59AE00FE65F244D5C";
-            // $token = "ff1ece87-0d9a-4b01-afbf-1a5726045a5635f7483e437f93bc0c7b9143df4c0d863989-92e5-4d36-bda6-17742e99bd66";
-            $sandbox = true;
-
-            $pagseguro = new PagSeguroAssinaturas($email, $token, $sandbox);
+    public function createPagSeguroPlan($plano){ 
+            $pagseguro = new PagSeguroAssinaturas($this->email, $this->token, $this->sandbox);
 
             //Cria um nome para o plano
             $pagseguro->setReferencia($plano->nm_titulo);
@@ -386,6 +377,56 @@ class AdminController extends Controller
             } catch (Exception $e) {
                 echo "Erro: " . $e->getMessage();
             }
+    }
+
+    // COMPRAS
+    public function view_compras(Request $request){
+        $inputs = $request->all();
+        $compra = Compra:: select('tb_pacotes.nm_titulo', 'tb_compra.*', 'users.name', 'users.email')
+        ->leftJoin('tb_pacotes','tb_pacotes.cd_pacote','=','tb_compra.cd_pacote')
+        ->leftJoin('users','users.id','=','tb_compra.cd_user')
+        ->orderBy('cd_compra','desc');
+
+        if(count($inputs)>0){
+            if($inputs['status']){
+                $compra->whereRaw('tb_compra.ic_processado in ('.$inputs['status'].') ');
+            }
+            if($inputs['cliente']){
+                $compra->where(function($q) use ($inputs){
+                    $q->where('users.name','like',"%".$inputs['cliente']."%");
+                    $q->orWhere('users.email','like',"%".$inputs['cliente']."%");
+                    $q->orWhere('users.id',$inputs['cliente']);
+                });
+            }
+            if($inputs['plano']){
+                $compra->whereRaw('tb_pacotes.cd_pacote',$inputs['plano']);
+            } 
+            if($inputs['dateInical'] && $inputs['dateFinal']){
+                if($inputs['dtBy'] == 1){
+                    $compra->whereBetween('tb_compra.created_at',[$inputs['dateInical'], $inputs['dateFinal']]);
+                }else{
+                    $compra->whereBetween('tb_compra.updated_at',[$inputs['dateInical'], $inputs['dateFinal']]);
+    
+                }
+            }
+        } else{
+            $inputs = [
+                'status'=>'',
+                'cliente'=>'',
+                'plano'=>'',
+                'dateInical'=>'',
+                'dateFinal'=>'',
+                'dtBy'=>1
+            ];
+        }
+
+        $pacotes = Pacote::get();
+        return view('admin.compras',[
+            'compras'=>$compra->paginate(),
+            'pacotes'=>$pacotes,
+            'inputs'=>$inputs
+        ]);
+
     }
 
 }
