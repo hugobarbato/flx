@@ -12,30 +12,38 @@
 */
 
 Route::get('/', function () {
-    // return view('header/header');
     return redirect('/home');
 });
+
 Route::get('/home', 'HomeController@index')->name('home');
-// /retorno/pagseguro?id=7EFD1A41BFBF264CC4281F821D0E8C7A
-// notificacao/pagseguro
-Route::any('/notificacao/pagseguro','HomeController@notificacaoPagseguro')->name('notificacaoPagseguro');
-Route::get('/retorno/pagseguro','HomeController@retornoAdesao')->name('adesao');
-Route::get('/adesao', 'HomeController@pacotesAdesao')->name('adesao')->middleware('auth');
+ 
 Route::get('/planos', 'HomeController@pacotesAdesao')->name('planos')->middleware('auth');
-Route::get('/cancelamento/{id_pagseguro}', 'HomeController@cancelamentoPagseguro')->name('cancelamento')->middleware('auth');
+Route::get('/adesao', 'HomeController@pacotesAdesao')->name('adesao')->middleware('auth');
+
+Route::group(['prefix'=>'pagseguro','middleware'=>'auth'],function(){
+
+    // /pagseguro/retorno/assinatura?id=7EFD1A41BFBF264CC4281F821D0E8C7A
+    Route::get('/retorno/assinatura','PagSeguroController@retornoAssinatura')->name('assinatura');
+
+    // /pagseguro/cancelamento/7EFD1A41BFBF264CC4281F821D0E8C7A
+    Route::get('/cancelamento/{id_pagseguro}', 'PagSeguroController@cancelamento')->name('CancelamentoPagseguro');
+
+    // /pagseguro/notificacao
+    Route::any('/notificacao','PagSeguroController@notificacao')->name('NotificacaoPagseguro');
+
+    Route::get('/checkout','PagSeguroController@checkout')->name('CheckoutPagseguro');
+    Route::post('/checkout','PagSeguroController@checkout_conclusion')->name('CheckoutPagseguro');
+
+});
+
 
 Route::post('/search', 'HomeController@search');
 Route::get('/search/{type}', 'HomeController@search');
 
 Route::get('/detail/{id}', 'HomeController@detail');
 
-Route::get('viacep/{cep}', 'HomeController@viacep');
 
-Route::get('/alugar', function () {
-    return view('content/cadastro');
-});
-
-Route::group(['prefix'=>'imovel'],function(){
+Route::group(['prefix'=>'imovel','middleware'=>'auth'],function(){
     
     Route::get('listar', 'ImovelController@getImoveis');
     
@@ -51,10 +59,14 @@ Route::group(['prefix'=>'imovel'],function(){
     
 });
 
+//AJAX
+Route::get('viacep/{cep}', 'HomeController@viacep');
+
 Route::group(['prefix'=>'areas'],function(){
     Route::get('obter_html/{id}', 'AreasController@areas_html');
 });
 
+//ADMIN
 Route::group(['prefix'=>'admin', 'middleware'=> 'auth'],function(){
     Route::get('/', 'AdminController@index');
 
@@ -71,12 +83,7 @@ Route::group(['prefix'=>'admin', 'middleware'=> 'auth'],function(){
     Route::get('/areas/{tipo}/excluir/{id}', 'AdminController@excluir_areas');
 
     Route::get('/compras', 'AdminController@view_compras');
-});
-
-
-// Route::get('/initial', 'HomeController@index')->name('initial');
-// Route::get('/resultadoBuscar', 'HomeController@resultadoBuscar')->name('buscar');
-// Route::get('/resultadoDetalhes', 'HomeController@resultadoDetalhes')->name('detalhes');
+}); 
 
 Auth::routes();
 

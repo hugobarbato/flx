@@ -2,6 +2,8 @@
 @section('title','Cadastro')
 @section('content')
 
+<!-- c74561683734852837592@sandbox.pagseguro.com.br -->
+<!-- bNW3EEf5D26RpK3e -->
 
     <article>
         <div class="container">
@@ -76,7 +78,7 @@
                             <div class="row">
                             @foreach($pacotes as $pacote)
                                 <div class="col-md-4">
-                                    <label onclick="setPagSeguroUrl('{{$pacote->url}}')">
+                                    <label onclick="setPagSeguroUrl('{{$pacote->cd_pagseguro}}')">
                                     <input type="radio" name="pacote_selected" id="pacote_selected" value="{{$pacote->cd_pacote}}" style="display:none">
                                     <div class="card">
                                         <h4 class="card-header">{{$pacote->nm_titulo}}</h4>
@@ -99,8 +101,39 @@
                             </div>
                         </div>
                     </div>
-                @endif
-                
+                    <div class="destaque-anuncio">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="subtitulos-h4">Escolha a forma de pagamento</h4>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pagamento-detalhe">
+                                    <p>
+                                        A FLX utiliza a plataforma PAGSEGURO para processar seus pagamentos, considerada uma das plataformas mais seguras e rápidas, oferecemos para os nossos clientes diversas formas de pagamento entre eles: boleto, cartão de crédito e transferência.
+                                    </p>
+        
+                                    <p class="pagamento-detalhe-finalizar">
+                                        Clique no logotipo abaixo para escolher a forma de pagamento e finalizar
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pagamento-icon pagseguro-card pointer"> 
+                                    <a href="#" id="pagar_com_pagseguro_button">
+                                        <img src="https://stc.pagseguro.uol.com.br/public/img/botoes/assinaturas/184x42-assinar-azul-assina.gif" alt="Pague com PagSeguro - É rápido, grátis e seguro!" width="209" height="48">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                @else
                 
                 <div class="destaque-anuncio">
                     <div class="row">
@@ -171,37 +204,39 @@
                     </div> -->
                 </div>
                 <div class="destaque-anuncio">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="subtitulos-h4">Escolha a forma de pagamento</h4>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="pagamento-detalhe">
-                                <p>
-                                    A FLX utiliza a plataforma PAGSEGURO para processar seus pagamentos, considerada uma das plataformas mais seguras e rápidas, oferecemos para os nossos clientes diversas formas de pagamento entre eles: boleto, cartão de crédito e transferência.
-                                </p>
-    
-                                <p class="pagamento-detalhe-finalizar">
-                                    Clique no logotipo abaixo para escolher a forma de pagamento e finalizar
-                                </p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="subtitulos-h4">Escolha a forma de pagamento</h4>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="pagamento-icon pagseguro-card pointer"> 
-                                <a href="#" id="pagar_com_pagseguro_button" target="_Blank">
-                                    <img src="https://stc.pagseguro.uol.com.br/public/img/botoes/assinaturas/184x42-assinar-azul-assina.gif" alt="Pague com PagSeguro - É rápido, grátis e seguro!" width="209" height="48">
-                                </a>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pagamento-detalhe">
+                                    <p>
+                                        A FLX utiliza a plataforma PAGSEGURO para processar seus pagamentos, considerada uma das plataformas mais seguras e rápidas, oferecemos para os nossos clientes diversas formas de pagamento entre eles: boleto, cartão de crédito e transferência.
+                                    </p>
+        
+                                    <p class="pagamento-detalhe-finalizar">
+                                        Clique no logotipo abaixo para escolher a forma de pagamento e finalizar
+                                    </p>
+                                </div>
                             </div>
                         </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pagamento-icon pagseguro-card pointer"> 
+                                    <a href="#" id="pagar_com_pagseguro_button" target="_Blank">
+                                        <img src="https://stc.pagseguro.uol.com.br/public/img/botoes/assinaturas/184x42-assinar-azul-assina.gif" alt="Pague com PagSeguro - É rápido, grátis e seguro!" width="209" height="48">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
-                    
-                </div>
+                @endif
+                
                 
             </div>
         </div>
@@ -212,7 +247,7 @@
     <script>
         function setPagSeguroUrl(url){
             let button = document.getElementById('pagar_com_pagseguro_button');
-            button.href = url;
+            button.href = '/pagseguro/checkout?id='+url;
         }
     </script>
 @endsection

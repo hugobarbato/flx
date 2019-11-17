@@ -34,11 +34,9 @@ select
 
 Select 
   SUM(
-      IF(
-        (
-          tb_imovel.ic_ativo = 1 
-          OR tb_compra.cd_compra  is not null 
-        ) 
+      IF( 
+        tb_imovel.ic_ativo = 1  
+        and tb_compra.cd_compra  is not null 
         AND cast(`u`.`created_at` as date) < (curdate() - interval 45 day) 
         AND u.is_admin =  0
       , 1 , 0 )
@@ -66,4 +64,14 @@ Select
   ) as `admin`
 FROM users u
   inner join tb_imovel on tb_imovel.cd_user = u.id
-  left join tb_compra on ic_processado = 1 and tb_compra.cd_user = u.id
+  left join last_compra_user as tb_compra  on ic_processado = 1 and tb_compra.cd_user = u.id 
+
+
+ 
+
+SELECT 
+ B.*
+FROM (
+  SELECT 	MAX(cd_compra) as cd_compra FROM tb_compra GROUP BY tb_compra.cd_user
+) A
+inner join tb_compra B on  A.cd_compra = B.cd_compra

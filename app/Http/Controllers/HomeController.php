@@ -14,7 +14,6 @@ use App\AreasPrivativas;
 use App\AreasComuns;
 use App\Pacote;
 use App\Compra;
-use CWG\PagSeguro\PagSeguroAssinaturas;
 use DB;
 class HomeController extends Controller
 {
@@ -267,17 +266,8 @@ class HomeController extends Controller
     }
     
     public function pacotesAdesao()
-    { 
-
-        $pagseguro = new PagSeguroAssinaturas($this->email, $this->token, $this->sandbox);
-        $pacotes = Pacote::where('cd_status','=',1)->get();   
-        foreach ($pacotes as $key => $pacote) {
-            if($pacote->cd_pagseguro ){
-                $pacotes[$key]->url = $pagseguro->assinarPlanoCheckout($pacote->cd_pagseguro);
-            }else{
-                $pacotes[$key]->url = null;
-            }
-        }
+    {  
+        $pacotes = Pacote::where('cd_status','=',1)->get();    
 
         $compra = Compra::where('cd_user',Auth::user()->id)
         ->select('tb_pacotes.nm_titulo', 'tb_compra.*')
@@ -286,70 +276,15 @@ class HomeController extends Controller
         ->get();
         foreach ($compra as $key => $c) {
             $compra[$key]->status = $this->statusCompra($c->ic_processado);
-        }
-        return view('pacotesAdesao', ['pacotes'=>$pacotes,'compra'=>$compra, 'canBuy'=>true]);
-    }
-
-    public function retornoAdesao(Request $request){
-        
-        $pagseguro = new PagSeguroAssinaturas($this->email, $this->token, $this->sandbox);
-        $assinatura = $pagseguro->consultaAssinatura($request->id);
-        if(!$assinatura){
-            return redirect('/planos')->with('error','Não foi possível validar sua assinatura.');
-        }else{
-            $pacote = Pacote::where('nm_titulo', $assinatura['reference'] )->first();
-            $compra = new Compra;
-            $compra -> cd_user = Auth::user()->id;
-            $compra -> cd_pacote = ($pacote?$pacote->cd_pacote:0);
-            $compra -> vl_total = ($pacote?$pacote->vl_pacote:0);
-            $compra -> ic_processado = $this->statusPagSeguro($assinatura['status']);
-            $compra -> cd_pagseguro = $assinatura['code'];
-            $compra->save();
-            return redirect('/planos');
-
         } 
+        
+        return view('pacotesAdesao', [
+            'pacotes'=>$pacotes,
+            'compra'=>$compra,
+            'canBuy'=>true
+        ]);
     }
 
-    public function cancelamentoPagseguro($id_pagseguro){
-        $pagseguro = new PagSeguroAssinaturas($this->email, $this->token, $this->sandbox);
-
-        $compra = Compra::where('cd_pagseguro',$id_pagseguro)->first();
-        if(!$compra){
-            return redirect()->back()->with('error','Compra não encontrada');
-        }
-        try {
-            $cancel = $pagseguro->cancelarAssinatura($id_pagseguro);
-            if($cancel){
-                $assinatura = $pagseguro->consultaAssinatura($id_pagseguro);
-                // dd($assinatura);    
-                $compra -> ic_processado = $this->statusPagSeguro($assinatura['status']);
-                $compra->save();
-            }
-            return redirect()->back(); 
-            //code...
-        } catch (\Exception $ex) { 
-            return redirect()->back()->with('error',$ex->getMessage());
-        }
-    }
-
-    public function notificacaoPagseguro(Request $request){ 
-        if( isset($request->notificationType) && isset($request->notificationCode) ){
-            switch ($request->notificationType) {
-                case 'preApproval':
-                        $pagseguro = new PagSeguroAssinaturas($this->email, $this->token, $this->sandbox);
-                        $assinatura = $pagseguro->consultarNotificacao($request->notificationCode);
-                        $compra = Compra::where('cd_pagseguro',$assinatura['code'])->first();
-                        $compra -> ic_processado = $this->statusPagSeguro($assinatura['status']);
-                        $compra->save();
-                    break;
-                default:
-                    # code...
-                    break;
-            }
-            return 'ok';
-        }
-    }   
-    
     public function viacep($cep)
     {
         $client = new \GuzzleHttp\Client();
