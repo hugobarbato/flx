@@ -47,8 +47,8 @@ class ImovelController extends Controller
         select(
             'tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio', 
             DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel and i.deleted_at is null limit 1 ) as nm_link"),
-            DB::raw("( SELECT nm_link_sm FROM tb_imagem a where tb_imovel.cd_image_anunciante = a.cd_imagem and a.deleted_at is null limit 1 ) as imagem_anunciante_nm_link"),
-            DB::raw("( vl_imovel / vl_area_util ) as ValorM2 ")
+            DB::raw("( SELECT nm_link_sm FROM tb_imagem a where tb_imovel.cd_image_anunciante = a.cd_imagem and a.deleted_at is null limit 1 ) as imagem_anunciante_nm_link")
+            // DB::raw("( vl_imovel / vl_area_util ) as ValorM2 ")
         )
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio');

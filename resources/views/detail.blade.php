@@ -118,7 +118,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="sub-value"><small class="text-muted"><b>Valor do m²</b></small></div>
-                                        <span class="sub-value"><small class="text-muted">R$ {{number_format($imovel->ValorM2,2,',','.')}}</small></span>
+                                        <span class="sub-value"><small class="text-muted">R$ {{number_format(($imovel->vl_imovel/$imovel->vl_area_util),2,',','.')}}</small></span>
                                     </div>
                                 </div>
                                 <div class="dropdown-divider"></div> 
