@@ -113,7 +113,7 @@
                                                 
                                                 <div class="icon-area">
                                                     <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
-                                                    <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
+                                                    <span class="icone-info" id="qt_area">{{$imovel->vl_area_util}}m²</span>
                                                 </div>
                                                 <div class="icon-area">
                                                     <img src="{{env('APP_URL').'/images/sm/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante_nm_link}}" height="50" alt=" Logo do Anunciante">
@@ -175,7 +175,7 @@
                                                 
                                                 <div class="icon-area">
                                                     <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
-                                                    <span class="icone-info" id="qt_area">{{$imovel->vl_area_total}}m²</span>
+                                                    <span class="icone-info" id="qt_area">{{$imovel->vl_area_util}}m²</span>
                                                 </div>
                                                 <div class="icon-area">
                                                     <img src="{{env('APP_URL').'/images/sm/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante_nm_link}}" height="50" alt=" Logo do Anunciante">
