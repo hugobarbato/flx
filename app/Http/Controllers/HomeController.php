@@ -75,7 +75,7 @@ class HomeController extends Controller
         $inputs = (object) $request->all();
         $filter = Imovel::selectRaw("MAX(vl_imovel) as max_value, Min(vl_imovel) as min_value"); 
         $imovel = Imovel::where('cd_imovel', $id)
-        ->select( 'tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio', DB::raw("( vl_imovel / vl_area_total ) as ValorM2 ") )
+        ->select( 'tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio')
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio')->first();
         
@@ -130,8 +130,7 @@ class HomeController extends Controller
         $imoveis = Imovel::
         select(
             'tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio', 
-            DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel and i.deleted_at is null limit 1 ) as nm_link"),
-            DB::raw("( vl_imovel / vl_area_total ) as ValorM2 ")
+            DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel and i.deleted_at is null limit 1 ) as nm_link")
         )
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio');

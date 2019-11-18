@@ -44,7 +44,7 @@
                                             <a href="/detail/{{$imovel->cd_imovel}}" class="btn btn-destaques destaques pin-bottom-right"> Ver detalhes </a>
                                             @if($imovel->vl_imovel > 0)
                                             <span class="value-search flx-title">R$ {{number_format($imovel->vl_imovel,2,',','.')}}</span>
-                                            <span class="sub-value-search"><small class="text-muted">Valor do m² R$ {{number_format($imovel->ValorM2,2,',','.')}}</small></span>
+                                            <span class="sub-value-search"><small class="text-muted">Valor do m² R$ {{number_format(($imovel->vl_imovel/$imovel->vl_area_util),2,',','.')}} </small></span>
                                             @else
                                             <span class="value-search flx-title">Sob Consulta.</span>
                                             <span class="sub-value-search"><small class="text-muted">Para mais informações entre em contato.</small></span>
