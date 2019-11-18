@@ -13,8 +13,6 @@
                     Confira abaixo as informações para realização da assinatura do plano pelo PagSeguro.
                 </p>
                 <form action="#" id="checkoutForm" method="POST" >
-                    <input type="hidden" name="hash_pagseguro" id="hash_pagseguro"> 
-                    <input type="hidden" name="cartao_token" id="cartao_token">
                     <input type='hidden' id='pagseguro_cliente_hash' name="pagseguro_cliente_hash"/>
                     <input type='hidden' id='pagseguro_cartao_bandeira' name="pagseguro_cartao_bandeira" />
                     <input type='hidden' id='pagseguro_cartao_token' name="pagseguro_cartao_token" />
@@ -22,7 +20,7 @@
                     <div class="form-group row">
 
                         <div class="col-md-6">
-                            <label for="nm_tratamento">Nome Comprador</label>
+                            <label for="nm_tratamento">Nome conforme impresso no cartão de crédito </label>
                             <input id="nm_tratamento" type="text" class="alter_doc_input form-control{{ $errors->has('nm_tratamento') ? ' is-invalid' : '' }}" 
                                 name="nm_tratamento" value="{{ $user->name }}" Placeholder="Responsável" required autofocus>
 
@@ -33,7 +31,7 @@
                             @endif
                         </div>
                         <div class="col-md-6">
-                            <label for="dt_nasc">Data de Nascimento Comprador</label>
+                            <label for="dt_nasc">Data de Nascimento do Dono do Cartão</label>
                             <input id="dt_nasc" type="text" class=" mask_date form-control{{ $errors->has('dt_nasc') ? ' is-invalid' : '' }}" value="09/05/1998" Placeholder="DD/MM/YYYY" name="dt_nasc" required autofocus>
                             @if ($errors->has('dt_nasc'))
                                 <span class="invalid-feedback" role="alert">
@@ -43,7 +41,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="nm_tratamento">CPF Comprador</label>
+                            <label for="nm_tratamento">CPF do Dono do Cartão</label>
                             <input id="cd_document" type="text" class="form-control{{ $errors->has('cd_document') ? ' is-invalid' : '' }}" 
                                 name="cd_document" value="{{ $user->cd_document  }}" Placeholder="CPF" required autofocus>
 
@@ -54,7 +52,7 @@
                             @endif
                         </div>
                         <div class="col-md-6">
-                            <label for="nm_tratamento">Telefone Comprador</label>
+                            <label for="nm_tratamento">Telefone do Dono do Cartão</label>
                             <input id="nm_telefone" type="text" class="mask_phone form-control{{ $errors->has('nm_telefone') ? ' is-invalid' : '' }}" 
                                 name="nm_telefone" value="{{ $user->nm_telefone  }}" Placeholder="Telefone" required autofocus>
 
@@ -66,7 +64,7 @@
                         </div>
                         
                     </div>
-                    <legend>Endereço da Compra</legend>
+                    <legend>Endereço de Cobrança</legend>
                     <div class="form-group row">
         
                         <div class="col-md-6">
@@ -253,6 +251,21 @@
 @section('scripts')
 {!!$js['principal']!!}
 <script type='text/javascript'>
+function getMethodsPayment(valor){
+    PagSeguroDirectPayment.getPaymentMethods({
+        amount: valor,
+        success: function(response) {
+           console.info(response)
+        },
+        error: function(response) {
+           console.info(response)
+        },
+        complete: function(response) {
+           console.info(response)
+        }
+    });
+}
+
 function PagSeguroBuscaHashCliente() {
     PagSeguroDirectPayment.onSenderHashReady(function(response){
         if(response.status == 'error') {
@@ -325,6 +338,7 @@ function translateErro(msg){
         console.info(plain_id)
         var valor = $("option[value='"+plain_id+"']").attr('pacote');
         valor_pacote.value = Number(valor).toLocaleString('pt-BR',{style:'currency',currency:"BRL"});
+        getMethodsPayment(valor);
 
     }
     displayValorPlano();

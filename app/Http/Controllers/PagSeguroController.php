@@ -85,20 +85,51 @@ class PagSeguroController extends Controller
         //Informa o ano de nascimento
         $this->pagseguro->setNascimentoCliente($data['dt_nasc']);
         //Infora o Hash  gerado na etapa anterior (assinando.php), é obrigatório para comunicação com checkoutr transparente
-        $this->pagseguro->setHashCliente($data['hash_pagseguro']);
+        $this->pagseguro->setHashCliente($data['pagseguro_cliente_hash']);
         //Informa o Token do Cartão de Crédito gerado na etapa anterior (assinando.php)
-        $this->pagseguro->setTokenCartao($data['cartao_token']);
+        $this->pagseguro->setTokenCartao($data['pagseguro_cartao_token']);
         //Código usado pelo vendedor para identificar qual é a compra
         $this->pagseguro->setReferencia($this->user->id.'###');	
         //Plano usado (Esse código é criado durante a criação do plano)
         $this->pagseguro->setPlanoCode($data['plain']);
         // dd([$this->pagseguro, $data]);
         try{
-            $codigoAssinatura = $this->pagseguro->assinaPlano();
-            echo 'O código unico da assinatura é: ' . $codigoAssinatura;
+            $codigoAssinatura = 'AC3F5BCDE6E61B5EE47A8FB80799380F';
+            //$codigoAssinatura = $this->pagseguro->assinaPlano();
+            echo 'Compra realizada com sucesso! <br> O código unico da assinatura é: ' . $codigoAssinatura.'<br>';
+            if($this->atualizaCompra($codigoAssinatura)){
+               return  redirect('/planos');
+            }else{
+                return redirect()->back()->withInputs();
+            }
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+    }
+
+    public function atualizaCompra($cod_assinatura){
+        $assinatura = $this->pagseguro->consultaAssinatura($cod_assinatura);
+        if(!$assinatura){
+            return false;
+        }else{
+            $user_id = preg_replace( '/[^0-9]/', '', $assinatura['reference'] );
+            $pacote = Pacote::where('nm_titulo', $assinatura['name'] )->first();
+
+            $compra = Compra::where('cd_user', $user_id)->where('ic_processado','1')->where('ic_tipo','1')->first();
+            if(!$compra){
+                $compra = new Compra;
+            }
+
+            $compra -> cd_user = $this->user->id;
+            $compra -> cd_pacote = ($pacote?$pacote->cd_pacote:0);
+            $compra -> vl_total = ($pacote?$pacote->vl_pacote:0);
+            $compra -> ic_processado = $this->statusPagSeguro($assinatura['status']);
+            $compra -> cd_pagseguro = $assinatura['code'];
+            $compra->save();
+            
+            return true;
+
+        } 
     }
 
     public function retornoAssinatura(Request $request){
