@@ -235,11 +235,17 @@
                     </div>
                     <div class="row mb-5 mt-2">
                         <div class="align-items-center col-md-12 d-flex justify-content-between">
+                            <button id="finalizarcompra" type="submit" style="display:none"></button>
                             <button id="botao_comprar" type="button" onclick="PagSeguroBuscaHashCliente()" class="btn btn-primary btn-lg">Confirmar Compra</button>
                             <span>
                                 Compra processada pelo
                                 <img src="/images/pagseguro.png" alt="PagSeguro" height="100">
                             </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-6">
+                            <div id="result_init"></div>
                         </div>
                     </div>
                 </form>
@@ -267,13 +273,16 @@ function getMethodsPayment(valor){
 }
 
 function PagSeguroBuscaHashCliente() {
+    $("#result_init").html("<ul><li>Iniciando tratamento com pagseguro aguarde....</li></ul>");
     PagSeguroDirectPayment.onSenderHashReady(function(response){
         if(response.status == 'error') {
+            $("#result_init ul").append("<li> Falha na realização da compra... </li>");
             alert(response.message);
             return false;
         }
         $('#pagseguro_cliente_hash').val(response.senderHash); //Hash estará disponível nesta variável.
         console.log('Hash Cliente: ' + $('#pagseguro_cliente_hash').val());
+        $("#result_init ul").append("<li>Seu código de cliente no pagseguro é:"+response.senderHash+" </li>");
 
         PagSeguroBuscaBandeira();   //Através do pagseguro_cartao_numero do cartão busca a bandeira
     });		
@@ -288,10 +297,13 @@ function PagSeguroBuscaToken() {
         success: function(response) { 
             console.log('Token: ' + response.card.token);
             $('#pagseguro_cartao_token').val(response.card.token);
-            $('#checkoutForm').submit();
+            $("#result_init ul").append("<li>O token do seu cartão é:"+response.card.token+" </li>");
+            $("#result_init ul").append("<li> Finalizando a compra .... </li>");
+            $('#finalizarcompra').click();
         },
         error: function(response) { 
             console.log(response); 
+            $("#result_init ul").append("<li> Falha na realização da compra... </li>");
             if(response.error){
                 for (var key in response.errors) {
                     // skip loop if the property is from prototype
@@ -309,9 +321,11 @@ function PagSeguroBuscaBandeira() {
         success: function(response) { 
             console.log('Bandeira: ' + response.brand.name);
             $('#pagseguro_cartao_bandeira').val(response.brand.name);
+            $("#result_init ul").append("<li>A bandeira do seu cartão é:"+response.brand.name+" </li>");
             PagSeguroBuscaToken();      //Através dos 4 campos acima gera o Token do cartão 
         },
         error: function(response) { 
+            $("#result_init ul").append("<li> Falha na realização da compra... </li>");
             if(response.error){
                 for (var key in response.errors) {
                     // skip loop if the property is from prototype
@@ -346,15 +360,12 @@ function translateErro(msg){
         $('#cd_uf').val('{{ $user->cd_uf }}') ;
 
         $('#checkoutForm').on('submit',(e)=>{
-            cartao_token.value = $('#pagseguro_cliente_hash').val();
-            hash_pagseguro.value = $('#pagseguro_cartao_token').val(); 
-            console.info('teste')
-            if(cartao_token.value && hash_pagseguro.value){
+            if(pagseguro_cartao_token.value && pagseguro_cliente_hash.value){
                 return true;
             }else{
                 return false;
+                e.preventDefault();
             }
-            e.preventDefault();
         })
     });
 </script>

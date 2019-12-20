@@ -38,7 +38,7 @@
                                             <td>
                                             @if($c->ic_processado == 1)
                                                 @php $canBuy = false; @endphp
-                                                <a class="btn btn-danger btn-sm" href="/cancelamento/{{$c->cd_pagseguro}}" onclick="return confirm(' Deseja cancelar sua assinatura? \n Está ação cancelará cobranças futuras.  ')">Cancelar Assinatura</a>
+                                                <a class="btn btn-danger btn-sm" href="/pagseguro/cancelamento/{{$c->cd_pagseguro}}" onclick="return confirm(' Deseja cancelar sua assinatura? \n Está ação cancelará cobranças futuras.  ')">Cancelar Assinatura</a>
                                             @else
                                                 -
                                             @endif

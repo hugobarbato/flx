@@ -14,7 +14,7 @@ class Controller extends BaseController
 
     // id = 7EFD1A41BFBF264CC4281F821D0E8C7A
     public $email = "hugobarbato@gmail.com";
-    public $token = "8E721189DC424DE59AE00FE65F244D5C";
+    public $token = "8E721189DC424DE59AE00FE65F244D5C"; // token sandbox
     // public $token = "ff1ece87-0d9a-4b01-afbf-1a5726045a5635f7483e437f93bc0c7b9143df4c0d863989-92e5-4d36-bda6-17742e99bd66";
     public $sandbox = true;
 

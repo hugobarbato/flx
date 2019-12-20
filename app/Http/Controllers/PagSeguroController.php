@@ -89,13 +89,12 @@ class PagSeguroController extends Controller
         //Informa o Token do Cartão de Crédito gerado na etapa anterior (assinando.php)
         $this->pagseguro->setTokenCartao($data['pagseguro_cartao_token']);
         //Código usado pelo vendedor para identificar qual é a compra
-        $this->pagseguro->setReferencia($this->user->id.'###');	
+        $this->pagseguro->setReferencia($this->user->id);	
         //Plano usado (Esse código é criado durante a criação do plano)
         $this->pagseguro->setPlanoCode($data['plain']);
         // dd([$this->pagseguro, $data]);
         try{
-            $codigoAssinatura = 'AC3F5BCDE6E61B5EE47A8FB80799380F';
-            //$codigoAssinatura = $this->pagseguro->assinaPlano();
+            $codigoAssinatura = $this->pagseguro->assinaPlano();
             echo 'Compra realizada com sucesso! <br> O código unico da assinatura é: ' . $codigoAssinatura.'<br>';
             if($this->atualizaCompra($codigoAssinatura)){
                return  redirect('/planos');
