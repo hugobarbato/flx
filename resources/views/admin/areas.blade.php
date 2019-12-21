@@ -7,7 +7,7 @@
   
   <div class="row mt-5">
     <div class="col-md-12">
-      <h3 class="text-center title-table">Areas {{$titulo}} <span class="btn btn-success btn-add-title" onclick="adicionar_area()">ADICIONAR</span></h3>
+      <h3 class="text-center title-table">Áreas {{$titulo}} <span class="btn btn-success btn-add-title" onclick="adicionar_area()">ADICIONAR</span></h3>
     </div>
   </div>
   <div class="row">

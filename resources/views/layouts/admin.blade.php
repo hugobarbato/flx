@@ -100,6 +100,12 @@
           <span class="ml-2"> Áreas Comuns </span> 
           <i class="fas fa-chevron-right float-right mt-1"></i>
         </a>
+        <div class="divider-line"></div>
+        <a href="{{url('').'/admin/paginas'}}" class="list-group-item list-group-item-action bg-dark fontMenu">
+          <i class="fas fa-building"></i>
+          <span class="ml-2"> Páginas Institucionais </span> 
+          <i class="fas fa-chevron-right float-right mt-1"></i>
+        </a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

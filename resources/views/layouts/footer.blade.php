@@ -6,11 +6,11 @@
                     <div class="col-md-3 ">
                         <h5>Anuncie seu imovel</h5>
                         <ul>
-                            <li>Proprietários</li>
-                            <li>Corretores</li>
-                            <li>Imobiliárias</li>
-                            <li>Hotel</li>
-                            <li>Hotel - Venda</li>
+                            <li><a href="/imovel/adicionar" style="color:#fff"> Proprietários</a></li>
+                            <li><a href="/imovel/adicionar" style="color:#fff">Corretores</a></li>
+                            <li><a href="/imovel/adicionar" style="color:#fff">Imobiliárias</a></li>
+                            <li><a href="/imovel/adicionar" style="color:#fff">Hotel</a></li>
+                            <li><a href="/imovel/adicionar" style="color:#fff">Hotel - Venda</a></li>
                         </ul>
                     </div>
                     
@@ -18,30 +18,28 @@
                         
                         <h5>Contato</h5>
                         <ul>
-                            <li>contato@flximoveis.com.br</li>
-                            <li>Whatsapp: (11)99999-9999</li>
-                            <li>Telefone: (11)99999-9999</li>
+                            <li> <a href="mailto:contato@flximoveis.com.br" style="color:#fff">contato@flximoveis.com.br</a></li>
+                            <li>Whatsapp: <a href="tel:11964625346" style="color:#fff">(11) 96462-5346</a></li> 
                         </ul>
                     </div>
                     
                     <div class="col-md-3 ">
-                        
                         <h5>Institucional</h5>
                         <ul>
-                            <li>Quem Somos</li>
-                            <li>Segurança da informação</li>
-                            <li>Termo de uso</li>
+                            <li><a href="/institucional/quem-somos" style="color:#fff">Quem Somos</a></li>
+                            <li><a href="/institucional/seguranca-da-informacao" style="color:#fff">Segurança da informação</a></li>
+                            <li><a href="/institucional/termo-de-uso" style="color:#fff">Termo de uso</a></li>
                         </ul>
                     </div>
                     
                     <div class="col-md-3 logo-footer">
                         
                         <div class="footer-anuncio-gratis">
-                            <a href="/pacotesAdesao">Anuncie Grátis por 45 dias</a>
+                            <a href="{{ route('planos') }}">Anuncie Grátis por 45 dias</a>
                         </div>
                         
                          <div class="logo-flx">
-                            <a href="#"><img src="{{url('img/logo.png')}}"> </a>
+                            <a href="/"><img src="{{url('img/logo.png')}}"> </a>
                         </div>
                     </div>
                 </div>

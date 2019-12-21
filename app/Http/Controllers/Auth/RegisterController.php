@@ -54,8 +54,7 @@ class RegisterController extends Controller
             'cd_document' => ['required','string', 'max:20', 'unique:users'],
             'cd_cep' => ['required', 'string', 'max:10'],
             'nm_endereco' => ['required', 'string', 'max:255'],
-            'nm_numero' => ['required', 'string', 'max:10'],
-            'nm_complemento' => [ 'string', 'max:50'],
+            'nm_numero' => ['required', 'string', 'max:10'], 
             'nm_bairro' => ['required', 'string', 'max:100'],
             'nm_cidade' => ['required', 'string', 'max:100'],
             'cd_uf' => ['required', 'string', 'max:2'],
@@ -88,9 +87,7 @@ class RegisterController extends Controller
             'nm_numero.required'=>'Informe o número.',
             'nm_numero.string'=>'Número inválido',
             'nm_numero.max'=>'O campo "Número" precisa ter no maximo 10 caracteres',
-            
-            'nm_complemento.string'=>'Complemento inválido.',
-            'nm_complemento.max'=>'O campo "Complemento" precisa ter no maximo 50 caracteres',
+             
             
             'nm_bairro.required'=>'Informe o bairro.',
             'nm_bairro.string'=>'Bairro inválido.',

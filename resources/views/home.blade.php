@@ -101,7 +101,7 @@
                                                 @endif
                                             </div>
                                             <div class="card-body">
-                                                <h4 class="card-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
+                                                <h4 class="card-title">{{$imovel->nm_tipo_imovel}} / {{$imovel->nm_tipo_anuncio}}</h4>
                                                 <h6 class="card-subtitle mb-2 text-muted">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h6>
                                                 <!--<p class="card-text">Conteudo do card</p>-->
                                             </div>
@@ -163,7 +163,7 @@
                                                 @endif
                                             </div>
                                             <div class="card-body">
-                                                <h4 class="card-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
+                                                <h4 class="card-title">{{$imovel->nm_tipo_imovel}} / {{$imovel->nm_tipo_anuncio}}</h4>
                                                 <h6 class="card-subtitle mb-2 text-muted">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h6>
                                                 <!--<p class="card-text">Conteudo do card</p>-->
                                             </div>

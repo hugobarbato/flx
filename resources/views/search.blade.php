@@ -59,7 +59,13 @@
                     </div>
                     
                     <div class="row">
-                        <p class="col centerY"> {{ $imoveis->total() }} imoveis encontrados.</p>
+                        <p class="col centerY"> 
+                            @if($imoveis->total()==0)
+                            No momento não temos nenhum imóvel no perfil buscado
+                            @else
+                            {{ $imoveis->total() }} imoveis encontrados.
+                            @endif
+                        </p>
                         <div class="col">{{ $imoveis->links() }}</div>
                     </div>
 

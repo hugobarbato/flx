@@ -165,11 +165,11 @@ class AdminController extends Controller
             }
             if(isset($inputs->Endereco)  && $inputs->Endereco){
                 $imoveis = $imoveis->where(function($q) use ($inputs) {
-                    $q->where('cd_cep', 'like', '%'.$inputs->Endereco.'%')
-                    ->orWhere('nm_endereco', 'like', '%'.$inputs->Endereco.'%')
-                    ->orWhere('nm_bairro', 'like', '%'.$inputs->Endereco.'%')
-                    ->orWhere('nm_cidade', 'like', '%'.$inputs->Endereco.'%')
-                    ->orWhere('cd_uf', 'like', '%'.$inputs->Endereco.'%');
+                    $q->where('tb_imovel.cd_cep', 'like', '%'.$inputs->Endereco.'%')
+                    ->orWhere('tb_imovel.nm_endereco', 'like', '%'.$inputs->Endereco.'%')
+                    ->orWhere('tb_imovel.nm_bairro', 'like', '%'.$inputs->Endereco.'%')
+                    ->orWhere('tb_imovel.nm_cidade', 'like', '%'.$inputs->Endereco.'%')
+                    ->orWhere('tb_imovel.cd_uf', 'like', '%'.$inputs->Endereco.'%');
                 });
             }else{
                 $inputs->Endereco = '';
@@ -433,5 +433,21 @@ class AdminController extends Controller
         ]);
 
     }
+
+    public function get_site(){
+        $sites = \App\Site::get();
+        return view('admin.sites', ['sites'=>$sites]);
+    }
+    public function save_site(Request $request){
+        $site = \App\Site::find($request->id);
+        $site->ds_site = $request->descricao;
+        $site->save();
+        return 'Ok';
+    }
+
+
+
+
+
 
 }

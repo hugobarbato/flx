@@ -235,7 +235,7 @@
                             <div class="form-check col-md-6" style="line-height: 40px;">
                               <input id="aceit" type="checkbox" name="aceit" value="1" required>
                               <label class="form-check-label" for="aceit">
-                               <b>Li e concordo</b> com os termos de uso
+                               <b>Li e concordo</b> com os <a href="/institucional/termo-de-uso">termos de uso</a>
                               </label>
                             </div>
                         </div>
@@ -243,7 +243,7 @@
                         
                         <div class="form-group row">
                             <div class="col-12 ">
-                                <button type="submit" id="cadastrarUsuario" class="btn-flx col-md-5 float-right" disabled>
+                                <button type="submit"id="cadastrarUsuario" class="btn-flx col-md-5 float-right" >
                                     Cadastrar
                                 </button>
                             </div>
@@ -259,4 +259,9 @@
 
 @section("scripts")
 <script type="text/javascript" src="js/auth.js"> </script>
+<script>
+    $("#cadastrarUsuario").click(function () {
+        if(!aceit.checked){alert('Para finalizar é necessário aceitar os termos de uso!')}
+    });
+</script>
 @endsection

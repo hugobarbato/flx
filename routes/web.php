@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/institucional/{slug}', 'HomeController@institucional')->name('institucional');
  
 Route::get('/planos', 'HomeController@pacotesAdesao')->name('planos')->middleware('auth');
 Route::get('/adesao', 'HomeController@pacotesAdesao')->name('adesao')->middleware('auth');
@@ -83,6 +84,10 @@ Route::group(['prefix'=>'admin', 'middleware'=> 'auth'],function(){
     Route::get('/areas/{tipo}/excluir/{id}', 'AdminController@excluir_areas');
 
     Route::get('/compras', 'AdminController@view_compras');
+
+    Route::get('/paginas', 'AdminController@get_site');
+    Route::post('/paginas/save', 'AdminController@save_site');
+
 }); 
 
 Auth::routes();

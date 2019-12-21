@@ -5,10 +5,21 @@
         <hr>
     </div>
     <article>
-        <div class="container">
+        <div class="container-home">
             <div class="container-content" style="min-height: unset;">
+                <a href="/imovel/adicionar" class="btn btn-outline-success float-right mt-3">Adicionar Imovél</a>
                 <h4>Meus Imóveis Cadastrados</h4>
-                <p>Você possui {{$imoveis_c}} {{ $imoveis_c == 1 ? 'imóvel cadastrado' : 'imóveis cadastrados'  }}.</p>
+                <p>
+                    @if($imoveis_c == 0 )
+                        Você não possui nenhum imovél cadastrado.
+                    @else
+                        Você possui {{$imoveis_c}} {{ $imoveis_c == 1 ? 'imóvel cadastrado' : 'imóveis cadastrados'  }}.
+                    @endif
+                </p>
+                <h4>Sobre o período de gratuidade:</h4>
+                <p> Você terá 25 anúncios gratuitos com exibição padrão. Essa cortesia tem validade de 45 dias. 
+                    Após este período, seus anúncios deixarão de ser exibidos e será necessário contratar um dos 
+                    planos.  <a href="/planos" class="btn btn-outline-primary float-right">Contrate Seu Plano Agora</a> </p>
             </div>
             <div class="container search">
                 <div class="search-banner-principal">

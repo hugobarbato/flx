@@ -13,6 +13,7 @@ use App\TipoAnunciante;
 use App\AreasPrivativas;
 use App\AreasComuns;
 use App\Pacote;
+use App\Site;
 use App\Compra;
 use DB;
 class HomeController extends Controller
@@ -69,6 +70,20 @@ class HomeController extends Controller
             'imoveis_lancamentos'=>$imoveis_lancamentos,
             'filter'=>$filter
         ]);
+    }
+
+    public function institucional(Request $request, $slug){
+        $site = Site::where('nm_site',$slug)->first();
+        if(!$site) redirect('/');
+
+        return view('institucional', ['site'=>$site]);
+    }
+    public function termo(){
+        
+    }
+
+    public function seguranca(){
+        
     }
 
     public function detail(Request $request, $id){
@@ -235,6 +250,8 @@ class HomeController extends Controller
                         $tipes = [3];
                         $inputs->search_for = 3;
                         break;
+                    default:
+                     return redirect('/');
                 }
                 $imoveis = $imoveis->whereIn('tb_imovel.cd_tipo_anuncio',$tipes) ;
                 $filter = $filter->whereIn('tb_imovel.cd_tipo_anuncio',$tipes) ;

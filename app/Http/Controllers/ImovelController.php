@@ -152,6 +152,8 @@ class ImovelController extends Controller
                         $tipes = [3];
                         $inputs->search_for = 3;
                         break;
+                    default:
+                     redirect('/');
                 }
                 $imoveis = $imoveis->whereIn('tb_imovel.cd_tipo_anuncio',$tipes) ;
                 $filter = $filter->whereIn('tb_imovel.cd_tipo_anuncio',$tipes) ;

@@ -83,7 +83,7 @@
                                     <div class="card">
                                         <h4 class="card-header">{{$pacote->nm_titulo}}</h4>
                                         <div class="card-body">
-                                            <p><span class="vl-anuncio">R$ {{ number_format($pacote->vl_pacote,2,',',' ') }}</span> / mês</p>
+                                            <p><span class="vl-anuncio">R$ {{ number_format($pacote->vl_pacote,2,',','.') }}</span> / mês</p>
                                             <div class="detalhes-planos">
                                                 @if($pacote->qt_anuncio > 0 )
                                                 <p><span class="qt-anuncios">{{$pacote->qt_anuncio}} anúncios</span></p>
@@ -93,7 +93,7 @@
                                                 <p>inclui {{$pacote->qt_destaques}} destaque</p>
                                             </div>
                                         </div>
-                                        <div class="card-footer">Somente R$ {{ number_format(($pacote->vl_pacote/30),2,',',' ') }} por dia</div>
+                                        <div class="card-footer">Somente R$ {{ number_format(($pacote->vl_pacote/30),2,',','.') }} por dia</div>
                                     </div>
                                     </label>
                                 </div>                 
