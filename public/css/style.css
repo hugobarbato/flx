@@ -840,3 +840,9 @@
         .select-busca .dropdown-menu {
             padding: 5px 20px 11px;
         }
+
+@media screen and (max-width: 780px){
+    .search-card-imovel{
+        height: unset;
+    }
+}

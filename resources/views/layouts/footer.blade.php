@@ -19,7 +19,7 @@
                         <h5>Contato</h5>
                         <ul>
                             <li> <a href="mailto:contato@flximoveis.com.br" style="color:#fff">contato@flximoveis.com.br</a></li>
-                            <li>Whatsapp: <a href="tel:11964625346" style="color:#fff">(11) 96462-5346</a></li> 
+                            <li>Whatsapp: <a href="https://api.whatsapp.com/send?1=pt_BR&phone=5511964625346" target="_blank" style="color:#fff">(11) 96462-5346</a></li> 
                         </ul>
                     </div>
                     
@@ -35,7 +35,7 @@
                     <div class="col-md-3 logo-footer">
                         
                         <div class="footer-anuncio-gratis">
-                            <a href="{{ route('planos') }}">Anuncie Grátis por 45 dias</a>
+                            <a href="/register">Anuncie Grátis por 45 dias</a>
                         </div>
                         
                          <div class="logo-flx">

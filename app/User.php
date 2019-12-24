@@ -53,4 +53,15 @@ class User extends Authenticatable
     public function imoveis() {
         return $this->hasMany('App\Imovel', 'cd_user', 'id');
     }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new \App\Notifications\MailResetPasswordNotification($token));
+    }
 }

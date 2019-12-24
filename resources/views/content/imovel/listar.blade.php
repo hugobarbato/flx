@@ -7,7 +7,13 @@
     <article>
         <div class="container-home">
             <div class="container-content" style="min-height: unset;">
-                <a href="/imovel/adicionar" class="btn btn-outline-success float-right mt-3">Adicionar Imovél</a>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-7 row btn-group-lg">
+                        <a href="/planos" class="btn btn-success w-50 rounded-0">VER PLANOS</a> 
+                        <a href="/imovel/adicionar" class="btn btn-primary  ml-2 rounded-0">CADASTRAR NOVO IMÓVEL</a>
+                    </div>
+                </div>
                 <h4>Meus Imóveis Cadastrados</h4>
                 <p>
                     @if($imoveis_c == 0 )
@@ -16,10 +22,14 @@
                         Você possui {{$imoveis_c}} {{ $imoveis_c == 1 ? 'imóvel cadastrado' : 'imóveis cadastrados'  }}.
                     @endif
                 </p>
-                <h4>Sobre o período de gratuidade:</h4>
-                <p> Você terá 25 anúncios gratuitos com exibição padrão. Essa cortesia tem validade de 45 dias. 
-                    Após este período, seus anúncios deixarão de ser exibidos e será necessário contratar um dos 
-                    planos.  <a href="/planos" class="btn btn-outline-primary float-right">Contrate Seu Plano Agora</a> </p>
+                <div class="row mt-4 mb-4">
+                    <div class="col-md-6">
+                    <b>Sobre o período de gratuidade:</b>
+                    <p> Você terá 25 anúncios gratuitos com exibição padrão. Essa cortesia tem validade de 45 dias. 
+                        Após este período, seus anúncios deixarão de ser exibidos e será necessário contratar um dos 
+                        planos.  </p>
+                    </div>
+                </div>
             </div>
             <div class="container search">
                 <div class="search-banner-principal">
@@ -235,7 +245,7 @@
                     </div>
                     @endforeach
                 </div>
-                <div class="pagination-container my-3 float-right">
+                <div class="pagination-container my-3 float-right table-responsive">
                     {{ $imoveis->links() }}
                 </div>
             </div>

@@ -113,7 +113,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <h3 class="text-center title-table"> <Small>{{$compras->links()}} </Small></h3>
+      <h3 class="text-center title-table table-responsive"> <Small>{{$compras->links()}} </Small></h3>
     </div>
   </div>
 </div>
