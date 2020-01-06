@@ -162,11 +162,16 @@ class ImovelController extends Controller
             }
         }  
         $t_imob = Imovel::where('cd_user',Auth::user()->id)->count(); 
+        $destaques = DB::table('vw_user_qt_destaque')->where('cd_user',Auth::user()->id)->first();
+        $super_destaques = DB::table('vw_user_qt_super_destaque')->where('cd_user',Auth::user()->id)->first();
+ 
         return view('content.imovel.listar',[
             'tipo_imovel'=>TipoImovel::get(),
             'tipo_anuncio'=>TipoAnuncio::get(),
             'tipo_anunciante'=>TipoAnunciante::get(),
             'categoria_imovel'=>CategoriaImovel::get(),
+            'destaque'=>$destaques,
+            'super_destaque'=>$super_destaques,
             'imoveis'=> $imoveis->paginate(10),
             'imoveis_c'=>  $t_imob,
             'old_values'=>$inputs,
@@ -447,4 +452,39 @@ class ImovelController extends Controller
         return redirect('/imovel/editar/'.$imovel->cd_imovel)->with(['success'=>'Imovel editado com sucesso!']);
     }
     
+    public function destacar(Request $request){
+        $imovel = Imovel::where('cd_user', Auth::user()->id)->findOrFail($request->id);
+        if($request->retirar){
+            $imovel->ic_destaque = 0;
+            $imovel->save();
+            return response('Imóvel alterado com sucesso!', 200);
+        }else{
+            switch ($imovel->ic_destaque) {
+                case 0:
+                    $destaque = DB::table('vw_user_qt_destaque')->where('cd_user',Auth::user()->id)->first();
+                    if( ( $destaque->qt_destaques - $destaque->qt_imoveis_destacados ) > 0 ){
+                        $imovel->ic_destaque = 1 ;
+                        $imovel->save();
+                    }else{
+                        return response('Você não possui destaques disponiveis.', 400);
+                    }
+                    break;
+                case 1:
+                    $destaque = DB::table('vw_user_qt_super_destaque')->where('cd_user',Auth::user()->id)->first();
+                    if( ( $destaque->qt_destaque - $destaque->qt_imoveis_destacados ) > 0 ){
+                        $imovel->ic_destaque = 2;
+                        $imovel->save();
+                    }else{
+                        return response('Você não possui super destaques disponiveis.', 400);
+                    }
+                    break;
+                default:
+                    $imovel->ic_destaque = 0;
+                    $imovel->save();
+                    break;
+            }
+            return response('Imóvel alterado com sucesso!', 200);
+        }
+    }
+
 }

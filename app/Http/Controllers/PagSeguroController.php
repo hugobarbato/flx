@@ -13,7 +13,12 @@ use App\AreasPrivativas;
 use App\AreasComuns;
 use App\Pacote;
 use App\Compra;
+use App\User;
+use App\Destaque;
+
 use CWG\PagSeguro\PagSeguroAssinaturas;
+use CWG\PagSeguro\PagSeguroCompras;
+
 use DB;
 
 class PagSeguroController extends Controller
@@ -25,9 +30,9 @@ class PagSeguroController extends Controller
     public function __construct()
     {
         $this->pagseguro = new PagSeguroAssinaturas($this->email, $this->token, $this->sandbox);
+        $this->pagseguro_compra = new PagSeguroCompras($this->email, $this->token, $this->sandbox);
         $this->user = Auth::user();
     }
-    //
 
     public function checkout(Request $request){
         $this->user = Auth::user();
@@ -99,10 +104,12 @@ class PagSeguroController extends Controller
             if($this->atualizaCompra($codigoAssinatura)){
                return  redirect('/planos');
             }else{
-                return redirect()->back()->withInputs();
+                return response('Falha na transação!', 400)
+                ->header('Content-Type', 'text/plain');  
             }
         } catch (Exception $e) {
-            echo $e->getMessage();
+            return response( $e->getMessage(), 500)
+                ->header('Content-Type', 'text/plain');  
         }
     }
 
@@ -133,8 +140,7 @@ class PagSeguroController extends Controller
 
     public function retornoAssinatura(Request $request){
         
-        $assinatura = $this->pagseguro->consultaAssinatura($request->id);
-        dd($assinatura);
+        $assinatura = $this->pagseguro->consultaAssinatura($request->id); 
         if(!$assinatura){
             return redirect('/planos')->with('error','Não foi possível validar sua assinatura.');
         }else{
@@ -145,6 +151,34 @@ class PagSeguroController extends Controller
             $compra -> vl_total = ($pacote?$pacote->vl_pacote:0);
             $compra -> ic_processado = $this->statusPagSeguro($assinatura['status']);
             $compra -> cd_pagseguro = $assinatura['code'];
+            $compra->save();
+            return redirect('/planos');
+
+        } 
+    }
+    public function retornoCompra(Request $request){
+        
+        $compra_d = $this->pagseguro_compra->consultarCompra($request->id); 
+        
+        if(!$compra_d){
+            return redirect('/planos')->with('error','Não foi possível validar sua assinatura.');
+        }else{
+            if(isset($compra_d['reference'])){
+                $ref = explode('U', $compra_d['reference']); 
+                $user = User::findOrFail($ref[1]);
+                $destaque = Destaque::findOrFail(str_replace('D','',$ref[0]));
+            }   
+            $compra = Compra::where('cd_pagseguro', $compra_d['code'])->where('ic_tipo','2')->first();
+            if(!$compra){
+                $compra = new Compra;
+            }
+
+            $compra -> cd_user = $user->id;
+            $compra -> cd_destaque = $destaque->cd_destaque;
+            $compra -> ic_tipo = 2;
+            $compra -> vl_total = $compra_d['grossAmount'];
+            $compra -> ic_processado = $compra_d['status'];
+            $compra -> cd_pagseguro = $compra_d['code'];
             $compra->save();
             return redirect('/planos');
 
@@ -181,13 +215,62 @@ class PagSeguroController extends Controller
                         $compra -> ic_processado = $this->statusPagSeguro($assinatura['status']);
                         $compra->save();
                     break;
+                case 'transaction':
+                    $compra_d = $this->pagseguro_compra->consultarNotificacao($request->notificationCode);
+                    
+                    if(isset($compra_d['reference'])){
+                        $ref = explode('U', $compra_d['reference']); 
+                        $user = User::findOrFail($ref[1]);
+                        $destaque = Destaque::findOrFail(str_replace('D','',$ref[0]));
+                    }   
+                    $compra = Compra::where('cd_pagseguro', $compra_d['code'])->where('ic_tipo','2')->first();
+                    if(!$compra){
+                        $compra = new Compra;
+                    }
+        
+                    $compra -> cd_user = $user->id;
+                    $compra -> cd_destaque = $destaque->cd_destaque;
+                    $compra -> ic_tipo = 2;
+                    $compra -> vl_total = $compra_d['grossAmount'];
+                    $compra -> ic_processado = $compra_d['status'];
+                    $compra -> cd_pagseguro = $compra_d['code'];
+                    $compra->save();
+                    break;
                 default:
-                    # code...
                     break;
             }
             return 'ok';
         }
     }   
+
+    public function compra_link(Request $request){ 
+
+        $d = Destaque::findOrFail($request->id); 
+ 
+        $this->pagseguro_compra = new PagSeguroCompras($this->email, $this->token, $this->sandbox);
+        $this->user = Auth::user(); 
+        //Nome do comprador (OPCIONAL)
+        $this->pagseguro_compra->setNomeCliente($this->user->name);	
+        //Email do comprovador (OPCIONAL)
+        $this->pagseguro_compra->setEmailCliente($this->user->email);
+ 
+        //Código usado pelo vendedor para identificar qual é a compra (OPCIONAL)
+        $this->pagseguro_compra->setReferencia("D".$request->id."U".$this->user->id);	
+        //Adiciona os itens da compra (ID do ITEM, DESCRICAO, VALOR, QUANTIDADE)
+        $this->pagseguro_compra->adicionarItem(
+            $d->cd_destaque
+            , 'Compra de '.$d->qt_destaque.($d->ic_super?' Super':'').' Destaque(s).',
+            $d->vl_destaque,
+            1
+        );
+ 
+        try{
+            $url = $this->pagseguro_compra->gerarURLCompra();
+            echo $url;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
     
 
 }

@@ -78,7 +78,7 @@
             <th scope="col">Cliente</th>
             <th scope="col">E-mail</th>
             <th scope="col">Dt. Contratação</th>
-            <th scope="col">Título</th>
+            <th scope="col">Item</th>
             <th scope="col">Valor</th>
             <th scope="col">Ult. Atualização</th> 
             <th scope="col">Status PagSeguro</th>
@@ -94,7 +94,7 @@
             <td >{{$c->nm_titulo}}</td> 
             <td>R$ {{ number_format($c->vl_total,2,',',' ') }}</td>
             <td >{{date('d/m/Y H:i',strtotime($c->updated_at))}}</td>  
-            <td>{{$pagseguro->statusCompra($c->ic_processado)}}</td>
+            <td>{{ $c->ic_tipo == 1 ? $pagseguro->statusCompra($c->ic_processado) :$pagseguro->statusDestaque($c->ic_processado)  }}</td>
             <td>
               @if($c->ic_processado == 1)
                   @php $canBuy = false; @endphp

@@ -125,4 +125,29 @@ class Controller extends BaseController
                 break;
         }
     }
+    public function statusDestaque($status_pagSeguro){
+
+        switch ($status_pagSeguro) { 
+            case 0: return 'Pendente';
+                break; 
+            case 1 : return 'Aguardando pagamento';
+                break; 
+            case 2 : return "Em análise" ;
+                break; 
+            case 3: return "Paga";
+                break; 
+            case 4: return "Disponível";
+                break; 
+            case 5: return "Em disputa";
+                break;  
+            case 5: return "Devolvida";
+                break; 
+            case 5: return "Cancelada";
+                break;     
+            default:
+                # code...
+                return 'Pendente';
+                break;
+        }
+    }
 }

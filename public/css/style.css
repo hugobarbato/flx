@@ -125,8 +125,7 @@
             background: #2356ab;
             color: #fff;
             text-transform: uppercase;
-            padding: 15px;
-            margin-bottom: 3px;
+            padding: 15px; 
         }
         .checkbox-selector {
             height: 100%;
@@ -841,8 +840,107 @@
             padding: 5px 20px 11px;
         }
 
+        .sm-only{
+            display: none;
+        }
+
+        .destacar_imovel {
+            position: absolute;
+            top: -4px;
+            right: 15px;
+            z-index: 2;
+            cursor: pointer;
+        }
+        
+        .destacar_imovel i {
+            font-size: 35px; 
+            color:#636363;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #636363;
+        }
+        .destacar_imovel i.active { 
+            color: #2355ab;
+        }
+
+        .destacar_imovel i.super {
+           color: #daa520;
+        }
+        a.sweet-modal-close-link {
+            background-image: url(https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-512.png) !important;
+        }
 @media screen and (max-width: 780px){
     .search-card-imovel{
         height: unset;
+    }
+    .container-fluid.banner-principal {
+        height: fit-content;
+        padding: 20px;
+    }
+    .class-3 {
+        width: 100%;
+        flex: 0 0 auto;
+    }
+    
+    .container.area-busca {
+        flex-wrap: wrap;
+    }
+    
+    .container-busca {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+    .class-2 .row .col-sm-12 {
+        flex-wrap: wrap;
+    }
+    .select-busca input {
+        width: 100%;
+    }
+    #dropdownMenuButton {
+        text-align: left;
+    }
+    input#cd_imovel {
+        text-align: left !important;
+    }
+    
+    input#cd_imovel::placeholder {
+        text-align: left;
+        padding-left: 12px;
+    }
+    button.btn-search {
+        height: 50px;
+        font-size: 20px;
+    }
+    .select-busca.border-right {
+        border-right: none !important;
+    }
+    .nav-anuncio-gratis{
+        display: none;
+    }
+    .left-block {
+        width: 100%;
+        border: none; 
+        padding-bottom: 15px;
+        border-bottom: 1px solid #000;
+        margin-bottom: 10px;
+    }
+    .btn-listar-inicio {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+        margin: 10px;
+    }
+    .btn-listar-inicio a{
+        width: 300px !important;
+        flex: 0 0 auto;
+        margin: 5px !important;
+    }
+    .md-only{
+        display: none;
+    }
+    .sm-only{
+        display: unset;
     }
 }

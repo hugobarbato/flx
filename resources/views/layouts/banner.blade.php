@@ -53,7 +53,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-md-2 pl-3 pr-3 pl-md-0 pr-md-0">
+                                            <div class="col-md-2 pl-3 pr-3 pl-md-0 pb-1 pr-md-0">
                                                 <div class="titulo-busca">
                                                     <p>tipo de imóvel</p>
                                                 </div>
@@ -98,7 +98,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-md-5 d-none d-md-block">
+                                            <div class="col-md-5 pb-1 d-md-block">
                                                 <div class="titulo-busca">
                                                     <p>Onde ?</p>
                                                 </div>
@@ -108,7 +108,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="class-2 d-none d-md-block">
+                        <div class="class-2  d-md-block">
                             <div class="row">
                                 <div class="col-sm-12">
                                 
@@ -188,7 +188,7 @@
                                         </select>
                                     </div>
                                 
-                                    <div class="select-busca">
+                                    <div class="select-busca mb-2">
                                         <input type="text" name="cd_imovel" id="cd_imovel" Placeholder="CÓDIGO DO IMÓVEL" value="{{$old_values->cd_imovel}}"/>
                                     </div>
                                 </div>

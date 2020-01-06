@@ -388,8 +388,64 @@ class AdminController extends Controller
     public function view_compras(Request $request){
         $inputs = $request->all();
         $compra = Compra:: select('tb_pacotes.nm_titulo', 'tb_compra.*', 'users.name', 'users.email')
-        ->leftJoin('tb_pacotes','tb_pacotes.cd_pacote','=','tb_compra.cd_pacote')
-        ->leftJoin('users','users.id','=','tb_compra.cd_user')
+        ->join('tb_pacotes','tb_pacotes.cd_pacote','=','tb_compra.cd_pacote')
+        ->join('users','users.id','=','tb_compra.cd_user')
+        ->orderBy('cd_compra','desc');
+
+        if(count($inputs)>0){
+            if($inputs['status']){
+                $compra->whereRaw('tb_compra.ic_processado in ('.$inputs['status'].') ');
+            }
+            if($inputs['cliente']){
+                $compra->where(function($q) use ($inputs){
+                    $q->where('users.name','like',"%".$inputs['cliente']."%");
+                    $q->orWhere('users.email','like',"%".$inputs['cliente']."%");
+                    $q->orWhere('users.id',$inputs['cliente']);
+                });
+            }
+            if($inputs['plano']){
+                $compra->whereRaw('tb_pacotes.cd_pacote',$inputs['plano']);
+            } 
+            if($inputs['dateInical'] && $inputs['dateFinal']){
+                if($inputs['dtBy'] == 1){
+                    $compra->whereBetween('tb_compra.created_at',[$inputs['dateInical'], $inputs['dateFinal']]);
+                }else{
+                    $compra->whereBetween('tb_compra.updated_at',[$inputs['dateInical'], $inputs['dateFinal']]);
+    
+                }
+            }
+        } else{
+            $inputs = [
+                'status'=>'',
+                'cliente'=>'',
+                'plano'=>'',
+                'dateInical'=>'',
+                'dateFinal'=>'',
+                'dtBy'=>1
+            ];
+        }
+
+        $pacotes = Pacote::get();
+        return view('admin.compras',[
+            'compras'=>$compra->paginate(),
+            'pacotes'=>$pacotes,
+            'inputs'=>$inputs
+        ]);
+
+    }
+    // COMPRAS
+    public function view_compras_destaques(Request $request){
+        $inputs = $request->all();
+        $compra = Compra:: select(DB::raw("
+            CONCAT(
+                tb_destaques.qt_destaque,
+                IF(
+                    tb_destaques.ic_super, ' Super', ''
+                ), ' Destaque(s)'
+            ) as nm_titulo
+        "), 'tb_compra.*', 'users.name', 'users.email')
+        ->join('tb_destaques','tb_destaques.cd_destaque','=','tb_compra.cd_destaque')
+        ->join('users','users.id','=','tb_compra.cd_user')
         ->orderBy('cd_compra','desc');
 
         if(count($inputs)>0){

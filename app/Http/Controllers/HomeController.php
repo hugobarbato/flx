@@ -15,6 +15,7 @@ use App\AreasComuns;
 use App\Pacote;
 use App\Site;
 use App\Compra;
+use App\Destaque;
 use DB;
 class HomeController extends Controller
 {
@@ -41,7 +42,7 @@ class HomeController extends Controller
         ->whereIn('tb_imovel.cd_tipo_anuncio',[1,4,6])->limit(4)
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio')
-        ->inRandomOrder()->get();
+        ->orderBy('ic_destaque','desc')->inRandomOrder()->get();
         $imoveis_aluguel = Imovel::
         select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio',
              DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel and i.deleted_at is null limit 1 ) as nm_link"),
@@ -50,7 +51,7 @@ class HomeController extends Controller
         ->whereIn('tb_imovel.cd_tipo_anuncio',[2,5])->limit(4)
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio')
-        ->inRandomOrder()->get();
+        ->orderBy('ic_destaque','desc')->inRandomOrder()->get();
         $imoveis_lancamentos = Imovel::
         select('tb_imovel.*', 'nm_tipo_imovel','nm_tipo_anuncio',
              DB::raw("( SELECT nm_link FROM tb_imagem i where tb_imovel.cd_imovel = i.cd_imovel and i.deleted_at is null limit 1 ) as nm_link"),
@@ -58,7 +59,7 @@ class HomeController extends Controller
         )->whereIn('tb_imovel.cd_tipo_anuncio',[3])->limit(4)
         ->leftJoin('tb_tipo_imovel','tb_imovel.cd_tipo_imovel','=','tb_tipo_imovel.cd_tipo_imovel')
         ->leftJoin('tb_tipo_anuncio','tb_imovel.cd_tipo_anuncio','=','tb_tipo_anuncio.cd_tipo_anuncio')
-        ->inRandomOrder()->get();
+        ->orderBy('ic_destaque','desc')->inRandomOrder()->get();
 
         return view('home',[
             'tipo_imovel'=>TipoImovel::get(),
@@ -265,7 +266,7 @@ class HomeController extends Controller
             'tipo_anuncio'=>TipoAnuncio::get(),
             'tipo_anunciante'=>TipoAnunciante::get(),
             'categoria_imovel'=>CategoriaImovel::get(),
-            'imoveis'=> $imoveis->inRandomOrder()->paginate(20),
+            'imoveis'=> $imoveis->orderBy('ic_destaque','desc')->inRandomOrder('cd_imovel')->paginate(20),
             'old_values'=>$inputs,
             'filter'=>$filter->first()
         ]);
@@ -284,7 +285,6 @@ class HomeController extends Controller
     public function pacotesAdesao()
     {  
         $pacotes = Pacote::where('cd_status','=',1)->get();    
-
         $compra = Compra::where('cd_user',Auth::user()->id)
         ->select('tb_pacotes.nm_titulo', 'tb_compra.*')
         ->join('tb_pacotes','tb_pacotes.cd_pacote','=','tb_compra.cd_pacote')
@@ -292,11 +292,23 @@ class HomeController extends Controller
         ->get();
         foreach ($compra as $key => $c) {
             $compra[$key]->status = $this->statusCompra($c->ic_processado);
+        }  
+        $compra_destaque = Compra::where('cd_user',Auth::user()->id)
+        ->join('tb_destaques','tb_destaques.cd_destaque','=','tb_compra.cd_destaque')
+        ->orderBy('cd_compra','desc')
+        ->select('tb_destaques.qt_destaque', 'tb_destaques.ic_super', 'tb_compra.*')
+        ->get(); 
+        foreach ($compra_destaque as $key => $c) {
+            $compra_destaque[$key]->status = $this->statusDestaque($c->ic_processado);
         } 
-        
+        $destaques = Destaque::where('ic_super',0)->get();  
+        $super_destaques = Destaque::where('ic_super',1)->get();
         return view('pacotesAdesao', [
             'pacotes'=>$pacotes,
             'compra'=>$compra,
+            'compra_destaque'=>$compra_destaque,
+            'super_destaques'=>$super_destaques,
+            'destaques'=>$destaques,
             'canBuy'=>true
         ]);
     }

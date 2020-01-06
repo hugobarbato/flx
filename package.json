@@ -24,6 +24,7 @@
     "vue-template-compiler": "^2.6.9"
   },
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "sweet-modal": "^1.3.2"
   }
 }

@@ -16,6 +16,15 @@
                         @foreach($imoveis as $imovel )
                             <div class="card mb-3 search-card-imovel" >
                                 <div class="row no-gutters">
+                                    @if($imovel->ic_destaque == 2)
+                                    <span class="destacar_imovel" data-toggle="tooltip" data-placement="bottom" title="Imóvel Super Destaque.">
+                                        <i class="fas super fa-bookmark"></i>
+                                    </span>
+                                    @elseif($imovel->ic_destaque == 1)
+                                    <span class="destacar_imovel" data-toggle="tooltip" data-placement="bottom" title="Imóvel Destaque.">
+                                        <i class="fas active fa-bookmark"></i>
+                                    </span>
+                                    @endif 
                                     <div class="col-md-4 img-search-card-imovel">
                                     <a href="/detail/{{$imovel->cd_imovel}}"> <img class="card-img-top" src="{{env('APP_URL').'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'></a>
                                     </div>

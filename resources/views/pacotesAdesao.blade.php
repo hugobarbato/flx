@@ -134,7 +134,35 @@
                         
                     </div>
                 @else
-                
+                @if(count($compra_destaque) >= 0)
+
+                    <div class="meus-planos">
+                        <div class="row">
+                            <h2>Histórico de Compras</h2>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Destaque</th> 
+                                        <th>Status</th> 
+                                        <th>Valor</th>  
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($compra_destaque as $c)
+                                        <tr>
+                                            <td>
+                                            {{ $c->qt_destaque }} {{ $c->ic_super?'Super ' :''}}  Destaque(s)
+                                            </td>
+                                            <td>{{ $c->status }}</td>
+                                            <td>{{$c->vl_total}}</td> 
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    @endif
                 <div class="destaque-anuncio">
                     <div class="row">
                         <div class="col-md-12">
@@ -148,27 +176,14 @@
                                 <h4>Destaques</h4>
                                 
                                 <div class="destaque-anuncio-info">
-                                    
+                                    @foreach($destaques as $d)
                                      <div>
-                                        <label > <input type="radio" name="scales" value="1"> Compre 10 destaques - R$100,00 </label>
+                                        <label >
+                                            <input type="radio" name="scales" value="{{$d->cd_destaque}}">
+                                         Compre {{$d->qt_destaque}} destaques - R$ {{ number_format(($d->vl_destaque),2,',','.') }} 
+                                        </label>
                                     </div>
-                                    
-                                    <div> 
-                                        <label > <input type="radio" name="scales" value="2"> Compre 25 destaques - R$200,00</label>
-                                    </div>
-                                    
-                                    <div> 
-                                        <label > <input type="radio" name="scales" value="3"> Compre 50 destaques - R$350,00</label>
-                                    </div>
-                                    
-                                    <div>
-                                        <label > <input type="radio" name="scales" value="4"> Compre 100 destaques - R$600,00</label>
-                                    </div> 
-
-                                    <div class="cleanDestaquesOptions">
-                                        Limpar seleção 
-                                    </div>
-                        
+                                    @endforeach 
                                 </div>
                             </div>
                             
@@ -176,22 +191,14 @@
                                 <h4>Super Destaques</h4>
                                 
                                 <div class="destaque-anuncio-info">
-                                    
-                                    <div> 
-                                        <label > <input type="radio" name="scalesSuper" value="1"> Compre 01 destaque - R$100,00 </label>
-                                    </div>
-                                    
-                                    <div> 
-                                        <label > <input type="radio" name="scalesSuper" value="2" > Compre 03 destaques - R$250,00</label>
-                                    </div>
-                                    
-                                    <div>
-                                        <label > <input type="radio" name="scalesSuper" value="3"> Compre 06 destaques - R$500,00</label>
-                                    </div>
-                                    
-                                    <div> 
-                                        <label > <input type="radio" name="scalesSuper" value="4" > Compre 12 destaques - R$1.000,00</label>
-                                    </div> 
+                                    @foreach($super_destaques as $d)
+                                        <div>
+                                            <label >
+                                                <input type="radio" name="scales" value="{{$d->cd_destaque}}">
+                                            Compre {{$d->qt_destaque}} super destaque - R$ {{ number_format(($d->vl_destaque),2,',','.') }} 
+                                            </label>
+                                        </div>
+                                    @endforeach 
                                 </div>
                             </div>
                         </div>
@@ -227,6 +234,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="pagamento-icon pagseguro-card pointer"> 
+                                    <p id="aguarde_link" style="display:none" >Aguarde, gerando link para checkout com o pagseguro...</p>
                                     <a href="#" id="pagar_com_pagseguro_button" target="_Blank">
                                         <img src="https://stc.pagseguro.uol.com.br/public/img/botoes/assinaturas/184x42-assinar-azul-assina.gif" alt="Pague com PagSeguro - É rápido, grátis e seguro!" width="209" height="48">
                                     </a>
@@ -245,9 +253,19 @@
 @section('scripts')
     <script type="text/javascript" src="{{ asset('js/imob.js') }}"></script>
     <script>
+        $(".destaques-planos input[type='radio']").click(el=>{
+            $('#aguarde_link').show();
+            $.post('/pagseguro/compralink',{id:el.target.value}).done(data=>{
+                let button = document.getElementById('pagar_com_pagseguro_button');
+                button.href = data;
+                $('#aguarde_link').hide();
+            });
+        }); 
         function setPagSeguroUrl(url){
+            $('#aguarde_link').show();
             let button = document.getElementById('pagar_com_pagseguro_button');
             button.href = '/pagseguro/checkout?id='+url;
+            $('#aguarde_link').hide();
         }
     </script>
 @endsection

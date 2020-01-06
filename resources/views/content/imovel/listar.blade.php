@@ -9,7 +9,7 @@
             <div class="container-content" style="min-height: unset;">
                 <div class="row">
                     <div class="col-md-5"></div>
-                    <div class="col-md-7 row btn-group-lg">
+                    <div class="col-md-7 row btn-group-lg btn-listar-inicio ">
                         <a href="/planos" class="btn btn-success w-50 rounded-0">VER PLANOS</a> 
                         <a href="/imovel/adicionar" class="btn btn-primary  ml-2 rounded-0">CADASTRAR NOVO IMÓVEL</a>
                     </div>
@@ -18,10 +18,20 @@
                 <p>
                     @if($imoveis_c == 0 )
                         Você não possui nenhum imovél cadastrado.
-                    @else
-                        Você possui {{$imoveis_c}} {{ $imoveis_c == 1 ? 'imóvel cadastrado' : 'imóveis cadastrados'  }}.
+                    @else 
+                        Você possui {{$imoveis_c}} {{ $imoveis_c == 1 ? 'imóvel cadastrado' : 'imóveis cadastrados'  }}. <br>
+                        Você possui {{ $destaque->qt_destaques }} destaque(s) e está utilizando {{ $destaque->qt_imoveis_destacados }} destaque(s).<br>
+                        Você possui {{ $super_destaque->qt_destaque }}  super destaque(s) e está utilizando {{ $super_destaque->qt_imoveis_destacados }} super destaque(s).<br>
+
+                        
                     @endif
                 </p>
+                @if($destaque->qt_destaques - $destaque->qt_imoveis_destacados < 0 )
+                         <p class="alert alert-danger"> Você está utilizando mais <b>destaques</b> do que possui! Por gentileza ajuste seus destaques para que o mesmos funcionem perfeitamente. </p>
+                        @endif
+                        @if($super_destaque->qt_destaque - $super_destaque->qt_imoveis_destacados < 0 )
+                         <p class="alert alert-danger"> Você está utilizando mais <b>super destaques</b> do que possui! Por gentileza ajuste seus destaques para que o mesmos funcionem perfeitamente. </p>
+                        @endif
                 <div class="row mt-4 mb-4">
                     <div class="col-md-6">
                     <b>Sobre o período de gratuidade:</b>
@@ -32,7 +42,7 @@
                 </div>
             </div>
             <div class="container search">
-                <div class="search-banner-principal">
+                <div class="search-banner-principal px-4">
                     <form action="#" method="get" >
                         <div class="container area-busca">
                         <div class="container-busca">
@@ -40,7 +50,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                             <div class="row">
-                                                <div class="col-md-4 pl-3 pr-3  pr-md-0">
+                                                <div class="col-md-4 pl-3 pr-3 mb-2 pr-md-0">
                                                     <div class="titulo-busca">
                                                         <p>tipo de imóvel</p>
                                                     </div>
@@ -85,7 +95,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="col-md-8 d-none d-md-block">
+                                                <div class="col-md-8 mb-2 d-md-block">
                                                     <div class="titulo-busca">
                                                         <p>Onde ?</p>
                                                     </div>
@@ -95,7 +105,7 @@
                                         </div>
                                 </div>
                             </div>
-                            <div class="class-2 d-none d-md-block">
+                            <div class="class-2 mb-2 d-md-block">
                                 <div class="row">
                                     <div class="col-sm-12">
                                     
@@ -196,7 +206,12 @@
                 <div class="cards pb-2">
                     @foreach($imoveis as $imovel) 
                     <div class="card mb-3 search-card-imovel" >
-                        <div class="row no-gutters">
+                        <div class="row no-gutters relative">
+                            <span class="destacar_imovel" data-toggle="tooltip" data-placement="bottom" title="
+                            {{($imovel->ic_destaque == 2 ? 'Imóvel Super Destaque.' : ($imovel->ic_destaque == 1 ? 'Imóvel Destaque.' : 'Imóvel sem destaque.')) }} 
+                            " onclick="destacarImovel({{$imovel->cd_imovel}},{{$imovel->ic_destaque}},'{{$imovel->nm_titulo}}')" >
+                                <i class="{{ $imovel->ic_destaque >= 1 ? 'fas' : 'far' }} {{ ($imovel->ic_destaque == 1 ? 'active' : ($imovel->ic_destaque == 2 ? 'super' : '')) }} fa-bookmark"></i>
+                            </span>
                             <div class="col-md-4 img-search-card-imovel">
                             <a href="/imovel/editar/{{$imovel->cd_imovel}}"> <img class="card-img-top" src="{{env('APP_URL').'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->nm_link}}" onerror=' this.src = "/images/default.png"'></a>
                             </div>
@@ -204,7 +219,7 @@
                                 <div class="card-body">
                                     <div class="col-md-12 row">
                                       <div class="col-md-10">
-                                            <h4 class="flx-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
+                                            <h4 class="flx-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}} - {{$imovel->ic_destaque}}</h4>
                                             <h5 class="flx-sub-title">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h5>
                                       </div>
                                       <div class="col-md-2">
@@ -260,6 +275,86 @@ window.lrv_data = {
     max:{{$filter->max_value}},
     values:[ {{($old_values->precoDe?$old_values->precoDe:$filter->min_value)}}, {{($old_values->precoAte?$old_values->precoAte:$filter->max_value)}}  ]
 };
+function destacarImovel(id, status_imovel, titulo) {
+    let destaques = {{ $destaque->qt_destaques - $destaque->qt_imoveis_destacados }};
+    let super_destaques = {{ $super_destaque->qt_destaque - $super_destaque->qt_imoveis_destacados }}; 
+    switch (status_imovel) {
+        case 0:
+            if(destaques>0){
+                $.sweetModal({
+                    title: 'Destacar imóvel "'+titulo+'"?',
+                    content: 'Você possui "'+destaques+'" destaque(s) disponível(eis), deseja dar destaque a este imóvel ?',
+                    buttons: {
+                        someOtherAction: {
+                            label: 'Cancelar',
+                            classes: 'secondaryB bordered flat',
+                            action: function() {
+                                $(".sweet-modal-close-link").click();
+                                return false;
+                            }
+                        },
+
+                        someAction: {
+                            label: 'Destacar',
+                            classes: '',
+                            action: function() {
+                                postDestaque(id);
+                                $(".sweet-modal-close-link").click();
+                                return false
+                            }
+                        },
+                    }
+                });
+            }else{
+                $.sweetModal('Você não possui destaques!', '<a href="/planos">Para dar destaques em seus imóveis, compre destaques aqui.</a>');
+            }
+            break;
+        case 1:
+        case 2:
+            let actions = {
+                cancelar: {
+                    label: 'Cancelar',
+                    classes: 'secondaryB bordered flat',
+                    action: function() {
+                        $(".sweet-modal-close-link").click();
+                        return false;
+                    }
+                },
+
+                retirarDestaque: {
+                    label: 'Retirar Destaque',
+                    classes: 'redB',
+                    action: function() {
+                        postDestaque(id, 1);
+                        $(".sweet-modal-close-link").click();
+                        return false
+                    }
+                }
+            };
+            if(super_destaques > 0 && status_imovel == 1){
+                actions.destacar= {
+                    label: 'Super Destaque',
+                    classes: '',
+                    action: function() {
+                        postDestaque(id);
+                        $(".sweet-modal-close-link").click();
+                        return false
+                    }
+                };
+            }
+            $.sweetModal({
+                title: ' Alterando Destaque do imóvel "'+titulo+'" ',
+                content: ' Você possui "'+super_destaques+'" super destaque(s) disponível(eis), o que deseja fazer ?',
+                buttons: actions
+            }); 
+            break;
+    }
+}
+function postDestaque(id, retirar = 0){
+    $.post('/imovel/destacar',{id:id, retirar:retirar}).done(function(){
+        window.location.reload();
+    });
+}
 </script>
 @endsection
 

@@ -53,7 +53,7 @@
                     @else
                         <div class="menu-principal" >
                             <ul class="navbar-nav">
-                                <li class="nav-item dropdown  {{ (request()->is('/imovel/adicionar')) || (request()->is('/imovel/listar')) ? 'active' : '' }}">
+                                <li class="nav-item dropdown md-only {{ (request()->is('/imovel/adicionar')) || (request()->is('/imovel/listar')) ? 'active' : '' }}">
                                     <a id="imoveis" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" 
                                     aria-haspopup="true" aria-expanded="false" v-pre>
                                         <i class="fa fa-home" aria-hidden="true"></i> Imóveis <span class="caret"></span>
@@ -76,11 +76,20 @@
                                         <a class="dropdown-item" href="{{ route('planos') }}">
                                            Meus Planos
                                         </a>
+
+                                        <a class="dropdown-item sm-only {{ (request()->is('/imovel/adicionar')) ? 'active' : '' }}" href="{{ url('/imovel/adicionar') }}" >
+                                            Adicionar Imóveis 
+                                        </a>
+                                        <a class="dropdown-item sm-only {{ (request()->is('/imovel/listar')) ? 'active' : '' }}" href="{{ url('/imovel/listar') }}" >
+                                            Listar Imóveis  
+                                        </a>
+                                        
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">
                                             Sair
                                         </a>
+                                         
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf

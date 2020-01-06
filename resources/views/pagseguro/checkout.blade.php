@@ -207,13 +207,13 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="pagseguro_cartao_numero">Número do Cartão*</label>
-                                <input type="text" class="form-control" id="pagseguro_cartao_numero" value="4111111111111111"/>
+                                <input type="text" class="form-control" id="pagseguro_cartao_numero" value="{{old('pagseguro_cartao_numero')}}"/>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="pagseguro_cartao_cvv">CVV do Cartão*</label>
-                                <input type="text" class="form-control" id="pagseguro_cartao_cvv" value="123"/>
+                                <input type="text" class="form-control" id="pagseguro_cartao_cvv" value="{{old('pagseguro_cartao_cvv')}}"/>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -221,10 +221,10 @@
                                 <label for="pagseguro_cartao_mes">Mês e Ano de Expiração do Cartão*</label>
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="text" class="form-control" id="pagseguro_cartao_mes" value="12"/>
+                                        <input type="text" class="form-control" id="pagseguro_cartao_mes" value="{{old('pagseguro_cartao_mes')}}"/>
                                     </div>
                                     <div class="col-6">
-                                        <input type="text" class="form-control" id="pagseguro_cartao_ano" value="2030"/>
+                                        <input type="text" class="form-control" id="pagseguro_cartao_ano" value="{{old('pagseguro_cartao_ano')}}"/>
                                     </div>
                                 </div>
                             </div>
@@ -242,12 +242,7 @@
                                 <img src="/images/pagseguro.png" alt="PagSeguro" height="100">
                             </span>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-6">
-                            <div id="result_init"></div>
-                        </div>
-                    </div>
+                    </div> 
                 </form>
             
             </div>
@@ -256,97 +251,63 @@
 @endsection
 @section('scripts')
 {!!$js['principal']!!}
+<script src="/js/valida_cpf_cnpj.js"></script>
 <script type='text/javascript'>
-function getMethodsPayment(valor){
-    PagSeguroDirectPayment.getPaymentMethods({
-        amount: valor,
-        success: function(response) {
-           console.info(response)
-        },
-        error: function(response) {
-           console.info(response)
-        },
-        complete: function(response) {
-           console.info(response)
-        }
-    });
-}
-
-function PagSeguroBuscaHashCliente() {
-    $("#result_init").html("<ul><li>Iniciando tratamento com pagseguro aguarde....</li></ul>");
-    PagSeguroDirectPayment.onSenderHashReady(function(response){
-        if(response.status == 'error') {
-            $("#result_init ul").append("<li> Falha na realização da compra... </li>");
-            alert(response.message);
-            return false;
-        }
-        $('#pagseguro_cliente_hash').val(response.senderHash); //Hash estará disponível nesta variável.
-        console.log('Hash Cliente: ' + $('#pagseguro_cliente_hash').val());
-        $("#result_init ul").append("<li>Seu código de cliente no pagseguro é:"+response.senderHash+" </li>");
-
-        PagSeguroBuscaBandeira();   //Através do pagseguro_cartao_numero do cartão busca a bandeira
-    });		
-}
-function PagSeguroBuscaToken() {
-    PagSeguroDirectPayment.createCardToken({
-        cardNumber: $('#pagseguro_cartao_numero').val(),
-        brand: $('#pagseguro_cartao_bandeira').val(),
-        cvv: $('#pagseguro_cartao_cvv').val(),
-        expirationMonth: $('#pagseguro_cartao_mes').val(),
-        expirationYear: $('#pagseguro_cartao_ano').val(),
-        success: function(response) { 
-            console.log('Token: ' + response.card.token);
-            $('#pagseguro_cartao_token').val(response.card.token);
-            $("#result_init ul").append("<li>O token do seu cartão é:"+response.card.token+" </li>");
-            $("#result_init ul").append("<li> Finalizando a compra .... </li>");
-            $('#finalizarcompra').click();
-        },
-        error: function(response) { 
-            console.log(response); 
-            $("#result_init ul").append("<li> Falha na realização da compra... </li>");
-            if(response.error){
-                for (var key in response.errors) {
-                    // skip loop if the property is from prototype
-                    if (!response.errors.hasOwnProperty(key)) continue;
-
-                    var obj = response.errors[key];
-                    alert(key+' - '+translateErro(obj));
-                }
-            }
-        },
-    });
-}
-function PagSeguroBuscaBandeira() {
-    PagSeguroDirectPayment.getBrand({cardBin: $('#pagseguro_cartao_numero').val(),
-        success: function(response) { 
-            console.log('Bandeira: ' + response.brand.name);
-            $('#pagseguro_cartao_bandeira').val(response.brand.name);
-            $("#result_init ul").append("<li>A bandeira do seu cartão é:"+response.brand.name+" </li>");
-            PagSeguroBuscaToken();      //Através dos 4 campos acima gera o Token do cartão 
-        },
-        error: function(response) { 
-            $("#result_init ul").append("<li> Falha na realização da compra... </li>");
-            if(response.error){
-                for (var key in response.errors) {
-                    // skip loop if the property is from prototype
-                    if (!response.errors.hasOwnProperty(key)) continue;
-
-                    var obj = response.errors[key];
-                    alert(key+' - '+translateErro(obj));
-                }
-            }
-            console.log(response); 
-        },
-    });
-}
-function translateErro(msg){
-    switch (msg) {
-        case 'invalid creditcard brand':
-        case "invalid creditcard data":
-        default:
-                return 'Cartão inválido!'
+    var progressActual = 0 ;
+    function initModalPagseguro(){
+        progressActual = 0 ;
+        $.sweetModal({
+            content: 
+            '<div class="progress">'+
+                '<div id="progressoPagseguro" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>'+
+            '</div>'+
+            ' <div id="result_init"><ul></ul></div> ', 
+            title: 'Iniciando tratamento com pagseguro aguarde....'
+        });
     }
-}
+    function incrementProgress(){
+        progressActual++;
+        $("#progressoPagseguro").css('width',progressActual*25+'%');
+    }
+    function msgPagseguroModal(msg) {
+        $("#result_init ul").append("<li> "+msg+"</li>");
+        incrementProgress();
+    }
+    function erroPagseguro(msg){
+        $.sweetModal({
+            content: msg,
+            title: 'Oh não...',
+            icon: $.sweetModal.ICON_ERROR,
+            buttons: [
+                {
+                    label: 'OK',
+                    classes: 'redB'
+                }
+            ]
+        });
+    }
+    function successPagseguro(msg){
+        $.sweetModal({
+            content: msg,
+            title: 'Transação concluida!',
+            icon: $.sweetModal.ICON_SUCCESS,
+            buttons: [
+                {
+                    label: 'OK',
+                    classes: 'redB'
+                }
+            ]
+        });
+    }
+
+    function translateErro(msg){
+        switch (msg) {
+            case 'invalid creditcard brand':
+            case "invalid creditcard data":
+            default:
+                    return 'Cartão inválido!';
+        }
+    }
     function displayValorPlano(){
         var plain_id = $('#plain').val();
         console.info(plain_id)
@@ -356,27 +317,109 @@ function translateErro(msg){
 
     }
     displayValorPlano();
+
+
+    function getMethodsPayment(valor){
+        PagSeguroDirectPayment.getPaymentMethods({
+            amount: valor,
+            success: function(response) {
+            console.info(response)
+            },
+            error: function(response) {
+            console.info(response)
+            },
+            complete: function(response) {
+            console.info(response)
+            }
+        });
+    }
+
+    function PagSeguroBuscaHashCliente() { 
+        if(valida_cpf_cnpj( $("#cd_document").val() )){
+            initModalPagseguro();
+            PagSeguroDirectPayment.onSenderHashReady(function(response){
+                if(response.status == 'error') { 
+                    erroPagseguro(response.message)
+                    return false;
+                }
+                $('#pagseguro_cliente_hash').val(response.senderHash);
+                msgPagseguroModal("Seu código de cliente no pagseguro é: "+response.senderHash); 
+                PagSeguroBuscaBandeira();   //Através do pagseguro_cartao_numero do cartão busca a bandeira
+            });	
+        }else{
+            erroPagseguro('CPF ou CNPJ inválido!');
+        }
+    }
+    function PagSeguroBuscaBandeira() {
+        PagSeguroDirectPayment.getBrand({cardBin: $('#pagseguro_cartao_numero').val(),
+            success: function(response) {
+                $('#pagseguro_cartao_bandeira').val(response.brand.name);
+                msgPagseguroModal("A bandeira do seu cartão é: "+response.brand.name); 
+                PagSeguroBuscaToken();//Através dos 4 campos acima gera o Token do cartão 
+            },
+            error: function(response) { 
+                let msgError=' Falha na realização da compra... \n <br> '; 
+                if(response.error){
+                    for (var key in response.errors) { 
+                        if (!response.errors.hasOwnProperty(key)) continue; 
+                        var obj = response.errors[key];
+                        msgError+= key+' - '+translateErro(obj)+'\n <br> ';
+                    }
+                } 
+                erroPagseguro(msgError)
+            },
+        });
+    }
+    function PagSeguroBuscaToken() {
+        PagSeguroDirectPayment.createCardToken({
+            cardNumber: $('#pagseguro_cartao_numero').val(),
+            brand: $('#pagseguro_cartao_bandeira').val(),
+            cvv: $('#pagseguro_cartao_cvv').val(),
+            expirationMonth: $('#pagseguro_cartao_mes').val(),
+            expirationYear: $('#pagseguro_cartao_ano').val(),
+            success: function(response) {  
+                $('#pagseguro_cartao_token').val(response.card.token);
+                msgPagseguroModal("O token do seu cartão é: "+response.card.token);  
+                msgPagseguroModal("Finalizando a compra .... ");   
+                $('#finalizarcompra').click();
+            },
+            error: function(response) { 
+                console.log(response); 
+                let msgError=' Falha na realização da compra... \n <br> '; 
+                if(response.error){
+                    for (var key in response.errors) { 
+                        if (!response.errors.hasOwnProperty(key)) continue; 
+                        var obj = response.errors[key];
+                        msgError+= key+' - '+translateErro(obj)+'\n <br> ';
+                    }
+                } 
+                erroPagseguro(msgError);
+            },
+        });
+    }
+
     $(document).ready(function(){
         $('#cd_uf').val('{{ $user->cd_uf }}') ;
 
         $('#checkoutForm').on('submit',(e)=>{
             if(pagseguro_cartao_token.value && pagseguro_cliente_hash.value){
-                return true;
-            }else{
-                return false;
-                e.preventDefault();
+                var data = $('#checkoutForm').serialize();
+                $.post('#', data).done( data => successPagseguro(data) );
             }
+            return false;
+            e.preventDefault();
         })
     });
 </script>
 @endsection
-@section('styles')
-<style>
-.small-alert{
-    text-align: right;
-    font-size: 9px;
-    display: inherit;
-}
 
-</style>
+@section('styles')
+    <style>
+        .small-alert{
+            text-align: right;
+            font-size: 9px;
+            display: inherit;
+        }
+
+    </style>
 @endsection

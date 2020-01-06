@@ -18,21 +18,18 @@
   <body id="app">
   <header>
         <div class="container-fluid menu-nav" >
+          <button class="navbar-toggler sm-only" type="button" data-toggle="collapse" data-target="#navbarSite">
+              <span class="navbar-toggle-icon"></span>
+              <i class="fas fa-bars ml-2 user-nav-icon" id="sidebarCollapse" ></i>
+          </button>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="logo-flx">
                     <a class="navbar-brand" href="{{url('/admin')}}"><img src="{{url('img/logo.png')}}" height="50" > </a>
                 </div>
-                
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
-                    <span class="navbar-toggle-icon"></span>
-                </button>
-                
-                
             </nav> 
             <div class="align-items-center d-flex justify-content-between rigth"> 
                 <a href="{{url('')}}">SAIR </a>  
                 <i class="fa-user-circle fas ml-2 user-nav-icon"></i>  
-                <i class="fas fa-bars ml-2 user-nav-icon" id="sidebarCollapse" ></i>
             </div>
         </div>
     </header>
@@ -77,7 +74,13 @@
           <i class="fas fa-chevron-right float-right mt-1"></i>
         </a>
         <div class="divider-line"></div>
-        <a href="{{url('').'/admin/compras'}}" class="list-group-item list-group-item-action bg-dark fontMenu">
+        <a href="{{url('').'/admin/compras/assinaturas'}}" class="list-group-item list-group-item-action bg-dark fontMenu">
+          <i class="fas fa-money-check-alt"></i>
+          <span class="ml-2">  Gerenciar Assinaturas</span> 
+          <i class="fas fa-chevron-right float-right mt-1"></i>
+        </a>
+        <div class="divider-line"></div>
+        <a href="{{url('').'/admin/compras/destaques'}}" class="list-group-item list-group-item-action bg-dark fontMenu">
           <i class="fas fa-money-check-alt"></i>
           <span class="ml-2">  Gerenciar Compras</span> 
           <i class="fas fa-chevron-right float-right mt-1"></i>

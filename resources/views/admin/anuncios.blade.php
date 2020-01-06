@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-4 pl-3 pr-3  pr-md-0">
+                                    <div class="col-md-4 pl-3 pr-3 mb-2 pr-md-0">
                                         <div class="titulo-busca">
                                             <p>tipo de imóvel</p>
                                         </div>
@@ -60,13 +60,13 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="col-md-4 d-none d-md-block">
+                                    <div class="col-md-4 mb-2 d-md-block">
                                         <div class="titulo-busca">
                                             <p>Onde ?</p>
                                         </div>
                                         <input type="text" name="Endereco" id="endereco" Placeholder="Endereço / Bairro / Cidade / UF..." value="{{$old_values->Endereco}}" />
                                     </div>
-                                    <div class="col-md-4 d-none d-md-block">
+                                    <div class="col-md-4 mb-2 d-md-block">
                                         <div class="titulo-busca">
                                             <p>Email ou Documento:</p>
                                         </div>
@@ -76,7 +76,7 @@
                             </div>
                     </div>
                 </div>
-                <div class="class-2 d-none d-md-block">
+                <div class="class-2 mb-2 d-md-block">
                     <div class="row">
                         <div class="col-sm-12">
                         

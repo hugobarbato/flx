@@ -20,6 +20,15 @@
                                 <div class="col-md-3">
                                     <a href="/detail/{{$imovel->cd_imovel}}" class="text-decoration-none text-dark"> 
                                         <div class="card">
+                                        @if($imovel->ic_destaque == 2)
+                                    <span class="destacar_imovel" data-toggle="tooltip" data-placement="bottom" title="Imóvel Super Destaque.">
+                                        <i class="fas super fa-bookmark"></i>
+                                    </span>
+                                    @elseif($imovel->ic_destaque == 1)
+                                    <span class="destacar_imovel" data-toggle="tooltip" data-placement="bottom" title="Imóvel Destaque.">
+                                        <i class="fas active fa-bookmark"></i>
+                                    </span>
+                                    @endif 
                                             <div class="card-img-header">
                                             @if($imovel->ic_status)
                                                 <span class="status_imovel"> 
@@ -82,6 +91,15 @@
                                 <div class="col-md-3">
                                     <a href="/detail/{{$imovel->cd_imovel}}" class="text-decoration-none text-dark"> 
                                         <div class="card">
+                                        @if($imovel->ic_destaque == 2)
+                                    <span class="destacar_imovel" data-toggle="tooltip" data-placement="bottom" title="Imóvel Super Destaque.">
+                                        <i class="fas super fa-bookmark"></i>
+                                    </span>
+                                    @elseif($imovel->ic_destaque == 1)
+                                    <span class="destacar_imovel" data-toggle="tooltip" data-placement="bottom" title="Imóvel Destaque.">
+                                        <i class="fas active fa-bookmark"></i>
+                                    </span>
+                                    @endif 
                                             <div class="card-img-header status_div">
                                             @if($imovel->ic_status)
                                                 <span class="status_imovel"> 
@@ -144,6 +162,15 @@
                                 <div class="col-md-3">
                                     <a href="/detail/{{$imovel->cd_imovel}}" class="text-decoration-none text-dark"> 
                                         <div class="card"> 
+                                            @if($imovel->ic_destaque == 2)
+                                            <span class="destacar_imovel" data-toggle="tooltip" data-placement="bottom" title="Imóvel Super Destaque.">
+                                                <i class="fas super fa-bookmark"></i>
+                                            </span>
+                                            @elseif($imovel->ic_destaque == 1)
+                                            <span class="destacar_imovel" data-toggle="tooltip" data-placement="bottom" title="Imóvel Destaque.">
+                                                <i class="fas active fa-bookmark"></i>
+                                            </span>
+                                            @endif 
                                             <div class="card-img-header">
                                             @if($imovel->ic_status)
                                                 <span class="status_imovel"> 
