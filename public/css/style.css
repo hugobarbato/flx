@@ -861,7 +861,9 @@
         .destacar_imovel i.active { 
             color: #2355ab;
         }
-
+        #navbarSite {
+            margin-left: 10px;
+        }
         .destacar_imovel i.super {
            color: #daa520;
         }
