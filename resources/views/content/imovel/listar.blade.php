@@ -26,12 +26,12 @@
                         
                     @endif
                 </p>
-                @if($destaque->qt_destaques - $destaque->qt_imoveis_destacados < 0 )
-                         <p class="alert alert-danger"> Você está utilizando mais <b>destaques</b> do que possui! Por gentileza ajuste seus destaques para que o mesmos funcionem perfeitamente. </p>
-                        @endif
-                        @if($super_destaque->qt_destaque - $super_destaque->qt_imoveis_destacados < 0 )
-                         <p class="alert alert-danger"> Você está utilizando mais <b>super destaques</b> do que possui! Por gentileza ajuste seus destaques para que o mesmos funcionem perfeitamente. </p>
-                        @endif
+                    @if($destaque && ($destaque->qt_destaques - $destaque->qt_imoveis_destacados < 0) )
+                        <p class="alert alert-danger"> Você está utilizando mais <b>destaques</b> do que possui! Por gentileza ajuste seus destaques para que o mesmos funcionem perfeitamente. </p>
+                    @endif
+                    @if($super_destaque && ($super_destaque->qt_destaque - $super_destaque->qt_imoveis_destacados < 0) )
+                        <p class="alert alert-danger"> Você está utilizando mais <b>super destaques</b> do que possui! Por gentileza ajuste seus destaques para que o mesmos funcionem perfeitamente. </p>
+                    @endif
                 <div class="row mt-4 mb-4">
                     <div class="col-md-6">
                     <b>Sobre o período de gratuidade:</b>

@@ -25,8 +25,10 @@ Route::group(['prefix'=>'pagseguro'],function(){
 
     // /pagseguro/retorno/assinatura?id=7EFD1A41BFBF264CC4281F821D0E8C7A
     Route::get('/retorno/assinatura','PagSeguroController@retornoAssinatura')->name('assinatura');
+    Route::post('/retorno/assinatura','PagSeguroController@retornoAssinatura')->name('assinatura');
+    
     Route::get('/retorno/compra','PagSeguroController@retornoCompra')->name('compra');
-
+    Route::post('/retorno/compra','PagSeguroController@retornoCompra')->name('compra');
     // /pagseguro/cancelamento/7EFD1A41BFBF264CC4281F821D0E8C7A
     Route::get('/cancelamento/{id_pagseguro}', 'PagSeguroController@cancelamento')->name('CancelamentoPagseguro');
 
