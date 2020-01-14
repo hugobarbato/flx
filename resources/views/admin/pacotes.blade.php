@@ -37,7 +37,7 @@
                   <i class="fas fa-bars actions-menu-table"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="menuImovel{{$pacote->cd_pacote}}">
-                  <!-- <a class="dropdown-item" href="#" onclick=" EditPacote('{{$pacote->cd_pacote}}','{{$pacote->nm_titulo}}','{{ number_format($pacote->vl_pacote,2,',',' ') }}','{{$pacote->qt_anuncio}}','{{$pacote->qt_destaques}}')" >Editar</a> -->
+                  <a class="dropdown-item" href="#" onclick=" EditPacote('{{$pacote->cd_pacote}}','{{$pacote->nm_titulo}}','{{ number_format($pacote->vl_pacote,2,',',' ') }}','{{$pacote->qt_anuncio}}','{{$pacote->qt_destaques}}')" >Editar</a>
                   <a class="dropdown-item" href="{{url('')}}/admin/pacote/alter_status/{{$pacote->cd_pacote}}"  >{{$pacote->cd_status?'Inativar':'Ativar'}}</a>
                   <a class="dropdown-item" href="{{url('')}}/admin/pacote/excluir/{{$pacote->cd_pacote}}" onclick="confirm('Deseja excluir este pacote?')" >Excluir</a>
                 </div>
