@@ -13,10 +13,10 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     // id = 7EFD1A41BFBF264CC4281F821D0E8C7A
-    public $email = "hugobarbato@gmail.com";
-    public $token = "8E721189DC424DE59AE00FE65F244D5C"; // token sandbox
-    // public $token = "ff1ece87-0d9a-4b01-afbf-1a5726045a5635f7483e437f93bc0c7b9143df4c0d863989-92e5-4d36-bda6-17742e99bd66";
-    public $sandbox = true;
+    public $email = "leo.lazzerini@hotmail.com";
+    // public $token = "8E721189DC424DE59AE00FE65F244D5C"; // token sandbox
+    public $token = "f64ef267-93bd-4f5f-bc71-c59d17a7e0d1532b3e8d4fe9afbfae6ac153ee2513238673-55ce-47e5-9b79-cd67c2aba8fb";
+    public $sandbox = false;
 
     public function returnIsoDate(string $pDate){
         if( strpos ( $pDate ,  "-" ) ){
