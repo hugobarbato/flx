@@ -20,10 +20,12 @@
                         Você não possui nenhum imovél cadastrado.
                     @else 
                         Você possui {{$imoveis_c}} {{ $imoveis_c == 1 ? 'imóvel cadastrado' : 'imóveis cadastrados'  }}. <br>
-                        Você possui {{ $destaque->qt_destaques }} destaque(s) e está utilizando {{ $destaque->qt_imoveis_destacados }} destaque(s).<br>
-                        Você possui {{ $super_destaque->qt_destaque }}  super destaque(s) e está utilizando {{ $super_destaque->qt_imoveis_destacados }} super destaque(s).<br>
-
-                        
+                       @if($destaque)
+                       Você possui {{ $destaque->qt_destaques }} destaque(s) e está utilizando {{ $destaque->qt_imoveis_destacados }} destaque(s).<br>
+                       @endif
+                       @if($super_destaque)
+                       Você possui {{ $super_destaque->qt_destaque }}  super destaque(s) e está utilizando {{ $super_destaque->qt_imoveis_destacados }} super destaque(s).<br>
+                       @endif
                     @endif
                 </p>
                     @if($destaque && ($destaque->qt_destaques - $destaque->qt_imoveis_destacados < 0) )
