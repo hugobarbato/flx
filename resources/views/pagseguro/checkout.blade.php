@@ -296,7 +296,10 @@
                     label: 'OK',
                     classes: 'redB'
                 }
-            ]
+            ],
+            onClose:{
+                window.location.href = "/";
+            }
         });
     }
 
@@ -404,7 +407,7 @@
         $('#checkoutForm').on('submit',(e)=>{
             if(pagseguro_cartao_token.value && pagseguro_cliente_hash.value){
                 var data = $('#checkoutForm').serialize();
-                $.post('#', data).done( data => successPagseguro(data) );
+                $.post('#', data).done( data => successPagseguro(' Obrigado por realizar a compra com a FLX Imóveis, aguarde o processamento pela PagSeguro. ') );
             }
             return false;
             e.preventDefault();
