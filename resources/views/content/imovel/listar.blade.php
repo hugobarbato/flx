@@ -276,8 +276,8 @@ window.lrv_data = {
     values:[ {{($old_values->precoDe?$old_values->precoDe:$filter->min_value)}}, {{($old_values->precoAte?$old_values->precoAte:$filter->max_value)}}  ]
 };
 function destacarImovel(id, status_imovel, titulo) {
-    let destaques = {{ $destaque->qt_destaques - $destaque->qt_imoveis_destacados }};
-    let super_destaques = {{ $super_destaque->qt_destaque - $super_destaque->qt_imoveis_destacados }}; 
+    let destaques = {{ $destaque ? ($destaque->qt_destaques - $destaque->qt_imoveis_destacados) : 0 }};
+    let super_destaques = {{ $super_destaque ? ($super_destaque->qt_destaque - $super_destaque->qt_imoveis_destacados) : 0}}; 
     switch (status_imovel) {
         case 0:
             if(destaques>0){
