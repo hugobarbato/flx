@@ -112,7 +112,7 @@ class Controller extends BaseController
             # A recorrência foi cancelada a pedido do comprador.
             case 'CANCELLED_BY_SENDER':
             case 6: 
-                return "Cancelada";
+                return "Compra Cancelada ou Não Aprovada";
                 break;
             case 'EXPIRED':
             case 7:
@@ -140,10 +140,10 @@ class Controller extends BaseController
                 break; 
             case 5: return "Em disputa";
                 break;  
-            case 5: return "Devolvida";
+            case 6: return "Devolvida";
                 break; 
-            case 5: return "Cancelada";
-                break;     
+            case 7: return "Compra Cancelada ou Não Aprovada";
+                break;    
             default:
                 # code...
                 return 'Pendente';
