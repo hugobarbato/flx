@@ -1028,3 +1028,12 @@
 .col.separeitor-left {
     border-left: 1px solid #ccc;
 }
+.listimg {
+    max-height: 70px; 
+    object-fit: cover;
+    position: absolute;
+    right: 0;
+}
+.img-search-card-imovel {
+    border: 1px solid #ccc;
+}
