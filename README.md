@@ -1,15 +1,16 @@
-# Bem vindo ao iMobi  - FLX
-O iMobi está utilizando as mais recentes ferramentas do mercado, fique por dentro: 
+# Bem vindo ao iMobi - FLX
 
- - [Laravel 5.8](https://laravel.com/docs/5.8) 
- - [Bootstrap 4.3](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
+O iMobi estï¿½ utilizando as mais recentes ferramentas do mercado, fique por dentro:
+
+- [Laravel 5.8](https://laravel.com/docs/5.8)
+- [Bootstrap 4.3](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
 
 # Assents
+
 Para compilar os arquivos `css` e `js` execute os seguintes comandos:
 
- - Para desenvolvimento - `npm run dev`
- - Para produção - `npm run production`
-
+- Para desenvolvimento - `npm run dev`
+- Para produï¿½ï¿½o - `npm run production`
 
 # Instalando o Projeto
 
@@ -62,18 +63,19 @@ php artisan migrate
 
 ```
 
->Server installs
+> Server installs
+
 ```
 Skip to content
- 
-Search or jump to…
+
+Search or jump toï¿½
 
 Pull requests
 Issues
 Marketplace
 Explore
- 
-@hugobr02 
+
+@hugobr02
 5
 22 14 dev-nowornet/Laravel-5.8-Complete-Installation-Cloud9-C9
  Code  Issues 1  Pull requests 0  Projects 0  Wiki  Insights
@@ -83,7 +85,7 @@ laravel.sh
 @dev-nowornet dev-nowornet Update laravel.sh
 0b9e403 27 days ago
 53 lines (45 sloc)  1.71 KB
-    
+
 # Clear existing files
 #
 rm hello-world.php php.ini README.md
@@ -102,7 +104,7 @@ sudo apt-get install php7.1-curl php7.1-cli php7.1-dev php7.1-gd php7.1-intl php
 sudo composer global require 'laravel/installer'
 export PATH=~/.composer/vendor/bin:$PATH
 sudo chown -R $USER $HOME/.composer
-laravel new 
+laravel new
 rm -rf ./composer
 
 #Configure public folder
@@ -115,8 +117,8 @@ wget https://dev.mysql.com/get/mysql-apt-config_0.8.9-1_all.deb
 sudo dpkg -i mysql-apt-config_0.8.9-1_all.deb
 sudo service apache2 restart
 sudo apt-get update
-sudo apt-get install mysql-server -y 
-sudo service  mysql restart 
+sudo apt-get install mysql-server -y
+sudo service  mysql restart
 sudo mysql_upgrade
 
 #Configure database and .env file database=laravel, user=root, no password
@@ -136,7 +138,7 @@ printf '%s\n' ':%s/DB_PASSWORD=secret/DB_PASSWORD=/g' 'x'  | sudo ex .env
 rm -rf laravel.sh
 rm -rf mysql-apt-config_0.8.9-1_all.deb
 #Edited by Bretfelean Sorin Cristian
-© 2019 GitHub, Inc.
+ï¿½ 2019 GitHub, Inc.
 Terms
 Privacy
 Security
@@ -150,3 +152,14 @@ Blog
 About
 
 ```
+
+<div class="col-md-12">
+    <!-- <div class="scroll-imagem">  -->
+    <!-- d-flex flex-wrap -->
+        @foreach($imovel->imagens as $id=>$img)
+        <!-- <div class="small-img-controls" data-target="#detail_imovel_carousel"data-slide-to="{{$id}}" class="active">
+            <img width="70" height="50" src="{{env('APP_URL').'/images/lg/'.$img->cd_imovel.'/'.$img->nm_link}}" onerror=' this.src = "/images/default.png"'>
+        </div> -->
+        @endforeach
+    <!-- </div> -->
+</div>

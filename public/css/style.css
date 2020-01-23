@@ -94,23 +94,27 @@
             background: #2356AB;
         }
         
-        .footer-anuncio-gratis{
-            color: #2356AB;
-            background:#fff;
+        .footer-anuncio-gratis{ 
+            background: #fff;
             padding: 10px;
-            width: 240px;
+            width: 100%;
+            font-weight: 900;
+            text-align: center;
+            font-size: 21px;
+            margin: 10px 0;
+        }
+        .footer-anuncio-gratis a {
+            color: #2667d6;
         }
         
         .container-fluid.menu-footer .container {
             padding: 50px 20px 50px 50px;
         }
         
-        .logo-footer {
-            height: 250px;
+        .logo-footer { 
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
-            justify-content: space-between;
+            align-items: flex-end; 
         }
         
         .menu-footer ul {
@@ -119,8 +123,15 @@
         }
         
         .menu-footer ul li {
-            line-height: 30px;
+            line-height: 20px;
+            font-size: 15px;
+            font-weight: 500;
         }
+        .menu-footer ul li a,
+        .menu-footer ul li span {
+            margin-left: -5px;
+        }
+
         .titulo-busca {
             background: #2356ab;
             color: #fff;
@@ -475,6 +486,7 @@
             font-size: 39px;
             color:#fff;
             font-weight: 500;
+            text-transform: unset;
         }
         
         .destaques-buscas {
@@ -624,11 +636,13 @@
             margin-top: 20px;
         }
         
-        .imovel-vl-home {
-            background: #2356ab;
-            color: #fff;
-            text-align: center;
+        .imovel-vl-home {  
             padding: 5px;
+            font-size: 25px;
+        }
+        
+        .imovel-vl-home span {   
+            font-size: 15px;
         }
         
         .buscar-detalhes a {
@@ -891,6 +905,10 @@
         flex: 0 0 auto;
         width: 100%;
     }
+    .class-2 {
+
+        display: none;
+    }
     .class-2 .row .col-sm-12 {
         flex-wrap: wrap;
     }
@@ -945,4 +963,68 @@
     .sm-only{
         display: unset;
     }
+}
+
+.card-img-header .card-img-top{
+    width: 100%;
+    min-height: 100%;
+}
+.menu-footer .logo-flx {
+    background: #fff;
+    width: 100%;
+    height: fit-content;
+}
+
+.menu-footer .logo-flx a {
+    width: 100%;
+    height: fit-content;
+}
+
+.menu-footer .logo-flx a img {
+    width: 100%;
+    height: auto;
+}
+.menu-footer  h5 {
+    font-weight: 900;
+    font-size: 21px;
+}
+
+.flx-rede i {
+    font-size: 50px;
+    padding: 5px; 
+    margin: 5px; 
+}
+.flx-rede i.circle {
+    border: 3px solid #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    line-height: 35px;
+}
+
+
+.detail-image-carousel img {
+    height: 100%;
+    width: 50%; 
+    float: left;
+    object-fit: cover;
+    padding: 0;
+    margin: 0;
+}
+.no-gutters {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.area-comuns, .area-privativa {
+    font-size: 12px;
+}
+
+.col.separeitor-rigth {
+    border-right: 1px solid #ccc;
+}
+.col.separeitor-left {
+    border-left: 1px solid #ccc;
 }

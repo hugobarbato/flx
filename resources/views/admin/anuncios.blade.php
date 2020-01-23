@@ -76,7 +76,7 @@
                             </div>
                     </div>
                 </div>
-                <div class="class-2 mb-2 d-md-block">
+                <div class="class-2 mb-2 d-none">
                     <div class="row">
                         <div class="col-sm-12">
                         

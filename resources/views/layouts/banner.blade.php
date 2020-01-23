@@ -16,7 +16,7 @@
         <div class="container search">
             <div class="row">
               <div class="col-12">
-                <h1 class="title-search-home">Encontre seu imóvel!</h1>
+                <h1 class="title-search-home">Encontre seu Imóvel!</h1>
               </div>
             </div>
                 
@@ -28,7 +28,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                         <div class="row">    
-                                            <div class="col-md-5 pb-1 pb-md-0">
+                                            <div class="col-md-5  pb-md-0">
                                                 <div class="titulo-busca">
                                                     <p>O que vocÊ deseja ?</p>
                                                 </div>
@@ -53,7 +53,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-md-2 pl-3 pr-3 pl-md-0 pb-1 pr-md-0">
+                                            <div class="col-md-2 pl-3 pr-3 pl-md-0   pr-md-0">
                                                 <div class="titulo-busca">
                                                     <p>tipo de imóvel</p>
                                                 </div>
@@ -98,7 +98,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-md-5 pb-1 d-md-block">
+                                            <div class="col-md-5   d-md-block">
                                                 <div class="titulo-busca">
                                                     <p>Onde ?</p>
                                                 </div>
@@ -108,7 +108,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="class-2  d-md-block">
+                        <div class="class-2  d-none">
                             <div class="row">
                                 <div class="col-sm-12">
                                 

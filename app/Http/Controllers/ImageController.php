@@ -47,6 +47,7 @@ class ImageController extends Controller
             $fullPath = $destinationPath.$fileName;
             if (!file_exists($destinationPath)) {
                 File::makeDirectory($destinationPath, 0775);
+                // dd($destinationPath);s
             }
             $image = Image::make($file)
                 ->resize($size, null, function ($constraint) {

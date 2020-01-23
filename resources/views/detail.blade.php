@@ -1,48 +1,130 @@
 @extends('layouts.app')
 @section('title','Detalhe do Imóvel')
-@section('content')
-@include('layouts.banner')
+@section('content')  
+    <article> 
 
-    <article>
+        <div id="detail_imovel_carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @foreach(array_chunk($imovel->imagens->all(), 2) as $k=>$images)
+                    <div class="detail-image-carousel carousel-item @if($k==0) active @endif " >
+                        <!-- <div class="row  "> -->
+                            @foreach($images as $k2=>$img)
+                                <!-- <div class="col no-gutters"> -->
+                                    <img class="card-img-top d-block col-6 " 
+                                            src="{{env('APP_URL').'/images/lg/'.$img->cd_imovel.'/'.$img->nm_link}}" 
+                                                onerror=' this.src = "/images/default.png"'>
+                                <!-- </div> -->
+                            @endforeach
+                        <!-- </div> -->
+                    </div>
+                @endforeach
+            </div>
+            <a class="carousel-control-prev" href="#detail_imovel_carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#detail_imovel_carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> 
+
         <div class="container">
             <div class="container-home">
-                <div class="pb-2">
-                    <div class="row pb-2">
-                        <div class="col-md-12 destaques">
-                            <h2 >Detalhe do Imóvel</h2>
-                        </div>
-                    </div>
+                <div class=" "> 
                     
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="detail_imovel_carousel" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    @foreach($imovel->imagens as $k=>$img)
-                                    <div class="detail-image-carousel carousel-item @if($k==0) active @endif " >
-                                        <img class="card-img-top" src="{{env('APP_URL').'/images/lg/'.$img->cd_imovel.'/'.$img->nm_link}}" onerror=' this.src = "/images/default.png"'>
-                                    </div>
-                                    @endforeach
-                                </div>
-                                <a class="carousel-control-prev" href="#detail_imovel_carousel" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#detail_imovel_carousel" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                            <!-- <div class="scroll-imagem">  -->
-                            <!-- d-flex flex-wrap -->
-                                @foreach($imovel->imagens as $id=>$img)
-                                <!-- <div class="small-img-controls" data-target="#detail_imovel_carousel"data-slide-to="{{$id}}" class="active">
-                                    <img width="70" height="50" src="{{env('APP_URL').'/images/lg/'.$img->cd_imovel.'/'.$img->nm_link}}" onerror=' this.src = "/images/default.png"'>
-                                </div> -->
-                                @endforeach
-                            <!-- </div> -->
-                        </div>
-                        <div class="col-md-8 pt-5">
+                    <div class="row"> 
+                        <div class="col-md-8 pt-2">
 
+                            <h4>{{$imovel->nm_titulo}}</h4>
+                            <h4 class="flx-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
+                            <h5 class="flx-sub-title">{{$imovel->nm_endereco}}, {{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h5>
+                            
+                            <div class="dropdown-divider"></div> 
+                            <div class=" icons inline">
+                                <div class="icon-dormitorios">
+                                    <img class="card-img-top icones-home" src="/img/icon/cama_icon.png">
+                                    <span class="icone-info text-muted" id="qt_dormitorios"><small>{{($imovel->qt_quartos?$imovel->qt_quartos:'-')}} Dorm(s).</small></span>
+                                </div>
+                                <div class="icon-area">
+                                    <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
+                                    <span class="icone-info text-muted" id="qt_area"><small>{{($imovel->vl_area_util?$imovel->vl_area_util:'-')}} m²</small></span>
+                                </div>
+                                <div class="icon-area">
+                                    <img class="card-img-top icones-home" src="/img/icon/garagem_icon.png">
+                                    <span class="icone-info text-muted" id="qt_area"><small>{{($imovel->qt_vagas?$imovel->qt_vagas:'-')}} Vaga(s)</small></span>
+                                </div>
+                                <div class="icon-area">
+                                    <img class="card-img-top icones-home" src="/img/icon/banheiro_icon.png">
+                                    <span class="icone-info text-muted" id="qt_area"><small>{{($imovel->qt_banheiro?$imovel->qt_banheiro:'-')}} Banheiro(s)</small></span>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div> 
+
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <h4>Descrição</h4> 
+                                </div>
+                            </div>
+                            <p class="m-2">
+                                {{$imovel->ds_imovel}}
+                            </p>     
+
+
+                            @if(count($AreasComuns))
+                                <div class="area-comuns mt-4" >
+                                    <div class="dropdown-divider"></div> 
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <h4>áreas Comuns</h4> 
+                                        </div>
+                                    </div>
+                                    <div id="AreasComunsChecks" class="form-row"> 
+                                        @foreach( $AreasComuns as  $ac )
+                                            <div class="col-md-4">
+                                                <div> 
+                                                    <i class="fa fa-check"></i>
+                                                    <label for="ac{{$ac->cd_areas_comuns}}" >
+                                                        {{((ucwords($ac->nm_areas_comuns)))}}
+                                                    </label> 
+                                                </div>
+                                            </div>
+                                        @endforeach 
+                                    </div>
+                                </div>
+                            @endif
+                            @if(count($AreasPrivativas))
+                                <div class="area-privativa"  >
+                                    <div class="dropdown-divider"></div> 
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <h4>áreas Privativas</h4>
+                                            <input type="hidden" id="ds_areas_privativas" value="{{$imovel->ds_areas_privativas}}">
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="AreasPrivativasChecks" class="form-row">
+                                        @foreach($AreasPrivativas as $k=>$ap)
+                                            <div class="col-md-4">
+                                                <div> 
+                                                    <i class="fa fa-check"></i>
+                                                    <label for="ap{{$ap->cd_areas_privativas}}" >
+                                                        {{((ucwords($ap->nm_areas_privativas)))}}
+                                                    </label> 
+                                                </div>
+                                            </div>
+                                        @endforeach 
+                                        
+                                    </div>
+                                </div>
+                            @endif
+                            <div class="dropdown-divider"></div> 
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <h4>Mapa</h4>
+                                    <input type="hidden" id="ds_areas_privativas" value="{{$imovel->ds_areas_privativas}}">
+                                </div>
+                            </div>
 
                             <div class="mapouter">
                                 <div class="gmap_canvas">
@@ -52,156 +134,109 @@
                                 </div>
                             </div>
 
-                            @if(count($AreasComuns))
-                                <div class="area-comuns mt-4" >
-                                <div class="form-row">
-                                    <div class="col-md-12">
-                                        <h4>áreas Comuns</h4> 
-                                    </div>
-                                </div>
-                                <div id="AreasComunsChecks" class="form-row"> 
-                                    @foreach( $AreasComuns as  $ac )
-                                        <div class="col-md-4">
-                                            <div> 
-                                                <i class="fa fa-check"></i>
-                                                <label for="ac{{$ac->cd_areas_comuns}}" >
-                                                    {{((ucwords($ac->nm_areas_comuns)))}}
-                                                </label> 
-                                            </div>
-                                        </div>
-                                    @endforeach 
-                                </div>
-                            </div>
-                            @endif
-                            @if(count($AreasPrivativas))
-                            
-                            <div class="area-privativa"  >
-                                <div class="form-row">
-                                    <div class="col-md-12">
-                                        <h4>áreas Privativas</h4>
-                                        <input type="hidden" id="ds_areas_privativas" value="{{$imovel->ds_areas_privativas}}">
-                                    </div>
-                                </div>
-                                
-                                <div id="AreasPrivativasChecks" class="form-row">
-                                    @foreach($AreasPrivativas as $k=>$ap)
-                                        <div class="col-md-4">
-                                            <div> 
-                                                <i class="fa fa-check"></i>
-                                                <label for="ap{{$ap->cd_areas_privativas}}" >
-                                                    {{((ucwords($ap->nm_areas_privativas)))}}
-                                                </label> 
-                                            </div>
-                                        </div>
-                                    @endforeach 
-                                    
-                                </div>
-                            </div>
-                            @endif
-
                             
                         </div>
-                        <div class="col-md-4 pt-5">
-                                <h4>{{$imovel->nm_titulo}}</h4>
-                                <h4 class="flx-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
-                                <h5 class="flx-sub-title">{{$imovel->nm_endereco}}, {{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h5>
-                                <div class="imovel-vl-home w-100"> @if($imovel->vl_imovel > 0) R$ {{number_format($imovel->vl_imovel,2,',','.')}} @else Sob Consulta. @endif</div>
-                                <div class="dropdown-divider"></div>
+                        <div class="col-md-4 pt-2">
+                                
                                 <div class="row">
                                     <div class="col">
-                                        <div class="sub-value"><small class="text-muted"><b>Condomínio</b></small></div>
-                                        <span class="sub-value"><small class="text-muted">R$ {{number_format($imovel->vl_condominio,2,',','.')}}</small></span>
-                                    </div>
-                                    <div class="col">
-                                        <div class="sub-value"><small class="text-muted"><b>IPTU</b></small></div>
-                                        <span class="sub-value"><small class="text-muted">R$ {{number_format($imovel->vl_iptu,2,',','.')}}</small></span>
-                                    </div>
-                                    <div class="col">
-                                        <div class="sub-value"><small class="text-muted"><b>Valor do m²</b></small></div>
-                                        <span class="sub-value"><small class="text-muted">R$ {{number_format(($imovel->vl_imovel/$imovel->vl_area_util),2,',','.')}}</small></span>
-                                    </div>
-                                </div>
-                                <div class="dropdown-divider"></div> 
-                                <div class=" icons inline">
-                                    <div class="icon-dormitorios">
-                                        <img class="card-img-top icones-home" src="/img/icon/cama_icon.png">
-                                        <span class="icone-info text-muted" id="qt_dormitorios"><small>{{($imovel->qt_quartos?$imovel->qt_quartos:'-')}} Dorm(s).</small></span>
-                                    </div>
-                                    <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="/img/icon/metro_icon.png">
-                                        <span class="icone-info text-muted" id="qt_area"><small>{{($imovel->vl_area_util?$imovel->vl_area_util:'-')}} m²</small></span>
-                                    </div>
-                                    <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="/img/icon/garagem_icon.png">
-                                        <span class="icone-info text-muted" id="qt_area"><small>{{($imovel->qt_vagas?$imovel->qt_vagas:'-')}} Vaga(s)</small></span>
-                                    </div>
-                                    <div class="icon-area">
-                                        <img class="card-img-top icones-home" src="/img/icon/banheiro_icon.png">
-                                        <span class="icone-info text-muted" id="qt_area"><small>{{($imovel->qt_banheiro?$imovel->qt_banheiro:'-')}} Banheiro(s)</small></span>
-                                    </div>
-                                </div>
-                                <div class="dropdown-divider"></div> 
-                                <div class="status_bar">
-                                    <div class="line @if($imovel->ic_status>=1) active @endif">
-                                        <label > B/ LANÇAMENTO   </label>
-                                        <div class="line-active first"></div>
-                                        <div class="child"></div>
-                                    </div>
-                                    <div class="line @if($imovel->ic_status>=2) active @endif">
-                                        <label > NA PLANTA </label>
-                                        <div class="line-active"></div>
-                                        <div class="child"></div>
-                                    </div>
-                                    <div class="line @if($imovel->ic_status>=3) active @endif">
-                                        <label > EM CONSTRUÇÃO </label>
-                                        <div class="line-active"></div>
-                                        <div class="child"></div>
-                                    </div>
-                                    <div class="line @if($imovel->ic_status>=4) active @endif">
-                                        <label > MUDE JÁ </label>
-                                        <div class="line-active last"></div>
-                                        <div class="child"></div>
-                                    </div>
-                                </div>
-                                <div class="dropdown-divider"></div> 
-
-                                <div class="row">
-                                    <div class="col">
-                                    <div class="card"> 
+                                    <div class="card bg-silver"> 
                                         <div class="card-body">
-                                            <h5 class="flx-sub-title">Entre em contato</h5>
+                                            <span>Valor 
+                                                @if($imovel->cd_tipo_anuncio == 2 || $imovel->cd_tipo_anuncio == 5 ) 
+                                                    do Aluguel
+                                                @else 
+                                                    da Compra
+                                                @endif
+                                            </span>
+                                            <div class="imovel-vl-home w-100"> 
+                                                @if($imovel->vl_imovel > 0) 
+                                                 <span>R$</span> {{number_format($imovel->vl_imovel,2,',','.')}} 
+                                                @else 
+                                                    Sob Consulta. 
+                                                @endif
+                                            </div>
+                                            <div class="dropdown-divider"></div>
+                                            <div class="row">
+                                                <div class="col separeitor-rigth">
+                                                    <div class="sub-value"><small class="text-muted"><b>Condomínio</b></small></div>
+                                                    <span class="sub-value"><small class="text-muted">R$ {{number_format($imovel->vl_condominio,2,',','.')}}</small></span>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="sub-value"><small class="text-muted"><b>IPTU</b></small></div>
+                                                    <span class="sub-value"><small class="text-muted">R$ {{number_format($imovel->vl_iptu,2,',','.')}}</small></span>
+                                                </div>
+                                                <div class="col separeitor-left">
+                                                    <div class="sub-value"><small class="text-muted"><b>Valor do m²</b></small></div>
+                                                    <span class="sub-value"><small class="text-muted">R$ {{number_format(($imovel->vl_imovel/$imovel->vl_area_util),2,',','.')}}</small></span>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-divider"></div> 
+                                            <div class="status_bar">
+                                                <div class="line @if($imovel->ic_status>=1) active @endif">
+                                                    <label > B/ LANÇAMENTO   </label>
+                                                    <div class="line-active first"></div>
+                                                    <div class="child"></div>
+                                                </div>
+                                                <div class="line @if($imovel->ic_status>=2) active @endif">
+                                                    <label > NA PLANTA </label>
+                                                    <div class="line-active"></div>
+                                                    <div class="child"></div>
+                                                </div>
+                                                <div class="line @if($imovel->ic_status>=3) active @endif">
+                                                    <label > EM CONST. </label>
+                                                    <div class="line-active"></div>
+                                                    <div class="child"></div>
+                                                </div>
+                                                <div class="line @if($imovel->ic_status>=4) active @endif">
+                                                    <label > MUDE JÁ </label>
+                                                    <div class="line-active last"></div>
+                                                    <div class="child"></div>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-divider"></div> 
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h5 class="flx-sub-title">Entre em contato</h5>
+                                                </div>
+                                                @if($imovel->imagem_anunciante)
+                                                    <div class="col">
+                                                        <div class="anunciante"> 
+                                                            <img src="{{env('APP_URL').'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante->nm_link}}" alt=" Logo do Anunciante">
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            </div>
+
+
                                             <form>
                                                 <div class="form-group">
                                                     <label for="nameContact">Nome Completo</label>
-                                                    <input type="text" class="form-control" id="nameContact" placeholder="Nome Completo">
+                                                    <input type="text" class="form-control rounded-0" id="nameContact" placeholder="Nome Completo">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="emailContact">E-mail</label>
-                                                    <input type="email" class="form-control" id="emailContact" placeholder="E-mail">
+                                                    <input type="email" class="form-control rounded-0" id="emailContact" placeholder="E-mail">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="telefoneContact">Telefone</label>
-                                                    <input type="text" class="form-control" id="telefoneContact" placeholder="Telefone">
+                                                    <input type="text" class="form-control rounded-0" id="telefoneContact" placeholder="Telefone">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="msgContact">Mensagem</label>
-                                                    <textarea class="form-control" id="msgContact" rows="3">Olá, gostaria de saber mais informações sobre o imóvel '{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}', @if($imovel->vl_imovel > 0) no valor  R$ {{number_format($imovel->vl_imovel,2,',','.')}}, @endif no endreço {{$imovel->nm_endereco}}, {{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}. Aguardo contato. Obrigado(a). </textarea>
+                                                    <textarea class="form-control rounded-0" id="msgContact" rows="3">Olá, gostaria de saber mais informações sobre o imóvel '{{$imovel->nm_titulo}} - {{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}', @if($imovel->vl_imovel > 0) no valor  R$ {{number_format($imovel->vl_imovel,2,',','.')}}, @endif no endreço {{$imovel->nm_endereco}}, {{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}. Aguardo contato. Obrigado(a). </textarea>
                                                 </div>
                                                 <div class="form-check mb-2">
                                                     <input type="checkbox" class="form-check-input" id="subcribeContact">
                                                     <label class="form-check-label" for="subcribeContact">Receber imóveis parecidos a este.</label>
                                                 </div>
                                                     
-                                                <button class="btn btn-destaques destaques m-auto" type="submit"> Enviar Mensagem </button>   
-                                                <h5 class="my-2"><a href="tel:" class="flx-sub-title m-auto d-block text-center"> OU LIGUE: (11) 8888-9999 </a></h5>
+                                                <button class="btn btn-destaques btn-block destaques m-auto" type="submit"> Enviar Mensagem </button>   
+                                               
                                             </form>   
-                                            <small>Ao enviar você concorda com os <a href="#">Termos de Uso</a> do site e recebimento de sugestões de imóveis.</small>
-                                            @if($imovel->imagem_anunciante)
-                                            <div class="anunciante">
-                                                <h4 class="text-center m-4 ">Anúncio por:</h4>
-                                                <img src="{{env('APP_URL').'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante->nm_link}}" alt=" Logo do Anunciante">
-                                            </div>
-                                            @endif
+                                            <p class="accept-info">Ao enviar você concorda com os <a href="#">Termos de Uso</a> do site e recebimento de sugestões de imóveis.</p>
+                                            
                                         </div>
                                     </div>
 
@@ -233,6 +268,22 @@
     height: 100px;
 }
 
+.card .flx-sub-title {
+    color: #424344;
+    font-weight: 700;
+    font-size: 24px;
+    margin-top: 9px;
+}
+.bg-silver.card {
+    background: #f5f6f5c7;
+    border-top: 5px solid #2355ab;
+}
+.accept-info {
+    text-align: center;
+    color: #838384;
+    font-size: 10px;
+    margin-top: 10px;
+}
 .scroll-imagem div {
     flex: 0 0 70px;
 }
@@ -299,10 +350,6 @@
 }
 .flx-sub-title{
     font-size:17px
-}
-.imovel-vl-home{
-    font-weight:900;
-    font-size:20px
 }
 .anunciante img {
     width: 80%;

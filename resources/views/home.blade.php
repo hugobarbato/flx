@@ -77,7 +77,7 @@
                     </div>
                 </div>
             @endif
-            @if(count($imoveis_aluguel))
+            @if(false && count($imoveis_aluguel))
                 <div class="destaques-locacao pb-2">
                     <div class="row">
                       <div class="col-md-12 destaques">
