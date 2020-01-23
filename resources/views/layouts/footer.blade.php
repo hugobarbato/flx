@@ -15,13 +15,11 @@
                     </div>
                     <div class="col-md-8 row">
                         <div class="col-md-4 ">
-                            <h5>Anuncie seu imovel</h5>
+                            <h5>Encontre seu imóvel</h5>
                             <ul>
-                                <li><a href="/imovel/adicionar" style="color:#fff"> Proprietários</a></li>
-                                <li><a href="/imovel/adicionar" style="color:#fff">Corretores</a></li>
-                                <li><a href="/imovel/adicionar" style="color:#fff">Imobiliárias</a></li>
-                                <li><a href="/imovel/adicionar" style="color:#fff">Hotel</a></li>
-                                <li><a href="/imovel/adicionar" style="color:#fff">Hotel - Venda</a></li>
+                                <li><a href="{{url('/search/sell')}}" style="color:#fff"> Comprar </a></li>
+                                <li><a href="{{url('/search/rent')}}" style="color:#fff"> Alugar </a></li>
+                                <li><a href="{{url('/search/news')}}" style="color:#fff"> Lançamentos </a></li>
                             </ul>
                         </div>
                         

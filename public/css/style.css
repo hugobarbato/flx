@@ -55,7 +55,7 @@
         }
         
         .logo-flx img {
-            height: 50px;
+            height: 100px;
             width: auto;
         }
         
@@ -124,7 +124,7 @@
         
         .menu-footer ul li {
             line-height: 20px;
-            font-size: 15px;
+            font-size: 12px;
             font-weight: 500;
         }
         .menu-footer ul li a,
@@ -986,7 +986,7 @@
 }
 .menu-footer  h5 {
     font-weight: 900;
-    font-size: 21px;
+    font-size: 17px;
 }
 
 .flx-rede i {
@@ -1019,7 +1019,7 @@
 }
 
 .area-comuns, .area-privativa {
-    font-size: 12px;
+    font-size: 0.8rem;
 }
 
 .col.separeitor-rigth {
@@ -1036,4 +1036,25 @@
 }
 .img-search-card-imovel {
     border: 1px solid #ccc;
+}
+
+.detail-icons img{
+    width: 40px !important;
+}
+.detail-icons .icone-info {
+    font-size: 18px !important;
+    margin-left: 10px;
+}
+.detail-icons .icon-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-icons .icons.inline { 
+    padding: 5px 1px;
+}
+
+.line label {
+    display: inline-block;
+    margin-top: 0.5rem;
 }

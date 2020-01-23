@@ -1,8 +1,7 @@
 @extends('layouts.app')
-@section('title','Detalhe do Imóvel')
+@section('title', strtoupper($imovel->nm_titulo))
 @section('content')  
-    <article> 
-
+    <article>  
         <div id="detail_imovel_carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 @foreach(array_chunk($imovel->imagens->all(), 2) as $k=>$images)
@@ -36,13 +35,10 @@
                     <div class="row"> 
                         <div class="col-md-8 pt-2">
 
-                            <h4>{{$imovel->nm_titulo}}</h4>
-                            <h4 class="flx-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
-                            <h5 class="flx-sub-title">{{$imovel->nm_endereco}}, {{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h5>
-                            
+                            <h3 class="flx-title">{{$imovel->nm_titulo}}</h3>
                             <div class="dropdown-divider"></div> 
-                            <div class=" icons inline">
-                                <div class="icon-dormitorios">
+                            <div class="detail-icons icons inline">
+                                <div class="icon-area">
                                     <img class="card-img-top icones-home" src="/img/icon/cama_icon.png">
                                     <span class="icone-info text-muted" id="qt_dormitorios"><small>{{($imovel->qt_quartos?$imovel->qt_quartos:'-')}} Dorm(s).</small></span>
                                 </div>
@@ -61,9 +57,12 @@
                             </div>
                             <div class="dropdown-divider"></div> 
 
+                            <h4 class="flx-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
+                            <h5 class="flx-sub-title mb-2">{{$imovel->nm_endereco}}, {{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h5>
+                             
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Descrição</h4> 
+                                    <h5 class="flx-title mt-4">Descrição</h5> 
                                 </div>
                             </div>
                             <p class="m-2">
@@ -76,7 +75,7 @@
                                     <div class="dropdown-divider"></div> 
                                     <div class="form-row">
                                         <div class="col-md-12">
-                                            <h4>áreas Comuns</h4> 
+                                        <h5 class="flx-title">Áreas Comuns</h5> 
                                         </div>
                                     </div>
                                     <div id="AreasComunsChecks" class="form-row"> 
@@ -98,7 +97,7 @@
                                     <div class="dropdown-divider"></div> 
                                     <div class="form-row">
                                         <div class="col-md-12">
-                                            <h4>áreas Privativas</h4>
+                                            <h5 class="flx-title">Áreas Privativas</h5>
                                             <input type="hidden" id="ds_areas_privativas" value="{{$imovel->ds_areas_privativas}}">
                                         </div>
                                     </div>
@@ -121,7 +120,7 @@
                             <div class="dropdown-divider"></div> 
                             <div class="form-row">
                                 <div class="col-md-12">
-                                    <h4>Mapa</h4>
+                                    <h5 class="flx-title">Mapa</h5>
                                     <input type="hidden" id="ds_areas_privativas" value="{{$imovel->ds_areas_privativas}}">
                                 </div>
                             </div>
@@ -140,7 +139,7 @@
                                 
                                 <div class="row">
                                     <div class="col">
-                                    <div class="card bg-silver"> 
+                                    <div class="card bg-silver card-border-azul"> 
                                         <div class="card-body">
                                             <span>Valor 
                                                 @if($imovel->cd_tipo_anuncio == 2 || $imovel->cd_tipo_anuncio == 5 ) 
@@ -171,31 +170,38 @@
                                                     <span class="sub-value"><small class="text-muted">R$ {{number_format(($imovel->vl_imovel/$imovel->vl_area_util),2,',','.')}}</small></span>
                                                 </div>
                                             </div>
-                                            <div class="dropdown-divider"></div> 
+                                        </div>
+                                    </div>
+
+                                    <div class="card bg-silver my-2"> 
+                                        <div class="card-body"> 
                                             <div class="status_bar">
                                                 <div class="line @if($imovel->ic_status>=1) active @endif">
-                                                    <label > B/ LANÇAMENTO   </label>
+                                                    <label > BREVE <br>LANÇAMENTO   </label>
                                                     <div class="line-active first"></div>
                                                     <div class="child"></div>
                                                 </div>
                                                 <div class="line @if($imovel->ic_status>=2) active @endif">
-                                                    <label > NA PLANTA </label>
+                                                    <label > NA <br>PLANTA </label>
                                                     <div class="line-active"></div>
                                                     <div class="child"></div>
                                                 </div>
                                                 <div class="line @if($imovel->ic_status>=3) active @endif">
-                                                    <label > EM CONST. </label>
+                                                    <label > EM <br>CONSTRUÇÃO </label>
                                                     <div class="line-active"></div>
                                                     <div class="child"></div>
                                                 </div>
                                                 <div class="line @if($imovel->ic_status>=4) active @endif">
-                                                    <label > MUDE JÁ </label>
+                                                    <label > MUDE <br>JÁ </label>
                                                     <div class="line-active last"></div>
                                                     <div class="child"></div>
                                                 </div>
-                                            </div>
-                                            <div class="dropdown-divider"></div> 
+                                            </div> 
+                                        </div>
+                                    </div>
 
+                                    <div class="card bg-silver"> 
+                                        <div class="card-body">
                                             <div class="row">
                                                 <div class="col">
                                                     <h5 class="flx-sub-title">Entre em contato</h5>
@@ -235,7 +241,7 @@
                                                 <button class="btn btn-destaques btn-block destaques m-auto" type="submit"> Enviar Mensagem </button>   
                                                
                                             </form>   
-                                            <p class="accept-info">Ao enviar você concorda com os <a href="#">Termos de Uso</a> do site e recebimento de sugestões de imóveis.</p>
+                                            <p class="accept-info">Ao enviar você concorda com os <a href="/institucional/termo-de-uso">Termos de Uso</a> do site e recebimento de sugestões de imóveis.</p>
                                             
                                         </div>
                                     </div>
@@ -276,6 +282,8 @@
 }
 .bg-silver.card {
     background: #f5f6f5c7;
+}
+.card-border-azul{
     border-top: 5px solid #2355ab;
 }
 .accept-info {
@@ -298,7 +306,7 @@
 }
 
 .status_bar .line {
-    border-bottom: 1px solid;
+    border-top: 1px solid;
     flex: 1;
     position: relative;
 }
@@ -309,7 +317,7 @@
     position: absolute;
     background: #e6e6e6;
     border-radius: 50%;
-    bottom: -4px;
+    TOP: -5px;
     right: calc(50% - 10px);
     z-index: 2;
 }
@@ -321,6 +329,7 @@
 }
 .line-active{
     display:none;
+
 }
 .line.active 
 .line-active{
@@ -330,6 +339,7 @@
 
 .line-active {
     position: absolute;
+    top: 0;
     width: 100%;
     height: 1px;
     background: #000;
@@ -344,13 +354,8 @@
 
 .line-active.last {
     width: 150%;
-}
-.flx-title{
-    font-size:19px
-}
-.flx-sub-title{
-    font-size:17px
-}
+} 
+ 
 .anunciante img {
     width: 80%;
     display: block;
