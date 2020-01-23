@@ -20,8 +20,8 @@
                                     @foreach($tipo_anunciante as $anunciante)
                                      <option value="{{$anunciante->cd_tipo_anunciante}}" @if($anunciante->cd_tipo_anunciante == $imovel->cd_tipo_anunciante) selected @endif>{{$anunciante->nm_tipo_anunciante}}</option>
                                     @endforeach
-                                    <option value="-1" disabled>Hotel ( em desenvolvimento )</option>
-                                    <option value="-2" disabled>Hotel - venda ( em desenvolvimento )</option>
+                                    <!-- <option value="-1" disabled>Hotel ( em desenvolvimento )</option>
+                                    <option value="-2" disabled>Hotel - venda ( em desenvolvimento )</option> -->
                                 </select>
                             </div>
                         </div>
