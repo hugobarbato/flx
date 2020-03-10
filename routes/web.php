@@ -48,6 +48,7 @@ Route::post('/search', 'HomeController@search');
 Route::get('/search/{type}', 'HomeController@search');
 
 Route::get('/detail/{id}', 'HomeController@detail');
+Route::post('/detail/{id}', 'HomeController@sendContactMenssage');
 
 
 Route::group(['prefix'=>'imovel','middleware'=>'auth'],function(){

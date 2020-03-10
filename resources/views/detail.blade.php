@@ -224,25 +224,25 @@ echo preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([
                                             </div>
 
 
-                                            <form>
+                                            <form method="POST" action="#" >
                                                 <div class="form-group">
                                                     <label for="nameContact">Nome Completo</label>
-                                                    <input type="text" class="form-control rounded-0" id="nameContact" placeholder="Nome Completo">
+                                                    <input type="text" class="form-control rounded-0" name="name" id="nameContact" placeholder="Nome Completo">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="emailContact">E-mail</label>
-                                                    <input type="email" class="form-control rounded-0" id="emailContact" placeholder="E-mail">
+                                                    <input type="email" class="form-control rounded-0" name="email" id="emailContact" placeholder="E-mail">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="telefoneContact">Telefone</label>
-                                                    <input type="text" class="form-control rounded-0" id="telefoneContact" placeholder="Telefone">
+                                                    <input type="text" class="form-control rounded-0 mask_phone" name="tel" id="telefoneContact" placeholder="Telefone">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="msgContact">Mensagem</label>
-                                                    <textarea class="form-control rounded-0" id="msgContact" rows="3">Olá, gostaria de saber mais informações sobre o imóvel '{{$imovel->nm_titulo}} - {{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}', @if($imovel->vl_imovel > 0) no valor  R$ {{number_format($imovel->vl_imovel,2,',','.')}}, @endif no endreço {{$imovel->nm_endereco}}, {{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}. Aguardo contato. Obrigado(a). </textarea>
+                                                    <textarea class="form-control rounded-0" id="msgContact" name="mensagem" rows="3">Olá, gostaria de saber mais informações sobre o imóvel '{{$imovel->nm_titulo}} - {{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}', @if($imovel->vl_imovel > 0) no valor  R$ {{number_format($imovel->vl_imovel,2,',','.')}}, @endif no endreço {{$imovel->nm_endereco}}, {{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}. Aguardo contato. Obrigado(a). </textarea>
                                                 </div>
                                                 <div class="form-check mb-2">
-                                                    <input type="checkbox" class="form-check-input" id="subcribeContact">
+                                                    <input type="checkbox" class="form-check-input" name="news" id="subcribeContact">
                                                     <label class="form-check-label" for="subcribeContact">Receber imóveis parecidos a este.</label>
                                                 </div>
                                                     

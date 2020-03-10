@@ -17,6 +17,7 @@ use App\Site;
 use App\Compra;
 use App\Destaque;
 use DB;
+use Mail;
 class HomeController extends Controller
 {
 
@@ -135,6 +136,29 @@ class HomeController extends Controller
             'imovel'=>$imovel,
             'filter'=>$filter->first()
         ]);
+
+    }
+
+    public function sendContactMenssage(Request $request, $id){
+        $inputs = (object) $request->all();
+        $imovel = Imovel::where('cd_imovel', $id)->join('users','users.id','=','tb_imovel.cd_user')->first();
+        // dd([$inputs,$imovel]);
+        echo Mail::send('vendor.mail.contact', [
+            'url'=> url('/'),
+            'slot' => "
+                Nome: $inputs->name;<br>
+                E-mail: $inputs->email;<br>
+                Telefone: $inputs->tel;<br>
+                Mensagem: $inputs->mensagem ;<br>
+            ",
+            'titulo'=> 'Novo Contato Realizado! Imóvel - '. $imovel->nm_titulo
+        ] , function ($m) use ( $inputs, $imovel ) {
+            $m->from('site@flximoveis.com.br', 'FLX Imóveis');
+            $m->sender($inputs->email, $inputs->name);
+            $m->replyTo($inputs->email, $inputs->name);
+            $m->to($imovel->email, $imovel->name);
+            $m->subject('Novo Contato Realizado! Imóvel - '. $imovel->nm_titulo);
+        });
 
     }
 
