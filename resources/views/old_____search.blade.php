@@ -32,7 +32,7 @@
                                         <div class="card-body">
                                             <div class="col-md-12 row no-gutters ">
                                             <div class="col-md-10">
-                                                    <h4 class="flx-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}}</h4>
+                                                    <h4 class="flx-title">{{$imovel->nm_tipo_imovel}}/{{$imovel->nm_tipo_anuncio}} - {{$imovel->ic_destaque}}</h4>
                                                     <h5 class="flx-sub-title">{{$imovel->nm_bairro}} - {{$imovel->nm_cidade}}/{{$imovel->cd_uf}}</h5>
                                             </div>
                                             <div class="col-md-2">

@@ -1,3 +1,13 @@
+storage/**
+.bash_extras
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+.ftpaccess
+.gitconfig
+.viminfo
+www
 php.ini
 /node_modules
 /public/hot
