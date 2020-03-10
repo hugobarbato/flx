@@ -143,7 +143,7 @@ class HomeController extends Controller
         $inputs = (object) $request->all();
         $imovel = Imovel::where('cd_imovel', $id)->join('users','users.id','=','tb_imovel.cd_user')->first();
         // dd([$inputs,$imovel]);
-        echo Mail::send('vendor.mail.contact', [
+        $result =  Mail::send('vendor.mail.contact', [
             'url'=> url('/'),
             'slot' => "
                 Nome: $inputs->name;<br>
@@ -159,6 +159,7 @@ class HomeController extends Controller
             $m->to($imovel->email, $imovel->name);
             $m->subject('Novo Contato Realizado! Imóvel - '. $imovel->nm_titulo);
         });
+        return redirect()->back()->with( 'send', true );
 
     }
 

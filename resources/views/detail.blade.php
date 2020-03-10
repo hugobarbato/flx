@@ -225,6 +225,11 @@ echo preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([
 
 
                                             <form method="POST" action="#" >
+                                            @if(\Session::get('send'))
+                                                <div class="form-group alert alert-success">
+                                                    Mensagem enviada com sucesso!!
+                                                </div>
+                                            @endif
                                                 <div class="form-group">
                                                     <label for="nameContact">Nome Completo</label>
                                                     <input type="text" class="form-control rounded-0" name="name" id="nameContact" placeholder="Nome Completo">
