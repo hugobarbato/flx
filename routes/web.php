@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/contrate-agora', 'HomeController@contrateAgora')->name('contrateAgora');
 Route::get('/institucional/{slug}', 'HomeController@institucional')->name('institucional');
  
 Route::get('/planos', 'HomeController@pacotesAdesao')->name('planos')->middleware('auth');

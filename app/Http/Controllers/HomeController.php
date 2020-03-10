@@ -73,6 +73,17 @@ class HomeController extends Controller
         ]);
     }
 
+    public function contrateAgora(){
+        $pacotes = Pacote::where('cd_status','=',1)->get();    
+        $destaques = Destaque::where('ic_super',0)->get();  
+        $super_destaques = Destaque::where('ic_super',1)->get();
+        return view('pacotes',[
+            'pacotes'=> $pacotes,
+            'destaques'=>$destaques ,
+            'super_destaques'=>$super_destaques
+        ]);
+    }
+
     public function institucional(Request $request, $slug){
         $site = Site::where('nm_site',$slug)->first();
         if(!$site) redirect('/');
@@ -284,8 +295,7 @@ class HomeController extends Controller
     }
     
     public function pacotesAdesao()
-    {  
-        $pacotes = Pacote::where('cd_status','=',1)->get();    
+    {    
         $compra = Compra::where('cd_user',Auth::user()->id)
         ->select('tb_pacotes.nm_titulo', 'tb_compra.*')
         ->join('tb_pacotes','tb_pacotes.cd_pacote','=','tb_compra.cd_pacote')
@@ -302,6 +312,7 @@ class HomeController extends Controller
         foreach ($compra_destaque as $key => $c) {
             $compra_destaque[$key]->status = $this->statusDestaque($c->ic_processado);
         } 
+        $pacotes = Pacote::where('cd_status','=',1)->get();    
         $destaques = Destaque::where('ic_super',0)->get();  
         $super_destaques = Destaque::where('ic_super',1)->get();
         return view('pacotesAdesao', [

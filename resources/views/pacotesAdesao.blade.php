@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Cadastro')
+@section('title','Pacotes e Compras')
 @section('content')
 
 <!-- c74561683734852837592@sandbox.pagseguro.com.br -->

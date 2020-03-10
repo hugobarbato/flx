@@ -24,16 +24,9 @@
                         <li class="nav-item {{ (request()->is('search/news')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{url('/search/news')}}">Lançamentos</a>
                         </li>
-                        <!--<li class="nav-item">-->
-                        <!--    <a class="nav-link" href="/comprar">Comprar</a>-->
-                        <!--</li>-->
-                        <!--<li class="nav-item">-->
-                        <!--    <a class="nav-link" href="/lancamentos">Lançamentos</a>-->
-                        <!--</li>-->
-                        
-                        
-                        
-                        
+                        <li class="nav-item {{ (request()->is('contrate-agora')) ? 'active' : '' }}">
+                            <a class="nav-link" href="{{url('/contrate-agora')}}">Planos</a>
+                        </li>
                     </ul>
                 </div>
                     @guest
@@ -98,7 +91,6 @@
                                 </li>
                             </ul>
                         </div>
-                        
                     @endguest
             </nav>  
         </div>
@@ -106,5 +98,4 @@
  
 @if( Auth::user() && Auth::user()->is_admin)
     <a href="{{ url('/admin') }}" class="btn btn-danger btn-admin"> Acessar Painel ADM </a>
-    
 @endif 
