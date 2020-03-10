@@ -132,7 +132,15 @@
                                             frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                                 </div>
                             </div>
-
+@if($imovel->nm_link_youtube)
+                            <div class="mapouter m-2">
+				<div class="gmap_canvas">
+@php
+echo preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i","<iframe width=\"100%\" height=\"100%\" src=\"//www.youtube.com/embed/$1\" frameborder=\"0\" allowfullscreen></iframe>",$imovel->nm_link_youtube );
+@endphp
+				</div>
+                            </div>
+@endif
                             
                         </div>
                         <div class="col-md-4 pt-2">
