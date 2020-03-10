@@ -219,6 +219,7 @@ echo preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([
                                                         <div class="anunciante"> 
                                                             <img src="{{env('APP_URL').'/images/lg/'.$imovel->cd_imovel.'/'.$imovel->imagem_anunciante->nm_link}}" alt=" Logo do Anunciante">
                                                         </div>
+                                                        <h5 style="text-align:center">{{ $imovel->user->name }}</h5>
                                                     </div>
                                                 @endif
                                             </div>

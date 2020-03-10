@@ -110,6 +110,7 @@ class HomeController extends Controller
         if(!$imovel){
             return back();
         }
+        $imovel->user = \App\User::where('id', $imovel->cd_user)->select('name')->first();
 
         if($imovel->cd_image_anunciante){
             $imovel->imagem_anunciante = ImagemImovel::where('cd_imagem', $imovel->cd_image_anunciante)->first();
